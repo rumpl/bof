@@ -238,11 +238,6 @@ func (daemon *Daemon) createSpecWindowsFields(c *container.Container, s *specs.S
 
 	setResourcesInSpec(c, s, isHyperV)
 
-	// Read and add credentials from the security options if a credential spec has been provided.
-	if err := daemon.setWindowsCredentialSpec(c, s); err != nil {
-		return err
-	}
-
 	devices, err := setupWindowsDevices(c.HostConfig.Devices)
 	if err != nil {
 		return err
