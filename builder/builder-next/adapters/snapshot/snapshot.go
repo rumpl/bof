@@ -11,7 +11,7 @@ import (
 	"github.com/containerd/containerd/leases"
 	"github.com/containerd/containerd/mount"
 	"github.com/containerd/containerd/snapshots"
-	"github.com/docker/docker/pkg/idtools"
+	mobyidtools "github.com/docker/docker/pkg/idtools"
 	"github.com/moby/buildkit/identity"
 	"github.com/moby/buildkit/snapshot"
 	"github.com/opencontainers/go-digest"
@@ -32,7 +32,7 @@ type Opt struct {
 	GraphDriver     graphdriver.Driver
 	LayerStore      layer.Store
 	Root            string
-	IdentityMapping idtools.IdentityMapping
+	IdentityMapping mobyidtools.IdentityMapping
 }
 
 type graphIDRegistrar interface {
@@ -99,7 +99,7 @@ func (s *snapshotter) Name() string {
 	return "default"
 }
 
-func (s *snapshotter) IdentityMapping() *idtools.IdentityMapping {
+func (s *snapshotter) IdentityMapping() *mobyidtools.IdentityMapping {
 	// Returning a non-nil but empty *IdentityMapping breaks BuildKit:
 	// https://github.com/moby/moby/pull/39444
 	if s.opt.IdentityMapping.Empty() {
@@ -487,7 +487,7 @@ type mountable struct {
 	acquire  func() ([]mount.Mount, func() error, error)
 	release  func() error
 	refCount int
-	idmap    idtools.IdentityMapping
+	idmap    mobyidtools.IdentityMapping
 }
 
 func (m *mountable) Mount() ([]mount.Mount, func() error, error) {
@@ -531,7 +531,7 @@ func (m *mountable) releaseMount() error {
 	return m.release()
 }
 
-func (m *mountable) IdentityMapping() *idtools.IdentityMapping {
+func (m *mountable) IdentityMapping() *mobyidtools.IdentityMapping {
 	// Returning a non-nil but empty *IdentityMapping breaks BuildKit:
 	// https://github.com/moby/moby/pull/39444
 	if m.idmap.Empty() {

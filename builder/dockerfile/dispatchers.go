@@ -16,7 +16,7 @@ import (
 	"strings"
 
 	"github.com/containerd/containerd/platforms"
-	"github.com/docker/docker/api/types/strslice"
+	mobystrslice "github.com/docker/docker/api/types/strslice"
 	"github.com/docker/go-connections/nat"
 	"github.com/moby/buildkit/frontend/dockerfile/instructions"
 	"github.com/moby/buildkit/frontend/dockerfile/parser"
@@ -361,7 +361,7 @@ func dispatchRun(ctx context.Context, d dispatchRequest, c *instructions.RunComm
 		withCmd(cmdFromArgs),
 		withArgsEscaped(argsEscaped),
 		withEnv(append(stateRunConfig.Env, buildArgs...)),
-		withEntrypointOverride(saveCmd, strslice.StrSlice{""}),
+		withEntrypointOverride(saveCmd, mobystrslice.StrSlice{""}),
 		withoutHealthcheck())
 
 	cID, err := d.builder.create(ctx, runConfig)
@@ -406,7 +406,7 @@ func dispatchRun(ctx context.Context, d dispatchRequest, c *instructions.RunComm
 // remove any unreferenced built-in args from the environment variables.
 // These args are transparent so resulting image should be the same regardless
 // of the value.
-func prependEnvOnCmd(buildArgs *BuildArgs, buildArgVars []string, cmd strslice.StrSlice) strslice.StrSlice {
+func prependEnvOnCmd(buildArgs *BuildArgs, buildArgVars []string, cmd mobystrslice.StrSlice) mobystrslice.StrSlice {
 	tmpBuildEnv := make([]string, 0, len(buildArgVars))
 	for _, env := range buildArgVars {
 		key, _, _ := strings.Cut(env, "=")
