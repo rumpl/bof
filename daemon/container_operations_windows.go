@@ -29,63 +29,6 @@ func (daemon *Daemon) mountVolumes(container *container.Container) error {
 	return nil
 }
 
-func (daemon *Daemon) setupSecretDir(c *container.Container) (setupErr error) {
-	if len(c.SecretReferences) == 0 {
-		return nil
-	}
-
-	localMountPath, err := c.SecretMountPath()
-	if err != nil {
-		return err
-	}
-	logrus.Debugf("secrets: setting up secret dir: %s", localMountPath)
-
-	// create local secret root
-	if err := system.MkdirAllWithACL(localMountPath, 0, system.SddlAdministratorsLocalSystem); err != nil {
-		return errors.Wrap(err, "error creating secret local directory")
-	}
-
-	defer func() {
-		if setupErr != nil {
-			if err := os.RemoveAll(localMountPath); err != nil {
-				logrus.Errorf("error cleaning up secret mount: %s", err)
-			}
-		}
-	}()
-
-	if c.DependencyStore == nil {
-		return fmt.Errorf("secret store is not initialized")
-	}
-
-	for _, s := range c.SecretReferences {
-		// TODO (ehazlett): use type switch when more are supported
-		if s.File == nil {
-			logrus.Error("secret target type is not a file target")
-			continue
-		}
-
-		// secrets are created in the SecretMountPath on the host, at a
-		// single level
-		fPath, err := c.SecretFilePath(*s)
-		if err != nil {
-			return err
-		}
-		logrus.WithFields(logrus.Fields{
-			"name": s.File.Name,
-			"path": fPath,
-		}).Debug("injecting secret")
-		secret, err := c.DependencyStore.Secrets().Get(s.SecretID)
-		if err != nil {
-			return errors.Wrap(err, "unable to get secret from secret store")
-		}
-		if err := os.WriteFile(fPath, secret.Spec.Data, s.File.Mode); err != nil {
-			return errors.Wrap(err, "error injecting secret")
-		}
-	}
-
-	return nil
-}
-
 func killProcessDirectly(container *container.Container) error {
 	return nil
 }
