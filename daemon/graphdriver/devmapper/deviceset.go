@@ -1176,7 +1176,7 @@ func (devices *DeviceSet) checkGrowBaseDeviceFS(info *devInfo) error {
 
 func (devices *DeviceSet) growFS(info *devInfo) error {
 	if err := devices.activateDeviceIfNeeded(info, false); err != nil {
-		return fmt.Errorf("Error activating devmapper device: %s", err)
+		return fmt.Errorf("error activating devmapper device: %s", err)
 	}
 
 	defer devices.deactivateDevice(info)
@@ -1205,14 +1205,14 @@ func (devices *DeviceSet) growFS(info *devInfo) error {
 	switch devices.BaseDeviceFilesystem {
 	case "ext4":
 		if out, err := exec.Command("resize2fs", info.DevName()).CombinedOutput(); err != nil {
-			return fmt.Errorf("Failed to grow rootfs:%v:%s", err, string(out))
+			return fmt.Errorf("failed to grow rootfs:%v:%s", err, string(out))
 		}
 	case "xfs":
 		if out, err := exec.Command("xfs_growfs", info.DevName()).CombinedOutput(); err != nil {
-			return fmt.Errorf("Failed to grow rootfs:%v:%s", err, string(out))
+			return fmt.Errorf("failed to grow rootfs:%v:%s", err, string(out))
 		}
 	default:
-		return fmt.Errorf("Unsupported filesystem type %s", devices.BaseDeviceFilesystem)
+		return fmt.Errorf("unsupported filesystem type %s", devices.BaseDeviceFilesystem)
 	}
 	return nil
 }
@@ -1326,7 +1326,7 @@ func (devices *DeviceSet) ResizePool(size int64) error {
 
 	// Reload size for loopback device
 	if err := loopback.SetCapacity(dataloopback); err != nil {
-		return fmt.Errorf("Unable to update loopback capacity: %s", err)
+		return fmt.Errorf("unable to update loopback capacity: %s", err)
 	}
 
 	// Suspend the pool
@@ -1946,7 +1946,7 @@ func (devices *DeviceSet) parseStorageOpt(storageOpt map[string]string) (uint64,
 			}
 			return uint64(size), nil
 		default:
-			return 0, fmt.Errorf("Unknown option %s", key)
+			return 0, fmt.Errorf("unknown option %s", key)
 		}
 	}
 

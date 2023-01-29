@@ -59,7 +59,7 @@ var (
 	// used to lock iptables commands if xtables lock is not supported
 	bestEffortLock sync.Mutex
 	// ErrIptablesNotFound is returned when the rule is not found.
-	ErrIptablesNotFound = errors.New("Iptables not found")
+	ErrIptablesNotFound = errors.New("iptables not found")
 	initOnce            sync.Once
 )
 
@@ -158,7 +158,7 @@ func (iptable IPTable) NewChain(name string, table Table, hairpinMode bool) (*Ch
 		if output, err := iptable.Raw("-t", string(c.Table), "-N", c.Name); err != nil {
 			return nil, err
 		} else if len(output) != 0 {
-			return nil, fmt.Errorf("Could not create %s/%s chain: %s", c.Table, c.Name, output)
+			return nil, fmt.Errorf("could not create %s/%s chain: %s", c.Table, c.Name, output)
 		}
 	}
 	return c, nil
@@ -175,7 +175,7 @@ func (iptable IPTable) LoopbackByVersion() string {
 // ProgramChain is used to add rules to a chain
 func (iptable IPTable) ProgramChain(c *ChainInfo, bridgeName string, hairpinMode, enable bool) error {
 	if c.Name == "" {
-		return errors.New("Could not program chain, missing chain name")
+		return errors.New("could not program chain, missing chain name")
 	}
 
 	// Either add or remove the interface from the firewalld zone
@@ -199,11 +199,11 @@ func (iptable IPTable) ProgramChain(c *ChainInfo, bridgeName string, hairpinMode
 			"-j", c.Name}
 		if !iptable.Exists(Nat, "PREROUTING", preroute...) && enable {
 			if err := c.Prerouting(Append, preroute...); err != nil {
-				return fmt.Errorf("Failed to inject %s in PREROUTING chain: %s", c.Name, err)
+				return fmt.Errorf("failed to inject %s in PREROUTING chain: %s", c.Name, err)
 			}
 		} else if iptable.Exists(Nat, "PREROUTING", preroute...) && !enable {
 			if err := c.Prerouting(Delete, preroute...); err != nil {
-				return fmt.Errorf("Failed to remove %s in PREROUTING chain: %s", c.Name, err)
+				return fmt.Errorf("failed to remove %s in PREROUTING chain: %s", c.Name, err)
 			}
 		}
 		output := []string{
@@ -215,16 +215,16 @@ func (iptable IPTable) ProgramChain(c *ChainInfo, bridgeName string, hairpinMode
 		}
 		if !iptable.Exists(Nat, "OUTPUT", output...) && enable {
 			if err := c.Output(Append, output...); err != nil {
-				return fmt.Errorf("Failed to inject %s in OUTPUT chain: %s", c.Name, err)
+				return fmt.Errorf("failed to inject %s in OUTPUT chain: %s", c.Name, err)
 			}
 		} else if iptable.Exists(Nat, "OUTPUT", output...) && !enable {
 			if err := c.Output(Delete, output...); err != nil {
-				return fmt.Errorf("Failed to inject %s in OUTPUT chain: %s", c.Name, err)
+				return fmt.Errorf("failed to inject %s in OUTPUT chain: %s", c.Name, err)
 			}
 		}
 	case Filter:
 		if bridgeName == "" {
-			return fmt.Errorf("Could not program chain %s/%s, missing bridge name",
+			return fmt.Errorf("could not program chain %s/%s, missing bridge name",
 				c.Table, c.Name)
 		}
 		link := []string{
@@ -235,14 +235,14 @@ func (iptable IPTable) ProgramChain(c *ChainInfo, bridgeName string, hairpinMode
 			if output, err := iptable.Raw(insert...); err != nil {
 				return err
 			} else if len(output) != 0 {
-				return fmt.Errorf("Could not create linking rule to %s/%s: %s", c.Table, c.Name, output)
+				return fmt.Errorf("could not create linking rule to %s/%s: %s", c.Table, c.Name, output)
 			}
 		} else if iptable.Exists(Filter, "FORWARD", link...) && !enable {
 			del := append([]string{string(Delete), "FORWARD"}, link...)
 			if output, err := iptable.Raw(del...); err != nil {
 				return err
 			} else if len(output) != 0 {
-				return fmt.Errorf("Could not delete linking rule from %s/%s: %s", c.Table, c.Name, output)
+				return fmt.Errorf("could not delete linking rule from %s/%s: %s", c.Table, c.Name, output)
 			}
 		}
 		establish := []string{
@@ -255,14 +255,14 @@ func (iptable IPTable) ProgramChain(c *ChainInfo, bridgeName string, hairpinMode
 			if output, err := iptable.Raw(insert...); err != nil {
 				return err
 			} else if len(output) != 0 {
-				return fmt.Errorf("Could not create establish rule to %s: %s", c.Table, output)
+				return fmt.Errorf("could not create establish rule to %s: %s", c.Table, output)
 			}
 		} else if iptable.Exists(Filter, "FORWARD", establish...) && !enable {
 			del := append([]string{string(Delete), "FORWARD"}, establish...)
 			if output, err := iptable.Raw(del...); err != nil {
 				return err
 			} else if len(output) != 0 {
-				return fmt.Errorf("Could not delete establish rule from %s: %s", c.Table, output)
+				return fmt.Errorf("could not delete establish rule from %s: %s", c.Table, output)
 			}
 		}
 	}

@@ -126,7 +126,7 @@ func readPluginInfo(name, path string) (*Plugin, error) {
 	}
 
 	if len(u.Scheme) == 0 {
-		return nil, fmt.Errorf("Unknown protocol")
+		return nil, fmt.Errorf("unknown protocol")
 	}
 
 	return NewLocalPlugin(name, addr), nil

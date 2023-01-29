@@ -92,7 +92,7 @@ func (n *networkNamespace) programGateway(gw net.IP, isAdd bool) error {
 	}
 
 	if linkIndex == 0 {
-		return fmt.Errorf("Direct route for the gateway %s could not be found", gw)
+		return fmt.Errorf("direct route for the gateway %s could not be found", gw)
 	}
 
 	if isAdd {

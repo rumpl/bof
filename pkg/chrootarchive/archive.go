@@ -52,7 +52,7 @@ func UntarUncompressed(tarArchive io.Reader, dest string, options *archive.TarOp
 // Handler for teasing out the automatic decompression
 func untarHandler(tarArchive io.Reader, dest string, options *archive.TarOptions, decompress bool, root string) error {
 	if tarArchive == nil {
-		return fmt.Errorf("Empty archive")
+		return fmt.Errorf("empty archive")
 	}
 	if options == nil {
 		options = &archive.TarOptions{}

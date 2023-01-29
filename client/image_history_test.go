@@ -29,7 +29,7 @@ func TestImageHistory(t *testing.T) {
 	client := &Client{
 		client: newMockClient(func(r *http.Request) (*http.Response, error) {
 			if !strings.HasPrefix(r.URL.Path, expectedURL) {
-				return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, r.URL)
+				return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, r.URL)
 			}
 			b, err := json.Marshal([]image.HistoryResponseItem{
 				{

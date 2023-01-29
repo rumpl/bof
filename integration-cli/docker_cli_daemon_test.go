@@ -1557,7 +1557,7 @@ func (s *DockerDaemonSuite) TestDaemonRestartWithPausedContainer(c *testing.T) {
 		}
 		name := strings.TrimSpace(out)
 		if name != "test" {
-			errchan <- fmt.Errorf("Paused container start error on docker daemon restart, expected 'test' but got '%s'", name)
+			errchan <- fmt.Errorf("paused container start error on docker daemon restart, expected 'test' but got '%s'", name)
 			return
 		}
 		close(errchan)

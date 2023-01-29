@@ -62,12 +62,12 @@ func (i *bridgeInterface) addresses() ([]netlink.Addr, []netlink.Addr, error) {
 	}
 	v4addr, err := i.nlh.AddrList(i.Link, netlink.FAMILY_V4)
 	if err != nil {
-		return nil, nil, fmt.Errorf("Failed to retrieve V4 addresses: %v", err)
+		return nil, nil, fmt.Errorf("failed to retrieve V4 addresses: %v", err)
 	}
 
 	v6addr, err := i.nlh.AddrList(i.Link, netlink.FAMILY_V6)
 	if err != nil {
-		return nil, nil, fmt.Errorf("Failed to retrieve V6 addresses: %v", err)
+		return nil, nil, fmt.Errorf("failed to retrieve V6 addresses: %v", err)
 	}
 
 	if len(v4addr) == 0 {

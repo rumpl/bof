@@ -86,7 +86,7 @@ type errorReaderCloser struct{}
 func (errorReaderCloser) Close() error { return nil }
 
 func (errorReaderCloser) Read(p []byte) (n int, err error) {
-	return 0, fmt.Errorf("An error occurred")
+	return 0, fmt.Errorf("an error occurred")
 }
 
 // If an unknown error is encountered, return 0, nil and log it

@@ -106,7 +106,7 @@ func (n *bridgeNetwork) setupIP4Tables(config *networkConfiguration, i *bridgeIn
 
 	// Sanity check.
 	if !driverConfig.EnableIPTables {
-		return errors.New("Cannot program chains, EnableIPTable is disabled")
+		return errors.New("cannot program chains, EnableIPTable is disabled")
 	}
 
 	maskedAddrv4 := &net.IPNet{
@@ -124,7 +124,7 @@ func (n *bridgeNetwork) setupIP6Tables(config *networkConfiguration, i *bridgeIn
 
 	// Sanity check.
 	if !driverConfig.EnableIP6Tables {
-		return errors.New("Cannot program chains, EnableIP6Tables is disabled")
+		return errors.New("cannot program chains, EnableIP6Tables is disabled")
 	}
 
 	maskedAddrv6 := &net.IPNet{
@@ -150,31 +150,31 @@ func (n *bridgeNetwork) setupIPTables(ipVersion iptables.IPVersion, maskedAddr *
 
 	if config.Internal {
 		if err = setupInternalNetworkRules(config.BridgeName, maskedAddr, config.EnableICC, true); err != nil {
-			return fmt.Errorf("Failed to Setup IP tables: %s", err.Error())
+			return fmt.Errorf("failed to Setup IP tables: %s", err.Error())
 		}
 		n.registerIptCleanFunc(func() error {
 			return setupInternalNetworkRules(config.BridgeName, maskedAddr, config.EnableICC, false)
 		})
 	} else {
 		if err = setupIPTablesInternal(config.HostIP, config.BridgeName, maskedAddr, config.EnableICC, config.EnableIPMasquerade, hairpinMode, true); err != nil {
-			return fmt.Errorf("Failed to Setup IP tables: %s", err.Error())
+			return fmt.Errorf("failed to Setup IP tables: %s", err.Error())
 		}
 		n.registerIptCleanFunc(func() error {
 			return setupIPTablesInternal(config.HostIP, config.BridgeName, maskedAddr, config.EnableICC, config.EnableIPMasquerade, hairpinMode, false)
 		})
 		natChain, filterChain, _, _, err := n.getDriverChains(ipVersion)
 		if err != nil {
-			return fmt.Errorf("Failed to setup IP tables, cannot acquire chain info %s", err.Error())
+			return fmt.Errorf("failed to setup IP tables, cannot acquire chain info %s", err.Error())
 		}
 
 		err = iptable.ProgramChain(natChain, config.BridgeName, hairpinMode, true)
 		if err != nil {
-			return fmt.Errorf("Failed to program NAT chain: %s", err.Error())
+			return fmt.Errorf("failed to program NAT chain: %s", err.Error())
 		}
 
 		err = iptable.ProgramChain(filterChain, config.BridgeName, hairpinMode, true)
 		if err != nil {
-			return fmt.Errorf("Failed to program FILTER chain: %s", err.Error())
+			return fmt.Errorf("failed to program FILTER chain: %s", err.Error())
 		}
 
 		n.registerIptCleanFunc(func() error {
@@ -284,7 +284,7 @@ func programChainRule(version iptables.IPVersion, rule iptRule, ruleDescr string
 
 	if condition {
 		if err := iptable.RawCombinedOutput(append(prefix, rule.args...)...); err != nil {
-			return fmt.Errorf("Unable to %s %s rule: %s", operation, ruleDescr, err.Error())
+			return fmt.Errorf("unable to %s %s rule: %s", operation, ruleDescr, err.Error())
 		}
 	}
 
@@ -307,7 +307,7 @@ func setIcc(version iptables.IPVersion, bridgeIface string, iccEnable, insert bo
 
 			if !iptable.Exists(table, chain, dropArgs...) {
 				if err := iptable.RawCombinedOutput(append([]string{"-A", chain}, dropArgs...)...); err != nil {
-					return fmt.Errorf("Unable to prevent intercontainer communication: %s", err.Error())
+					return fmt.Errorf("unable to prevent intercontainer communication: %s", err.Error())
 				}
 			}
 		} else {
@@ -315,7 +315,7 @@ func setIcc(version iptables.IPVersion, bridgeIface string, iccEnable, insert bo
 
 			if !iptable.Exists(table, chain, acceptArgs...) {
 				if err := iptable.RawCombinedOutput(append([]string{"-I", chain}, acceptArgs...)...); err != nil {
-					return fmt.Errorf("Unable to allow intercontainer communication: %s", err.Error())
+					return fmt.Errorf("unable to allow intercontainer communication: %s", err.Error())
 				}
 			}
 		}

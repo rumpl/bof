@@ -52,7 +52,7 @@ func byteSizeFromString(arg string) (int64, error) {
 	case "t", "tb":
 		multiplier = 1024 * 1024 * 1024 * 1024
 	default:
-		return 0, fmt.Errorf("Unknown size unit: %s", rest)
+		return 0, fmt.Errorf("unknown size unit: %s", rest)
 	}
 
 	return val * multiplier, nil

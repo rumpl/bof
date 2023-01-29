@@ -29,7 +29,7 @@ func TestVolumeRemove(t *testing.T) {
 	client := &Client{
 		client: newMockClient(func(req *http.Request) (*http.Response, error) {
 			if !strings.HasPrefix(req.URL.Path, expectedURL) {
-				return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, req.URL)
+				return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, req.URL)
 			}
 			if req.Method != http.MethodDelete {
 				return nil, fmt.Errorf("expected DELETE method, got %s", req.Method)

@@ -36,7 +36,7 @@ func TestContainerWait(t *testing.T) {
 	client := &Client{
 		client: newMockClient(func(req *http.Request) (*http.Response, error) {
 			if !strings.HasPrefix(req.URL.Path, expectedURL) {
-				return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, req.URL)
+				return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, req.URL)
 			}
 			b, err := json.Marshal(container.WaitResponse{
 				StatusCode: 15,
@@ -69,7 +69,7 @@ func TestContainerWaitProxyInterrupt(t *testing.T) {
 		version: "1.30",
 		client: newMockClient(func(req *http.Request) (*http.Response, error) {
 			if !strings.HasPrefix(req.URL.Path, expectedURL) {
-				return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, req.URL)
+				return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, req.URL)
 			}
 			return &http.Response{
 				StatusCode: http.StatusOK,
@@ -96,7 +96,7 @@ func TestContainerWaitProxyInterruptLong(t *testing.T) {
 		version: "1.30",
 		client: newMockClient(func(req *http.Request) (*http.Response, error) {
 			if !strings.HasPrefix(req.URL.Path, expectedURL) {
-				return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, req.URL)
+				return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, req.URL)
 			}
 			return &http.Response{
 				StatusCode: http.StatusOK,

@@ -21,7 +21,7 @@ func createMacVlan(containerIfName, parent, macvlanMode string) (string, error) 
 	// Set the macvlan mode. Default is bridge mode
 	mode, err := setMacVlanMode(macvlanMode)
 	if err != nil {
-		return "", fmt.Errorf("Unsupported %s macvlan mode: %v", macvlanMode, err)
+		return "", fmt.Errorf("unsupported %s macvlan mode: %v", macvlanMode, err)
 	}
 	// verify the Docker host interface acting as the macvlan parent iface exists
 	if !parentExists(parent) {

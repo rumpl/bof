@@ -19,10 +19,10 @@ type Idm struct {
 // New returns an instance of id manager for a [start,end] set of numerical ids
 func New(ds datastore.DataStore, id string, start, end uint64) (*Idm, error) {
 	if id == "" {
-		return nil, errors.New("Invalid id")
+		return nil, errors.New("invalid id")
 	}
 	if end <= start {
-		return nil, fmt.Errorf("Invalid set range: [%d, %d]", start, end)
+		return nil, fmt.Errorf("invalid set range: [%d, %d]", start, end)
 	}
 
 	h, err := bitseq.NewHandle("idm", ds, id, 1+end-start)
@@ -49,7 +49,7 @@ func (i *Idm) GetSpecificID(id uint64) error {
 	}
 
 	if id < i.start || id > i.end {
-		return errors.New("Requested id does not belong to the set")
+		return errors.New("requested id does not belong to the set")
 	}
 
 	return i.handle.Set(id - i.start)
@@ -62,7 +62,7 @@ func (i *Idm) GetIDInRange(start, end uint64, serial bool) (uint64, error) {
 	}
 
 	if start < i.start || end > i.end {
-		return 0, errors.New("Requested range does not belong to the set")
+		return 0, errors.New("requested range does not belong to the set")
 	}
 
 	ordinal, err := i.handle.SetAnyInRange(start-i.start, end-i.start, serial)

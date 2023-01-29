@@ -293,10 +293,10 @@ func (s *DockerAPISuite) TestAPIStatsNoStreamConnectedContainers(c *testing.T) {
 			ch <- err
 		}
 		if resp.StatusCode != http.StatusOK {
-			ch <- fmt.Errorf("Invalid StatusCode %v", resp.StatusCode)
+			ch <- fmt.Errorf("invalid StatusCode %v", resp.StatusCode)
 		}
 		if resp.Header.Get("Content-Type") != "application/json" {
-			ch <- fmt.Errorf("Invalid 'Content-Type' %v", resp.Header.Get("Content-Type"))
+			ch <- fmt.Errorf("invalid 'Content-Type' %v", resp.Header.Get("Content-Type"))
 		}
 		var v *types.Stats
 		if err := json.NewDecoder(body).Decode(&v); err != nil {

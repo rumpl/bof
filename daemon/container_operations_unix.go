@@ -35,7 +35,7 @@ func (daemon *Daemon) setupLinkedContainers(container *container.Container) ([]s
 
 	for linkAlias, child := range children {
 		if !child.IsRunning() {
-			return nil, fmt.Errorf("Cannot link to a non running container: %s AS %s", child.Name, linkAlias)
+			return nil, fmt.Errorf("cannot link to a non running container: %s AS %s", child.Name, linkAlias)
 		}
 
 		childBridgeSettings := child.NetworkSettings.Networks[runconfig.DefaultDaemonNetworkMode().NetworkName()]

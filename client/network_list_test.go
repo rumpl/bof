@@ -72,7 +72,7 @@ func TestNetworkList(t *testing.T) {
 		client := &Client{
 			client: newMockClient(func(req *http.Request) (*http.Response, error) {
 				if !strings.HasPrefix(req.URL.Path, expectedURL) {
-					return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, req.URL)
+					return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, req.URL)
 				}
 				if req.Method != http.MethodGet {
 					return nil, fmt.Errorf("expected GET method, got %s", req.Method)

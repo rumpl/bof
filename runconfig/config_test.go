@@ -130,7 +130,7 @@ func callDecodeContainerConfigIsolation(isolation string) (*container.Config, *c
 			Isolation:   container.Isolation(isolation)},
 	}
 	if b, err = json.Marshal(w); err != nil {
-		return nil, nil, nil, fmt.Errorf("Error on marshal %s", err.Error())
+		return nil, nil, nil, fmt.Errorf("error on marshal %s", err.Error())
 	}
 	return decodeContainerConfig(bytes.NewReader(b), sysinfo.New())
 }

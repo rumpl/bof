@@ -368,7 +368,7 @@ func getSourceMount(source string) (string, string, error) {
 		return "", "", err
 	}
 	if len(mi) < 1 {
-		return "", "", fmt.Errorf("Can't find mount point of %s", source)
+		return "", "", fmt.Errorf("can't find mount point of %s", source)
 	}
 
 	// find the longest mount point

@@ -57,13 +57,13 @@ func (daemon *Daemon) rmLink(container *container.Container, name string) error 
 	}
 	parent, n := path.Split(name)
 	if parent == "/" {
-		return fmt.Errorf("Conflict, cannot remove the default link name of the container")
+		return fmt.Errorf("conflict, cannot remove the default link name of the container")
 	}
 
 	parent = strings.TrimSuffix(parent, "/")
 	pe, err := daemon.containersReplica.Snapshot().GetID(parent)
 	if err != nil {
-		return fmt.Errorf("Cannot get parent %s for link name %s", parent, name)
+		return fmt.Errorf("cannot get parent %s for link name %s", parent, name)
 	}
 
 	daemon.releaseName(name)
@@ -87,11 +87,11 @@ func (daemon *Daemon) cleanupContainer(container *container.Container, config ty
 			if state == "paused" {
 				procedure = "Unpause and then " + strings.ToLower(procedure)
 			}
-			err := fmt.Errorf("You cannot remove a %s container %s. %s", state, container.ID, procedure)
+			err := fmt.Errorf("you cannot remove a %s container %s. %s", state, container.ID, procedure)
 			return errdefs.Conflict(err)
 		}
 		if err := daemon.Kill(container); err != nil {
-			return fmt.Errorf("Could not kill running container %s, cannot remove - %v", container.ID, err)
+			return fmt.Errorf("could not kill running container %s, cannot remove - %v", container.ID, err)
 		}
 	}
 

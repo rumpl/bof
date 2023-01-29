@@ -20,7 +20,7 @@ var (
 
 func (daemon *Daemon) registerName(container *container.Container) error {
 	if daemon.Exists(container.ID) {
-		return fmt.Errorf("Container is already loaded")
+		return fmt.Errorf("container is already loaded")
 	}
 	if err := validateID(container.ID); err != nil {
 		return err
@@ -107,7 +107,7 @@ func (daemon *Daemon) generateNewName(id string) (string, error) {
 
 func validateID(id string) error {
 	if id == "" {
-		return fmt.Errorf("Invalid empty id")
+		return fmt.Errorf("invalid empty id")
 	}
 	return nil
 }

@@ -81,7 +81,7 @@ func getIPInterface(name string) (string, error) {
 		}
 
 		if iface.Flags&net.FlagUp == 0 {
-			return "", errors.New("Interfaces is down")
+			return "", errors.New("interfaces is down")
 		}
 
 		addrs, err := iface.Addrs()
@@ -105,7 +105,7 @@ func getIPInterface(name string) (string, error) {
 			}
 			return ip.String(), nil
 		}
-		return "", errors.New("Interfaces does not have a valid IPv4")
+		return "", errors.New("interfaces does not have a valid IPv4")
 	}
-	return "", errors.New("Interface not found")
+	return "", errors.New("interface not found")
 }

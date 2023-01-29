@@ -76,7 +76,7 @@ func (d *driver) serfJoin(neighIP string) error {
 		return fmt.Errorf("no neighbor to join")
 	}
 	if _, err := d.serfInstance.Join([]string{neighIP}, true); err != nil {
-		return fmt.Errorf("Failed to join the cluster at neigh IP %s: %v",
+		return fmt.Errorf("failed to join the cluster at neigh IP %s: %v",
 			neighIP, err)
 	}
 	return nil

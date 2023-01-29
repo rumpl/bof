@@ -19,7 +19,7 @@ func (cli *Client) Info(ctx context.Context) (types.Info, error) {
 	}
 
 	if err := json.NewDecoder(serverResp.body).Decode(&info); err != nil {
-		return info, fmt.Errorf("Error reading remote info: %v", err)
+		return info, fmt.Errorf("error reading remote info: %v", err)
 	}
 
 	return info, nil

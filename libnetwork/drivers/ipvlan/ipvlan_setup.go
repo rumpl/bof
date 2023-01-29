@@ -23,12 +23,12 @@ func createIPVlan(containerIfName, parent, ipvlanMode, ipvlanFlag string) (strin
 	// Set the ipvlan mode and flag. Default is L2 bridge
 	mode, err := setIPVlanMode(ipvlanMode)
 	if err != nil {
-		return "", fmt.Errorf("Unsupported %s ipvlan mode: %v", ipvlanMode, err)
+		return "", fmt.Errorf("unsupported %s ipvlan mode: %v", ipvlanMode, err)
 	}
 	// Set the ipvlan flag. Default is bridge
 	flag, err := setIPVlanFlag(ipvlanFlag)
 	if err != nil {
-		return "", fmt.Errorf("Unsupported %s ipvlan flag: %v", ipvlanFlag, err)
+		return "", fmt.Errorf("unsupported %s ipvlan flag: %v", ipvlanFlag, err)
 	}
 	// verify the Docker host interface acting as the macvlan parent iface exists
 	if !parentExists(parent) {
@@ -66,7 +66,7 @@ func setIPVlanMode(mode string) (netlink.IPVlanMode, error) {
 	case modeL3S:
 		return netlink.IPVLAN_MODE_L3S, nil
 	default:
-		return 0, fmt.Errorf("Unknown ipvlan mode: %s", mode)
+		return 0, fmt.Errorf("unknown ipvlan mode: %s", mode)
 	}
 }
 

@@ -64,7 +64,7 @@ func TestContainerExecResize(t *testing.T) {
 func resizeTransport(expectedURL string) func(req *http.Request) (*http.Response, error) {
 	return func(req *http.Request) (*http.Response, error) {
 		if !strings.HasPrefix(req.URL.Path, expectedURL) {
-			return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, req.URL)
+			return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, req.URL)
 		}
 		query := req.URL.Query()
 		h := query.Get("h")

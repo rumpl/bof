@@ -45,7 +45,7 @@ func processSetKeyReexec() {
 	// (i.e. expecting 2 flag.Args())
 	args := flag.Args()
 	if len(args) < 2 {
-		err = fmt.Errorf("Re-exec expects 2 args (after parsing flags), received : %d", len(args))
+		err = fmt.Errorf("re-exec expects 2 args (after parsing flags), received : %d", len(args))
 		return
 	}
 	containerID, shortCtlrID := args[0], args[1]

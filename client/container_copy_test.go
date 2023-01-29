@@ -56,7 +56,7 @@ func TestContainerStatPath(t *testing.T) {
 	client := &Client{
 		client: newMockClient(func(req *http.Request) (*http.Response, error) {
 			if !strings.HasPrefix(req.URL.Path, expectedURL) {
-				return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, req.URL)
+				return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, req.URL)
 			}
 			if req.Method != http.MethodHead {
 				return nil, fmt.Errorf("expected HEAD method, got %s", req.Method)
@@ -133,7 +133,7 @@ func TestCopyToContainer(t *testing.T) {
 	client := &Client{
 		client: newMockClient(func(req *http.Request) (*http.Response, error) {
 			if !strings.HasPrefix(req.URL.Path, expectedURL) {
-				return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, req.URL)
+				return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, req.URL)
 			}
 			if req.Method != http.MethodPut {
 				return nil, fmt.Errorf("expected PUT method, got %s", req.Method)
@@ -241,7 +241,7 @@ func TestCopyFromContainer(t *testing.T) {
 	client := &Client{
 		client: newMockClient(func(req *http.Request) (*http.Response, error) {
 			if !strings.HasPrefix(req.URL.Path, expectedURL) {
-				return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, req.URL)
+				return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, req.URL)
 			}
 			if req.Method != http.MethodGet {
 				return nil, fmt.Errorf("expected GET method, got %s", req.Method)

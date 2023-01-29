@@ -27,14 +27,14 @@ func setupIPForwarding(enableIPTables bool, enableIP6Tables bool) error {
 	// Get current IPv4 forward setup
 	ipv4ForwardData, err := os.ReadFile(ipv4ForwardConf)
 	if err != nil {
-		return fmt.Errorf("Cannot read IP forwarding setup: %v", err)
+		return fmt.Errorf("cannot read IP forwarding setup: %v", err)
 	}
 
 	// Enable IPv4 forwarding only if it is not already enabled
 	if ipv4ForwardData[0] != '1' {
 		// Enable IPv4 forwarding
 		if err := configureIPForwarding(true); err != nil {
-			return fmt.Errorf("Enabling IP forwarding failed: %v", err)
+			return fmt.Errorf("enabling IP forwarding failed: %v", err)
 		}
 		// When enabling ip_forward set the default policy on forward chain to
 		// drop only if the daemon option iptables is not set to false.

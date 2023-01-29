@@ -27,7 +27,7 @@ func ensureDefaultAppArmorProfile() error {
 	if apparmor.HostSupports() {
 		loaded, err := aaprofile.IsLoaded(defaultAppArmorProfile)
 		if err != nil {
-			return fmt.Errorf("Could not check if %s AppArmor profile was loaded: %s", defaultAppArmorProfile, err)
+			return fmt.Errorf("could not check if %s AppArmor profile was loaded: %s", defaultAppArmorProfile, err)
 		}
 
 		// Nothing to do.

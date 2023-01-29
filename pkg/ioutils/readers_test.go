@@ -22,7 +22,7 @@ func (r *errorReader) Read(p []byte) (int, error) {
 func TestReadCloserWrapperClose(t *testing.T) {
 	reader := strings.NewReader("A string reader")
 	wrapper := NewReadCloserWrapper(reader, func() error {
-		return fmt.Errorf("This will be called when closing")
+		return fmt.Errorf("this will be called when closing")
 	})
 	err := wrapper.Close()
 	if err == nil || !strings.Contains(err.Error(), "This will be called when closing") {

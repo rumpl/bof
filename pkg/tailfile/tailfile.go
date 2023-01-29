@@ -16,7 +16,7 @@ const blockSize = 1024
 var eol = []byte("\n")
 
 // ErrNonPositiveLinesNumber is an error returned if the lines number was negative.
-var ErrNonPositiveLinesNumber = errors.New("The number of lines to extract from the file must be positive")
+var ErrNonPositiveLinesNumber = errors.New("the number of lines to extract from the file must be positive")
 
 // TailFile returns last n lines of the passed in file.
 func TailFile(f *os.File, n int) ([][]byte, error) {

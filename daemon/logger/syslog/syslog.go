@@ -263,6 +263,6 @@ func parseLogFormat(logFormat, proto string) (syslog.Formatter, syslog.Framer, e
 		}
 		return rfc5424microformatterWithAppNameAsTag, syslog.DefaultFramer, nil
 	default:
-		return nil, nil, errors.New("Invalid syslog format")
+		return nil, nil, errors.New("invalid syslog format")
 	}
 }

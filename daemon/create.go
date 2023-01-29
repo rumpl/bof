@@ -286,7 +286,7 @@ func (daemon *Daemon) mergeAndVerifyConfig(config *containertypes.Config, img *i
 		config.Entrypoint = nil
 	}
 	if len(config.Entrypoint) == 0 && len(config.Cmd) == 0 {
-		return fmt.Errorf("No command specified")
+		return fmt.Errorf("no command specified")
 	}
 	return nil
 }

@@ -70,7 +70,7 @@ func TestSecretList(t *testing.T) {
 			version: "1.25",
 			client: newMockClient(func(req *http.Request) (*http.Response, error) {
 				if !strings.HasPrefix(req.URL.Path, expectedURL) {
-					return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, req.URL)
+					return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, req.URL)
 				}
 				query := req.URL.Query()
 				for key, expected := range listCase.expectedQueryParams {

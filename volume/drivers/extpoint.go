@@ -116,7 +116,7 @@ func (s *Store) lookup(name string, mode int) (volume.Driver, error) {
 func validateDriver(vd volume.Driver) error {
 	scope := vd.Scope()
 	if scope != volume.LocalScope && scope != volume.GlobalScope {
-		return fmt.Errorf("Driver %q provided an invalid capability scope: %s", vd.Name(), scope)
+		return fmt.Errorf("driver %q provided an invalid capability scope: %s", vd.Name(), scope)
 	}
 	return nil
 }

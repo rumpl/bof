@@ -88,7 +88,7 @@ func Init(base string, opt []string, idMap idtools.IdentityMapping) (graphdriver
 
 	filesystems, err := zfs.Filesystems(options.fsName)
 	if err != nil {
-		return nil, fmt.Errorf("Cannot find root filesystem %s: %v", options.fsName, err)
+		return nil, fmt.Errorf("cannot find root filesystem %s: %v", options.fsName, err)
 	}
 
 	filesystemsCache := make(map[string]bool, len(filesystems))
@@ -109,7 +109,7 @@ func Init(base string, opt []string, idMap idtools.IdentityMapping) (graphdriver
 		GID: idMap.RootPair().GID,
 	}
 	if err := idtools.MkdirAllAndChown(base, 0710, dirID); err != nil {
-		return nil, fmt.Errorf("Failed to create '%s': %v", base, err)
+		return nil, fmt.Errorf("failed to create '%s': %v", base, err)
 	}
 
 	d := &Driver{
@@ -136,7 +136,7 @@ func parseOptions(opt []string) (zfsOptions, error) {
 		case "zfs.fsname":
 			options.fsName = val
 		default:
-			return options, fmt.Errorf("Unknown option %s", key)
+			return options, fmt.Errorf("unknown option %s", key)
 		}
 	}
 	return options, nil
@@ -145,7 +145,7 @@ func parseOptions(opt []string) (zfsOptions, error) {
 func lookupZfsDataset(rootdir string) (string, error) {
 	var stat unix.Stat_t
 	if err := unix.Stat(rootdir, &stat); err != nil {
-		return "", fmt.Errorf("Failed to access '%s': %s", rootdir, err)
+		return "", fmt.Errorf("failed to access '%s': %s", rootdir, err)
 	}
 	wantedDev := stat.Dev
 
@@ -164,7 +164,7 @@ func lookupZfsDataset(rootdir string) (string, error) {
 		}
 	}
 
-	return "", fmt.Errorf("Failed to find zfs dataset mounted on '%s' in /proc/mounts", rootdir)
+	return "", fmt.Errorf("failed to find zfs dataset mounted on '%s' in /proc/mounts", rootdir)
 }
 
 // Driver holds information about the driver, such as zfs dataset, options and cache.
@@ -328,7 +328,7 @@ func parseStorageOpt(storageOpt map[string]string) (string, error) {
 		case "size":
 			return v, nil
 		default:
-			return "0", fmt.Errorf("Unknown option %s", key)
+			return "0", fmt.Errorf("unknown option %s", key)
 		}
 	}
 	return "0", nil

@@ -496,7 +496,7 @@ func (d *driver) peerFlushOp(nid string) error {
 	defer d.peerDb.Unlock()
 	_, ok := d.peerDb.mp[nid]
 	if !ok {
-		return fmt.Errorf("Unable to find the peerDB for nid:%s", nid)
+		return fmt.Errorf("unable to find the peerDB for nid:%s", nid)
 	}
 	delete(d.peerDb.mp, nid)
 	return nil

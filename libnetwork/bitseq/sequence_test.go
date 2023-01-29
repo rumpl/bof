@@ -24,10 +24,10 @@ func init() {
 func randomLocalStore() (datastore.DataStore, error) {
 	tmp, err := os.CreateTemp("", "libnetwork-")
 	if err != nil {
-		return nil, fmt.Errorf("Error creating temp file: %v", err)
+		return nil, fmt.Errorf("error creating temp file: %v", err)
 	}
 	if err := tmp.Close(); err != nil {
-		return nil, fmt.Errorf("Error closing temp file: %v", err)
+		return nil, fmt.Errorf("error closing temp file: %v", err)
 	}
 	return datastore.NewDataStore(datastore.ScopeCfg{
 		Client: datastore.ScopeClientCfg{

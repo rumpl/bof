@@ -52,7 +52,7 @@ func TestImagePullWithUnauthorizedErrorAndPrivilegeFuncError(t *testing.T) {
 		client: newMockClient(errorMock(http.StatusUnauthorized, "Unauthorized error")),
 	}
 	privilegeFunc := func() (string, error) {
-		return "", fmt.Errorf("Error requesting privilege")
+		return "", fmt.Errorf("error requesting privilege")
 	}
 	_, err := client.ImagePull(context.Background(), "myimage", types.ImagePullOptions{
 		PrivilegeFunc: privilegeFunc,
@@ -166,7 +166,7 @@ func TestImagePullWithoutErrors(t *testing.T) {
 		client := &Client{
 			client: newMockClient(func(req *http.Request) (*http.Response, error) {
 				if !strings.HasPrefix(req.URL.Path, expectedURL) {
-					return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, req.URL)
+					return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, req.URL)
 				}
 				query := req.URL.Query()
 				fromImage := query.Get("fromImage")

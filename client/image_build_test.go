@@ -163,7 +163,7 @@ func TestImageBuild(t *testing.T) {
 		client := &Client{
 			client: newMockClient(func(r *http.Request) (*http.Response, error) {
 				if !strings.HasPrefix(r.URL.Path, expectedURL) {
-					return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, r.URL)
+					return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, r.URL)
 				}
 				// Check request headers
 				registryConfig := r.Header.Get("X-Registry-Config")
@@ -172,7 +172,7 @@ func TestImageBuild(t *testing.T) {
 				}
 				contentType := r.Header.Get("Content-Type")
 				if contentType != "application/x-tar" {
-					return nil, fmt.Errorf("Content-type header not properly set in the request. Expected 'application/x-tar', got %s", contentType)
+					return nil, fmt.Errorf("content-type header not properly set in the request. Expected 'application/x-tar', got %s", contentType)
 				}
 
 				// Check query parameters

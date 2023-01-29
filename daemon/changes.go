@@ -17,7 +17,7 @@ func (daemon *Daemon) ContainerChanges(name string) ([]archive.Change, error) {
 	}
 
 	if isWindows && container.IsRunning() {
-		return nil, errors.New("Windows does not support diff of a running container")
+		return nil, errors.New("windows does not support diff of a running container")
 	}
 
 	if daemon.UsesSnapshotter() {

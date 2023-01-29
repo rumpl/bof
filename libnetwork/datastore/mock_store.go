@@ -9,7 +9,7 @@ import (
 
 var (
 	// ErrNotImplemented exported
-	ErrNotImplemented = errors.New("Functionality not implemented")
+	ErrNotImplemented = errors.New("functionality not implemented")
 )
 
 // MockData exported

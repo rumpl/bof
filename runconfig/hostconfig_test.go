@@ -29,7 +29,7 @@ func TestDecodeHostConfig(t *testing.T) {
 
 		c, err := decodeHostConfig(bytes.NewReader(b))
 		if err != nil {
-			t.Fatal(fmt.Errorf("Error parsing %s: %v", f, err))
+			t.Fatal(fmt.Errorf("error parsing %s: %v", f, err))
 		}
 
 		assert.Check(t, !c.Privileged)

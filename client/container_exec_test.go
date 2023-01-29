@@ -84,7 +84,7 @@ func TestContainerExecStart(t *testing.T) {
 	client := &Client{
 		client: newMockClient(func(req *http.Request) (*http.Response, error) {
 			if !strings.HasPrefix(req.URL.Path, expectedURL) {
-				return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, req.URL)
+				return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, req.URL)
 			}
 			if err := req.ParseForm(); err != nil {
 				return nil, err
@@ -128,7 +128,7 @@ func TestContainerExecInspect(t *testing.T) {
 	client := &Client{
 		client: newMockClient(func(req *http.Request) (*http.Response, error) {
 			if !strings.HasPrefix(req.URL.Path, expectedURL) {
-				return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, req.URL)
+				return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, req.URL)
 			}
 			b, err := json.Marshal(types.ContainerExecInspect{
 				ExecID:      "exec_id",

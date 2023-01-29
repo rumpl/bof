@@ -228,7 +228,7 @@ func validateSelf(node string) error {
 
 	addrs, err := net.InterfaceAddrs()
 	if err != nil {
-		return fmt.Errorf("Unable to get interface addresses %v", err)
+		return fmt.Errorf("unable to get interface addresses %v", err)
 	}
 	for _, addr := range addrs {
 		ip, _, err := net.ParseCIDR(addr.String())

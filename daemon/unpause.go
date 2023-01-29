@@ -24,7 +24,7 @@ func (daemon *Daemon) containerUnpause(ctr *container.Container) error {
 
 	// We cannot unpause the container which is not paused
 	if !ctr.Paused {
-		return fmt.Errorf("Container %s is not paused", ctr.ID)
+		return fmt.Errorf("container %s is not paused", ctr.ID)
 	}
 	tsk, err := ctr.GetRunningTask()
 	if err != nil {
@@ -32,7 +32,7 @@ func (daemon *Daemon) containerUnpause(ctr *container.Container) error {
 	}
 
 	if err := tsk.Resume(context.Background()); err != nil {
-		return fmt.Errorf("Cannot unpause container %s: %s", ctr.ID, err)
+		return fmt.Errorf("cannot unpause container %s: %s", ctr.ID, err)
 	}
 
 	ctr.Paused = false

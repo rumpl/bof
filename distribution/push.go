@@ -34,7 +34,7 @@ func Push(ctx context.Context, ref reference.Named, config *ImagePushConfig) err
 
 	associations := config.ReferenceStore.ReferencesByName(repoInfo.Name)
 	if len(associations) == 0 {
-		return fmt.Errorf("An image does not exist locally with the tag: %s", reference.FamiliarName(repoInfo.Name))
+		return fmt.Errorf("an image does not exist locally with the tag: %s", reference.FamiliarName(repoInfo.Name))
 	}
 
 	var (

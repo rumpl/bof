@@ -138,7 +138,7 @@ func (m *MountPoint) Setup(mountLabel string, rootIDs idtools.Identity, checkFun
 	}
 
 	if len(m.Source) == 0 {
-		return "", fmt.Errorf("Unable to setup mount point, neither source nor volume defined")
+		return "", fmt.Errorf("unable to setup mount point, neither source nor volume defined")
 	}
 
 	if m.Type == mounttypes.TypeBind {

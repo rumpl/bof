@@ -29,7 +29,7 @@ func (cli *Client) NetworksPrune(ctx context.Context, pruneFilters filters.Args)
 	}
 
 	if err := json.NewDecoder(serverResp.body).Decode(&report); err != nil {
-		return report, fmt.Errorf("Error retrieving network prune report: %v", err)
+		return report, fmt.Errorf("error retrieving network prune report: %v", err)
 	}
 
 	return report, nil

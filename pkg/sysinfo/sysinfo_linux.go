@@ -42,7 +42,7 @@ func findCgroupV1Mountpoints() (map[string]string, error) {
 
 	allSubsystems, err := cgroups.ParseCgroupFile("/proc/self/cgroup")
 	if err != nil {
-		return nil, fmt.Errorf("Failed to parse cgroup information: %v", err)
+		return nil, fmt.Errorf("failed to parse cgroup information: %v", err)
 	}
 
 	allMap := make(map[string]bool)

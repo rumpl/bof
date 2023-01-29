@@ -146,7 +146,7 @@ func (rm *responseModifier) Hijack() (net.Conn, *bufio.ReadWriter, error) {
 
 	hijacker, ok := rm.rw.(http.Hijacker)
 	if !ok {
-		return nil, nil, fmt.Errorf("Internal response writer doesn't support the Hijacker interface")
+		return nil, nil, fmt.Errorf("internal response writer doesn't support the Hijacker interface")
 	}
 	return hijacker.Hijack()
 }

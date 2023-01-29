@@ -192,11 +192,11 @@ func Init(home string, options []string, idMap idtools.IdentityMapping) (graphdr
 		if d.quotaCtl, err = quota.NewControl(home); err == nil {
 			projectQuotaSupported = true
 		} else if opts.quota.Size > 0 {
-			return nil, fmt.Errorf("Storage option overlay2.size not supported. Filesystem does not support Project Quota: %v", err)
+			return nil, fmt.Errorf("storage option overlay2.size not supported. Filesystem does not support Project Quota: %v", err)
 		}
 	} else if opts.quota.Size > 0 {
 		// if xfs is not the backing fs then error out if the storage-opt overlay2.size is used.
-		return nil, fmt.Errorf("Storage Option overlay2.size only supported for backingFS XFS. Found %v", backingFs)
+		return nil, fmt.Errorf("storage Option overlay2.size only supported for backingFS XFS. Found %v", backingFs)
 	}
 
 	// figure out whether "index=off" option is recognized by the kernel
@@ -431,7 +431,7 @@ func (d *Driver) parseStorageOpt(storageOpt map[string]string, driver *Driver) e
 			}
 			driver.options.quota.Size = uint64(size)
 		default:
-			return fmt.Errorf("Unknown option %s", key)
+			return fmt.Errorf("unknown option %s", key)
 		}
 	}
 

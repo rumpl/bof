@@ -3471,7 +3471,7 @@ func (s *DockerCLIBuildSuite) TestBuildNotVerboseFailureWithNonExistImage(c *tes
 		ExitCode: 1,
 	})
 	if quietResult.Stderr() != result.Combined() {
-		c.Fatal(fmt.Errorf("Test[%s] expected that quiet stderr and verbose stdout are equal; quiet [%v], verbose [%v]", testName, quietResult.Stderr(), result.Combined()))
+		c.Fatal(fmt.Errorf("test[%s] expected that quiet stderr and verbose stdout are equal; quiet [%v], verbose [%v]", testName, quietResult.Stderr(), result.Combined()))
 	}
 }
 
@@ -3498,7 +3498,7 @@ func (s *DockerCLIBuildSuite) TestBuildNotVerboseFailure(c *testing.T) {
 			ExitCode: 1,
 		})
 		if quietResult.Stderr() != result.Combined() {
-			c.Fatal(fmt.Errorf("Test[%s] expected that quiet stderr and verbose stdout are equal; quiet [%v], verbose [%v]", tc.testName, quietResult.Stderr(), result.Combined()))
+			c.Fatal(fmt.Errorf("test[%s] expected that quiet stderr and verbose stdout are equal; quiet [%v], verbose [%v]", tc.testName, quietResult.Stderr(), result.Combined()))
 		}
 	}
 }
@@ -3529,7 +3529,7 @@ func (s *DockerCLIBuildSuite) TestBuildNotVerboseFailureRemote(c *testing.T) {
 	}
 
 	if normalize(quietResult.Stderr()) != normalize(result.Combined()) {
-		c.Fatal(fmt.Errorf("Test[%s] expected that quiet stderr and verbose stdout are equal; quiet [%v], verbose [%v]", name, quietResult.Stderr(), result.Combined()))
+		c.Fatal(fmt.Errorf("test[%s] expected that quiet stderr and verbose stdout are equal; quiet [%v], verbose [%v]", name, quietResult.Stderr(), result.Combined()))
 	}
 }
 

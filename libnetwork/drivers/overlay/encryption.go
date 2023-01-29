@@ -382,7 +382,7 @@ func saExists(sa *netlink.XfrmState) (bool, error) {
 	case syscall.ESRCH:
 		return false, nil
 	default:
-		err = fmt.Errorf("Error while checking for SA existence: %v", err)
+		err = fmt.Errorf("error while checking for SA existence: %v", err)
 		logrus.Warn(err)
 		return false, err
 	}
@@ -396,7 +396,7 @@ func spExists(sp *netlink.XfrmPolicy) (bool, error) {
 	case syscall.ENOENT:
 		return false, nil
 	default:
-		err = fmt.Errorf("Error while checking for SP existence: %v", err)
+		err = fmt.Errorf("error while checking for SP existence: %v", err)
 		logrus.Warn(err)
 		return false, err
 	}

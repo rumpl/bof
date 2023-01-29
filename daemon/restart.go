@@ -21,7 +21,7 @@ func (daemon *Daemon) ContainerRestart(ctx context.Context, name string, options
 	}
 	err = daemon.containerRestart(ctx, ctr, options)
 	if err != nil {
-		return fmt.Errorf("Cannot restart container %s: %v", name, err)
+		return fmt.Errorf("cannot restart container %s: %v", name, err)
 	}
 	return nil
 }

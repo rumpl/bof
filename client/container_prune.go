@@ -29,7 +29,7 @@ func (cli *Client) ContainersPrune(ctx context.Context, pruneFilters filters.Arg
 	}
 
 	if err := json.NewDecoder(serverResp.body).Decode(&report); err != nil {
-		return report, fmt.Errorf("Error retrieving disk usage: %v", err)
+		return report, fmt.Errorf("error retrieving disk usage: %v", err)
 	}
 
 	return report, nil

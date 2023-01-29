@@ -70,7 +70,7 @@ func FirewalldInit() error {
 	var err error
 
 	if connection, err = newConnection(); err != nil {
-		return fmt.Errorf("Failed to connect to D-Bus system bus: %v", err)
+		return fmt.Errorf("failed to connect to D-Bus system bus: %v", err)
 	}
 	firewalldRunning = checkRunning()
 	if !firewalldRunning {
@@ -282,7 +282,7 @@ func DelInterfaceFirewalld(intf string) error {
 	}
 	// Remove interface if it exists
 	if !contains(intfs, intf) {
-		return fmt.Errorf("Firewalld: unable to find interface %s in %s zone", intf, dockerZone)
+		return fmt.Errorf("firewalld: unable to find interface %s in %s zone", intf, dockerZone)
 	}
 
 	logrus.Debugf("Firewalld: removing %s interface from %s zone", intf, dockerZone)

@@ -280,7 +280,7 @@ func getIpamConfig(data []network.IPAMConfig) ([]*libnetwork.IpamConf, []*libnet
 		iCfg.AuxAddresses = d.AuxAddress
 		ip, _, err := net.ParseCIDR(d.Subnet)
 		if err != nil {
-			return nil, nil, fmt.Errorf("Invalid subnet %s : %v", d.Subnet, err)
+			return nil, nil, fmt.Errorf("invalid subnet %s : %v", d.Subnet, err)
 		}
 		if ip.To4() != nil {
 			ipamV4Cfg = append(ipamV4Cfg, &iCfg)
@@ -821,7 +821,7 @@ func getEndpointPortMapInfo(ep *libnetwork.Endpoint) (nat.PortMap, error) {
 			for _, tp := range exposedPorts {
 				natPort, err := nat.NewPort(tp.Proto.String(), strconv.Itoa(int(tp.Port)))
 				if err != nil {
-					return pm, fmt.Errorf("Error parsing Port value(%v):%v", tp.Port, err)
+					return pm, fmt.Errorf("error parsing Port value(%v):%v", tp.Port, err)
 				}
 				pm[natPort] = nil
 			}

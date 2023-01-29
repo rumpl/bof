@@ -402,7 +402,7 @@ func verifyPlatformContainerResources(resources *containertypes.Resources, sysIn
 
 	// memory subsystem checks and adjustments
 	if resources.Memory != 0 && resources.Memory < linuxMinMemory {
-		return warnings, fmt.Errorf("Minimum memory limit allowed is 6MB")
+		return warnings, fmt.Errorf("minimum memory limit allowed is 6MB")
 	}
 	if resources.Memory > 0 && !sysInfo.MemoryLimit {
 		warnings = append(warnings, "Your kernel does not support memory limit capabilities or the cgroup is not mounted. Limitation discarded.")
@@ -414,10 +414,10 @@ func verifyPlatformContainerResources(resources *containertypes.Resources, sysIn
 		resources.MemorySwap = -1
 	}
 	if resources.Memory > 0 && resources.MemorySwap > 0 && resources.MemorySwap < resources.Memory {
-		return warnings, fmt.Errorf("Minimum memoryswap limit should be larger than memory limit, see usage")
+		return warnings, fmt.Errorf("minimum memoryswap limit should be larger than memory limit, see usage")
 	}
 	if resources.Memory == 0 && resources.MemorySwap > 0 && !update {
-		return warnings, fmt.Errorf("You should always set the Memory limit when using Memoryswap limit, see usage")
+		return warnings, fmt.Errorf("you should always set the Memory limit when using Memoryswap limit, see usage")
 	}
 	if resources.MemorySwappiness != nil && !sysInfo.MemorySwappiness {
 		warnings = append(warnings, "Your kernel does not support memory swappiness capabilities or the cgroup is not mounted. Memory swappiness discarded.")
@@ -426,7 +426,7 @@ func verifyPlatformContainerResources(resources *containertypes.Resources, sysIn
 	if resources.MemorySwappiness != nil {
 		swappiness := *resources.MemorySwappiness
 		if swappiness < 0 || swappiness > 100 {
-			return warnings, fmt.Errorf("Invalid value: %v, valid memory swappiness range is 0-100", swappiness)
+			return warnings, fmt.Errorf("invalid value: %v, valid memory swappiness range is 0-100", swappiness)
 		}
 	}
 	if resources.MemoryReservation > 0 && !sysInfo.MemoryReservation {
@@ -434,10 +434,10 @@ func verifyPlatformContainerResources(resources *containertypes.Resources, sysIn
 		resources.MemoryReservation = 0
 	}
 	if resources.MemoryReservation > 0 && resources.MemoryReservation < linuxMinMemory {
-		return warnings, fmt.Errorf("Minimum memory reservation allowed is 6MB")
+		return warnings, fmt.Errorf("minimum memory reservation allowed is 6MB")
 	}
 	if resources.Memory > 0 && resources.MemoryReservation > 0 && resources.Memory < resources.MemoryReservation {
-		return warnings, fmt.Errorf("Minimum memory limit can not be less than memory reservation limit, see usage")
+		return warnings, fmt.Errorf("minimum memory limit can not be less than memory reservation limit, see usage")
 	}
 	if resources.KernelMemory > 0 {
 		// Kernel memory limit is not supported on cgroup v2.
@@ -448,7 +448,7 @@ func verifyPlatformContainerResources(resources *containertypes.Resources, sysIn
 			resources.KernelMemory = 0
 		}
 		if resources.KernelMemory > 0 && resources.KernelMemory < linuxMinMemory {
-			return warnings, fmt.Errorf("Minimum kernel memory limit allowed is 6MB")
+			return warnings, fmt.Errorf("minimum kernel memory limit allowed is 6MB")
 		}
 		if !kernel.CheckKernelVersion(4, 0, 0) {
 			warnings = append(warnings, "You specified a kernel memory limit on a kernel older than 4.0. Kernel memory limits are experimental on older kernels, it won't work as expected and can cause your system to be unstable.")
@@ -474,10 +474,10 @@ func verifyPlatformContainerResources(resources *containertypes.Resources, sysIn
 
 	// cpu subsystem checks and adjustments
 	if resources.NanoCPUs > 0 && resources.CPUPeriod > 0 {
-		return warnings, fmt.Errorf("Conflicting options: Nano CPUs and CPU Period cannot both be set")
+		return warnings, fmt.Errorf("conflicting options: Nano CPUs and CPU Period cannot both be set")
 	}
 	if resources.NanoCPUs > 0 && resources.CPUQuota > 0 {
-		return warnings, fmt.Errorf("Conflicting options: Nano CPUs and CPU Quota cannot both be set")
+		return warnings, fmt.Errorf("conflicting options: Nano CPUs and CPU Quota cannot both be set")
 	}
 	if resources.NanoCPUs > 0 && !sysInfo.CPUCfs {
 		return warnings, fmt.Errorf("NanoCPUs can not be set, as your kernel does not support CPU CFS scheduler or the cgroup is not mounted")
@@ -490,7 +490,7 @@ func verifyPlatformContainerResources(resources *containertypes.Resources, sysIn
 	// Here we don't set the lower limit and it is up to the underlying platform (e.g., Linux) to return an error.
 	// The error message is 0.01 so that this is consistent with Windows
 	if resources.NanoCPUs < 0 || resources.NanoCPUs > int64(sysinfo.NumCPU())*1e9 {
-		return warnings, fmt.Errorf("Range of CPUs is from 0.01 to %d.00, as there are only %d CPUs available", sysinfo.NumCPU(), sysinfo.NumCPU())
+		return warnings, fmt.Errorf("range of CPUs is from 0.01 to %d.00, as there are only %d CPUs available", sysinfo.NumCPU(), sysinfo.NumCPU())
 	}
 
 	if resources.CPUShares > 0 && !sysInfo.CPUShares {
@@ -524,14 +524,14 @@ func verifyPlatformContainerResources(resources *containertypes.Resources, sysIn
 		return warnings, errors.Wrapf(err, "Invalid value %s for cpuset cpus", resources.CpusetCpus)
 	}
 	if !cpusAvailable {
-		return warnings, fmt.Errorf("Requested CPUs are not available - requested %s, available: %s", resources.CpusetCpus, sysInfo.Cpus)
+		return warnings, fmt.Errorf("requested CPUs are not available - requested %s, available: %s", resources.CpusetCpus, sysInfo.Cpus)
 	}
 	memsAvailable, err := sysInfo.IsCpusetMemsAvailable(resources.CpusetMems)
 	if err != nil {
 		return warnings, errors.Wrapf(err, "Invalid value %s for cpuset mems", resources.CpusetMems)
 	}
 	if !memsAvailable {
-		return warnings, fmt.Errorf("Requested memory nodes are not available - requested %s, available: %s", resources.CpusetMems, sysInfo.Mems)
+		return warnings, fmt.Errorf("requested memory nodes are not available - requested %s, available: %s", resources.CpusetMems, sysInfo.Mems)
 	}
 
 	// blkio subsystem checks and adjustments
@@ -540,10 +540,10 @@ func verifyPlatformContainerResources(resources *containertypes.Resources, sysIn
 		resources.BlkioWeight = 0
 	}
 	if resources.BlkioWeight > 0 && (resources.BlkioWeight < 10 || resources.BlkioWeight > 1000) {
-		return warnings, fmt.Errorf("Range of blkio weight is from 10 to 1000")
+		return warnings, fmt.Errorf("range of blkio weight is from 10 to 1000")
 	}
 	if resources.IOMaximumBandwidth != 0 || resources.IOMaximumIOps != 0 {
-		return warnings, fmt.Errorf("Invalid QoS settings: %s does not support Maximum IO Bandwidth or Maximum IO IOps", runtime.GOOS)
+		return warnings, fmt.Errorf("invalid QoS settings: %s does not support Maximum IO Bandwidth or Maximum IO IOps", runtime.GOOS)
 	}
 	if len(resources.BlkioWeightDevice) > 0 && !sysInfo.BlkioWeightDevice {
 		warnings = append(warnings, "Your kernel does not support Block I/O weight_device or the cgroup is not mounted. Weight-device discarded.")
@@ -671,7 +671,7 @@ func verifyPlatformContainerSettings(daemon *Daemon, hostConfig *containertypes.
 	}
 
 	if hostConfig.OomScoreAdj < -1000 || hostConfig.OomScoreAdj > 1000 {
-		return warnings, fmt.Errorf("Invalid value %d, range for oom score adj is [-1000, 1000]", hostConfig.OomScoreAdj)
+		return warnings, fmt.Errorf("invalid value %d, range for oom score adj is [-1000, 1000]", hostConfig.OomScoreAdj)
 	}
 
 	// ip-forwarding does not affect container with '--net=host' (or '--net=none')
@@ -734,10 +734,10 @@ func verifyDaemonSettings(conf *config.Config) error {
 	}
 	// Check for mutually incompatible config options
 	if conf.BridgeConfig.Iface != "" && conf.BridgeConfig.IP != "" {
-		return fmt.Errorf("You specified -b & --bip, mutually exclusive options. Please specify only one")
+		return fmt.Errorf("you specified -b & --bip, mutually exclusive options. Please specify only one")
 	}
 	if !conf.BridgeConfig.EnableIPTables && !conf.BridgeConfig.InterContainerCommunication {
-		return fmt.Errorf("You specified --iptables=false with --icc=false. ICC=false uses iptables to function. Please set --icc or --iptables to true")
+		return fmt.Errorf("you specified --iptables=false with --icc=false. ICC=false uses iptables to function. Please set --icc or --iptables to true")
 	}
 	if conf.BridgeConfig.EnableIP6Tables && !conf.Experimental {
 		return fmt.Errorf("ip6tables rules are only available if experimental features are enabled")
@@ -1062,7 +1062,7 @@ func initBridgeDriver(controller *libnetwork.Controller, config *config.Config) 
 		libnetwork.NetworkOptionIpam("default", "", v4Conf, v6Conf, nil),
 		libnetwork.NetworkOptionDeferIPv6Alloc(deferIPv6Alloc))
 	if err != nil {
-		return fmt.Errorf("Error creating default \"bridge\" network: %v", err)
+		return fmt.Errorf("error creating default \"bridge\" network: %v", err)
 	}
 	return nil
 }
@@ -1101,7 +1101,7 @@ func parseRemappedRoot(usergrp string) (string, string, error) {
 
 	idparts := strings.Split(usergrp, ":")
 	if len(idparts) > 2 {
-		return "", "", fmt.Errorf("Invalid user/group specification in --userns-remap: %q", usergrp)
+		return "", "", fmt.Errorf("invalid user/group specification in --userns-remap: %q", usergrp)
 	}
 
 	if uid, err := strconv.ParseInt(idparts[0], 10, 32); err == nil {
@@ -1109,7 +1109,7 @@ func parseRemappedRoot(usergrp string) (string, string, error) {
 		userID = int(uid)
 		luser, err := idtools.LookupUID(userID)
 		if err != nil {
-			return "", "", fmt.Errorf("Uid %d has no entry in /etc/passwd: %v", userID, err)
+			return "", "", fmt.Errorf("uid %d has no entry in /etc/passwd: %v", userID, err)
 		}
 		username = luser.Name
 		if len(idparts) == 1 {
@@ -1117,7 +1117,7 @@ func parseRemappedRoot(usergrp string) (string, string, error) {
 			groupID = userID
 			lgrp, err := idtools.LookupGID(groupID)
 			if err != nil {
-				return "", "", fmt.Errorf("Gid %d has no entry in /etc/group: %v", groupID, err)
+				return "", "", fmt.Errorf("gid %d has no entry in /etc/group: %v", groupID, err)
 			}
 			groupname = lgrp.Name
 		}
@@ -1131,7 +1131,7 @@ func parseRemappedRoot(usergrp string) (string, string, error) {
 		luser, err := idtools.LookupUser(lookupName)
 		if err != nil && idparts[0] != defaultIDSpecifier {
 			// error if the name requested isn't the special "dockremap" ID
-			return "", "", fmt.Errorf("Error during uid lookup for %q: %v", lookupName, err)
+			return "", "", fmt.Errorf("error during uid lookup for %q: %v", lookupName, err)
 		} else if err != nil {
 			// special case-- if the username == "default", then we have been asked
 			// to create a new entry pair in /etc/{passwd,group} for which the /etc/sub{uid,gid}
@@ -1140,14 +1140,14 @@ func parseRemappedRoot(usergrp string) (string, string, error) {
 			if err == nil {
 				return defaultRemappedID, defaultRemappedID, nil
 			}
-			return "", "", fmt.Errorf("Error during %q user creation: %v", defaultRemappedID, err)
+			return "", "", fmt.Errorf("error during %q user creation: %v", defaultRemappedID, err)
 		}
 		username = luser.Name
 		if len(idparts) == 1 {
 			// we only have a string username, and no group specified; look up gid from username as group
 			group, err := idtools.LookupGroup(lookupName)
 			if err != nil {
-				return "", "", fmt.Errorf("Error during gid lookup for %q: %v", lookupName, err)
+				return "", "", fmt.Errorf("error during gid lookup for %q: %v", lookupName, err)
 			}
 			groupname = group.Name
 		}
@@ -1161,13 +1161,13 @@ func parseRemappedRoot(usergrp string) (string, string, error) {
 			groupID = int(gid)
 			lgrp, err := idtools.LookupGID(groupID)
 			if err != nil {
-				return "", "", fmt.Errorf("Gid %d has no entry in /etc/passwd: %v", groupID, err)
+				return "", "", fmt.Errorf("gid %d has no entry in /etc/passwd: %v", groupID, err)
 			}
 			groupname = lgrp.Name
 		} else {
 			// not a number; attempt a lookup
 			if _, err := idtools.LookupGroup(idparts[1]); err != nil {
-				return "", "", fmt.Errorf("Error during groupname lookup for %q: %v", idparts[1], err)
+				return "", "", fmt.Errorf("error during groupname lookup for %q: %v", idparts[1], err)
 			}
 			groupname = idparts[1]
 		}
@@ -1177,7 +1177,7 @@ func parseRemappedRoot(usergrp string) (string, string, error) {
 
 func setupRemappedRoot(config *config.Config) (idtools.IdentityMapping, error) {
 	if runtime.GOOS != "linux" && config.RemappedRoot != "" {
-		return idtools.IdentityMapping{}, fmt.Errorf("User namespaces are only supported on Linux")
+		return idtools.IdentityMapping{}, fmt.Errorf("user namespaces are only supported on Linux")
 	}
 
 	// if the daemon was started with remapped root option, parse
@@ -1241,7 +1241,7 @@ func setupDaemonRoot(config *config.Config, rootDir string, remappedRoot idtools
 		logrus.Debugf("Creating user namespaced daemon root: %s", config.Root)
 		// Create the root directory if it doesn't exist
 		if err := idtools.MkdirAllAndChown(config.Root, 0710, id); err != nil {
-			return fmt.Errorf("Cannot create daemon root: %s: %v", config.Root, err)
+			return fmt.Errorf("cannot create daemon root: %s: %v", config.Root, err)
 		}
 		// we also need to verify that any pre-existing directories in the path to
 		// the graphroot won't block access to remapped root--if any pre-existing directory

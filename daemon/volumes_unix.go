@@ -41,7 +41,7 @@ func (daemon *Daemon) setupMounts(c *container.Container) ([]container.Mount, er
 		// create at directory instead. This in turn will prevent the daemon to restart.
 		checkfunc := func(m *volumemounts.MountPoint) error {
 			if _, exist := daemon.hosts[m.Source]; exist && daemon.IsShuttingDown() {
-				return fmt.Errorf("Could not mount %q to container while the daemon is shutting down", m.Source)
+				return fmt.Errorf("could not mount %q to container while the daemon is shutting down", m.Source)
 			}
 			return nil
 		}

@@ -51,7 +51,7 @@ func AddNamespaceRangesUser(name string) (int, int, error) {
 	}
 	gid, err := strconv.Atoi(matches[2])
 	if err != nil {
-		return -1, -1, fmt.Errorf("Can't convert found gid (%s) to int: %v", matches[2], err)
+		return -1, -1, fmt.Errorf("can't convert found gid (%s) to int: %v", matches[2], err)
 	}
 
 	// Now we need to create the subuid/subgid ranges for our new user/group (system users

@@ -31,7 +31,7 @@ import (
 
 var (
 	// ErrApplyDiffFallback is returned to indicate that a normal ApplyDiff is applied as a fallback from Naive diff writer.
-	ErrApplyDiffFallback = fmt.Errorf("Fall back to normal ApplyDiff")
+	ErrApplyDiffFallback = fmt.Errorf("fall back to normal ApplyDiff")
 	backingFs            = "<unknown>"
 )
 

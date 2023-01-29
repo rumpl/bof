@@ -292,7 +292,7 @@ func (ep *bridgeEndpoint) UnmarshalJSON(b []byte) error {
 	)
 
 	if err = json.Unmarshal(b, &epMap); err != nil {
-		return fmt.Errorf("Failed to unmarshal to bridge endpoint: %v", err)
+		return fmt.Errorf("failed to unmarshal to bridge endpoint: %v", err)
 	}
 
 	if v, ok := epMap["MacAddress"]; ok {

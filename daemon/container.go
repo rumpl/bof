@@ -104,7 +104,7 @@ func (daemon *Daemon) load(id string) (*container.Container, error) {
 	selinux.ReserveLabel(ctr.ProcessLabel)
 
 	if ctr.ID != id {
-		return ctr, fmt.Errorf("Container %s is stored at %s", ctr.ID, id)
+		return ctr, fmt.Errorf("container %s is stored at %s", ctr.ID, id)
 	}
 
 	return ctr, nil
@@ -169,7 +169,7 @@ func (daemon *Daemon) newContainer(name string, operatingSystem string, config *
 // GetByName returns a container given a name.
 func (daemon *Daemon) GetByName(name string) (*container.Container, error) {
 	if len(name) == 0 {
-		return nil, fmt.Errorf("No container name supplied")
+		return nil, fmt.Errorf("no container name supplied")
 	}
 	fullName := name
 	if name[0] != '/' {
@@ -177,11 +177,11 @@ func (daemon *Daemon) GetByName(name string) (*container.Container, error) {
 	}
 	id, err := daemon.containersReplica.Snapshot().GetID(fullName)
 	if err != nil {
-		return nil, fmt.Errorf("Could not find entity for %s", name)
+		return nil, fmt.Errorf("could not find entity for %s", name)
 	}
 	e := daemon.containers.Get(id)
 	if e == nil {
-		return nil, fmt.Errorf("Could not find container for entity id %s", id)
+		return nil, fmt.Errorf("could not find container for entity id %s", id)
 	}
 	return e, nil
 }

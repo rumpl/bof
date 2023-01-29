@@ -106,7 +106,7 @@ func (daemon *Daemon) ContainerExecCreate(name string, config *types.ExecConfig)
 	if config.DetachKeys != "" {
 		keys, err = term.ToBytes(config.DetachKeys)
 		if err != nil {
-			err = fmt.Errorf("Invalid escape keys (%s) provided", config.DetachKeys)
+			err = fmt.Errorf("invalid escape keys (%s) provided", config.DetachKeys)
 			return "", err
 		}
 	}
@@ -163,13 +163,13 @@ func (daemon *Daemon) ContainerExecStart(ctx context.Context, name string, optio
 	ec.Lock()
 	if ec.ExitCode != nil {
 		ec.Unlock()
-		err := fmt.Errorf("Error: Exec command %s has already run", ec.ID)
+		err := fmt.Errorf("error: Exec command %s has already run", ec.ID)
 		return errdefs.Conflict(err)
 	}
 
 	if ec.Running {
 		ec.Unlock()
-		return errdefs.Conflict(fmt.Errorf("Error: Exec command %s is already running", ec.ID))
+		return errdefs.Conflict(fmt.Errorf("error: Exec command %s is already running", ec.ID))
 	}
 	ec.Running = true
 	ec.Unlock()

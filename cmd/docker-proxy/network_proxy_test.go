@@ -161,7 +161,7 @@ func testProxyAt(t *testing.T, proto string, proxy Proxy, addr string, halfClose
 		t.Fatal(err)
 	}
 	if !bytes.Equal(testBuf, recvBuf) {
-		t.Fatal(fmt.Errorf("Expected [%v] but got [%v]", testBuf, recvBuf))
+		t.Fatal(fmt.Errorf("expected [%v] but got [%v]", testBuf, recvBuf))
 	}
 }
 
@@ -276,7 +276,7 @@ func TestUDPWriteError(t *testing.T) {
 		t.Fatal(err)
 	}
 	if !bytes.Equal(testBuf, recvBuf) {
-		t.Fatal(fmt.Errorf("Expected [%v] but got [%v]", testBuf, recvBuf))
+		t.Fatal(fmt.Errorf("expected [%v] but got [%v]", testBuf, recvBuf))
 	}
 }
 

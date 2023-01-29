@@ -16,7 +16,7 @@ func setupVerifyAndReconcile(config *networkConfiguration, i *bridgeInterface) e
 	// Fetch a slice of IPv4 addresses and a slice of IPv6 addresses from the bridge.
 	addrsv4, addrsv6, err := i.addresses()
 	if err != nil {
-		return fmt.Errorf("Failed to verify ip addresses: %v", err)
+		return fmt.Errorf("failed to verify ip addresses: %v", err)
 	}
 
 	addrv4, _ := selectIPv4Address(addrsv4, config.AddressIPv4)

@@ -24,12 +24,12 @@ func setupBridgeIPv6(config *networkConfiguration, i *bridgeInterface) error {
 	procFile := "/proc/sys/net/ipv6/conf/" + config.BridgeName + "/disable_ipv6"
 	ipv6BridgeData, err := os.ReadFile(procFile)
 	if err != nil {
-		return fmt.Errorf("Cannot read IPv6 setup for bridge %v: %v", config.BridgeName, err)
+		return fmt.Errorf("cannot read IPv6 setup for bridge %v: %v", config.BridgeName, err)
 	}
 	// Enable IPv6 on the bridge only if it isn't already enabled
 	if ipv6BridgeData[0] != '0' {
 		if err := os.WriteFile(procFile, []byte{'0', '\n'}, ipv6ForwardConfPerm); err != nil {
-			return fmt.Errorf("Unable to enable IPv6 addresses on bridge: %v", err)
+			return fmt.Errorf("unable to enable IPv6 addresses on bridge: %v", err)
 		}
 	}
 
@@ -85,7 +85,7 @@ func setupIPv6Forwarding(config *networkConfiguration, i *bridgeInterface) error
 	// Get current IPv6 default forwarding setup
 	ipv6ForwardDataDefault, err := os.ReadFile(ipv6ForwardConfDefault)
 	if err != nil {
-		return fmt.Errorf("Cannot read IPv6 default forwarding setup: %v", err)
+		return fmt.Errorf("cannot read IPv6 default forwarding setup: %v", err)
 	}
 	// Enable IPv6 default forwarding only if it is not already enabled
 	if ipv6ForwardDataDefault[0] != '1' {
@@ -97,7 +97,7 @@ func setupIPv6Forwarding(config *networkConfiguration, i *bridgeInterface) error
 	// Get current IPv6 all forwarding setup
 	ipv6ForwardDataAll, err := os.ReadFile(ipv6ForwardConfAll)
 	if err != nil {
-		return fmt.Errorf("Cannot read IPv6 all forwarding setup: %v", err)
+		return fmt.Errorf("cannot read IPv6 all forwarding setup: %v", err)
 	}
 	// Enable IPv6 all forwarding only if it is not already enabled
 	if ipv6ForwardDataAll[0] != '1' {

@@ -213,7 +213,7 @@ func (l *tarexporter) setLoadedTag(ref reference.Named, imgID digest.Digest, out
 
 func (l *tarexporter) legacyLoad(tmpDir string, outStream io.Writer, progressOutput progress.Output) error {
 	if runtime.GOOS == "windows" {
-		return errors.New("Windows does not support legacy loading of images")
+		return errors.New("windows does not support legacy loading of images")
 	}
 
 	legacyLoadedMap := make(map[string]image.ID)

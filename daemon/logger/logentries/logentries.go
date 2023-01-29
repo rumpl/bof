@@ -109,7 +109,7 @@ func ValidateLogOpt(cfg map[string]string) error {
 	}
 
 	if cfg[token] == "" {
-		return fmt.Errorf("Missing logentries token")
+		return fmt.Errorf("missing logentries token")
 	}
 
 	return nil

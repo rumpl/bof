@@ -305,7 +305,7 @@ func New(info logger.Info) (logger.Logger, error) {
 		case splunkFormatJSON:
 		case splunkFormatRaw:
 		default:
-			return nil, fmt.Errorf("Unknown format specified %s, supported formats are inline, json and raw", splunkFormat)
+			return nil, fmt.Errorf("unknown format specified %s, supported formats are inline, json and raw", splunkFormat)
 		}
 		splunkFormat = splunkFormatParsed
 	} else {
@@ -344,7 +344,7 @@ func New(info logger.Info) (logger.Logger, error) {
 
 		loggerWrapper = &splunkLoggerRaw{logger, prefix.Bytes()}
 	default:
-		return nil, fmt.Errorf("Unexpected format %s", splunkFormat)
+		return nil, fmt.Errorf("unexpected format %s", splunkFormat)
 	}
 
 	go loggerWrapper.worker()
@@ -458,7 +458,7 @@ func (l *splunkLogger) postMessages(messages []*splunkMessage, lastChance bool) 
 					if jsonEvent, err := json.Marshal(messages[j]); err != nil {
 						logrus.Error(err)
 					} else {
-						logrus.Error(fmt.Errorf("Failed to send a message '%s'", string(jsonEvent)))
+						logrus.Error(fmt.Errorf("failed to send a message '%s'", string(jsonEvent)))
 					}
 				}
 				return messages[upperBound:messagesLen]

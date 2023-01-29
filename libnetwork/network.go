@@ -2246,7 +2246,7 @@ func (n *network) deleteLoadBalancerSandbox() error {
 	}
 
 	if err := c.SandboxDestroy(sandboxName); err != nil {
-		return fmt.Errorf("Failed to delete %s sandbox: %v", sandboxName, err)
+		return fmt.Errorf("failed to delete %s sandbox: %v", sandboxName, err)
 	}
 	return nil
 }

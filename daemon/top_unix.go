@@ -78,7 +78,7 @@ func parsePSOutput(output []byte, procs []uint32) (*container.ContainerTopOKBody
 		}
 	}
 	if pidIndex == -1 {
-		return nil, fmt.Errorf("Couldn't find PID field in ps output")
+		return nil, fmt.Errorf("couldn't find PID field in ps output")
 	}
 
 	// loop through the output and extract the PID from each line
@@ -104,7 +104,7 @@ func parsePSOutput(output []byte, procs []uint32) (*container.ContainerTopOKBody
 		}
 		p, err = strconv.Atoi(fields[pidIndex])
 		if err != nil {
-			return nil, fmt.Errorf("Unexpected pid '%s': %s", fields[pidIndex], err)
+			return nil, fmt.Errorf("unexpected pid '%s': %s", fields[pidIndex], err)
 		}
 
 		if hasPid(procs, p) {

@@ -41,7 +41,7 @@ func TestImageSearchWithUnauthorizedErrorAndPrivilegeFuncError(t *testing.T) {
 		client: newMockClient(errorMock(http.StatusUnauthorized, "Unauthorized error")),
 	}
 	privilegeFunc := func() (string, error) {
-		return "", fmt.Errorf("Error requesting privilege")
+		return "", fmt.Errorf("error requesting privilege")
 	}
 	_, err := client.ImageSearch(context.Background(), "some-image", types.ImageSearchOptions{
 		PrivilegeFunc: privilegeFunc,
@@ -71,7 +71,7 @@ func TestImageSearchWithPrivilegedFuncNoError(t *testing.T) {
 	client := &Client{
 		client: newMockClient(func(req *http.Request) (*http.Response, error) {
 			if !strings.HasPrefix(req.URL.Path, expectedURL) {
-				return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, req.URL)
+				return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, req.URL)
 			}
 			auth := req.Header.Get(registry.AuthHeader)
 			if auth == "NotValid" {
@@ -128,7 +128,7 @@ func TestImageSearchWithoutErrors(t *testing.T) {
 	client := &Client{
 		client: newMockClient(func(req *http.Request) (*http.Response, error) {
 			if !strings.HasPrefix(req.URL.Path, expectedURL) {
-				return nil, fmt.Errorf("Expected URL '%s', got '%s'", expectedURL, req.URL)
+				return nil, fmt.Errorf("expected URL '%s', got '%s'", expectedURL, req.URL)
 			}
 			query := req.URL.Query()
 			term := query.Get("term")

@@ -65,7 +65,7 @@ func (daemon *Daemon) CheckpointCreate(name string, config types.CheckpointCreat
 	}
 
 	if !validCheckpointNamePattern.MatchString(config.CheckpointID) {
-		return fmt.Errorf("Invalid checkpoint ID (%s), only %s are allowed", config.CheckpointID, validCheckpointNameChars)
+		return fmt.Errorf("invalid checkpoint ID (%s), only %s are allowed", config.CheckpointID, validCheckpointNameChars)
 	}
 
 	checkpointDir, err := getCheckpointDir(config.CheckpointDir, config.CheckpointID, name, container.ID, container.CheckpointDir(), true)
@@ -76,7 +76,7 @@ func (daemon *Daemon) CheckpointCreate(name string, config types.CheckpointCreat
 	err = tsk.CreateCheckpoint(context.Background(), checkpointDir, config.Exit)
 	if err != nil {
 		os.RemoveAll(checkpointDir)
-		return fmt.Errorf("Cannot checkpoint container %s: %s", name, err)
+		return fmt.Errorf("cannot checkpoint container %s: %s", name, err)
 	}
 
 	daemon.LogContainerEvent(container, "checkpoint")

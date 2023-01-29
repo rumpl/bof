@@ -24,24 +24,24 @@ func (daemon *Daemon) ContainerExport(name string, out io.Writer) error {
 	}
 
 	if ctr.IsDead() {
-		err := fmt.Errorf("You cannot export container %s which is Dead", ctr.ID)
+		err := fmt.Errorf("you cannot export container %s which is Dead", ctr.ID)
 		return errdefs.Conflict(err)
 	}
 
 	if ctr.IsRemovalInProgress() {
-		err := fmt.Errorf("You cannot export container %s which is being removed", ctr.ID)
+		err := fmt.Errorf("you cannot export container %s which is being removed", ctr.ID)
 		return errdefs.Conflict(err)
 	}
 
 	data, err := daemon.containerExport(ctr)
 	if err != nil {
-		return fmt.Errorf("Error exporting container %s: %v", name, err)
+		return fmt.Errorf("error exporting container %s: %v", name, err)
 	}
 	defer data.Close()
 
 	// Stream the entire contents of the container (basically a volatile snapshot)
 	if _, err := io.Copy(out, data); err != nil {
-		return fmt.Errorf("Error exporting container %s: %v", name, err)
+		return fmt.Errorf("error exporting container %s: %v", name, err)
 	}
 	return nil
 }

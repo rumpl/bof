@@ -37,7 +37,7 @@ const ProtocolSchemeHTTPV1 = "moby.plugins.http/v1"
 
 var (
 	// ErrNotImplements is returned if the plugin does not implement the requested driver.
-	ErrNotImplements = errors.New("Plugin does not implement the requested driver")
+	ErrNotImplements = errors.New("plugin does not implement the requested driver")
 )
 
 type plugins struct {
@@ -255,7 +255,7 @@ func get(name string) (*Plugin, error) {
 // Get returns the plugin given the specified name and requested implementation.
 func Get(name, imp string) (*Plugin, error) {
 	if name == "" {
-		return nil, errors.New("Unable to find plugin without name")
+		return nil, errors.New("unable to find plugin without name")
 	}
 	pl, err := get(name)
 	if err != nil {

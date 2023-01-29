@@ -157,7 +157,7 @@ func (daemon *Daemon) buildSandboxOptions(container *container.Container) ([]lib
 				portStart, portEnd, err = newP.Range()
 			}
 			if err != nil {
-				return nil, fmt.Errorf("Error parsing HostPort value(%s):%v", binding[i].HostPort, err)
+				return nil, fmt.Errorf("error parsing HostPort value(%s):%v", binding[i].HostPort, err)
 			}
 			pbCopy.HostPort = uint16(portStart)
 			pbCopy.HostPortEnd = uint16(portEnd)
@@ -194,7 +194,7 @@ func (daemon *Daemon) buildSandboxOptions(container *container.Container) ([]lib
 	children := daemon.children(container)
 	for linkAlias, child := range children {
 		if !isLinkable(child) {
-			return nil, fmt.Errorf("Cannot link to %s, as it does not belong to the default network", child.Name)
+			return nil, fmt.Errorf("cannot link to %s, as it does not belong to the default network", child.Name)
 		}
 		_, alias := path.Split(linkAlias)
 		// allow access to the linked container via the alias, real name, and container hostname
@@ -337,11 +337,11 @@ func (daemon *Daemon) updateNetwork(container *container.Container) error {
 
 	sbOptions, err := daemon.buildSandboxOptions(container)
 	if err != nil {
-		return fmt.Errorf("Update network failed: %v", err)
+		return fmt.Errorf("update network failed: %v", err)
 	}
 
 	if err := sb.Refresh(sbOptions...); err != nil {
-		return fmt.Errorf("Update network failed: Failure in refresh sandbox %s: %v", sid, err)
+		return fmt.Errorf("update network failed: Failure in refresh sandbox %s: %v", sid, err)
 	}
 
 	networkActions.WithValues("update").UpdateSince(start)
@@ -803,12 +803,12 @@ func (daemon *Daemon) connectToNetwork(container *container.Container, idOrName 
 	if !container.Managed {
 		// add container name/alias to DNS
 		if err := daemon.ActivateContainerServiceBinding(container.Name); err != nil {
-			return fmt.Errorf("Activate container service binding for %s failed: %v", container.Name, err)
+			return fmt.Errorf("activate container service binding for %s failed: %v", container.Name, err)
 		}
 	}
 
 	if err := updateJoinInfo(container.NetworkSettings, n, ep); err != nil {
-		return fmt.Errorf("Updating join info failed: %v", err)
+		return fmt.Errorf("updating join info failed: %v", err)
 	}
 
 	container.NetworkSettings.Ports = getPortMapInfo(sb)
@@ -1021,7 +1021,7 @@ func (daemon *Daemon) tryDetachContainerFromClusterNetwork(network libnetwork.Ne
 }
 
 func errRemovalContainer(containerID string) error {
-	return fmt.Errorf("Container %s is marked for removal and cannot be connected or disconnected to the network", containerID)
+	return fmt.Errorf("container %s is marked for removal and cannot be connected or disconnected to the network", containerID)
 }
 
 // ConnectToNetwork connects a container to a network

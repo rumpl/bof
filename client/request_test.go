@@ -56,13 +56,13 @@ func TestSetHostHeader(t *testing.T) {
 		client := &Client{
 			client: newMockClient(func(req *http.Request) (*http.Response, error) {
 				if !strings.HasPrefix(req.URL.Path, testURL) {
-					return nil, fmt.Errorf("Test Case #%d: Expected URL %q, got %q", c, testURL, req.URL)
+					return nil, fmt.Errorf("test Case #%d: Expected URL %q, got %q", c, testURL, req.URL)
 				}
 				if req.Host != test.expectedHost {
-					return nil, fmt.Errorf("Test Case #%d: Expected host %q, got %q", c, test.expectedHost, req.Host)
+					return nil, fmt.Errorf("test Case #%d: Expected host %q, got %q", c, test.expectedHost, req.Host)
 				}
 				if req.URL.Host != test.expectedURLHost {
-					return nil, fmt.Errorf("Test Case #%d: Expected URL host %q, got %q", c, test.expectedURLHost, req.URL.Host)
+					return nil, fmt.Errorf("test Case #%d: Expected URL host %q, got %q", c, test.expectedURLHost, req.URL.Host)
 				}
 				return &http.Response{
 					StatusCode: http.StatusOK,

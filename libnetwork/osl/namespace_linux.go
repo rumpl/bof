@@ -380,12 +380,12 @@ func (n *networkNamespace) DisableARPForVIP(srcName string) (Err error) {
 	err := n.InvokeFunc(func() {
 		path := filepath.Join("/proc/sys/net/ipv4/conf", dstName, "arp_ignore")
 		if err := os.WriteFile(path, []byte{'1', '\n'}, 0644); err != nil {
-			Err = fmt.Errorf("Failed to set %s to 1: %v", path, err)
+			Err = fmt.Errorf("failed to set %s to 1: %v", path, err)
 			return
 		}
 		path = filepath.Join("/proc/sys/net/ipv4/conf", dstName, "arp_announce")
 		if err := os.WriteFile(path, []byte{'2', '\n'}, 0644); err != nil {
-			Err = fmt.Errorf("Failed to set %s to 2: %v", path, err)
+			Err = fmt.Errorf("failed to set %s to 2: %v", path, err)
 			return
 		}
 	})

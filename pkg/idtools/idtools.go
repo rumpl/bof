@@ -82,7 +82,7 @@ func toContainer(hostID int, idMap []IDMap) (int, error) {
 			return contID, nil
 		}
 	}
-	return -1, fmt.Errorf("Host ID %d cannot be mapped to a container ID", hostID)
+	return -1, fmt.Errorf("host ID %d cannot be mapped to a container ID", hostID)
 }
 
 // toHost takes an id mapping and a remapped ID, and translates the
@@ -98,7 +98,7 @@ func toHost(contID int, idMap []IDMap) (int, error) {
 			return hostID, nil
 		}
 	}
-	return -1, fmt.Errorf("Container ID %d cannot be mapped to a host ID", contID)
+	return -1, fmt.Errorf("container ID %d cannot be mapped to a host ID", contID)
 }
 
 // Identity is either a UID and GID pair or a SID (but not both)
@@ -205,16 +205,16 @@ func parseSubidFile(path, username string) (ranges, error) {
 		}
 		parts := strings.Split(text, ":")
 		if len(parts) != 3 {
-			return rangeList, fmt.Errorf("Cannot parse subuid/gid information: Format not correct for %s file", path)
+			return rangeList, fmt.Errorf("cannot parse subuid/gid information: Format not correct for %s file", path)
 		}
 		if parts[0] == username || username == "ALL" {
 			startid, err := strconv.Atoi(parts[1])
 			if err != nil {
-				return rangeList, fmt.Errorf("String to int conversion failed during subuid/gid parsing of %s: %v", path, err)
+				return rangeList, fmt.Errorf("string to int conversion failed during subuid/gid parsing of %s: %v", path, err)
 			}
 			length, err := strconv.Atoi(parts[2])
 			if err != nil {
-				return rangeList, fmt.Errorf("String to int conversion failed during subuid/gid parsing of %s: %v", path, err)
+				return rangeList, fmt.Errorf("string to int conversion failed during subuid/gid parsing of %s: %v", path, err)
 			}
 			rangeList = append(rangeList, subIDRange{startid, length})
 		}

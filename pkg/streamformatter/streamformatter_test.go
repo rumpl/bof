@@ -41,7 +41,7 @@ func TestFormatStatus(t *testing.T) {
 }
 
 func TestFormatError(t *testing.T) {
-	res := FormatError(errors.New("Error for formatter"))
+	res := FormatError(errors.New("error for formatter"))
 	expected := `{"errorDetail":{"message":"Error for formatter"},"error":"Error for formatter"}` + "\r\n"
 	assert.Check(t, is.Equal(expected, string(res)))
 }

@@ -487,7 +487,7 @@ func (daemon *Daemon) restore() error {
 	// Note that we cannot initialize the network controller earlier, as it
 	// needs to know if there's active sandboxes (running containers).
 	if err = daemon.initNetworkController(activeSandboxes); err != nil {
-		return fmt.Errorf("Error initializing network controller: %v", err)
+		return fmt.Errorf("error initializing network controller: %v", err)
 	}
 
 	// Now that all the containers are registered, register the links
@@ -660,15 +660,15 @@ func NewDaemon(ctx context.Context, config *config.Config, pluginStore *plugin.S
 	// set up the tmpDir to use a canonical path
 	tmp, err := prepareTempDir(config.Root)
 	if err != nil {
-		return nil, fmt.Errorf("Unable to get the TempDir under %s: %s", config.Root, err)
+		return nil, fmt.Errorf("unable to get the TempDir under %s: %s", config.Root, err)
 	}
 	realTmp, err := fileutils.ReadSymlinkedDirectory(tmp)
 	if err != nil {
-		return nil, fmt.Errorf("Unable to get the full path to the TempDir (%s): %s", tmp, err)
+		return nil, fmt.Errorf("unable to get the full path to the TempDir (%s): %s", tmp, err)
 	}
 	if isWindows {
 		if err := system.MkdirAll(realTmp, 0); err != nil {
-			return nil, fmt.Errorf("Unable to create the TempDir (%s): %s", realTmp, err)
+			return nil, fmt.Errorf("unable to create the TempDir (%s): %s", realTmp, err)
 		}
 		os.Setenv("TEMP", realTmp)
 		os.Setenv("TMP", realTmp)
@@ -938,7 +938,7 @@ func NewDaemon(ctx context.Context, config *config.Config, pluginStore *plugin.S
 		refStoreLocation := filepath.Join(imageRoot, `repositories.json`)
 		rs, err := refstore.NewReferenceStore(refStoreLocation)
 		if err != nil {
-			return nil, fmt.Errorf("Couldn't create reference store repository: %s", err)
+			return nil, fmt.Errorf("couldn't create reference store repository: %s", err)
 		}
 		d.ReferenceStore = rs
 
@@ -1042,7 +1042,7 @@ func (daemon *Daemon) waitForStartupDone() {
 func (daemon *Daemon) shutdownContainer(c *container.Container) error {
 	// If container failed to exit in stopTimeout seconds of SIGTERM, then using the force
 	if err := daemon.containerStop(context.TODO(), c, containertypes.StopOptions{}); err != nil {
-		return fmt.Errorf("Failed to stop container %s with error: %v", c.ID, err)
+		return fmt.Errorf("failed to stop container %s with error: %v", c.ID, err)
 	}
 
 	// Wait without timeout for the container to exit.
@@ -1303,7 +1303,7 @@ func CreateDaemonRoot(config *config.Config) error {
 	} else {
 		realRoot, err = fileutils.ReadSymlinkedDirectory(config.Root)
 		if err != nil {
-			return fmt.Errorf("Unable to get the full path to root (%s): %s", config.Root, err)
+			return fmt.Errorf("unable to get the full path to root (%s): %s", config.Root, err)
 		}
 	}
 
@@ -1319,7 +1319,7 @@ func (daemon *Daemon) checkpointAndSave(container *container.Container) error {
 	container.Lock()
 	defer container.Unlock()
 	if err := container.CheckpointTo(daemon.containersReplica); err != nil {
-		return fmt.Errorf("Error saving container state: %v", err)
+		return fmt.Errorf("error saving container state: %v", err)
 	}
 	return nil
 }

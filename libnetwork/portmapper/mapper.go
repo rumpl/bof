@@ -169,7 +169,7 @@ func (pm *PortMapper) MapRange(container net.Addr, hostIP net.IP, hostPortStart,
 
 	if err := m.userlandProxy.Start(); err != nil {
 		if err := cleanup(); err != nil {
-			return nil, fmt.Errorf("Error during port allocation cleanup: %v", err)
+			return nil, fmt.Errorf("error during port allocation cleanup: %v", err)
 		}
 		return nil, err
 	}

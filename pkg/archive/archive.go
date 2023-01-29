@@ -277,7 +277,7 @@ func DecompressStream(archive io.Reader) (io.ReadCloser, error) {
 		readBufWrapper := p.NewReadCloserWrapper(buf, zstdReader)
 		return readBufWrapper, nil
 	default:
-		return nil, fmt.Errorf("Unsupported compression format %s", (&compression).Extension())
+		return nil, fmt.Errorf("unsupported compression format %s", (&compression).Extension())
 	}
 }
 
@@ -296,9 +296,9 @@ func CompressStream(dest io.Writer, compression Compression) (io.WriteCloser, er
 	case Bzip2, Xz:
 		// archive/bzip2 does not support writing, and there is no xz support at all
 		// However, this is not a problem as docker only currently generates gzipped tars
-		return nil, fmt.Errorf("Unsupported compression format %s", (&compression).Extension())
+		return nil, fmt.Errorf("unsupported compression format %s", (&compression).Extension())
 	default:
-		return nil, fmt.Errorf("Unsupported compression format %s", (&compression).Extension())
+		return nil, fmt.Errorf("unsupported compression format %s", (&compression).Extension())
 	}
 }
 
@@ -1229,7 +1229,7 @@ func UntarUncompressed(tarArchive io.Reader, dest string, options *TarOptions) e
 // Handler for teasing out the automatic decompression
 func untarHandler(tarArchive io.Reader, dest string, options *TarOptions, decompress bool) error {
 	if tarArchive == nil {
-		return fmt.Errorf("Empty archive")
+		return fmt.Errorf("empty archive")
 	}
 	dest = filepath.Clean(dest)
 	if options == nil {
@@ -1313,7 +1313,7 @@ func (archiver *Archiver) CopyFileWithTar(src, dst string) (err error) {
 	}
 
 	if srcSt.IsDir() {
-		return fmt.Errorf("Can't copy a directory")
+		return fmt.Errorf("can't copy a directory")
 	}
 
 	// Clean up the trailing slash. This must be done in an operating

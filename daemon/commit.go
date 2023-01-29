@@ -130,12 +130,12 @@ func (daemon *Daemon) CreateImageFromContainer(ctx context.Context, name string,
 	}
 
 	if container.IsDead() {
-		err := fmt.Errorf("You cannot commit container %s which is Dead", container.ID)
+		err := fmt.Errorf("you cannot commit container %s which is Dead", container.ID)
 		return "", errdefs.Conflict(err)
 	}
 
 	if container.IsRemovalInProgress() {
-		err := fmt.Errorf("You cannot commit container %s which is being removed", container.ID)
+		err := fmt.Errorf("you cannot commit container %s which is being removed", container.ID)
 		return "", errdefs.Conflict(err)
 	}
 

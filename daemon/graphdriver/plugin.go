@@ -17,7 +17,7 @@ func lookupPlugin(name string, pg plugingetter.PluginGetter, config Options) (Dr
 	}
 	pl, err := pg.Get(name, "GraphDriver", plugingetter.Acquire)
 	if err != nil {
-		return nil, fmt.Errorf("Error looking up graphdriver plugin %s: %v", name, err)
+		return nil, fmt.Errorf("error looking up graphdriver plugin %s: %v", name, err)
 	}
 	return newPluginDriver(name, pl, config)
 }
