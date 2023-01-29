@@ -8,6 +8,8 @@ import (
 	"strings"
 	"testing"
 
+	mobycontainer "github.com/docker/docker/api/types/container"
+	mobystrslice "github.com/docker/docker/api/types/strslice"
 	"github.com/docker/go-connections/nat"
 	"github.com/moby/buildkit/frontend/dockerfile/instructions"
 	"github.com/moby/buildkit/frontend/dockerfile/parser"
@@ -255,7 +257,7 @@ func TestCmd(t *testing.T) {
 
 	cmd := &instructions.CmdCommand{
 		ShellDependantCmdLine: instructions.ShellDependantCmdLine{
-			CmdLine:      strslice.StrSlice{command},
+			CmdLine:      mobystrslice.StrSlice(strslice.StrSlice{command}),
 			PrependShell: true,
 		},
 	}
@@ -277,7 +279,7 @@ func TestHealthcheckNone(t *testing.T) {
 	b := newBuilderWithMockBackend(t)
 	sb := newDispatchRequest(b, '`', nil, NewBuildArgs(make(map[string]*string)), newStagesBuildResults())
 	cmd := &instructions.HealthCheckCommand{
-		Health: &container.HealthConfig{
+		Health: &mobycontainer.HealthConfig{
 			Test: []string{"NONE"},
 		},
 	}
@@ -293,7 +295,7 @@ func TestHealthcheckCmd(t *testing.T) {
 	sb := newDispatchRequest(b, '`', nil, NewBuildArgs(make(map[string]*string)), newStagesBuildResults())
 	expectedTest := []string{"CMD-SHELL", "curl -f http://localhost/ || exit 1"}
 	cmd := &instructions.HealthCheckCommand{
-		Health: &container.HealthConfig{
+		Health: &mobycontainer.HealthConfig{
 			Test: expectedTest,
 		},
 	}
@@ -312,7 +314,7 @@ func TestEntrypoint(t *testing.T) {
 
 	cmd := &instructions.EntrypointCommand{
 		ShellDependantCmdLine: instructions.ShellDependantCmdLine{
-			CmdLine:      strslice.StrSlice{entrypointCmd},
+			CmdLine:      mobystrslice.StrSlice(strslice.StrSlice{entrypointCmd}),
 			PrependShell: true,
 		},
 	}
@@ -413,7 +415,7 @@ func TestShell(t *testing.T) {
 	sb := newDispatchRequest(b, '`', nil, NewBuildArgs(make(map[string]*string)), newStagesBuildResults())
 
 	shellCmd := "powershell"
-	cmd := &instructions.ShellCommand{Shell: strslice.StrSlice{shellCmd}}
+	cmd := &instructions.ShellCommand{Shell: mobystrslice.StrSlice(strslice.StrSlice{shellCmd})}
 
 	err := dispatch(context.TODO(), sb, cmd)
 	assert.NilError(t, err)
@@ -510,7 +512,7 @@ func TestRunWithBuildArgs(t *testing.T) {
 	runint, err := instructions.ParseInstruction(node)
 	assert.NilError(t, err)
 	runinst := runint.(*instructions.RunCommand)
-	runinst.CmdLine = strslice.StrSlice{"echo foo"}
+	runinst.CmdLine = mobystrslice.StrSlice(strslice.StrSlice{"echo foo"})
 	runinst.PrependShell = true
 
 	assert.NilError(t, dispatch(context.TODO(), sb, runinst))
