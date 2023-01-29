@@ -1,4 +1,4 @@
-package syslog // import "github.com/rumpl/bof/daemon/logger/syslog"
+package syslog
 
 import (
 	"log"

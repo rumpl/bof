@@ -1,4 +1,4 @@
-package graphdriver // import "github.com/rumpl/bof/daemon/graphdriver"
+package graphdriver
 
 import (
 	"errors"

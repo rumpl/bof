@@ -1,4 +1,4 @@
-package urlutil // import "github.com/rumpl/bof/builder/remotecontext/urlutil"
+package urlutil
 
 import "testing"
 

@@ -1,4 +1,4 @@
-package authorization // import "github.com/rumpl/bof/pkg/authorization"
+package authorization
 
 import (
 	"bufio"

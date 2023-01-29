@@ -1,7 +1,7 @@
 //go:build freebsd || netbsd
 // +build freebsd netbsd
 
-package system // import "github.com/rumpl/bof/pkg/system"
+package system
 
 import "syscall"
 

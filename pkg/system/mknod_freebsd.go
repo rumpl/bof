@@ -1,7 +1,7 @@
 //go:build freebsd
 // +build freebsd
 
-package system // import "github.com/rumpl/bof/pkg/system"
+package system
 
 import (
 	"golang.org/x/sys/unix"

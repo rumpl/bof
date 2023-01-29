@@ -1,4 +1,4 @@
-package types // import "github.com/rumpl/bof/libcontainerd/types"
+package types
 
 import (
 	"context"

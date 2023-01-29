@@ -1,4 +1,4 @@
-package devicemapper // import "github.com/rumpl/bof/pkg/devicemapper"
+package devicemapper
 
 // definitions from lvm2 lib/log/log.h
 const (

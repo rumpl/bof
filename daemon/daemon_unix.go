@@ -1,7 +1,7 @@
 //go:build linux || freebsd
 // +build linux freebsd
 
-package daemon // import "github.com/rumpl/bof/daemon"
+package daemon
 
 import (
 	"bufio"

@@ -1,7 +1,7 @@
 //go:build freebsd
 // +build freebsd
 
-package daemon // import "github.com/rumpl/bof/testutil/daemon"
+package daemon
 
 import (
 	"testing"

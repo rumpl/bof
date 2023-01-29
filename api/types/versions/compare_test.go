@@ -1,4 +1,4 @@
-package versions // import "github.com/rumpl/bof/api/types/versions"
+package versions
 
 import (
 	"testing"

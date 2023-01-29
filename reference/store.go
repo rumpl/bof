@@ -1,4 +1,4 @@
-package reference // import "github.com/rumpl/bof/reference"
+package reference
 
 import (
 	"encoding/json"

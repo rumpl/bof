@@ -1,4 +1,4 @@
-package registry // import "github.com/rumpl/bof/registry"
+package registry
 
 import (
 	"testing"

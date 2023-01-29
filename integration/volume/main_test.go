@@ -1,4 +1,4 @@
-package volume // import "github.com/rumpl/bof/integration/volume"
+package volume
 
 import (
 	"fmt"

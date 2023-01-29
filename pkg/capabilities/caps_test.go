@@ -1,4 +1,4 @@
-package capabilities // import "github.com/rumpl/bof/pkg/capabilities"
+package capabilities
 
 import (
 	"fmt"

@@ -1,4 +1,4 @@
-package testutils // import "github.com/rumpl/bof/daemon/events/testutils"
+package testutils
 
 import (
 	"fmt"

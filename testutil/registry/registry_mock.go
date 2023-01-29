@@ -1,4 +1,4 @@
-package registry // import "github.com/rumpl/bof/testutil/registry"
+package registry
 
 import (
 	"net/http"

@@ -1,4 +1,4 @@
-package runconfig // import "github.com/rumpl/bof/runconfig"
+package runconfig
 
 import (
 	"io"

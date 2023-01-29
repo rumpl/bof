@@ -1,4 +1,4 @@
-package remote // import "github.com/rumpl/bof/libcontainerd/remote"
+package remote
 
 import (
 	"context"

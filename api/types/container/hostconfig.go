@@ -1,4 +1,4 @@
-package container // import "github.com/rumpl/bof/api/types/container"
+package container
 
 import (
 	"strings"

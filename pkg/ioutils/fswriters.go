@@ -1,4 +1,4 @@
-package ioutils // import "github.com/rumpl/bof/pkg/ioutils"
+package ioutils
 
 import (
 	"io"

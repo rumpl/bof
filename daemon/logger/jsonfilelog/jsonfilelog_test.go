@@ -1,4 +1,4 @@
-package jsonfilelog // import "github.com/rumpl/bof/daemon/logger/jsonfilelog"
+package jsonfilelog
 
 import (
 	"bytes"

@@ -1,6 +1,6 @@
 // Package fluentd provides the log driver for forwarding server logs
 // to fluentd endpoints.
-package fluentd // import "github.com/rumpl/bof/daemon/logger/fluentd"
+package fluentd
 
 import (
 	"math"

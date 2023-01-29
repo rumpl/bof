@@ -1,4 +1,4 @@
-package containerd // import "github.com/rumpl/bof/plugin/executor/containerd"
+package containerd
 
 import (
 	"context"

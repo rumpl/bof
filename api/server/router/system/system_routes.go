@@ -1,4 +1,4 @@
-package system // import "github.com/rumpl/bof/api/server/router/system"
+package system
 
 import (
 	"context"

@@ -1,4 +1,4 @@
-package graphdriver // import "github.com/rumpl/bof/daemon/graphdriver"
+package graphdriver
 
 const (
 	// ErrNotSupported returned when driver is not supported.

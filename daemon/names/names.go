@@ -1,4 +1,4 @@
-package names // import "github.com/rumpl/bof/daemon/names"
+package names
 
 import "regexp"
 

@@ -1,4 +1,5 @@
-package types // import "github.com/rumpl/bof/api/types"
+package types
+
 import "github.com/rumpl/bof/api/types/registry"
 
 // AuthConfig contains authorization information for connecting to a Registry.

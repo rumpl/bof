@@ -1,7 +1,7 @@
 //go:build !linux
 // +build !linux
 
-package kernel // import "github.com/rumpl/bof/pkg/parsers/kernel"
+package kernel
 
 import (
 	"errors"

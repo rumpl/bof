@@ -1,7 +1,7 @@
 //go:build windows
 // +build windows
 
-package requirement // import "github.com/rumpl/bof/integration/internal/requirement"
+package requirement
 
 func overlayFSSupported() bool {
 	return false

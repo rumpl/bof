@@ -1,4 +1,4 @@
-package templates // import "github.com/rumpl/bof/daemon/logger/templates"
+package templates
 
 import (
 	"bytes"

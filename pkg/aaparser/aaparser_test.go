@@ -1,4 +1,4 @@
-package aaparser // import "github.com/rumpl/bof/pkg/aaparser"
+package aaparser
 
 import (
 	"testing"

@@ -1,4 +1,4 @@
-package tarsum // import "github.com/rumpl/bof/pkg/tarsum"
+package tarsum
 
 // BuilderContext is an interface extending TarSum by adding the Remove method.
 // In general there was concern about adding this method to TarSum itself

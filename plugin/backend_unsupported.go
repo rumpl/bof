@@ -1,7 +1,7 @@
 //go:build !linux
 // +build !linux
 
-package plugin // import "github.com/rumpl/bof/plugin"
+package plugin
 
 import (
 	"context"

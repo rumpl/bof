@@ -1,7 +1,7 @@
 //go:build linux
 // +build linux
 
-package copy // import "github.com/rumpl/bof/daemon/graphdriver/copy"
+package copy
 
 import (
 	"container/list"

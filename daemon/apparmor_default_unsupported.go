@@ -1,7 +1,7 @@
 //go:build !linux
 // +build !linux
 
-package daemon // import "github.com/rumpl/bof/daemon"
+package daemon
 
 func ensureDefaultAppArmorProfile() error {
 	return nil

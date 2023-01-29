@@ -1,7 +1,7 @@
 //go:build !linux
 // +build !linux
 
-package vfs // import "github.com/rumpl/bof/daemon/graphdriver/vfs"
+package vfs
 
 import (
 	"github.com/rumpl/bof/pkg/chrootarchive"

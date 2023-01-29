@@ -1,4 +1,4 @@
-package httputils // import "github.com/rumpl/bof/api/server/httputils"
+package httputils
 
 import (
 	"net/http"

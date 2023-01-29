@@ -1,4 +1,4 @@
-package loggerutils // import "github.com/rumpl/bof/daemon/logger/loggerutils"
+package loggerutils
 
 import (
 	"bufio"

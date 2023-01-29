@@ -1,4 +1,4 @@
-package queue // import "github.com/rumpl/bof/libcontainerd/queue"
+package queue
 
 import "sync"
 

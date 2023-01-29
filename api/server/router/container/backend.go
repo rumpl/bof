@@ -1,4 +1,4 @@
-package container // import "github.com/rumpl/bof/api/server/router/container"
+package container
 
 import (
 	"context"

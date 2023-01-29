@@ -1,7 +1,7 @@
 //go:build !linux
 // +build !linux
 
-package v2 // import "github.com/rumpl/bof/plugin/v2"
+package v2
 
 import (
 	"errors"

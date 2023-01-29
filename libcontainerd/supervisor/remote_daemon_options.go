@@ -1,4 +1,4 @@
-package supervisor // import "github.com/rumpl/bof/libcontainerd/supervisor"
+package supervisor
 
 // WithLogLevel defines which log level to start containerd with.
 func WithLogLevel(lvl string) DaemonOpt {

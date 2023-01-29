@@ -1,7 +1,7 @@
 //go:build linux
 // +build linux
 
-package btrfs // import "github.com/rumpl/bof/daemon/graphdriver/btrfs"
+package btrfs
 
 /*
 #include <stdlib.h>

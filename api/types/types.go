@@ -1,4 +1,4 @@
-package types // import "github.com/rumpl/bof/api/types"
+package types
 
 import (
 	"errors"

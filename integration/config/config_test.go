@@ -1,4 +1,4 @@
-package config // import "github.com/rumpl/bof/integration/config"
+package config
 
 import (
 	"bytes"

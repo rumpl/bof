@@ -1,4 +1,4 @@
-package image // import "github.com/rumpl/bof/integration/image"
+package image
 
 import (
 	"archive/tar"

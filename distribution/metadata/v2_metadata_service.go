@@ -1,4 +1,4 @@
-package metadata // import "github.com/rumpl/bof/distribution/metadata"
+package metadata
 
 import (
 	"crypto/hmac"

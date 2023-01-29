@@ -1,4 +1,4 @@
-package operatingsystem // import "github.com/rumpl/bof/pkg/parsers/operatingsystem"
+package operatingsystem
 
 import (
 	"fmt"

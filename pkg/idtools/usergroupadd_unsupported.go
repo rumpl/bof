@@ -1,7 +1,7 @@
 //go:build !linux
 // +build !linux
 
-package idtools // import "github.com/rumpl/bof/pkg/idtools"
+package idtools
 
 import "fmt"
 

@@ -1,4 +1,4 @@
-package chrootarchive // import "github.com/rumpl/bof/pkg/chrootarchive"
+package chrootarchive
 
 import (
 	"github.com/moby/sys/mount"

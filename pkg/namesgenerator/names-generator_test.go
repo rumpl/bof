@@ -1,4 +1,4 @@
-package namesgenerator // import "github.com/rumpl/bof/pkg/namesgenerator"
+package namesgenerator
 
 import (
 	"strings"

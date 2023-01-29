@@ -1,6 +1,6 @@
 // Package tailfile provides helper functions to read the nth lines of any
 // ReadSeeker.
-package tailfile // import "github.com/rumpl/bof/pkg/tailfile"
+package tailfile
 
 import (
 	"bufio"

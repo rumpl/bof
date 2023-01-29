@@ -1,7 +1,7 @@
 //go:build linux || freebsd
 // +build linux freebsd
 
-package images // import "github.com/rumpl/bof/daemon/images"
+package images
 
 import (
 	"github.com/rumpl/bof/image"

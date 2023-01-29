@@ -1,4 +1,4 @@
-package config // import "github.com/rumpl/bof/daemon/config"
+package config
 
 import (
 	"os"

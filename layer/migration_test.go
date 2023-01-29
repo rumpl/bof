@@ -1,4 +1,4 @@
-package layer // import "github.com/rumpl/bof/layer"
+package layer
 
 import (
 	"bytes"

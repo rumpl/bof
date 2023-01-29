@@ -1,4 +1,4 @@
-package distribution // import "github.com/rumpl/bof/distribution"
+package distribution
 
 import (
 	"context"

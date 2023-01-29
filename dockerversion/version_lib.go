@@ -1,4 +1,4 @@
-package dockerversion // import "github.com/rumpl/bof/dockerversion"
+package dockerversion
 
 // Default build-time variable for library-import.
 // These variables are overridden on build with build-time information.

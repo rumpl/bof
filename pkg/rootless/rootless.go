@@ -1,4 +1,4 @@
-package rootless // import "github.com/rumpl/bof/pkg/rootless"
+package rootless
 
 import (
 	"os"

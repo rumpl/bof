@@ -1,4 +1,4 @@
-package graphdriver // import "github.com/rumpl/bof/integration/plugin/graphdriver"
+package graphdriver
 
 import (
 	"fmt"

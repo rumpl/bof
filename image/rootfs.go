@@ -1,4 +1,4 @@
-package image // import "github.com/rumpl/bof/image"
+package image
 
 import (
 	"runtime"

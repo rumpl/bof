@@ -1,4 +1,4 @@
-package httpstatus // import "github.com/rumpl/bof/api/server/httpstatus"
+package httpstatus
 
 import (
 	"fmt"

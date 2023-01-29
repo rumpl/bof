@@ -1,4 +1,4 @@
-package logdriver // import "github.com/rumpl/bof/api/types/plugins/logdriver"
+package logdriver
 
 import (
 	"encoding/binary"

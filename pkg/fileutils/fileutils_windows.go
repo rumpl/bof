@@ -1,4 +1,4 @@
-package fileutils // import "github.com/rumpl/bof/pkg/fileutils"
+package fileutils
 
 // GetTotalUsedFds Returns the number of used File Descriptors. Not supported
 // on Windows.

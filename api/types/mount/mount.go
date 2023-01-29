@@ -1,4 +1,4 @@
-package mount // import "github.com/rumpl/bof/api/types/mount"
+package mount
 
 import (
 	"os"

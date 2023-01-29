@@ -1,4 +1,4 @@
-package checkpoint // import "github.com/rumpl/bof/api/server/router/checkpoint"
+package checkpoint
 
 import "github.com/rumpl/bof/api/types"
 

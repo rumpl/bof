@@ -1,4 +1,4 @@
-package image // import "github.com/rumpl/bof/api/server/router/image"
+package image
 
 import (
 	"context"

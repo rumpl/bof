@@ -1,7 +1,7 @@
 //go:build windows
 // +build windows
 
-package windows // import "github.com/rumpl/bof/daemon/graphdriver/windows"
+package windows
 
 import (
 	"archive/tar"

@@ -1,7 +1,7 @@
 //go:build linux
 // +build linux
 
-package apparmor // import "github.com/rumpl/bof/profiles/apparmor"
+package apparmor
 
 import (
 	"bufio"

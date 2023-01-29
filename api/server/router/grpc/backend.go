@@ -1,4 +1,4 @@
-package grpc // import "github.com/rumpl/bof/api/server/router/grpc"
+package grpc
 
 import "google.golang.org/grpc"
 

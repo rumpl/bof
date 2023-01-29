@@ -1,4 +1,4 @@
-package gcplogs // import "github.com/rumpl/bof/daemon/logger/gcplogs"
+package gcplogs
 
 import (
 	"context"

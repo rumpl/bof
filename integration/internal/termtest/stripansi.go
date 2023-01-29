@@ -1,4 +1,4 @@
-package termtest // import "github.com/rumpl/bof/integration/internal/termtest"
+package termtest
 
 import (
 	"errors"

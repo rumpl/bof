@@ -1,7 +1,7 @@
 //go:build linux
 // +build linux
 
-package trap // import "github.com/rumpl/bof/cmd/dockerd/trap"
+package trap
 
 import (
 	"os"

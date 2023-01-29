@@ -1,4 +1,4 @@
-package secret // import "github.com/rumpl/bof/integration/secret"
+package secret
 
 import (
 	"fmt"

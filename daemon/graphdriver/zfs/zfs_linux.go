@@ -1,4 +1,4 @@
-package zfs // import "github.com/rumpl/bof/daemon/graphdriver/zfs"
+package zfs
 
 import (
 	"github.com/rumpl/bof/daemon/graphdriver"

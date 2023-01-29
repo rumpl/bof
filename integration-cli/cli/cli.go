@@ -1,4 +1,4 @@
-package cli // import "github.com/rumpl/bof/integration-cli/cli"
+package cli
 
 import (
 	"fmt"

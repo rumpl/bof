@@ -38,7 +38,7 @@ For example, to list running containers (the equivalent of "docker ps"):
 		}
 	}
 */
-package client // import "github.com/rumpl/bof/client"
+package client
 
 import (
 	"context"

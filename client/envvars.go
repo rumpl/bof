@@ -1,4 +1,4 @@
-package client // import "github.com/rumpl/bof/client"
+package client
 
 const (
 	// EnvOverrideHost is the name of the environment variable that can be used

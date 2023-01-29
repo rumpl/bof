@@ -1,4 +1,4 @@
-package strslice // import "github.com/rumpl/bof/api/types/strslice"
+package strslice
 
 import "encoding/json"
 

@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package containerfs // import "github.com/rumpl/bof/pkg/containerfs"
+package containerfs
 
 import "path/filepath"
 

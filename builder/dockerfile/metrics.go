@@ -1,4 +1,4 @@
-package dockerfile // import "github.com/rumpl/bof/builder/dockerfile"
+package dockerfile
 
 import (
 	metrics "github.com/docker/go-metrics"

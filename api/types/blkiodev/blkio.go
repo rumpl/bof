@@ -1,4 +1,4 @@
-package blkiodev // import "github.com/rumpl/bof/api/types/blkiodev"
+package blkiodev
 
 import "fmt"
 

@@ -1,4 +1,4 @@
-package vfs // import "github.com/rumpl/bof/daemon/graphdriver/vfs"
+package vfs
 
 import (
 	"fmt"

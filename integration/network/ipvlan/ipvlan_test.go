@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package ipvlan // import "github.com/rumpl/bof/integration/network/ipvlan"
+package ipvlan
 
 import (
 	"context"

@@ -1,7 +1,7 @@
 //go:build linux
 // +build linux
 
-package overlayutils // import "github.com/rumpl/bof/daemon/graphdriver/overlayutils"
+package overlayutils
 
 import (
 	"fmt"

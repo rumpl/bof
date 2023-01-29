@@ -1,4 +1,4 @@
-package volume // import "github.com/rumpl/bof/api/server/router/volume"
+package volume
 
 import (
 	"context"

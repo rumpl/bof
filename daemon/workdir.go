@@ -1,4 +1,4 @@
-package daemon // import "github.com/rumpl/bof/daemon"
+package daemon
 
 // ContainerCreateWorkdir creates the working directory. This solves the
 // issue arising from https://github.com/rumpl/bof/issues/27545,

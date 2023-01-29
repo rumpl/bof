@@ -1,4 +1,4 @@
-package fakecontext // import "github.com/rumpl/bof/testutil/fakecontext"
+package fakecontext
 
 import (
 	"bytes"

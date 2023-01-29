@@ -1,7 +1,7 @@
 //go:build linux && cgo
 // +build linux,cgo
 
-package loopback // import "github.com/rumpl/bof/pkg/loopback"
+package loopback
 
 import (
 	"fmt"

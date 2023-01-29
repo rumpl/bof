@@ -1,4 +1,4 @@
-package remotecontext // import "github.com/rumpl/bof/builder/remotecontext"
+package remotecontext
 
 import (
 	"errors"

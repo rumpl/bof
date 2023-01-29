@@ -1,4 +1,4 @@
-package dockerversion // import "github.com/rumpl/bof/dockerversion"
+package dockerversion
 
 import (
 	"context"

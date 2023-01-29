@@ -1,4 +1,4 @@
-package graphdriver // import "github.com/rumpl/bof/daemon/graphdriver"
+package graphdriver
 
 var (
 	// List of drivers that should be used in order

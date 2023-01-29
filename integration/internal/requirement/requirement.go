@@ -1,4 +1,4 @@
-package requirement // import "github.com/rumpl/bof/integration/internal/requirement"
+package requirement
 
 import (
 	"net/http"

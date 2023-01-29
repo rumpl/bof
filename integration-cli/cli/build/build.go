@@ -1,4 +1,4 @@
-package build // import "github.com/rumpl/bof/integration-cli/cli/build"
+package build
 
 import (
 	"io"

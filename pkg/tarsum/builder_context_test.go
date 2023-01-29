@@ -1,4 +1,4 @@
-package tarsum // import "github.com/rumpl/bof/pkg/tarsum"
+package tarsum
 
 import (
 	"io"

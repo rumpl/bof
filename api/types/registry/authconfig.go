@@ -1,4 +1,5 @@
-package registry // import "github.com/rumpl/bof/api/types/registry"
+package registry
+
 import (
 	"encoding/base64"
 	"encoding/json"

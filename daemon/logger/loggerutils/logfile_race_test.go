@@ -1,7 +1,7 @@
 //go:build race
 // +build race
 
-package loggerutils // import "github.com/rumpl/bof/daemon/logger/loggerutils"
+package loggerutils
 
 import (
 	"context"

@@ -1,4 +1,4 @@
-package errdefs // import "github.com/rumpl/bof/errdefs"
+package errdefs
 
 type causer interface {
 	Cause() error

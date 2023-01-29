@@ -1,7 +1,7 @@
 //go:build linux
 // +build linux
 
-package devmapper // import "github.com/rumpl/bof/daemon/graphdriver/devmapper"
+package devmapper
 
 import (
 	"fmt"

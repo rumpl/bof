@@ -1,7 +1,7 @@
 //go:build !linux
 // +build !linux
 
-package caps // import "github.com/rumpl/bof/oci/caps"
+package caps
 
 func initCaps() {
 	// no capabilities on Windows

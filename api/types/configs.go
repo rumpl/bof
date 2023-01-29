@@ -1,4 +1,4 @@
-package types // import "github.com/rumpl/bof/api/types"
+package types
 
 import (
 	specs "github.com/opencontainers/image-spec/specs-go/v1"

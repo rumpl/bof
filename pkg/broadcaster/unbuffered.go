@@ -1,4 +1,4 @@
-package broadcaster // import "github.com/rumpl/bof/pkg/broadcaster"
+package broadcaster
 
 import (
 	"io"

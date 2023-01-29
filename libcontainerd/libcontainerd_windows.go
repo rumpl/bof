@@ -1,4 +1,4 @@
-package libcontainerd // import "github.com/rumpl/bof/libcontainerd"
+package libcontainerd
 
 import (
 	"context"

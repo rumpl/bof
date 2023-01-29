@@ -1,4 +1,4 @@
-package cache // import "github.com/rumpl/bof/daemon/logger/loggerutils/cache"
+package cache
 
 import (
 	"strconv"

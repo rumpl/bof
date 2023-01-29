@@ -1,4 +1,4 @@
-package logger // import "github.com/rumpl/bof/daemon/logger"
+package logger
 
 import (
 	"github.com/rumpl/bof/api/types/backend"

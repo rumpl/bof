@@ -1,4 +1,4 @@
-package streamformatter // import "github.com/rumpl/bof/pkg/streamformatter"
+package streamformatter
 
 import (
 	"encoding/json"

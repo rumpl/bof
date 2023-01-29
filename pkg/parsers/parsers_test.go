@@ -1,4 +1,4 @@
-package parsers // import "github.com/rumpl/bof/pkg/parsers"
+package parsers
 
 import (
 	"reflect"

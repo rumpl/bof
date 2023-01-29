@@ -1,4 +1,4 @@
-package restartmanager // import "github.com/rumpl/bof/restartmanager"
+package restartmanager
 
 import (
 	"testing"

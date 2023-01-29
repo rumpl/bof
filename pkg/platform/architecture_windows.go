@@ -1,4 +1,4 @@
-package platform // import "github.com/rumpl/bof/pkg/platform"
+package platform
 
 import (
 	"fmt"

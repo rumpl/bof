@@ -1,4 +1,4 @@
-package common // import "github.com/rumpl/bof/integration/plugin/common"
+package common
 
 import (
 	"context"

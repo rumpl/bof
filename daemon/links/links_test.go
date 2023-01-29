@@ -1,4 +1,4 @@
-package links // import "github.com/rumpl/bof/daemon/links"
+package links
 
 import (
 	"fmt"

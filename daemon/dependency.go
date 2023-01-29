@@ -1,4 +1,4 @@
-package daemon // import "github.com/rumpl/bof/daemon"
+package daemon
 
 import (
 	"github.com/moby/swarmkit/v2/agent/exec"

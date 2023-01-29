@@ -1,4 +1,4 @@
-package foo // import "github.com/rumpl/bof/pkg/plugins/pluginrpc-gen/fixtures"
+package foo
 
 import (
 	aliasedio "io"

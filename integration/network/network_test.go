@@ -1,4 +1,4 @@
-package network // import "github.com/rumpl/bof/integration/network"
+package network
 
 import (
 	"bytes"

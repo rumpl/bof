@@ -20,7 +20,7 @@
 //	if err != nil {
 //		return fmt.Errorf("Error looking up volume plugin example: %v", err)
 //	}
-package plugins // import "github.com/rumpl/bof/pkg/plugins"
+package plugins
 
 import (
 	"errors"

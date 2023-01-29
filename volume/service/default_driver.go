@@ -1,7 +1,8 @@
 //go:build linux || windows
 // +build linux windows
 
-package service // import "github.com/rumpl/bof/volume/service"
+package service
+
 import (
 	"github.com/pkg/errors"
 	"github.com/rumpl/bof/pkg/idtools"

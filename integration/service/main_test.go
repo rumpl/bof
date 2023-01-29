@@ -1,4 +1,4 @@
-package service // import "github.com/rumpl/bof/integration/service"
+package service
 
 import (
 	"fmt"

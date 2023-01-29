@@ -1,5 +1,5 @@
 // Package sysinfo stores information about which features a kernel supports.
-package sysinfo // import "github.com/rumpl/bof/pkg/sysinfo"
+package sysinfo
 
 import "github.com/rumpl/bof/pkg/parsers"
 

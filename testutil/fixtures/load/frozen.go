@@ -1,4 +1,4 @@
-package load // import "github.com/rumpl/bof/testutil/fixtures/load"
+package load
 
 import (
 	"bufio"

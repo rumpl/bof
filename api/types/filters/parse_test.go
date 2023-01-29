@@ -1,4 +1,4 @@
-package filters // import "github.com/rumpl/bof/api/types/filters"
+package filters
 
 import (
 	"encoding/json"

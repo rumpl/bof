@@ -1,4 +1,4 @@
-package local // import "github.com/rumpl/bof/daemon/logger/local"
+package local
 
 import (
 	"encoding/binary"

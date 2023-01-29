@@ -1,4 +1,4 @@
-package environment // import "github.com/rumpl/bof/integration-cli/environment"
+package environment
 
 import (
 	"os"

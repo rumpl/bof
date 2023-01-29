@@ -1,4 +1,4 @@
-package requirement // import "github.com/rumpl/bof/integration-cli/requirement"
+package requirement
 
 import (
 	"path"

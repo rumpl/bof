@@ -1,4 +1,4 @@
-package environment // import "github.com/rumpl/bof/testutil/environment"
+package environment
 
 import (
 	"context"

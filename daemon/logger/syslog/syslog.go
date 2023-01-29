@@ -1,5 +1,5 @@
 // Package syslog provides the logdriver for forwarding server logs to syslog endpoints.
-package syslog // import "github.com/rumpl/bof/daemon/logger/syslog"
+package syslog
 
 import (
 	"crypto/tls"

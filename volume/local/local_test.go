@@ -1,4 +1,4 @@
-package local // import "github.com/rumpl/bof/volume/local"
+package local
 
 import (
 	"os"

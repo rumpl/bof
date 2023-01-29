@@ -1,4 +1,4 @@
-package awslogs // import "github.com/rumpl/bof/daemon/logger/awslogs"
+package awslogs
 
 import (
 	"context"

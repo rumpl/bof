@@ -1,4 +1,4 @@
-package debug // import "github.com/rumpl/bof/api/server/router/debug"
+package debug
 
 import (
 	"context"

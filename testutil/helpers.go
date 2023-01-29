@@ -1,4 +1,4 @@
-package testutil // import "github.com/rumpl/bof/testutil"
+package testutil
 
 import (
 	"io"

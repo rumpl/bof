@@ -1,4 +1,4 @@
-package fileutils // import "github.com/rumpl/bof/pkg/fileutils"
+package fileutils
 
 import (
 	"fmt"

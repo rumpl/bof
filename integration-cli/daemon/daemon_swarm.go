@@ -1,4 +1,4 @@
-package daemon // import "github.com/rumpl/bof/integration-cli/daemon"
+package daemon
 
 import (
 	"context"

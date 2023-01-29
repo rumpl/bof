@@ -1,7 +1,7 @@
 //go:build linux
 // +build linux
 
-package loopback // import "github.com/rumpl/bof/pkg/loopback"
+package loopback
 
 import (
 	"errors"

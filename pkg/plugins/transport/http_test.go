@@ -1,4 +1,4 @@
-package transport // import "github.com/rumpl/bof/pkg/plugins/transport"
+package transport
 
 import (
 	"io"

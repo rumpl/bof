@@ -1,4 +1,4 @@
-package stats // import "github.com/rumpl/bof/daemon/stats"
+package stats
 
 import (
 	"bufio"

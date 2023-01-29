@@ -1,4 +1,4 @@
-package devmapper // import "github.com/rumpl/bof/daemon/graphdriver/devmapper"
+package devmapper
 
 import (
 	"bufio"

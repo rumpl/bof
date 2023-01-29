@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package authorization // import "github.com/rumpl/bof/pkg/authorization"
+package authorization
 
 import (
 	"context"

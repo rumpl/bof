@@ -1,6 +1,6 @@
 //go:generate go run -tags 'seccomp' generate.go
 
-package seccomp // import "github.com/rumpl/bof/profiles/seccomp"
+package seccomp
 
 import (
 	"encoding/json"

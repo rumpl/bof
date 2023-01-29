@@ -1,4 +1,4 @@
-package fakestorage // import "github.com/rumpl/bof/testutil/fakestorage"
+package fakestorage
 
 import (
 	"context"

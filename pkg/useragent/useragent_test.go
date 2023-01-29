@@ -1,4 +1,4 @@
-package useragent // import "github.com/rumpl/bof/pkg/useragent"
+package useragent
 
 import "testing"
 

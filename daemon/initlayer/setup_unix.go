@@ -1,7 +1,7 @@
 //go:build linux || freebsd
 // +build linux freebsd
 
-package initlayer // import "github.com/rumpl/bof/daemon/initlayer"
+package initlayer
 
 import (
 	"os"

@@ -1,7 +1,7 @@
 //go:build !linux && !freebsd
 // +build !linux,!freebsd
 
-package zfs // import "github.com/rumpl/bof/daemon/graphdriver/zfs"
+package zfs
 
 func checkRootdirFs(rootdir string) error {
 	return nil

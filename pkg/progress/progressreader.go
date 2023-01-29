@@ -1,4 +1,4 @@
-package progress // import "github.com/rumpl/bof/pkg/progress"
+package progress
 
 import (
 	"io"

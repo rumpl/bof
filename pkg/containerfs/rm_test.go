@@ -1,7 +1,7 @@
 //go:build !darwin && !windows
 // +build !darwin,!windows
 
-package containerfs // import "github.com/rumpl/bof/pkg/containerfs"
+package containerfs
 
 import (
 	"os"

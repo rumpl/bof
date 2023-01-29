@@ -1,7 +1,7 @@
 //go:build linux && cgo && !static_build && journald
 // +build linux,cgo,!static_build,journald
 
-package journald // import "github.com/rumpl/bof/daemon/logger/journald"
+package journald
 
 import (
 	"errors"

@@ -1,4 +1,4 @@
-package longpath // import "github.com/rumpl/bof/pkg/longpath"
+package longpath
 
 import (
 	"strings"

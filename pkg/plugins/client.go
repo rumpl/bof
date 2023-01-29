@@ -1,4 +1,4 @@
-package plugins // import "github.com/rumpl/bof/pkg/plugins"
+package plugins
 
 import (
 	"bytes"

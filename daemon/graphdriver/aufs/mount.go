@@ -1,7 +1,7 @@
 //go:build linux
 // +build linux
 
-package aufs // import "github.com/rumpl/bof/daemon/graphdriver/aufs"
+package aufs
 
 import (
 	"os/exec"

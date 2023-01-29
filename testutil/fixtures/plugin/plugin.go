@@ -1,4 +1,4 @@
-package plugin // import "github.com/rumpl/bof/testutil/fixtures/plugin"
+package plugin
 
 import (
 	"context"

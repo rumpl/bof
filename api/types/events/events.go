@@ -1,4 +1,4 @@
-package events // import "github.com/rumpl/bof/api/types/events"
+package events
 
 // Type is used for event-types.
 type Type = string

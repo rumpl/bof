@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package system // import "github.com/rumpl/bof/integration/system"
+package system
 
 import (
 	"context"

@@ -1,4 +1,4 @@
-package oci // import "github.com/rumpl/bof/oci"
+package oci
 
 import (
 	"runtime"

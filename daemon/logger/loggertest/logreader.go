@@ -1,4 +1,4 @@
-package loggertest // import "github.com/rumpl/bof/daemon/logger/loggertest"
+package loggertest
 
 import (
 	"runtime"

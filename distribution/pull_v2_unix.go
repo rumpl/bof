@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package distribution // import "github.com/rumpl/bof/distribution"
+package distribution
 
 import (
 	"context"

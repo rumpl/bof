@@ -1,4 +1,4 @@
-package reference // import "github.com/rumpl/bof/reference"
+package reference
 
 type notFoundError string
 

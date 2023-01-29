@@ -1,4 +1,4 @@
-package stdcopy // import "github.com/rumpl/bof/pkg/stdcopy"
+package stdcopy
 
 import (
 	"bytes"

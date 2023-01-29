@@ -1,4 +1,4 @@
-package resumable // import "github.com/rumpl/bof/registry/resumable"
+package resumable
 
 import (
 	"fmt"

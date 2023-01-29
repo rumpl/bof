@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package container // import "github.com/rumpl/bof/container"
+package container
 
 import (
 	"os"

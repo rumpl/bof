@@ -1,4 +1,4 @@
-package supervisor // import "github.com/rumpl/bof/libcontainerd/supervisor"
+package supervisor
 
 // WithOOMScore defines the oom_score_adj to set for the containerd process.
 func WithOOMScore(score int) DaemonOpt {

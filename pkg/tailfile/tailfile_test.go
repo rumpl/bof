@@ -1,4 +1,4 @@
-package tailfile // import "github.com/rumpl/bof/pkg/tailfile"
+package tailfile
 
 import (
 	"bufio"

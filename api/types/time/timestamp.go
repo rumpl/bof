@@ -1,4 +1,4 @@
-package time // import "github.com/rumpl/bof/api/types/time"
+package time
 
 import (
 	"fmt"

@@ -1,4 +1,4 @@
-package plugin // import "github.com/rumpl/bof/plugin"
+package plugin
 
 import (
 	"testing"

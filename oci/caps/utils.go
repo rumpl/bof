@@ -1,4 +1,4 @@
-package caps // import "github.com/rumpl/bof/oci/caps"
+package caps
 
 import (
 	"fmt"

@@ -1,4 +1,4 @@
-package quota // import "github.com/rumpl/bof/quota"
+package quota
 
 import "github.com/rumpl/bof/errdefs"
 

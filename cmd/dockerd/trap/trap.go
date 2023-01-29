@@ -1,4 +1,4 @@
-package trap // import "github.com/rumpl/bof/cmd/dockerd/trap"
+package trap
 
 import (
 	"fmt"

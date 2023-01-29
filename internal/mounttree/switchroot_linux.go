@@ -1,4 +1,4 @@
-package mounttree // import "github.com/rumpl/bof/internal/mounttree"
+package mounttree
 
 import (
 	"fmt"

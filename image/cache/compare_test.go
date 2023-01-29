@@ -1,4 +1,4 @@
-package cache // import "github.com/rumpl/bof/image/cache"
+package cache
 
 import (
 	"testing"

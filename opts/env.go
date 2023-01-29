@@ -1,4 +1,4 @@
-package opts // import "github.com/rumpl/bof/opts"
+package opts
 
 import (
 	"os"

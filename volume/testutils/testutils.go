@@ -1,4 +1,4 @@
-package testutils // import "github.com/rumpl/bof/volume/testutils"
+package testutils
 
 import (
 	"encoding/json"

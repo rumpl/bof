@@ -1,4 +1,5 @@
-package network // import "github.com/rumpl/bof/api/types/network"
+package network
+
 import (
 	"github.com/rumpl/bof/api/types/filters"
 )

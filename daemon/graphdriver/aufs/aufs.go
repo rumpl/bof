@@ -21,7 +21,7 @@ aufs driver directory structure
 
 */
 
-package aufs // import "github.com/rumpl/bof/daemon/graphdriver/aufs"
+package aufs
 
 import (
 	"bufio"

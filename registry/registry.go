@@ -1,5 +1,5 @@
 // Package registry contains client primitives to interact with a remote Docker registry.
-package registry // import "github.com/rumpl/bof/registry"
+package registry
 
 import (
 	"crypto/tls"

@@ -1,7 +1,8 @@
 //go:build !windows
 // +build !windows
 
-package plugins // import "github.com/rumpl/bof/pkg/plugins"
+package plugins
+
 import (
 	"path/filepath"
 

@@ -1,4 +1,4 @@
-package request // import "github.com/rumpl/bof/testutil/request"
+package request
 
 import (
 	"context"

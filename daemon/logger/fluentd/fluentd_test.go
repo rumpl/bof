@@ -1,4 +1,5 @@
-package fluentd // import "github.com/rumpl/bof/daemon/logger/fluentd"
+package fluentd
+
 import (
 	"testing"
 

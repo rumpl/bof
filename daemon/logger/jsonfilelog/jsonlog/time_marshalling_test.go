@@ -1,4 +1,4 @@
-package jsonlog // import "github.com/rumpl/bof/daemon/logger/jsonfilelog/jsonlog"
+package jsonlog
 
 import (
 	"testing"

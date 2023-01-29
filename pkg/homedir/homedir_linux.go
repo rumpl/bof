@@ -1,4 +1,4 @@
-package homedir // import "github.com/rumpl/bof/pkg/homedir"
+package homedir
 
 import (
 	"errors"

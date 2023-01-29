@@ -1,4 +1,4 @@
-package client // import "github.com/rumpl/bof/client"
+package client
 
 import (
 	"bufio"

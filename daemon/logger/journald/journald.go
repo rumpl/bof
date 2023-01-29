@@ -1,7 +1,7 @@
 //go:build linux
 // +build linux
 
-package journald // import "github.com/rumpl/bof/daemon/logger/journald"
+package journald
 
 import (
 	"fmt"

@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package listeners // import "github.com/rumpl/bof/daemon/listeners"
+package listeners
 
 import (
 	"fmt"

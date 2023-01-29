@@ -1,7 +1,7 @@
 // Package parsers provides helper functions to parse and validate different type
 // of string. It can be hosts, unix addresses, tcp addresses, filters, kernel
 // operating system versions.
-package parsers // import "github.com/rumpl/bof/pkg/parsers"
+package parsers
 
 import (
 	"fmt"

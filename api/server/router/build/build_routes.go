@@ -1,4 +1,4 @@
-package build // import "github.com/rumpl/bof/api/server/router/build"
+package build
 
 import (
 	"bufio"

@@ -1,4 +1,4 @@
-package git // import "github.com/rumpl/bof/builder/remotecontext/git"
+package git
 
 import (
 	"bytes"

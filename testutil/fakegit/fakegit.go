@@ -1,4 +1,4 @@
-package fakegit // import "github.com/rumpl/bof/testutil/fakegit"
+package fakegit
 
 import (
 	"fmt"

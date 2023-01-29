@@ -1,4 +1,4 @@
-package server // import "github.com/rumpl/bof/api/server"
+package server
 
 import (
 	"context"

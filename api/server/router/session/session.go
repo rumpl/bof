@@ -1,4 +1,4 @@
-package session // import "github.com/rumpl/bof/api/server/router/session"
+package session
 
 import "github.com/rumpl/bof/api/server/router"
 

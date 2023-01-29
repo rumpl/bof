@@ -1,4 +1,4 @@
-package kernel // import "github.com/rumpl/bof/pkg/parsers/kernel"
+package kernel
 
 import (
 	"fmt"

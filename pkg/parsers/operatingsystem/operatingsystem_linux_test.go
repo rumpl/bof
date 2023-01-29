@@ -1,7 +1,7 @@
 //go:build linux || freebsd
 // +build linux freebsd
 
-package operatingsystem // import "github.com/rumpl/bof/pkg/parsers/operatingsystem"
+package operatingsystem
 
 import (
 	"os"

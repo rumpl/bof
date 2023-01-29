@@ -1,5 +1,5 @@
 // Package aaparser is a convenience package interacting with `apparmor_parser`.
-package aaparser // import "github.com/rumpl/bof/pkg/aaparser"
+package aaparser
 
 import (
 	"fmt"

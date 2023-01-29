@@ -1,4 +1,4 @@
-package stack // import "github.com/rumpl/bof/pkg/stack"
+package stack
 
 import (
 	"fmt"

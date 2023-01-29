@@ -1,4 +1,4 @@
-package errdefs // import "github.com/rumpl/bof/errdefs"
+package errdefs
 
 // ErrNotFound signals that the requested object doesn't exist
 type ErrNotFound interface {

@@ -1,4 +1,4 @@
-package opts // import "github.com/rumpl/bof/runconfig/opts"
+package opts
 
 import (
 	"strings"

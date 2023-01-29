@@ -1,6 +1,6 @@
 // Package splunk provides the log driver for forwarding server logs to
 // Splunk HTTP Event Collector endpoint.
-package splunk // import "github.com/rumpl/bof/daemon/logger/splunk"
+package splunk
 
 import (
 	"bytes"

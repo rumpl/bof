@@ -1,4 +1,4 @@
-package stream // import "github.com/rumpl/bof/container/stream"
+package stream
 
 import (
 	"context"

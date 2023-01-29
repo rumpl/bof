@@ -1,5 +1,5 @@
 // Package archive provides helper functions for dealing with archive files.
-package archive // import "github.com/rumpl/bof/pkg/archive"
+package archive
 
 import (
 	"archive/tar"

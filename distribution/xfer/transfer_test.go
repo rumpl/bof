@@ -1,4 +1,4 @@
-package xfer // import "github.com/rumpl/bof/distribution/xfer"
+package xfer
 
 import (
 	"sync/atomic"

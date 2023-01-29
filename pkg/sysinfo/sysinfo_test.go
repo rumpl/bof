@@ -1,4 +1,4 @@
-package sysinfo // import "github.com/rumpl/bof/pkg/sysinfo"
+package sysinfo
 
 import "testing"
 

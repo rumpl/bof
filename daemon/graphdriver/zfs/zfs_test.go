@@ -1,7 +1,7 @@
 //go:build linux
 // +build linux
 
-package zfs // import "github.com/rumpl/bof/daemon/graphdriver/zfs"
+package zfs
 
 import (
 	"testing"

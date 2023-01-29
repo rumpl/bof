@@ -1,4 +1,4 @@
-package service // import "github.com/rumpl/bof/volume/service"
+package service
 
 import "strings"
 

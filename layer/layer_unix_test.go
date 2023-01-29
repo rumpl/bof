@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package layer // import "github.com/rumpl/bof/layer"
+package layer
 
 import (
 	"testing"

@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package dockerfile // import "github.com/rumpl/bof/builder/dockerfile"
+package dockerfile
 
 func defaultShellForOS(os string) []string {
 	return []string{"/bin/sh", "-c"}

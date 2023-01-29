@@ -1,4 +1,4 @@
-package session // import "github.com/rumpl/bof/integration/session"
+package session
 
 import (
 	"net/http"

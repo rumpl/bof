@@ -1,4 +1,4 @@
-package drivers // import "github.com/rumpl/bof/volume/drivers"
+package drivers
 
 import (
 	"fmt"

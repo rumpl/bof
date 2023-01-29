@@ -1,4 +1,4 @@
-package logging // import "github.com/rumpl/bof/integration/plugin/logging"
+package logging
 
 import (
 	"fmt"

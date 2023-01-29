@@ -1,4 +1,5 @@
-package registry // import "github.com/rumpl/bof/api/types/registry"
+package registry
+
 import (
 	"io"
 	"strings"

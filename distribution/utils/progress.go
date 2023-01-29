@@ -1,4 +1,4 @@
-package utils // import "github.com/rumpl/bof/distribution/utils"
+package utils
 
 import (
 	"io"

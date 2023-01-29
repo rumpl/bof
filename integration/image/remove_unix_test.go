@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package image // import "github.com/rumpl/bof/integration/image"
+package image
 
 import (
 	"context"

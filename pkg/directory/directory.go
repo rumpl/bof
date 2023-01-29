@@ -1,4 +1,4 @@
-package directory // import "github.com/rumpl/bof/pkg/directory"
+package directory
 
 import "context"
 

@@ -1,4 +1,4 @@
-package backend // import "github.com/rumpl/bof/api/types/backend"
+package backend
 
 import (
 	"io"

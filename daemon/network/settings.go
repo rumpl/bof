@@ -1,4 +1,4 @@
-package network // import "github.com/rumpl/bof/daemon/network"
+package network
 
 import (
 	"net"

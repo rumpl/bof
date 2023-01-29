@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package macvlan // import "github.com/rumpl/bof/integration/network/macvlan"
+package macvlan
 
 import (
 	"context"

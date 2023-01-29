@@ -1,4 +1,4 @@
-package daemon // import "github.com/rumpl/bof/daemon"
+package daemon
 
 import (
 	"errors"
@@ -910,16 +910,7 @@ func (daemon *Daemon) disconnectFromNetwork(container *container.Container, n li
 
 	delete(container.NetworkSettings.Networks, n.Name())
 
-	daemon.tryDetachContainerFromClusterNetwork(n, container)
-
 	return nil
-}
-
-func (daemon *Daemon) tryDetachContainerFromClusterNetwork(network libnetwork.Network, container *container.Container) {
-	attributes := map[string]string{
-		"container": container.ID,
-	}
-	daemon.LogNetworkEventWithAttributes(network, "disconnect", attributes)
 }
 
 func (daemon *Daemon) initializeNetworking(container *container.Container) error {
@@ -1020,6 +1011,13 @@ func (daemon *Daemon) releaseNetwork(container *container.Container) {
 		daemon.tryDetachContainerFromClusterNetwork(nw, container)
 	}
 	networkActions.WithValues("release").UpdateSince(start)
+}
+
+func (daemon *Daemon) tryDetachContainerFromClusterNetwork(network libnetwork.Network, container *container.Container) {
+	attributes := map[string]string{
+		"container": container.ID,
+	}
+	daemon.LogNetworkEventWithAttributes(network, "disconnect", attributes)
 }
 
 func errRemovalContainer(containerID string) error {

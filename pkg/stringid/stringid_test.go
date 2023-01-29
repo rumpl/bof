@@ -1,4 +1,4 @@
-package stringid // import "github.com/rumpl/bof/pkg/stringid"
+package stringid
 
 import (
 	"strings"

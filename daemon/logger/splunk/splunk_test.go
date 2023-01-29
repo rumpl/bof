@@ -1,4 +1,4 @@
-package splunk // import "github.com/rumpl/bof/daemon/logger/splunk"
+package splunk
 
 import (
 	"compress/gzip"

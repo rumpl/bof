@@ -1,7 +1,7 @@
 //go:build linux || freebsd || darwin
 // +build linux freebsd darwin
 
-package directory // import "github.com/rumpl/bof/pkg/directory"
+package directory
 
 import (
 	"context"

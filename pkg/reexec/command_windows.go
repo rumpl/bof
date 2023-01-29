@@ -1,4 +1,4 @@
-package reexec // import "github.com/rumpl/bof/pkg/reexec"
+package reexec
 
 import (
 	"os/exec"

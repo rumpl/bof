@@ -1,4 +1,4 @@
-package build // import "github.com/rumpl/bof/integration/build"
+package build
 
 import (
 	"bufio"

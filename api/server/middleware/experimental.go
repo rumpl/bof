@@ -1,4 +1,4 @@
-package middleware // import "github.com/rumpl/bof/api/server/middleware"
+package middleware
 
 import (
 	"context"

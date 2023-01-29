@@ -1,4 +1,4 @@
-package v1 // import "github.com/rumpl/bof/image/v1"
+package v1
 
 import (
 	"encoding/json"

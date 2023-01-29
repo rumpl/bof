@@ -1,7 +1,7 @@
 //go:build !linux && !freebsd && !windows
 // +build !linux,!freebsd,!windows
 
-package daemon // import "github.com/rumpl/bof/daemon"
+package daemon
 
 import (
 	"errors"

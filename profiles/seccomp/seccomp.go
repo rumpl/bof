@@ -1,4 +1,4 @@
-package seccomp // import "github.com/rumpl/bof/profiles/seccomp"
+package seccomp
 
 import (
 	"encoding/json"

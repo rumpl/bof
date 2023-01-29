@@ -1,4 +1,4 @@
-package events // import "github.com/rumpl/bof/daemon/events"
+package events
 
 import (
 	"sync"

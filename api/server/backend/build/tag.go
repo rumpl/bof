@@ -1,4 +1,4 @@
-package build // import "github.com/rumpl/bof/api/server/backend/build"
+package build
 
 import (
 	"fmt"

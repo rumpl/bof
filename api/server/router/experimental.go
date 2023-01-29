@@ -1,4 +1,4 @@
-package router // import "github.com/rumpl/bof/api/server/router"
+package router
 
 import (
 	"context"

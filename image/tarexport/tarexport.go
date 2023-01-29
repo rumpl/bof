@@ -1,4 +1,4 @@
-package tarexport // import "github.com/rumpl/bof/image/tarexport"
+package tarexport
 
 import (
 	"github.com/docker/distribution"

@@ -1,4 +1,4 @@
-package jsonmessage // import "github.com/rumpl/bof/pkg/jsonmessage"
+package jsonmessage
 
 import (
 	"encoding/json"

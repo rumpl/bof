@@ -1,7 +1,7 @@
 //go:build windows
 // +build windows
 
-package archive // import "github.com/rumpl/bof/pkg/archive"
+package archive
 
 import (
 	"os"

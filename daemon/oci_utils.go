@@ -1,4 +1,4 @@
-package daemon // import "github.com/rumpl/bof/daemon"
+package daemon
 
 import (
 	specs "github.com/opencontainers/runtime-spec/specs-go"

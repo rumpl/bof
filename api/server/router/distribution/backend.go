@@ -1,4 +1,4 @@
-package distribution // import "github.com/rumpl/bof/api/server/router/distribution"
+package distribution
 
 import (
 	"context"

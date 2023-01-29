@@ -1,4 +1,4 @@
-package volume // import "github.com/rumpl/bof/api/types/volume"
+package volume
 
 import "github.com/rumpl/bof/api/types/filters"
 

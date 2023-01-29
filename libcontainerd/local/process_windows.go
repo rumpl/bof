@@ -1,4 +1,4 @@
-package local // import "github.com/rumpl/bof/libcontainerd/local"
+package local
 
 import (
 	"io"

@@ -1,7 +1,7 @@
 //go:build linux || freebsd
 // +build linux freebsd
 
-package graphtest // import "github.com/rumpl/bof/daemon/graphdriver/graphtest"
+package graphtest
 
 import (
 	"bytes"

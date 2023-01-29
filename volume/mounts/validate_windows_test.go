@@ -1,4 +1,4 @@
-package mounts // import "github.com/rumpl/bof/volume/mounts"
+package mounts
 
 var (
 	testDestinationPath = `c:\foo`

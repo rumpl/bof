@@ -1,4 +1,4 @@
-package dmesg // import "github.com/rumpl/bof/pkg/dmesg"
+package dmesg
 
 import (
 	"golang.org/x/sys/unix"

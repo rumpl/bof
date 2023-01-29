@@ -1,6 +1,6 @@
 // Package checker provides helpers for gotest.tools/assert.
 // Please remove this package whenever possible.
-package checker // import "github.com/rumpl/bof/integration-cli/checker"
+package checker
 
 import (
 	"fmt"
