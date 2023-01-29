@@ -2,13 +2,9 @@ package daemon
 
 import (
 	"fmt"
-	"os"
 
-	"github.com/pkg/errors"
 	"github.com/rumpl/bof/container"
 	"github.com/rumpl/bof/libnetwork"
-	"github.com/rumpl/bof/pkg/system"
-	"github.com/sirupsen/logrus"
 )
 
 func (daemon *Daemon) setupLinkedContainers(container *container.Container) ([]string, error) {
