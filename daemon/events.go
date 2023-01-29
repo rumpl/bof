@@ -4,21 +4,11 @@ import (
 	"strings"
 	"time"
 
-	gogotypes "github.com/gogo/protobuf/types"
-	swarmapi "github.com/moby/swarmkit/v2/api"
 	"github.com/rumpl/bof/api/types/events"
 	"github.com/rumpl/bof/api/types/filters"
 	"github.com/rumpl/bof/container"
 	daemonevents "github.com/rumpl/bof/daemon/events"
 	"github.com/rumpl/bof/libnetwork"
-)
-
-var (
-	clusterEventAction = map[swarmapi.WatchActionKind]string{
-		swarmapi.WatchActionKindCreate: "create",
-		swarmapi.WatchActionKindUpdate: "update",
-		swarmapi.WatchActionKindRemove: "remove",
-	}
 )
 
 // LogContainerEvent generates an event related to a container with only the default attributes.
@@ -114,19 +104,4 @@ func copyAttributes(attributes, labels map[string]string) {
 	for k, v := range labels {
 		attributes[k] = v
 	}
-}
-
-func eventTimestamp(meta swarmapi.Meta, action swarmapi.WatchActionKind) time.Time {
-	var eventTime time.Time
-	switch action {
-	case swarmapi.WatchActionKindCreate:
-		eventTime, _ = gogotypes.TimestampFromProto(meta.CreatedAt)
-	case swarmapi.WatchActionKindUpdate:
-		eventTime, _ = gogotypes.TimestampFromProto(meta.UpdatedAt)
-	case swarmapi.WatchActionKindRemove:
-		// There is no timestamp from store message for remove operations.
-		// Use current time.
-		eventTime = time.Now()
-	}
-	return eventTime
 }

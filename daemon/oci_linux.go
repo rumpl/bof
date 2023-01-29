@@ -500,16 +500,6 @@ func WithMounts(daemon *Daemon, c *container.Container) coci.SpecOpts {
 			return err
 		}
 
-		defer func() {
-			if err != nil {
-				daemon.cleanupSecretDir(c)
-			}
-		}()
-
-		if err := daemon.setupSecretDir(c); err != nil {
-			return err
-		}
-
 		ms, err := daemon.setupMounts(c)
 		if err != nil {
 			return err
