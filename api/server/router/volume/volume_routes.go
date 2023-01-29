@@ -13,12 +13,6 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-const (
-	// clusterVolumesVersion defines the API version that swarm cluster volume
-	// functionality was introduced. avoids the use of magic numbers.
-	clusterVolumesVersion = "1.42"
-)
-
 func (v *volumeRouter) getVolumesList(ctx context.Context, w http.ResponseWriter, r *http.Request, vars map[string]string) error {
 	if err := httputils.ParseForm(r); err != nil {
 		return err
@@ -41,11 +35,6 @@ func (v *volumeRouter) getVolumeByName(ctx context.Context, w http.ResponseWrite
 		return err
 	}
 
-	// re: volume name duplication
-	//
-	// we prefer to get volumes locally before attempting to get them from the
-	// cluster. Local volumes can only be looked up by name, but cluster
-	// volumes can also be looked up by ID.
 	vol, err := v.backend.Get(ctx, vars["name"], opts.WithGetResolveStatus)
 	if err != nil {
 		// otherwise, if this isn't NotFound, or this isn't a high enough version,
@@ -86,9 +75,6 @@ func (v *volumeRouter) deleteVolumes(ctx context.Context, w http.ResponseWriter,
 	force := httputils.BoolValue(r, "force")
 
 	err := v.backend.Remove(ctx, vars["name"], opts.WithPurgeOnError(force))
-	// when a removal is forced, if the volume does not exist, no error will be
-	// returned. this means that to ensure forcing works on swarm volumes as
-	// well, we should always also force remove against the cluster.
 	if err != nil || force {
 		return err
 	}

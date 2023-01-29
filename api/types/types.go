@@ -14,7 +14,6 @@ import (
 	"github.com/rumpl/bof/api/types/mount"
 	"github.com/rumpl/bof/api/types/network"
 	"github.com/rumpl/bof/api/types/registry"
-	"github.com/rumpl/bof/api/types/swarm"
 	"github.com/rumpl/bof/api/types/volume"
 )
 
@@ -200,15 +199,6 @@ type Ping struct {
 	OSType         string
 	Experimental   bool
 	BuilderVersion BuilderVersion
-
-	// SwarmStatus provides information about the current swarm status of the
-	// engine, obtained from the "Swarm" header in the API response.
-	//
-	// It can be a nil struct if the API version does not provide this header
-	// in the ping response, or if an error occurred, in which case the client
-	// should use other ways to get the current swarm status, such as the /swarm
-	// endpoint.
-	SwarmStatus *swarm.Status
 }
 
 // ComponentVersion describes the version information for a specific component.
@@ -298,7 +288,6 @@ type Info struct {
 	ServerVersion      string
 	Runtimes           map[string]Runtime
 	DefaultRuntime     string
-	Swarm              swarm.Info
 	// LiveRestoreEnabled determines whether containers should be kept
 	// running when the daemon is shutdown or upon daemon start if
 	// running containers are detected
