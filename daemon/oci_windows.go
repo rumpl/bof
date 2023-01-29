@@ -42,18 +42,6 @@ func (daemon *Daemon) createSpec(ctx context.Context, c *container.Container) (*
 		return nil, err
 	}
 
-	// Note, unlike Unix, we do NOT call into SetupWorkingDirectory as
-	// this is done in VMCompute. Further, we couldn't do it for Hyper-V
-	// containers anyway.
-
-	if err := daemon.setupSecretDir(c); err != nil {
-		return nil, err
-	}
-
-	if err := daemon.setupConfigDir(c); err != nil {
-		return nil, err
-	}
-
 	// In s.Mounts
 	mounts, err := daemon.setupMounts(c)
 	if err != nil {

@@ -15,64 +15,6 @@ func (daemon *Daemon) setupLinkedContainers(container *container.Container) ([]s
 	return nil, nil
 }
 
-func (daemon *Daemon) setupConfigDir(c *container.Container) (setupErr error) {
-	if len(c.ConfigReferences) == 0 {
-		return nil
-	}
-
-	localPath := c.ConfigsDirPath()
-	logrus.Debugf("configs: setting up config dir: %s", localPath)
-
-	// create local config root
-	if err := system.MkdirAllWithACL(localPath, 0, system.SddlAdministratorsLocalSystem); err != nil {
-		return errors.Wrap(err, "error creating config dir")
-	}
-
-	defer func() {
-		if setupErr != nil {
-			if err := os.RemoveAll(localPath); err != nil {
-				logrus.Errorf("error cleaning up config dir: %s", err)
-			}
-		}
-	}()
-
-	if c.DependencyStore == nil {
-		return fmt.Errorf("config store is not initialized")
-	}
-
-	for _, configRef := range c.ConfigReferences {
-		// TODO (ehazlett): use type switch when more are supported
-		if configRef.File == nil {
-			// Runtime configs are not mounted into the container, but they're
-			// a valid type of config so we should not error when we encounter
-			// one.
-			if configRef.Runtime == nil {
-				logrus.Error("config target type is not a file or runtime target")
-			}
-			// However, in any case, this isn't a file config, so we have no
-			// further work to do
-			continue
-		}
-
-		fPath, err := c.ConfigFilePath(*configRef)
-		if err != nil {
-			return errors.Wrap(err, "error getting config file path for container")
-		}
-		log := logrus.WithFields(logrus.Fields{"name": configRef.File.Name, "path": fPath})
-
-		log.Debug("injecting config")
-		config, err := c.DependencyStore.Configs().Get(configRef.ConfigID)
-		if err != nil {
-			return errors.Wrap(err, "unable to get config from config store")
-		}
-		if err := os.WriteFile(fPath, config.Spec.Data, configRef.File.Mode); err != nil {
-			return errors.Wrap(err, "error injecting config")
-		}
-	}
-
-	return nil
-}
-
 func (daemon *Daemon) setupIpcDirs(container *container.Container) error {
 	return nil
 }
