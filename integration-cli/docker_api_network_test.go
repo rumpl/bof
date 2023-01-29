@@ -239,7 +239,6 @@ func (s *DockerAPISuite) TestAPINetworkIPAMMultipleBridgeNetworks(c *testing.T) 
 }
 
 func (s *DockerAPISuite) TestAPICreateDeletePredefinedNetworks(c *testing.T) {
-	testRequires(c, DaemonIsLinux, SwarmInactive)
 	createDeletePredefinedNetwork(c, "bridge")
 	createDeletePredefinedNetwork(c, "none")
 	createDeletePredefinedNetwork(c, "host")

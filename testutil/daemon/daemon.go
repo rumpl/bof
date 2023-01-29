@@ -81,9 +81,6 @@ type Daemon struct {
 	rootlessUser               *user.User
 	rootlessXDGRuntimeDir      string
 
-	// swarm related field
-	swarmListenAddr string
-	SwarmPort       int // FIXME(vdemeester) should probably not be exported
 	DefaultAddrPool []string
 	SubnetSize      uint32
 	DataPathPort    uint32
@@ -128,8 +125,6 @@ func NewDaemon(workingDir string, ops ...Option) (*Daemon, error) {
 		// dxr stands for docker-execroot (shortened for avoiding unix(7) path length limitation)
 		execRoot:         filepath.Join(os.TempDir(), "dxr", id),
 		dockerdBinary:    defaultDockerdBinary,
-		swarmListenAddr:  defaultSwarmListenAddr,
-		SwarmPort:        DefaultSwarmPort,
 		log:              nopLog{},
 		containerdSocket: defaultContainerdSocket,
 	}

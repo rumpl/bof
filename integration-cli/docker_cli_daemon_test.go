@@ -45,6 +45,8 @@ import (
 
 const containerdSocket = "/var/run/docker/containerd/containerd.sock"
 
+var defaultReconciliationTimeout = 5 * time.Second
+
 // TestLegacyDaemonCommand test starting docker daemon using "deprecated" docker daemon
 // command. Remove this test when we remove this.
 func (s *DockerDaemonSuite) TestLegacyDaemonCommand(c *testing.T) {

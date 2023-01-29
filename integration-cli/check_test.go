@@ -540,17 +540,7 @@ func (s *DockerSwarmSuite) AddDaemon(c *testing.T, joinSwarm, manager bool) *dae
 	c.Helper()
 	d := daemon.New(c, dockerBinary, dockerdBinary,
 		testdaemon.WithEnvironment(testEnv.Execution),
-		testdaemon.WithSwarmPort(defaultSwarmPort+s.portIndex),
 	)
-	if joinSwarm {
-		if len(s.daemons) > 0 {
-			d.StartAndSwarmJoin(c, s.daemons[0].Daemon, manager)
-		} else {
-			d.StartAndSwarmInit(c)
-		}
-	} else {
-		d.StartNodeWithBusybox(c)
-	}
 
 	s.daemonsLock.Lock()
 	s.portIndex++

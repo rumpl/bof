@@ -10,7 +10,6 @@ import (
 
 	"gotest.tools/v3/assert"
 
-	"github.com/rumpl/bof/api/server/httputils"
 	"github.com/rumpl/bof/api/types"
 	"github.com/rumpl/bof/api/types/filters"
 	"github.com/rumpl/bof/api/types/volume"
@@ -19,29 +18,26 @@ import (
 )
 
 func callGetVolume(v *volumeRouter, name string) (*httptest.ResponseRecorder, error) {
-	ctx := context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
 	vars := map[string]string{"name": name}
 	req := httptest.NewRequest("GET", fmt.Sprintf("/volumes/%s", name), nil)
 	resp := httptest.NewRecorder()
 
-	err := v.getVolumeByName(ctx, resp, req, vars)
+	err := v.getVolumeByName(context.Background(), resp, req, vars)
 	return resp, err
 }
 
 func callListVolumes(v *volumeRouter) (*httptest.ResponseRecorder, error) {
-	ctx := context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
 	vars := map[string]string{}
 	req := httptest.NewRequest("GET", "/volumes", nil)
 	resp := httptest.NewRecorder()
 
-	err := v.getVolumesList(ctx, resp, req, vars)
+	err := v.getVolumesList(context.Background(), resp, req, vars)
 	return resp, err
 }
 
 func TestGetVolumeByNameNotFoundNoSwarm(t *testing.T) {
 	v := &volumeRouter{
 		backend: &fakeVolumeBackend{},
-		cluster: &fakeClusterBackend{},
 	}
 
 	_, err := callGetVolume(v, "notReal")
@@ -53,7 +49,6 @@ func TestGetVolumeByNameNotFoundNoSwarm(t *testing.T) {
 func TestGetVolumeByNameNotFoundNotManager(t *testing.T) {
 	v := &volumeRouter{
 		backend: &fakeVolumeBackend{},
-		cluster: &fakeClusterBackend{swarm: true},
 	}
 
 	_, err := callGetVolume(v, "notReal")
@@ -65,7 +60,6 @@ func TestGetVolumeByNameNotFoundNotManager(t *testing.T) {
 func TestGetVolumeByNameNotFound(t *testing.T) {
 	v := &volumeRouter{
 		backend: &fakeVolumeBackend{},
-		cluster: &fakeClusterBackend{swarm: true, manager: true},
 	}
 
 	_, err := callGetVolume(v, "notReal")
@@ -84,7 +78,6 @@ func TestGetVolumeByNameFoundRegular(t *testing.T) {
 				},
 			},
 		},
-		cluster: &fakeClusterBackend{swarm: true, manager: true},
 	}
 
 	_, err := callGetVolume(v, "volume1")
@@ -94,15 +87,6 @@ func TestGetVolumeByNameFoundRegular(t *testing.T) {
 func TestGetVolumeByNameFoundSwarm(t *testing.T) {
 	v := &volumeRouter{
 		backend: &fakeVolumeBackend{},
-		cluster: &fakeClusterBackend{
-			swarm:   true,
-			manager: true,
-			volumes: map[string]*volume.Volume{
-				"volume1": {
-					Name: "volume1",
-				},
-			},
-		},
 	}
 
 	_, err := callGetVolume(v, "volume1")
@@ -114,14 +98,6 @@ func TestListVolumes(t *testing.T) {
 			volumes: map[string]*volume.Volume{
 				"v1": {Name: "v1"},
 				"v2": {Name: "v2"},
-			},
-		},
-		cluster: &fakeClusterBackend{
-			swarm:   true,
-			manager: true,
-			volumes: map[string]*volume.Volume{
-				"v3": {Name: "v3"},
-				"v4": {Name: "v4"},
 			},
 		},
 	}
@@ -144,7 +120,6 @@ func TestListVolumesNoSwarm(t *testing.T) {
 				"v2": {Name: "v2"},
 			},
 		},
-		cluster: &fakeClusterBackend{},
 	}
 
 	_, err := callListVolumes(v)
@@ -159,7 +134,6 @@ func TestListVolumesNoManager(t *testing.T) {
 				"v2": {Name: "v2"},
 			},
 		},
-		cluster: &fakeClusterBackend{swarm: true},
 	}
 
 	resp, err := callListVolumes(v)
@@ -181,7 +155,6 @@ func TestCreateRegularVolume(t *testing.T) {
 	}
 	v := &volumeRouter{
 		backend: b,
-		cluster: c,
 	}
 
 	volumeCreate := volume.CreateOptions{
@@ -193,12 +166,11 @@ func TestCreateRegularVolume(t *testing.T) {
 	e := json.NewEncoder(&buf)
 	e.Encode(volumeCreate)
 
-	ctx := context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
 	req := httptest.NewRequest("POST", "/volumes/create", &buf)
 	req.Header.Add("Content-Type", "application/json")
 
 	resp := httptest.NewRecorder()
-	err := v.postVolumesCreate(ctx, resp, req, nil)
+	err := v.postVolumesCreate(context.Background(), resp, req, nil)
 
 	assert.NilError(t, err)
 
@@ -215,11 +187,9 @@ func TestCreateRegularVolume(t *testing.T) {
 
 func TestCreateSwarmVolumeNoSwarm(t *testing.T) {
 	b := &fakeVolumeBackend{}
-	c := &fakeClusterBackend{}
 
 	v := &volumeRouter{
 		backend: b,
-		cluster: c,
 	}
 
 	volumeCreate := volume.CreateOptions{
@@ -231,12 +201,11 @@ func TestCreateSwarmVolumeNoSwarm(t *testing.T) {
 	buf := bytes.Buffer{}
 	json.NewEncoder(&buf).Encode(volumeCreate)
 
-	ctx := context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
 	req := httptest.NewRequest("POST", "/volumes/create", &buf)
 	req.Header.Add("Content-Type", "application/json")
 
 	resp := httptest.NewRecorder()
-	err := v.postVolumesCreate(ctx, resp, req, nil)
+	err := v.postVolumesCreate(context.Background(), resp, req, nil)
 
 	assert.Assert(t, err != nil)
 	assert.Assert(t, errdefs.IsUnavailable(err))
@@ -244,11 +213,8 @@ func TestCreateSwarmVolumeNoSwarm(t *testing.T) {
 
 func TestCreateSwarmVolumeNotManager(t *testing.T) {
 	b := &fakeVolumeBackend{}
-	c := &fakeClusterBackend{swarm: true}
-
 	v := &volumeRouter{
 		backend: b,
-		cluster: c,
 	}
 
 	volumeCreate := volume.CreateOptions{
@@ -260,12 +226,11 @@ func TestCreateSwarmVolumeNotManager(t *testing.T) {
 	buf := bytes.Buffer{}
 	json.NewEncoder(&buf).Encode(volumeCreate)
 
-	ctx := context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
 	req := httptest.NewRequest("POST", "/volumes/create", &buf)
 	req.Header.Add("Content-Type", "application/json")
 
 	resp := httptest.NewRecorder()
-	err := v.postVolumesCreate(ctx, resp, req, nil)
+	err := v.postVolumesCreate(context.Background(), resp, req, nil)
 
 	assert.Assert(t, err != nil)
 	assert.Assert(t, errdefs.IsUnavailable(err))
@@ -273,14 +238,8 @@ func TestCreateSwarmVolumeNotManager(t *testing.T) {
 
 func TestCreateVolumeCluster(t *testing.T) {
 	b := &fakeVolumeBackend{}
-	c := &fakeClusterBackend{
-		swarm:   true,
-		manager: true,
-	}
-
 	v := &volumeRouter{
 		backend: b,
-		cluster: c,
 	}
 
 	volumeCreate := volume.CreateOptions{
@@ -292,12 +251,11 @@ func TestCreateVolumeCluster(t *testing.T) {
 	buf := bytes.Buffer{}
 	json.NewEncoder(&buf).Encode(volumeCreate)
 
-	ctx := context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
 	req := httptest.NewRequest("POST", "/volumes/create", &buf)
 	req.Header.Add("Content-Type", "application/json")
 
 	resp := httptest.NewRecorder()
-	err := v.postVolumesCreate(ctx, resp, req, nil)
+	err := v.postVolumesCreate(context.Background(), resp, req, nil)
 
 	assert.NilError(t, err)
 
@@ -309,101 +267,6 @@ func TestCreateVolumeCluster(t *testing.T) {
 	assert.Equal(t, respVolume.Driver, "someCSI")
 
 	assert.Equal(t, 0, len(b.volumes))
-	assert.Equal(t, 1, len(c.volumes))
-}
-
-func TestUpdateVolume(t *testing.T) {
-	b := &fakeVolumeBackend{}
-	c := &fakeClusterBackend{
-		swarm:   true,
-		manager: true,
-		volumes: map[string]*volume.Volume{
-			"vol1": {
-				Name: "vo1",
-				ClusterVolume: &volume.ClusterVolume{
-					ID: "vol1",
-				},
-			},
-		},
-	}
-
-	v := &volumeRouter{
-		backend: b,
-		cluster: c,
-	}
-
-	volumeUpdate := volume.UpdateOptions{
-		Spec: &volume.ClusterVolumeSpec{},
-	}
-
-	buf := bytes.Buffer{}
-	json.NewEncoder(&buf).Encode(volumeUpdate)
-	ctx := context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
-	req := httptest.NewRequest("POST", "/volumes/vol1/update?version=0", &buf)
-	req.Header.Add("Content-Type", "application/json")
-
-	resp := httptest.NewRecorder()
-
-	err := v.putVolumesUpdate(ctx, resp, req, map[string]string{"name": "vol1"})
-	assert.NilError(t, err)
-
-	assert.Equal(t, c.volumes["vol1"].ClusterVolume.Meta.Version.Index, uint64(1))
-}
-
-func TestUpdateVolumeNoSwarm(t *testing.T) {
-	b := &fakeVolumeBackend{}
-	c := &fakeClusterBackend{}
-
-	v := &volumeRouter{
-		backend: b,
-		cluster: c,
-	}
-
-	volumeUpdate := volume.UpdateOptions{
-		Spec: &volume.ClusterVolumeSpec{},
-	}
-
-	buf := bytes.Buffer{}
-	json.NewEncoder(&buf).Encode(volumeUpdate)
-	ctx := context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
-	req := httptest.NewRequest("POST", "/volumes/vol1/update?version=0", &buf)
-	req.Header.Add("Content-Type", "application/json")
-
-	resp := httptest.NewRecorder()
-
-	err := v.putVolumesUpdate(ctx, resp, req, map[string]string{"name": "vol1"})
-	assert.Assert(t, err != nil)
-	assert.Assert(t, errdefs.IsUnavailable(err))
-}
-
-func TestUpdateVolumeNotFound(t *testing.T) {
-	b := &fakeVolumeBackend{}
-	c := &fakeClusterBackend{
-		swarm:   true,
-		manager: true,
-		volumes: map[string]*volume.Volume{},
-	}
-
-	v := &volumeRouter{
-		backend: b,
-		cluster: c,
-	}
-
-	volumeUpdate := volume.UpdateOptions{
-		Spec: &volume.ClusterVolumeSpec{},
-	}
-
-	buf := bytes.Buffer{}
-	json.NewEncoder(&buf).Encode(volumeUpdate)
-	ctx := context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
-	req := httptest.NewRequest("POST", "/volumes/vol1/update?version=0", &buf)
-	req.Header.Add("Content-Type", "application/json")
-
-	resp := httptest.NewRecorder()
-
-	err := v.putVolumesUpdate(ctx, resp, req, map[string]string{"name": "vol1"})
-	assert.Assert(t, err != nil)
-	assert.Assert(t, errdefs.IsNotFound(err))
 }
 
 func TestVolumeRemove(t *testing.T) {
@@ -414,79 +277,43 @@ func TestVolumeRemove(t *testing.T) {
 			},
 		},
 	}
-	c := &fakeClusterBackend{swarm: true, manager: true}
 
 	v := &volumeRouter{
 		backend: b,
-		cluster: c,
 	}
 
-	ctx := context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
 	req := httptest.NewRequest("DELETE", "/volumes/vol1", nil)
 	resp := httptest.NewRecorder()
 
-	err := v.deleteVolumes(ctx, resp, req, map[string]string{"name": "vol1"})
+	err := v.deleteVolumes(context.Background(), resp, req, map[string]string{"name": "vol1"})
 	assert.NilError(t, err)
 	assert.Equal(t, len(b.volumes), 0)
 }
 
-func TestVolumeRemoveSwarm(t *testing.T) {
-	b := &fakeVolumeBackend{}
-	c := &fakeClusterBackend{
-		swarm:   true,
-		manager: true,
-		volumes: map[string]*volume.Volume{
-			"vol1": {
-				Name:          "vol1",
-				ClusterVolume: &volume.ClusterVolume{},
-			},
-		},
-	}
-
-	v := &volumeRouter{
-		backend: b,
-		cluster: c,
-	}
-
-	ctx := context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
-	req := httptest.NewRequest("DELETE", "/volumes/vol1", nil)
-	resp := httptest.NewRecorder()
-
-	err := v.deleteVolumes(ctx, resp, req, map[string]string{"name": "vol1"})
-	assert.NilError(t, err)
-	assert.Equal(t, len(c.volumes), 0)
-}
-
 func TestVolumeRemoveNotFoundNoSwarm(t *testing.T) {
 	b := &fakeVolumeBackend{}
-	c := &fakeClusterBackend{}
 	v := &volumeRouter{
 		backend: b,
-		cluster: c,
 	}
 
-	ctx := context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
 	req := httptest.NewRequest("DELETE", "/volumes/vol1", nil)
 	resp := httptest.NewRecorder()
 
-	err := v.deleteVolumes(ctx, resp, req, map[string]string{"name": "vol1"})
+	err := v.deleteVolumes(context.Background(), resp, req, map[string]string{"name": "vol1"})
 	assert.Assert(t, err != nil)
 	assert.Assert(t, errdefs.IsNotFound(err), err.Error())
 }
 
 func TestVolumeRemoveNotFoundNoManager(t *testing.T) {
 	b := &fakeVolumeBackend{}
-	c := &fakeClusterBackend{swarm: true}
 	v := &volumeRouter{
 		backend: b,
-		cluster: c,
 	}
 
-	ctx := context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
 	req := httptest.NewRequest("DELETE", "/volumes/vol1", nil)
 	resp := httptest.NewRecorder()
 
-	err := v.deleteVolumes(ctx, resp, req, map[string]string{"name": "vol1"})
+	err := v.deleteVolumes(context.Background(), resp, req, map[string]string{"name": "vol1"})
 	assert.Assert(t, err != nil)
 	assert.Assert(t, errdefs.IsNotFound(err))
 }
@@ -499,18 +326,15 @@ func TestVolumeRemoveFoundNoSwarm(t *testing.T) {
 			},
 		},
 	}
-	c := &fakeClusterBackend{}
 
 	v := &volumeRouter{
 		backend: b,
-		cluster: c,
 	}
 
-	ctx := context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
 	req := httptest.NewRequest("DELETE", "/volumes/vol1", nil)
 	resp := httptest.NewRecorder()
 
-	err := v.deleteVolumes(ctx, resp, req, map[string]string{"name": "vol1"})
+	err := v.deleteVolumes(context.Background(), resp, req, map[string]string{"name": "vol1"})
 	assert.NilError(t, err)
 	assert.Equal(t, len(b.volumes), 0)
 }
@@ -523,58 +347,16 @@ func TestVolumeRemoveNoSwarmInUse(t *testing.T) {
 			},
 		},
 	}
-	c := &fakeClusterBackend{}
 	v := &volumeRouter{
 		backend: b,
-		cluster: c,
 	}
 
-	ctx := context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
 	req := httptest.NewRequest("DELETE", "/volumes/inuse", nil)
 	resp := httptest.NewRecorder()
 
-	err := v.deleteVolumes(ctx, resp, req, map[string]string{"name": "inuse"})
+	err := v.deleteVolumes(context.Background(), resp, req, map[string]string{"name": "inuse"})
 	assert.Assert(t, err != nil)
 	assert.Assert(t, errdefs.IsConflict(err))
-}
-
-func TestVolumeRemoveSwarmForce(t *testing.T) {
-	b := &fakeVolumeBackend{}
-	c := &fakeClusterBackend{
-		swarm:   true,
-		manager: true,
-		volumes: map[string]*volume.Volume{
-			"vol1": {
-				Name:          "vol1",
-				ClusterVolume: &volume.ClusterVolume{},
-				Options:       map[string]string{"mustforce": "yes"},
-			},
-		},
-	}
-
-	v := &volumeRouter{
-		backend: b,
-		cluster: c,
-	}
-
-	ctx := context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
-	req := httptest.NewRequest("DELETE", "/volumes/vol1", nil)
-	resp := httptest.NewRecorder()
-
-	err := v.deleteVolumes(ctx, resp, req, map[string]string{"name": "vol1"})
-
-	assert.Assert(t, err != nil)
-	assert.Assert(t, errdefs.IsConflict(err))
-
-	ctx = context.WithValue(context.Background(), httputils.APIVersionKey{}, clusterVolumesVersion)
-	req = httptest.NewRequest("DELETE", "/volumes/vol1?force=1", nil)
-	resp = httptest.NewRecorder()
-
-	err = v.deleteVolumes(ctx, resp, req, map[string]string{"name": "vol1"})
-
-	assert.NilError(t, err)
-	assert.Equal(t, len(b.volumes), 0)
-	assert.Equal(t, len(c.volumes), 0)
 }
 
 type fakeVolumeBackend struct {
@@ -703,11 +485,6 @@ func (c *fakeClusterBackend) CreateVolume(volumeCreate volume.CreateOptions) (*v
 		Scope:   "global",
 	}
 
-	v.ClusterVolume = &volume.ClusterVolume{
-		ID:   fmt.Sprintf("cluster_%d", c.idCount),
-		Spec: *volumeCreate.ClusterVolumeSpec,
-	}
-
 	c.idCount = c.idCount + 1
 	if c.volumes == nil {
 		c.volumes = map[string]*volume.Volume{
@@ -744,15 +521,8 @@ func (c *fakeClusterBackend) UpdateVolume(nameOrID string, version uint64, _ vol
 		return err
 	}
 
-	if v, ok := c.volumes[nameOrID]; ok {
-		if v.ClusterVolume.Meta.Version.Index != version {
-			return fmt.Errorf("wrong version")
-		}
-		v.ClusterVolume.Meta.Version.Index = v.ClusterVolume.Meta.Version.Index + 1
-		// for testing, we don't actually need to change anything about the
-		// volume object. let's just increment the version so we can see the
-		// call happened.
-	} else {
+	if _, ok := c.volumes[nameOrID]; !ok {
+
 		return errdefs.NotFound(fmt.Errorf("volume %q not found", nameOrID))
 	}
 

@@ -54,20 +54,6 @@ func WithDockerdBinary(dockerdBinary string) Option {
 	}
 }
 
-// WithSwarmPort sets the swarm port to use for swarm mode
-func WithSwarmPort(port int) Option {
-	return func(d *Daemon) {
-		d.SwarmPort = port
-	}
-}
-
-// WithSwarmListenAddr sets the swarm listen addr to use for swarm mode
-func WithSwarmListenAddr(listenAddr string) Option {
-	return func(d *Daemon) {
-		d.swarmListenAddr = listenAddr
-	}
-}
-
 // WithSwarmDefaultAddrPool sets the swarm default address pool to use for swarm mode
 func WithSwarmDefaultAddrPool(defaultAddrPool []string) Option {
 	return func(d *Daemon) {

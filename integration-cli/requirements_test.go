@@ -12,7 +12,6 @@ import (
 
 	"github.com/containerd/containerd/plugin"
 	"github.com/rumpl/bof/api/types"
-	"github.com/rumpl/bof/api/types/swarm"
 	"github.com/rumpl/bof/api/types/versions"
 	"github.com/rumpl/bof/client"
 	"github.com/rumpl/bof/integration-cli/requirement"
@@ -174,10 +173,6 @@ func RegistryHosting() bool {
 
 func RuntimeIsWindowsContainerd() bool {
 	return os.Getenv("DOCKER_WINDOWS_CONTAINERD_RUNTIME") == "1"
-}
-
-func SwarmInactive() bool {
-	return testEnv.DaemonInfo.Swarm.LocalNodeState == swarm.LocalNodeStateInactive
 }
 
 func TODOBuildkit() bool {
