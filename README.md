@@ -1,6 +1,18 @@
 The Moby Project
 ================
 
+This is a fork of moby/moby created so that I can do whatever I want with the code.
+
+Features:
+
+* [x] no swarm
+* [x] go.mod instead of vendor.mod
+* [ ] cni
+* [ ] no classic builder
+* [ ] no buildkit builder
+* [ ] no plugins
+
+
 ![Moby Project logo](docs/static_files/moby-project-logo.png "The Moby Project")
 
 Moby is an open-source project created by Docker to enable and accelerate software containerization.
