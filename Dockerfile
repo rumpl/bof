@@ -69,13 +69,13 @@ RUN --mount=from=registry-src,src=/usr/src/registry,rw \
   git fetch -q --depth 1 origin "${REGISTRY_VERSION}" +refs/tags/*:refs/tags/*
   git checkout -q FETCH_HEAD
   export GOPATH="/go/src/github.com/docker/distribution/Godeps/_workspace:$GOPATH"
-  CGO_ENABLED=0 xx-go build -o /build/registry-v2 -v ./cmd/registry
+  GO111MODULE=off CGO_ENABLED=0 xx-go build -o /build/registry-v2 -v ./cmd/registry
   xx-verify /build/registry-v2
   case $TARGETPLATFORM in
     linux/amd64|linux/arm/v7|linux/ppc64le|linux/s390x)
       git fetch -q --depth 1 origin "${REGISTRY_VERSION_SCHEMA1}" +refs/tags/*:refs/tags/*
       git checkout -q FETCH_HEAD
-      CGO_ENABLED=0 xx-go build -o /build/registry-v2-schema1 -v ./cmd/registry
+      GO111MODULE=off CGO_ENABLED=0 xx-go build -o /build/registry-v2-schema1 -v ./cmd/registry
       xx-verify /build/registry-v2-schema1
       ;;
   esac
@@ -100,8 +100,8 @@ RUN --mount=from=swagger-src,src=/usr/src/swagger,rw \
     --mount=type=cache,target=/go/pkg/mod \
     --mount=type=tmpfs,target=/go/src/ <<EOT
   set -e
-  xx-go build -o /build/swagger ./cmd/swagger
-  xx-verify /build/swagger
+  GO111MODULE=off xx-go build -o /build/swagger ./cmd/swagger
+  xx-verify /build/swaggers
 EOT
 
 # frozen-images
