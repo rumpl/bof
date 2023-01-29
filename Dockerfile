@@ -1,4 +1,4 @@
-# syntax=rumpl/boffile:1
+# syntax=docker/dockerfile:1
 
 ARG GO_VERSION=1.19.5
 ARG BASE_DEBIAN_DISTRO="bullseye"

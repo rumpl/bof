@@ -69,8 +69,8 @@ New features for the builder and Dockerfile should be implemented first in the
 BuildKit backend using an external Dockerfile implementation from the container
 images. This allows everyone to test and evaluate the feature without upgrading
 their daemon. New features should go to the experimental channel first, and can be
-part of the `rumpl/boffile:experimental` image. From there they graduate to
-`rumpl/boffile:latest` and binary releases. The Dockerfile frontend source
+part of the `docker/dockerfile:experimental` image. From there they graduate to
+`docker/dockerfile:latest` and binary releases. The Dockerfile frontend source
 code is temporarily located at
 [https://github.com/moby/buildkit/tree/master/frontend/dockerfile](https://github.com/moby/buildkit/tree/master/frontend/dockerfile)
 with separate new features defined with go build tags.

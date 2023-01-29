@@ -3054,7 +3054,7 @@ func (s *DockerCLIBuildSuite) TestBuildFromGit(c *testing.T) {
 func (s *DockerCLIBuildSuite) TestBuildFromGitWithContext(c *testing.T) {
 	name := "testbuildfromgit"
 	git := fakegit.New(c, "repo", map[string]string{
-		"rumpl/boffile": `FROM busybox
+		"docker/dockerfile": `FROM busybox
 					ADD first /first
 					RUN [ -f /first ]
 					MAINTAINER docker`,
