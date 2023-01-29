@@ -25,16 +25,6 @@ need to package Docker your way, without denaturing it in the process.
 
 The Dockerfile contains the most up-to-date list of build-time dependencies.
 
-### Go Dependencies
-
-All Go dependencies are vendored under "./vendor". They are used by the official
-build, so the source of truth for the current version of each dependency is
-whatever is in "./vendor".
-
-If you would rather (or must, due to distro policy) package these dependencies
-yourself, take a look at "vendor.mod" for an easy-to-parse list of the
-exact version for each.
-
 ## Stripping Binaries
 
 Please, please, please do not strip any compiled binaries. This is really
