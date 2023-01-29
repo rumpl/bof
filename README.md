@@ -8,6 +8,7 @@ Features:
 * [x] no swarm
 * [x] go.mod instead of vendor.mod
 * [ ] cni
+* [ ] no graph drivers, only containerd and its snapshotters
 * [ ] no classic builder
 * [ ] no buildkit builder
 * [ ] no plugins
