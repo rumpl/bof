@@ -101,7 +101,7 @@ RUN --mount=from=swagger-src,src=/usr/src/swagger,rw \
     --mount=type=tmpfs,target=/go/src/ <<EOT
   set -e
   GO111MODULE=off xx-go build -o /build/swagger ./cmd/swagger
-  xx-verify /build/swaggers
+  xx-verify /build/swagger
 EOT
 
 # frozen-images
