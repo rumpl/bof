@@ -477,7 +477,9 @@ func getConflictFreeConfiguration(configFile string, flags *pflag.FlagSet) (*Con
 			}
 
 			if _, ok := f.Value.(boolValue); ok {
-				f.Value.Set(fmt.Sprintf("%v", value))
+				if err := f.Value.Set(fmt.Sprintf("%v", value)); err != nil {
+					return nil, err
+				}
 			}
 		}
 		if len(namedOptions) > 0 {

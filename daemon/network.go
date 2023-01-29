@@ -6,7 +6,6 @@ import (
 	"sort"
 	"strconv"
 	"strings"
-	"sync"
 
 	"github.com/docker/go-connections/nat"
 	"github.com/pkg/errors"
@@ -136,17 +135,6 @@ func (daemon *Daemon) getAllNetworks() []libnetwork.Network {
 	}
 	return c.Networks()
 }
-
-type ingressJob struct {
-	ip      net.IP
-	jobDone chan struct{}
-}
-
-var (
-	ingressWorkerOnce  sync.Once
-	ingressJobsChannel chan *ingressJob
-	ingressID          string
-)
 
 // CreateNetwork creates a network with the given name, driver and other optional parameters
 func (daemon *Daemon) CreateNetwork(create types.NetworkCreateRequest) (*types.NetworkCreateResponse, error) {
@@ -607,34 +595,6 @@ func buildEndpointResource(id string, name string, info libnetwork.EndpointInfo)
 		}
 	}
 	return er
-}
-
-// clearAttachableNetworks removes the attachable networks
-// after disconnecting any connected container
-func (daemon *Daemon) clearAttachableNetworks() {
-	for _, n := range daemon.getAllNetworks() {
-		if !n.Info().Attachable() {
-			continue
-		}
-		for _, ep := range n.Endpoints() {
-			epInfo := ep.Info()
-			if epInfo == nil {
-				continue
-			}
-			sb := epInfo.Sandbox()
-			if sb == nil {
-				continue
-			}
-			containerID := sb.ContainerID()
-			if err := daemon.DisconnectContainerFromNetwork(containerID, n.ID(), true); err != nil {
-				logrus.Warnf("Failed to disconnect container %s from swarm network %s on cluster leave: %v",
-					containerID, n.Name(), err)
-			}
-		}
-		if err := daemon.DeleteManagedNetwork(n.ID()); err != nil {
-			logrus.Warnf("Failed to remove swarm network %s on cluster leave: %v", n.Name(), err)
-		}
-	}
 }
 
 // buildCreateEndpointOptions builds endpoint options from a given network.

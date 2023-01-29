@@ -4,7 +4,6 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"net/http/httptest"
 	"os"
 	"path"
 	"path/filepath"
@@ -301,11 +300,6 @@ func TestDockerDaemonSuite(t *testing.T) {
 	suite.Run(t, &DockerDaemonSuite{ds: &DockerSuite{}})
 }
 
-func TestDockerSwarmSuite(t *testing.T) {
-	ensureTestEnvSetup(t)
-	suite.Run(t, &DockerSwarmSuite{ds: &DockerSuite{}})
-}
-
 func TestDockerPluginSuite(t *testing.T) {
 	ensureTestEnvSetup(t)
 	suite.Run(t, &DockerPluginSuite{ds: &DockerSuite{}})
@@ -512,57 +506,6 @@ func (s *DockerDaemonSuite) TearDownSuite(c *testing.T) {
 		return nil
 	})
 	os.RemoveAll(testdaemon.SockRoot)
-}
-
-const defaultSwarmPort = 2477
-
-type DockerSwarmSuite struct {
-	server      *httptest.Server
-	ds          *DockerSuite
-	daemonsLock sync.Mutex // protect access to daemons and portIndex
-	daemons     []*daemon.Daemon
-	portIndex   int
-}
-
-func (s *DockerSwarmSuite) OnTimeout(c *testing.T) {
-	s.daemonsLock.Lock()
-	defer s.daemonsLock.Unlock()
-	for _, d := range s.daemons {
-		d.DumpStackAndQuit()
-	}
-}
-
-func (s *DockerSwarmSuite) SetUpTest(c *testing.T) {
-	testRequires(c, DaemonIsLinux, testEnv.IsLocalDaemon)
-}
-
-func (s *DockerSwarmSuite) AddDaemon(c *testing.T, joinSwarm, manager bool) *daemon.Daemon {
-	c.Helper()
-	d := daemon.New(c, dockerBinary, dockerdBinary,
-		testdaemon.WithEnvironment(testEnv.Execution),
-	)
-
-	s.daemonsLock.Lock()
-	s.portIndex++
-	s.daemons = append(s.daemons, d)
-	s.daemonsLock.Unlock()
-
-	return d
-}
-
-func (s *DockerSwarmSuite) TearDownTest(c *testing.T) {
-	testRequires(c, DaemonIsLinux)
-	s.daemonsLock.Lock()
-	for _, d := range s.daemons {
-		if d != nil {
-			d.Stop(c)
-			d.Cleanup(c)
-		}
-	}
-	s.daemons = nil
-	s.portIndex = 0
-	s.daemonsLock.Unlock()
-	s.ds.TearDownTest(c)
 }
 
 type DockerPluginSuite struct {

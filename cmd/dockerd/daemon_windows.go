@@ -74,12 +74,6 @@ func (cli *DaemonCli) setupConfigReloadTrap() {
 	}()
 }
 
-// getSwarmRunRoot gets the root directory for swarm to store runtime state
-// For example, the control socket
-func (cli *DaemonCli) getSwarmRunRoot() string {
-	return ""
-}
-
 func allocateDaemonPort(addr string) error {
 	return nil
 }
