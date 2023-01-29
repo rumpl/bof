@@ -4,8 +4,8 @@ import (
 	"net"
 	"sync"
 
-	"github.com/docker/docker/libnetwork/iptables"
-	"github.com/docker/docker/libnetwork/portallocator"
+	"github.com/rumpl/bof/libnetwork/iptables"
+	"github.com/rumpl/bof/libnetwork/portallocator"
 )
 
 // PortMapper manages the network address translation

@@ -5,11 +5,11 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/network"
-	"github.com/docker/docker/client"
 	specs "github.com/opencontainers/image-spec/specs-go/v1"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/api/types/network"
+	"github.com/rumpl/bof/client"
 	"gotest.tools/v3/assert"
 )
 

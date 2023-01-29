@@ -1,10 +1,10 @@
 package brmanager
 
 import (
-	"github.com/docker/docker/libnetwork/datastore"
-	"github.com/docker/docker/libnetwork/discoverapi"
-	"github.com/docker/docker/libnetwork/driverapi"
-	"github.com/docker/docker/libnetwork/types"
+	"github.com/rumpl/bof/libnetwork/datastore"
+	"github.com/rumpl/bof/libnetwork/discoverapi"
+	"github.com/rumpl/bof/libnetwork/driverapi"
+	"github.com/rumpl/bof/libnetwork/types"
 )
 
 const networkType = "bridge"

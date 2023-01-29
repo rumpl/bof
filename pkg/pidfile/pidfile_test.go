@@ -1,4 +1,4 @@
-package pidfile // import "github.com/docker/docker/pkg/pidfile"
+package pidfile // import "github.com/rumpl/bof/pkg/pidfile"
 
 import (
 	"errors"

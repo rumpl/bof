@@ -1,11 +1,11 @@
-package remotecontext // import "github.com/docker/docker/builder/remotecontext"
+package remotecontext // import "github.com/rumpl/bof/builder/remotecontext"
 
 import (
 	"os"
 
-	"github.com/docker/docker/builder"
-	"github.com/docker/docker/builder/remotecontext/git"
-	"github.com/docker/docker/pkg/archive"
+	"github.com/rumpl/bof/builder"
+	"github.com/rumpl/bof/builder/remotecontext/git"
+	"github.com/rumpl/bof/pkg/archive"
 	"github.com/sirupsen/logrus"
 )
 

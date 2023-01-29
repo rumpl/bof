@@ -1,11 +1,11 @@
-package mounts // import "github.com/docker/docker/volume/mounts"
+package mounts // import "github.com/rumpl/bof/volume/mounts"
 
 import (
 	"fmt"
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/api/types/mount"
+	"github.com/rumpl/bof/api/types/mount"
 	"gotest.tools/v3/assert"
 )
 

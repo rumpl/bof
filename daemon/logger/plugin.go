@@ -1,4 +1,4 @@
-package logger // import "github.com/docker/docker/daemon/logger"
+package logger // import "github.com/rumpl/bof/daemon/logger"
 
 import (
 	"fmt"
@@ -6,12 +6,12 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/docker/docker/api/types/plugins/logdriver"
-	"github.com/docker/docker/errdefs"
-	getter "github.com/docker/docker/pkg/plugingetter"
-	"github.com/docker/docker/pkg/plugins"
-	"github.com/docker/docker/pkg/stringid"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types/plugins/logdriver"
+	"github.com/rumpl/bof/errdefs"
+	getter "github.com/rumpl/bof/pkg/plugingetter"
+	"github.com/rumpl/bof/pkg/plugins"
+	"github.com/rumpl/bof/pkg/stringid"
 )
 
 var pluginGetter getter.PluginGetter

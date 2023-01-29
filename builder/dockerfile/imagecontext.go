@@ -1,15 +1,15 @@
-package dockerfile // import "github.com/docker/docker/builder/dockerfile"
+package dockerfile // import "github.com/rumpl/bof/builder/dockerfile"
 
 import (
 	"context"
 	"runtime"
 
 	"github.com/containerd/containerd/platforms"
-	"github.com/docker/docker/api/types/backend"
-	"github.com/docker/docker/builder"
-	dockerimage "github.com/docker/docker/image"
 	specs "github.com/opencontainers/image-spec/specs-go/v1"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types/backend"
+	"github.com/rumpl/bof/builder"
+	dockerimage "github.com/rumpl/bof/image"
 	"github.com/sirupsen/logrus"
 )
 

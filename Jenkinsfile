@@ -89,7 +89,7 @@ pipeline {
                                 '''
                                 sh '''
                                 docker run --rm -t --privileged \
-                                  -v "$WORKSPACE/bundles:/go/src/github.com/docker/docker/bundles" \
+                                  -v "$WORKSPACE/bundles:/go/src/github.com/rumpl/bof/bundles" \
                                   --name docker-pr$BUILD_NUMBER \
                                   -e DOCKER_EXPERIMENTAL \
                                   -e DOCKER_GITCOMMIT=${GIT_COMMIT} \
@@ -111,7 +111,7 @@ pipeline {
                             steps {
                                 sh '''
                                 docker run --rm -t --privileged \
-                                  -v "$WORKSPACE/bundles:/go/src/github.com/docker/docker/bundles" \
+                                  -v "$WORKSPACE/bundles:/go/src/github.com/rumpl/bof/bundles" \
                                   --name docker-pr$BUILD_NUMBER \
                                   -e DOCKER_EXPERIMENTAL \
                                   -e DOCKER_GITCOMMIT=${GIT_COMMIT} \
@@ -200,7 +200,7 @@ pipeline {
                             steps {
                                 sh '''
                                 docker run --rm -t --privileged \
-                                  -v "$WORKSPACE/bundles:/go/src/github.com/docker/docker/bundles" \
+                                  -v "$WORKSPACE/bundles:/go/src/github.com/rumpl/bof/bundles" \
                                   --name docker-pr$BUILD_NUMBER \
                                   -e DOCKER_GITCOMMIT=${GIT_COMMIT} \
                                   -e DOCKER_GRAPHDRIVER \
@@ -289,7 +289,7 @@ pipeline {
                                 '''
                                 sh '''
                                 docker run --rm -t --privileged \
-                                  -v "$WORKSPACE/bundles:/go/src/github.com/docker/docker/bundles" \
+                                  -v "$WORKSPACE/bundles:/go/src/github.com/rumpl/bof/bundles" \
                                   --name docker-pr$BUILD_NUMBER \
                                   -e DOCKER_EXPERIMENTAL \
                                   -e DOCKER_GITCOMMIT=${GIT_COMMIT} \
@@ -311,7 +311,7 @@ pipeline {
                             steps {
                                 sh '''
                                 docker run --rm -t --privileged \
-                                  -v "$WORKSPACE/bundles:/go/src/github.com/docker/docker/bundles" \
+                                  -v "$WORKSPACE/bundles:/go/src/github.com/rumpl/bof/bundles" \
                                   --name docker-pr$BUILD_NUMBER \
                                   -e DOCKER_EXPERIMENTAL \
                                   -e DOCKER_GITCOMMIT=${GIT_COMMIT} \
@@ -400,7 +400,7 @@ pipeline {
                             steps {
                                 sh '''
                                 docker run --rm -t --privileged \
-                                  -v "$WORKSPACE/bundles:/go/src/github.com/docker/docker/bundles" \
+                                  -v "$WORKSPACE/bundles:/go/src/github.com/rumpl/bof/bundles" \
                                   --name docker-pr$BUILD_NUMBER \
                                   -e DOCKER_GITCOMMIT=${GIT_COMMIT} \
                                   -e DOCKER_GRAPHDRIVER \
@@ -486,7 +486,7 @@ pipeline {
                                 '''
                                 sh '''
                                 docker run --rm -t --privileged \
-                                  -v "$WORKSPACE/bundles:/go/src/github.com/docker/docker/bundles" \
+                                  -v "$WORKSPACE/bundles:/go/src/github.com/rumpl/bof/bundles" \
                                   --name docker-pr$BUILD_NUMBER \
                                   -e DOCKER_EXPERIMENTAL \
                                   -e DOCKER_GITCOMMIT=${GIT_COMMIT} \
@@ -508,7 +508,7 @@ pipeline {
                             steps {
                                 sh '''
                                 docker run --rm -t --privileged \
-                                  -v "$WORKSPACE/bundles:/go/src/github.com/docker/docker/bundles" \
+                                  -v "$WORKSPACE/bundles:/go/src/github.com/rumpl/bof/bundles" \
                                   --name docker-pr$BUILD_NUMBER \
                                   -e DOCKER_EXPERIMENTAL \
                                   -e DOCKER_GITCOMMIT=${GIT_COMMIT} \

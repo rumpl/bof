@@ -1,4 +1,4 @@
-package dockerfile // import "github.com/docker/docker/builder/dockerfile"
+package dockerfile // import "github.com/rumpl/bof/builder/dockerfile"
 
 // This file contains the dispatchers for each command. Note that
 // `nullDispatch` is not actually a command, but support for commands we parse
@@ -16,13 +16,7 @@ import (
 	"strings"
 
 	"github.com/containerd/containerd/platforms"
-	"github.com/docker/docker/api"
 	"github.com/docker/docker/api/types/strslice"
-	"github.com/docker/docker/builder"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/pkg/jsonmessage"
-	"github.com/docker/docker/pkg/system"
 	"github.com/docker/go-connections/nat"
 	"github.com/moby/buildkit/frontend/dockerfile/instructions"
 	"github.com/moby/buildkit/frontend/dockerfile/parser"
@@ -30,6 +24,12 @@ import (
 	"github.com/moby/sys/signal"
 	specs "github.com/opencontainers/image-spec/specs-go/v1"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api"
+	"github.com/rumpl/bof/builder"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/pkg/jsonmessage"
+	"github.com/rumpl/bof/pkg/system"
 )
 
 // ENV foo bar
@@ -462,7 +462,8 @@ func dispatchHealthcheck(ctx context.Context, d dispatchRequest, c *instructions
 			fmt.Fprintf(d.builder.Stdout, "Note: overriding previous HEALTHCHECK: %v\n", oldCmd)
 		}
 	}
-	runConfig.Healthcheck = c.Health
+	// TODO(rumpl): builder will be removed anyway so...
+	// runConfig.Healthcheck = container.HealthConfig(c.Health)
 	return d.builder.commit(ctx, d.state, fmt.Sprintf("HEALTHCHECK %q", runConfig.Healthcheck))
 }
 
@@ -595,6 +596,6 @@ func dispatchArg(ctx context.Context, d dispatchRequest, c *instructions.ArgComm
 //
 // Set the non-default shell to use.
 func dispatchShell(ctx context.Context, d dispatchRequest, c *instructions.ShellCommand) error {
-	d.state.runConfig.Shell = c.Shell
+	// d.state.runConfig.Shell = c.Shell
 	return d.builder.commit(ctx, d.state, fmt.Sprintf("SHELL %v", d.state.runConfig.Shell))
 }

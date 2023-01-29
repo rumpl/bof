@@ -1,4 +1,4 @@
-package client // import "github.com/docker/docker/client"
+package client // import "github.com/rumpl/bof/client"
 
 import (
 	"bytes"
@@ -10,8 +10,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/api/types/volume"
-	"github.com/docker/docker/errdefs"
+	"github.com/rumpl/bof/api/types/volume"
+	"github.com/rumpl/bof/errdefs"
 )
 
 func TestVolumeCreateError(t *testing.T) {

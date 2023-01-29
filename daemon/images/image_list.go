@@ -1,4 +1,4 @@
-package images // import "github.com/docker/docker/daemon/images"
+package images // import "github.com/rumpl/bof/daemon/images"
 
 import (
 	"context"
@@ -8,12 +8,12 @@ import (
 	"time"
 
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/api/types"
-	imagetypes "github.com/docker/docker/api/types/image"
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
-	"github.com/docker/docker/pkg/system"
+	"github.com/rumpl/bof/api/types"
+	imagetypes "github.com/rumpl/bof/api/types/image"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
+	"github.com/rumpl/bof/pkg/system"
 )
 
 var acceptedImageFilterTags = map[string]bool{

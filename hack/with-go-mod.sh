@@ -21,7 +21,7 @@ else
 	set -x
 
 	tee "${ROOTDIR}/go.mod" >&2 <<- EOF
-		module github.com/docker/docker
+		module github.com/rumpl/bof
 
 		go 1.18
 	EOF

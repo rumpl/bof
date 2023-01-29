@@ -1,11 +1,11 @@
-package images // import "github.com/docker/docker/daemon/images"
+package images // import "github.com/rumpl/bof/daemon/images"
 
 import (
 	"context"
 
 	"github.com/docker/distribution/reference"
-	imagetypes "github.com/docker/docker/api/types/image"
-	"github.com/docker/docker/image"
+	imagetypes "github.com/rumpl/bof/api/types/image"
+	"github.com/rumpl/bof/image"
 )
 
 // TagImage creates the tag specified by newTag, pointing to the image named

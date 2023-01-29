@@ -1,4 +1,4 @@
-package secret // import "github.com/docker/docker/integration/secret"
+package secret // import "github.com/rumpl/bof/integration/secret"
 
 import (
 	"bytes"
@@ -8,13 +8,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/filters"
-	swarmtypes "github.com/docker/docker/api/types/swarm"
-	"github.com/docker/docker/client"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/integration/internal/swarm"
-	"github.com/docker/docker/pkg/stdcopy"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/filters"
+	swarmtypes "github.com/rumpl/bof/api/types/swarm"
+	"github.com/rumpl/bof/client"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/integration/internal/swarm"
+	"github.com/rumpl/bof/pkg/stdcopy"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 	"gotest.tools/v3/poll"

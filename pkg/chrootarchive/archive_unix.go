@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package chrootarchive // import "github.com/docker/docker/pkg/chrootarchive"
+package chrootarchive // import "github.com/rumpl/bof/pkg/chrootarchive"
 
 import (
 	"io"
@@ -10,8 +10,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/docker/docker/pkg/archive"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/pkg/archive"
 )
 
 func init() {

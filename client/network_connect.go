@@ -1,10 +1,10 @@
-package client // import "github.com/docker/docker/client"
+package client // import "github.com/rumpl/bof/client"
 
 import (
 	"context"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/network"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/network"
 )
 
 // NetworkConnect connects a container to an existent network in the docker host.

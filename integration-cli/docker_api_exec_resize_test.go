@@ -10,9 +10,9 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/docker/docker/api/types/versions"
-	"github.com/docker/docker/testutil/request"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types/versions"
+	"github.com/rumpl/bof/testutil/request"
 	"gotest.tools/v3/assert"
 )
 

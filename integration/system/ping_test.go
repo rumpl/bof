@@ -1,4 +1,4 @@
-package system // import "github.com/docker/docker/integration/system"
+package system // import "github.com/rumpl/bof/integration/system"
 
 import (
 	"context"
@@ -9,11 +9,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/swarm"
-	"github.com/docker/docker/api/types/versions"
-	"github.com/docker/docker/testutil/daemon"
-	"github.com/docker/docker/testutil/request"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/swarm"
+	"github.com/rumpl/bof/api/types/versions"
+	"github.com/rumpl/bof/testutil/daemon"
+	"github.com/rumpl/bof/testutil/request"
 	"gotest.tools/v3/assert"
 	"gotest.tools/v3/skip"
 )

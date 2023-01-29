@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package authz // import "github.com/docker/docker/integration/plugin/authz"
+package authz // import "github.com/rumpl/bof/integration/plugin/authz"
 
 import (
 	"context"
@@ -11,12 +11,12 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/filters"
-	"github.com/docker/docker/api/types/volume"
-	"github.com/docker/docker/client"
-	"github.com/docker/docker/integration/internal/container"
-	"github.com/docker/docker/integration/internal/requirement"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/filters"
+	"github.com/rumpl/bof/api/types/volume"
+	"github.com/rumpl/bof/client"
+	"github.com/rumpl/bof/integration/internal/container"
+	"github.com/rumpl/bof/integration/internal/requirement"
 	"gotest.tools/v3/assert"
 	"gotest.tools/v3/skip"
 )

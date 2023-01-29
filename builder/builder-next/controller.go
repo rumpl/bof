@@ -9,16 +9,6 @@ import (
 	"github.com/containerd/containerd/content/local"
 	ctdmetadata "github.com/containerd/containerd/metadata"
 	"github.com/containerd/containerd/snapshots"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/filters"
-	"github.com/docker/docker/builder/builder-next/adapters/containerimage"
-	"github.com/docker/docker/builder/builder-next/adapters/localinlinecache"
-	"github.com/docker/docker/builder/builder-next/adapters/snapshot"
-	containerimageexp "github.com/docker/docker/builder/builder-next/exporter"
-	"github.com/docker/docker/builder/builder-next/imagerefchecker"
-	mobyworker "github.com/docker/docker/builder/builder-next/worker"
-	"github.com/docker/docker/daemon/config"
-	"github.com/docker/docker/daemon/graphdriver"
 	units "github.com/docker/go-units"
 	"github.com/moby/buildkit/cache"
 	"github.com/moby/buildkit/cache/metadata"
@@ -38,6 +28,16 @@ import (
 	"github.com/moby/buildkit/util/leaseutil"
 	"github.com/moby/buildkit/worker"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/filters"
+	"github.com/rumpl/bof/builder/builder-next/adapters/containerimage"
+	"github.com/rumpl/bof/builder/builder-next/adapters/localinlinecache"
+	"github.com/rumpl/bof/builder/builder-next/adapters/snapshot"
+	containerimageexp "github.com/rumpl/bof/builder/builder-next/exporter"
+	"github.com/rumpl/bof/builder/builder-next/imagerefchecker"
+	mobyworker "github.com/rumpl/bof/builder/builder-next/worker"
+	"github.com/rumpl/bof/daemon/config"
+	"github.com/rumpl/bof/daemon/graphdriver"
 	bolt "go.etcd.io/bbolt"
 )
 
@@ -75,10 +75,10 @@ func newController(rt http.RoundTripper, opt Opt) (*control.Controller, error) {
 	lm := leaseutil.WithNamespace(ctdmetadata.NewLeaseManager(mdb), "buildkit")
 
 	snapshotter, lm, err := snapshot.NewSnapshotter(snapshot.Opt{
-		GraphDriver:     driver,
-		LayerStore:      dist.LayerStore,
-		Root:            root,
-		IdentityMapping: opt.IdentityMapping,
+		GraphDriver: driver,
+		LayerStore:  dist.LayerStore,
+		Root:        root,
+		// IdentityMapping: opt.IdentityMapping,
 	}, lm)
 	if err != nil {
 		return nil, err

@@ -1,14 +1,14 @@
-package service // import "github.com/docker/docker/integration/service"
+package service // import "github.com/rumpl/bof/integration/service"
 
 import (
 	"context"
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/network"
-	"github.com/docker/docker/integration/internal/container"
-	net "github.com/docker/docker/integration/internal/network"
-	"github.com/docker/docker/integration/internal/swarm"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/network"
+	"github.com/rumpl/bof/integration/internal/container"
+	net "github.com/rumpl/bof/integration/internal/network"
+	"github.com/rumpl/bof/integration/internal/swarm"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 	"gotest.tools/v3/skip"

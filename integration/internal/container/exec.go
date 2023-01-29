@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"context"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/client"
-	"github.com/docker/docker/pkg/stdcopy"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/client"
+	"github.com/rumpl/bof/pkg/stdcopy"
 )
 
 // ExecResult represents a result returned from Exec()

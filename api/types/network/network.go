@@ -1,6 +1,6 @@
-package network // import "github.com/docker/docker/api/types/network"
+package network // import "github.com/rumpl/bof/api/types/network"
 import (
-	"github.com/docker/docker/api/types/filters"
+	"github.com/rumpl/bof/api/types/filters"
 )
 
 // Address represents an IP address

@@ -1,4 +1,4 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"fmt"
@@ -7,20 +7,20 @@ import (
 	"strings"
 	"time"
 
-	"github.com/docker/docker/api"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/cli/debug"
-	"github.com/docker/docker/daemon/config"
-	"github.com/docker/docker/daemon/logger"
-	"github.com/docker/docker/dockerversion"
-	"github.com/docker/docker/pkg/fileutils"
-	"github.com/docker/docker/pkg/parsers/kernel"
-	"github.com/docker/docker/pkg/parsers/operatingsystem"
-	"github.com/docker/docker/pkg/platform"
-	"github.com/docker/docker/pkg/sysinfo"
-	"github.com/docker/docker/registry"
 	metrics "github.com/docker/go-metrics"
 	"github.com/opencontainers/selinux/go-selinux"
+	"github.com/rumpl/bof/api"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/cli/debug"
+	"github.com/rumpl/bof/daemon/config"
+	"github.com/rumpl/bof/daemon/logger"
+	"github.com/rumpl/bof/dockerversion"
+	"github.com/rumpl/bof/pkg/fileutils"
+	"github.com/rumpl/bof/pkg/parsers/kernel"
+	"github.com/rumpl/bof/pkg/parsers/operatingsystem"
+	"github.com/rumpl/bof/pkg/platform"
+	"github.com/rumpl/bof/pkg/sysinfo"
+	"github.com/rumpl/bof/registry"
 	"github.com/sirupsen/logrus"
 )
 
@@ -48,7 +48,6 @@ func (daemon *Daemon) SystemInfo() *types.Info {
 		RegistryConfig:     daemon.registryService.ServiceConfig(),
 		NCPU:               sysinfo.NumCPU(),
 		MemTotal:           memInfo().MemTotal,
-		GenericResources:   daemon.genericResources,
 		DockerRootDir:      daemon.configStore.Root,
 		Labels:             daemon.configStore.Labels,
 		ExperimentalBuild:  daemon.configStore.Experimental,

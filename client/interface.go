@@ -1,4 +1,4 @@
-package client // import "github.com/docker/docker/client"
+package client // import "github.com/rumpl/bof/client"
 
 import (
 	"context"
@@ -6,16 +6,16 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/events"
-	"github.com/docker/docker/api/types/filters"
-	"github.com/docker/docker/api/types/image"
-	"github.com/docker/docker/api/types/network"
-	"github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/api/types/swarm"
-	"github.com/docker/docker/api/types/volume"
 	specs "github.com/opencontainers/image-spec/specs-go/v1"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/api/types/events"
+	"github.com/rumpl/bof/api/types/filters"
+	"github.com/rumpl/bof/api/types/image"
+	"github.com/rumpl/bof/api/types/network"
+	"github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/api/types/swarm"
+	"github.com/rumpl/bof/api/types/volume"
 )
 
 // CommonAPIClient is the common methods between stable and experimental versions of APIClient.

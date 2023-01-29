@@ -5,10 +5,10 @@ import (
 
 	"github.com/containerd/containerd"
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/filters"
 	"github.com/opencontainers/go-digest"
 	"github.com/opencontainers/image-spec/identity"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/filters"
 )
 
 var acceptedImageFilterTags = map[string]bool{

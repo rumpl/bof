@@ -1,4 +1,4 @@
-package git // import "github.com/docker/docker/builder/remotecontext/git"
+package git // import "github.com/rumpl/bof/builder/remotecontext/git"
 
 import (
 	"net/http"

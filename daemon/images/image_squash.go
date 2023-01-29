@@ -1,13 +1,13 @@
-package images // import "github.com/docker/docker/daemon/images"
+package images // import "github.com/rumpl/bof/daemon/images"
 
 import (
 	"encoding/json"
 	"fmt"
 	"time"
 
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
 )
 
 // SquashImage creates a new image with the diff of the specified image and the specified parent.

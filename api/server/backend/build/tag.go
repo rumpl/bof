@@ -1,12 +1,12 @@
-package build // import "github.com/docker/docker/api/server/backend/build"
+package build // import "github.com/rumpl/bof/api/server/backend/build"
 
 import (
 	"fmt"
 	"io"
 
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/image"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/image"
 )
 
 // tagImages creates image tags for the imageID.

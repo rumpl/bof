@@ -1,4 +1,4 @@
-package opts // import "github.com/docker/docker/opts"
+package opts // import "github.com/rumpl/bof/opts"
 
 import (
 	"net"
@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/docker/docker/pkg/homedir"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/pkg/homedir"
 )
 
 const (

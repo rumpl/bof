@@ -1,4 +1,4 @@
-package metadata // import "github.com/docker/docker/distribution/metadata"
+package metadata // import "github.com/rumpl/bof/distribution/metadata"
 
 import (
 	"crypto/hmac"
@@ -7,9 +7,9 @@ import (
 	"encoding/json"
 	"errors"
 
-	"github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/layer"
 	"github.com/opencontainers/go-digest"
+	"github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/layer"
 )
 
 // V2MetadataService maps layer IDs to a set of known metadata for

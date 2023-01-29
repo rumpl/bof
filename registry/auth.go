@@ -1,4 +1,4 @@
-package registry // import "github.com/docker/docker/registry"
+package registry // import "github.com/rumpl/bof/registry"
 
 import (
 	"net/http"
@@ -9,8 +9,8 @@ import (
 	"github.com/docker/distribution/registry/client/auth"
 	"github.com/docker/distribution/registry/client/auth/challenge"
 	"github.com/docker/distribution/registry/client/transport"
-	"github.com/docker/docker/api/types/registry"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types/registry"
 	"github.com/sirupsen/logrus"
 )
 

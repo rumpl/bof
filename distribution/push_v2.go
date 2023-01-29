@@ -1,4 +1,4 @@
-package distribution // import "github.com/docker/docker/distribution"
+package distribution // import "github.com/rumpl/bof/distribution"
 
 import (
 	"context"
@@ -16,17 +16,17 @@ import (
 	"github.com/docker/distribution/reference"
 	"github.com/docker/distribution/registry/api/errcode"
 	"github.com/docker/distribution/registry/client"
-	apitypes "github.com/docker/docker/api/types"
-	"github.com/docker/docker/distribution/metadata"
-	"github.com/docker/docker/distribution/xfer"
-	"github.com/docker/docker/layer"
-	"github.com/docker/docker/pkg/ioutils"
-	"github.com/docker/docker/pkg/progress"
-	"github.com/docker/docker/pkg/stringid"
-	"github.com/docker/docker/registry"
 	"github.com/docker/libtrust"
 	"github.com/opencontainers/go-digest"
 	"github.com/pkg/errors"
+	apitypes "github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/distribution/metadata"
+	"github.com/rumpl/bof/distribution/xfer"
+	"github.com/rumpl/bof/layer"
+	"github.com/rumpl/bof/pkg/ioutils"
+	"github.com/rumpl/bof/pkg/progress"
+	"github.com/rumpl/bof/pkg/stringid"
+	"github.com/rumpl/bof/registry"
 	"github.com/sirupsen/logrus"
 )
 

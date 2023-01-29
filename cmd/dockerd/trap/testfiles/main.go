@@ -5,7 +5,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/docker/docker/cmd/dockerd/trap"
+	"github.com/rumpl/bof/cmd/dockerd/trap"
 	"github.com/sirupsen/logrus"
 )
 

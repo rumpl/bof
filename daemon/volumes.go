@@ -1,4 +1,4 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"context"
@@ -7,17 +7,17 @@ import (
 	"strings"
 	"time"
 
-	containertypes "github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/mount"
-	mounttypes "github.com/docker/docker/api/types/mount"
-	volumetypes "github.com/docker/docker/api/types/volume"
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/volume"
-	volumemounts "github.com/docker/docker/volume/mounts"
-	"github.com/docker/docker/volume/service"
-	volumeopts "github.com/docker/docker/volume/service/opts"
 	"github.com/pkg/errors"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/api/types/mount"
+	mounttypes "github.com/rumpl/bof/api/types/mount"
+	volumetypes "github.com/rumpl/bof/api/types/volume"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/volume"
+	volumemounts "github.com/rumpl/bof/volume/mounts"
+	"github.com/rumpl/bof/volume/service"
+	volumeopts "github.com/rumpl/bof/volume/service/opts"
 	"github.com/sirupsen/logrus"
 )
 

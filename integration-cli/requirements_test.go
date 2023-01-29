@@ -11,12 +11,12 @@ import (
 	"time"
 
 	"github.com/containerd/containerd/plugin"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/swarm"
-	"github.com/docker/docker/api/types/versions"
-	"github.com/docker/docker/client"
-	"github.com/docker/docker/integration-cli/requirement"
-	"github.com/docker/docker/testutil/registry"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/swarm"
+	"github.com/rumpl/bof/api/types/versions"
+	"github.com/rumpl/bof/client"
+	"github.com/rumpl/bof/integration-cli/requirement"
+	"github.com/rumpl/bof/testutil/registry"
 )
 
 func ArchitectureIsNot(arch string) bool {

@@ -6,13 +6,13 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	containertypes "github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/filters"
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/image"
 	"github.com/google/uuid"
 	"github.com/opencontainers/go-digest"
+	"github.com/rumpl/bof/api/types"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/api/types/filters"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/image"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 )

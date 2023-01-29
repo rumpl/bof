@@ -1,4 +1,4 @@
-package loggerutils // import "github.com/docker/docker/daemon/logger/loggerutils"
+package loggerutils // import "github.com/rumpl/bof/daemon/logger/loggerutils"
 
 import (
 	"bufio"
@@ -13,8 +13,8 @@ import (
 	"text/tabwriter"
 	"time"
 
-	"github.com/docker/docker/daemon/logger"
-	"github.com/docker/docker/pkg/tailfile"
+	"github.com/rumpl/bof/daemon/logger"
+	"github.com/rumpl/bof/pkg/tailfile"
 	"gotest.tools/v3/assert"
 	"gotest.tools/v3/poll"
 )

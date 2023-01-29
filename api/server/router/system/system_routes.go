@@ -1,4 +1,4 @@
-package system // import "github.com/docker/docker/api/server/router/system"
+package system // import "github.com/rumpl/bof/api/server/router/system"
 
 import (
 	"context"
@@ -7,17 +7,16 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/docker/docker/api/server/httputils"
-	"github.com/docker/docker/api/server/router/build"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/events"
-	"github.com/docker/docker/api/types/filters"
-	"github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/api/types/swarm"
-	timetypes "github.com/docker/docker/api/types/time"
-	"github.com/docker/docker/api/types/versions"
-	"github.com/docker/docker/pkg/ioutils"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/server/httputils"
+	"github.com/rumpl/bof/api/server/router/build"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/events"
+	"github.com/rumpl/bof/api/types/filters"
+	"github.com/rumpl/bof/api/types/registry"
+	timetypes "github.com/rumpl/bof/api/types/time"
+	"github.com/rumpl/bof/api/types/versions"
+	"github.com/rumpl/bof/pkg/ioutils"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sync/errgroup"
 )
@@ -36,8 +35,6 @@ func (s *systemRouter) pingHandler(ctx context.Context, w http.ResponseWriter, r
 		w.Header().Set("Builder-Version", string(bv))
 	}
 
-	w.Header().Set("Swarm", s.swarmStatus())
-
 	if r.Method == http.MethodHead {
 		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 		w.Header().Set("Content-Length", "0")
@@ -47,22 +44,8 @@ func (s *systemRouter) pingHandler(ctx context.Context, w http.ResponseWriter, r
 	return err
 }
 
-func (s *systemRouter) swarmStatus() string {
-	if s.cluster != nil {
-		if p, ok := s.cluster.(StatusProvider); ok {
-			return p.Status()
-		}
-	}
-	return string(swarm.LocalNodeStateInactive)
-}
-
 func (s *systemRouter) getInfo(ctx context.Context, w http.ResponseWriter, r *http.Request, vars map[string]string) error {
 	info := s.backend.SystemInfo()
-
-	if s.cluster != nil {
-		info.Swarm = s.cluster.Info()
-		info.Warnings = append(info.Warnings, info.Swarm.Warnings...)
-	}
 
 	version := httputils.VersionFromContext(ctx)
 	if versions.LessThan(version, "1.25") {

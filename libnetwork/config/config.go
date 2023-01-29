@@ -3,13 +3,13 @@ package config
 import (
 	"strings"
 
-	"github.com/docker/docker/libnetwork/cluster"
-	"github.com/docker/docker/libnetwork/datastore"
-	"github.com/docker/docker/libnetwork/ipamutils"
-	"github.com/docker/docker/libnetwork/netlabel"
-	"github.com/docker/docker/libnetwork/osl"
-	"github.com/docker/docker/pkg/plugingetter"
 	"github.com/docker/libkv/store"
+	"github.com/rumpl/bof/libnetwork/cluster"
+	"github.com/rumpl/bof/libnetwork/datastore"
+	"github.com/rumpl/bof/libnetwork/ipamutils"
+	"github.com/rumpl/bof/libnetwork/netlabel"
+	"github.com/rumpl/bof/libnetwork/osl"
+	"github.com/rumpl/bof/pkg/plugingetter"
 	"github.com/sirupsen/logrus"
 )
 

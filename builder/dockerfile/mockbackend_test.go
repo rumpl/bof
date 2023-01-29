@@ -1,4 +1,4 @@
-package dockerfile // import "github.com/docker/docker/builder/dockerfile"
+package dockerfile // import "github.com/rumpl/bof/builder/dockerfile"
 
 import (
 	"context"
@@ -6,13 +6,13 @@ import (
 	"io"
 	"runtime"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/backend"
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/builder"
-	containerpkg "github.com/docker/docker/container"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/backend"
+	"github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/builder"
+	containerpkg "github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
 )
 
 // MockBackend implements the builder.Backend interface for unit testing

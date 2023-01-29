@@ -1,4 +1,4 @@
-package sysinfo // import "github.com/docker/docker/pkg/sysinfo"
+package sysinfo // import "github.com/rumpl/bof/pkg/sysinfo"
 
 import (
 	"os"

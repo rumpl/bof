@@ -1,10 +1,10 @@
-package tarexport // import "github.com/docker/docker/image/tarexport"
+package tarexport // import "github.com/rumpl/bof/image/tarexport"
 
 import (
 	"github.com/docker/distribution"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
-	refstore "github.com/docker/docker/reference"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
+	refstore "github.com/rumpl/bof/reference"
 )
 
 const (

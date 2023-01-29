@@ -12,10 +12,10 @@ import (
 	"testing"
 
 	winio "github.com/Microsoft/go-winio"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/mount"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/api/types/mount"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 )

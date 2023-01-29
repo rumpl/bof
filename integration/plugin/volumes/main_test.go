@@ -1,11 +1,11 @@
-package volumes // import "github.com/docker/docker/integration/plugin/volumes"
+package volumes // import "github.com/rumpl/bof/integration/plugin/volumes"
 
 import (
 	"fmt"
 	"os"
 	"testing"
 
-	"github.com/docker/docker/testutil/environment"
+	"github.com/rumpl/bof/testutil/environment"
 )
 
 var (

@@ -4,11 +4,11 @@ import (
 	"context"
 	"errors"
 
-	"github.com/docker/docker/daemon/config"
-	"github.com/docker/docker/libnetwork"
-	"github.com/docker/docker/pkg/idtools"
 	"github.com/moby/buildkit/executor"
 	"github.com/moby/buildkit/executor/oci"
+	"github.com/rumpl/bof/daemon/config"
+	"github.com/rumpl/bof/libnetwork"
+	"github.com/rumpl/bof/pkg/idtools"
 )
 
 func newExecutor(_, _ string, _ *libnetwork.Controller, _ *oci.DNSConfig, _ bool, _ idtools.IdentityMapping, _ string) (executor.Executor, error) {

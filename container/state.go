@@ -1,4 +1,4 @@
-package container // import "github.com/docker/docker/container"
+package container // import "github.com/rumpl/bof/container"
 
 import (
 	"context"
@@ -7,9 +7,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/docker/docker/api/types"
-	libcontainerdtypes "github.com/docker/docker/libcontainerd/types"
 	units "github.com/docker/go-units"
+	"github.com/rumpl/bof/api/types"
+	libcontainerdtypes "github.com/rumpl/bof/libcontainerd/types"
 )
 
 // State holds the current container state, and has methods to get and

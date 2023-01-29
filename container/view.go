@@ -1,4 +1,4 @@
-package container // import "github.com/docker/docker/container"
+package container // import "github.com/rumpl/bof/container"
 
 import (
 	"bytes"
@@ -7,11 +7,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/network"
-	"github.com/docker/docker/errdefs"
 	"github.com/docker/go-connections/nat"
 	memdb "github.com/hashicorp/go-memdb"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/network"
+	"github.com/rumpl/bof/errdefs"
 	"github.com/sirupsen/logrus"
 )
 

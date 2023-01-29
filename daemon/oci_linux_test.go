@@ -1,4 +1,4 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"context"
@@ -6,11 +6,11 @@ import (
 	"path/filepath"
 	"testing"
 
-	containertypes "github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/daemon/config"
-	"github.com/docker/docker/daemon/network"
-	"github.com/docker/docker/libnetwork"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/daemon/config"
+	"github.com/rumpl/bof/daemon/network"
+	"github.com/rumpl/bof/libnetwork"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 	"gotest.tools/v3/skip"

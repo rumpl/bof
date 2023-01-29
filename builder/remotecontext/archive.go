@@ -1,17 +1,17 @@
-package remotecontext // import "github.com/docker/docker/builder/remotecontext"
+package remotecontext // import "github.com/rumpl/bof/builder/remotecontext"
 
 import (
 	"io"
 	"os"
 	"path/filepath"
 
-	"github.com/docker/docker/builder"
-	"github.com/docker/docker/pkg/archive"
-	"github.com/docker/docker/pkg/chrootarchive"
-	"github.com/docker/docker/pkg/containerfs"
-	"github.com/docker/docker/pkg/longpath"
-	"github.com/docker/docker/pkg/tarsum"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/builder"
+	"github.com/rumpl/bof/pkg/archive"
+	"github.com/rumpl/bof/pkg/chrootarchive"
+	"github.com/rumpl/bof/pkg/containerfs"
+	"github.com/rumpl/bof/pkg/longpath"
+	"github.com/rumpl/bof/pkg/tarsum"
 )
 
 type archiveContext struct {

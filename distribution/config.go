@@ -1,4 +1,4 @@
-package distribution // import "github.com/docker/docker/distribution"
+package distribution // import "github.com/rumpl/bof/distribution"
 
 import (
 	"context"
@@ -8,18 +8,18 @@ import (
 
 	"github.com/docker/distribution"
 	"github.com/docker/distribution/manifest/schema2"
-	"github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/distribution/metadata"
-	"github.com/docker/docker/distribution/xfer"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
-	"github.com/docker/docker/pkg/progress"
-	"github.com/docker/docker/pkg/system"
-	refstore "github.com/docker/docker/reference"
-	registrypkg "github.com/docker/docker/registry"
 	"github.com/opencontainers/go-digest"
 	specs "github.com/opencontainers/image-spec/specs-go/v1"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/distribution/metadata"
+	"github.com/rumpl/bof/distribution/xfer"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
+	"github.com/rumpl/bof/pkg/progress"
+	"github.com/rumpl/bof/pkg/system"
+	refstore "github.com/rumpl/bof/reference"
+	registrypkg "github.com/rumpl/bof/registry"
 )
 
 // Config stores configuration for communicating

@@ -1,4 +1,4 @@
-package ioutils // import "github.com/docker/docker/pkg/ioutils"
+package ioutils // import "github.com/rumpl/bof/pkg/ioutils"
 
 import "io"
 

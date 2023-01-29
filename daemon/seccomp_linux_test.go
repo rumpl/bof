@@ -1,16 +1,16 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"testing"
 
 	coci "github.com/containerd/containerd/oci"
-	containertypes "github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/container"
-	dconfig "github.com/docker/docker/daemon/config"
-	"github.com/docker/docker/oci"
-	"github.com/docker/docker/pkg/sysinfo"
-	"github.com/docker/docker/profiles/seccomp"
 	specs "github.com/opencontainers/runtime-spec/specs-go"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/container"
+	dconfig "github.com/rumpl/bof/daemon/config"
+	"github.com/rumpl/bof/oci"
+	"github.com/rumpl/bof/pkg/sysinfo"
+	"github.com/rumpl/bof/profiles/seccomp"
 	"gotest.tools/v3/assert"
 )
 

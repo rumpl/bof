@@ -6,8 +6,8 @@ import (
 
 	"github.com/containerd/containerd/remotes"
 	"github.com/containerd/containerd/remotes/docker"
-	registrytypes "github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/registry"
+	registrytypes "github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/registry"
 	"github.com/sirupsen/logrus"
 )
 

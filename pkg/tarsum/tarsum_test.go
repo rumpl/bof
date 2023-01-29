@@ -1,4 +1,4 @@
-package tarsum // import "github.com/docker/docker/pkg/tarsum"
+package tarsum // import "github.com/rumpl/bof/pkg/tarsum"
 
 import (
 	"archive/tar"

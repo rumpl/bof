@@ -10,8 +10,8 @@ import (
 	"net"
 	"sync"
 
-	"github.com/docker/docker/libnetwork/types"
 	"github.com/ishidawataru/sctp"
+	"github.com/rumpl/bof/libnetwork/types"
 	"github.com/sirupsen/logrus"
 )
 

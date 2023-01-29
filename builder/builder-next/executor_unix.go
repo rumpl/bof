@@ -9,10 +9,6 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/docker/docker/daemon/config"
-	"github.com/docker/docker/libnetwork"
-	"github.com/docker/docker/pkg/idtools"
-	"github.com/docker/docker/pkg/stringid"
 	"github.com/moby/buildkit/executor"
 	"github.com/moby/buildkit/executor/oci"
 	"github.com/moby/buildkit/executor/runcexecutor"
@@ -20,6 +16,10 @@ import (
 	"github.com/moby/buildkit/solver/pb"
 	"github.com/moby/buildkit/util/network"
 	specs "github.com/opencontainers/runtime-spec/specs-go"
+	"github.com/rumpl/bof/daemon/config"
+	"github.com/rumpl/bof/libnetwork"
+	"github.com/rumpl/bof/pkg/idtools"
+	"github.com/rumpl/bof/pkg/stringid"
 	"github.com/sirupsen/logrus"
 )
 
@@ -46,10 +46,10 @@ func newExecutor(root, cgroupParent string, net *libnetwork.Controller, dnsConfi
 
 	// Returning a non-nil but empty *IdentityMapping breaks BuildKit:
 	// https://github.com/moby/moby/pull/39444
-	pidmap := &idmap
-	if idmap.Empty() {
-		pidmap = nil
-	}
+	// pidmap := &idmap
+	// if idmap.Empty() {
+	// 	pidmap = nil
+	// }
 
 	return runcexecutor.New(runcexecutor.Opt{
 		Root:                filepath.Join(root, "executor"),
@@ -57,9 +57,9 @@ func newExecutor(root, cgroupParent string, net *libnetwork.Controller, dnsConfi
 		DefaultCgroupParent: cgroupParent,
 		Rootless:            rootless,
 		NoPivot:             os.Getenv("DOCKER_RAMDISK") != "",
-		IdentityMapping:     pidmap,
-		DNS:                 dnsConfig,
-		ApparmorProfile:     apparmorProfile,
+		// IdentityMapping:     pidmap,
+		DNS:             dnsConfig,
+		ApparmorProfile: apparmorProfile,
 	}, networkProviders)
 }
 

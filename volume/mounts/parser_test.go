@@ -1,10 +1,10 @@
-package mounts // import "github.com/docker/docker/volume/mounts"
+package mounts // import "github.com/rumpl/bof/volume/mounts"
 
 import (
 	"os"
 	"testing"
 
-	"github.com/docker/docker/api/types/mount"
+	"github.com/rumpl/bof/api/types/mount"
 )
 
 type mockFiProvider struct{}

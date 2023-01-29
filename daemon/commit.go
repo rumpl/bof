@@ -1,4 +1,4 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"context"
@@ -7,11 +7,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/docker/docker/api/types/backend"
-	containertypes "github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/builder/dockerfile"
-	"github.com/docker/docker/errdefs"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types/backend"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/builder/dockerfile"
+	"github.com/rumpl/bof/errdefs"
 )
 
 // merge merges two Config, the image container configuration (defaults values),

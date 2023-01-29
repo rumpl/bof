@@ -1,4 +1,4 @@
-package plugin // import "github.com/docker/docker/api/server/router/plugin"
+package plugin // import "github.com/rumpl/bof/api/server/router/plugin"
 
 import (
 	"context"
@@ -7,13 +7,13 @@ import (
 	"strings"
 
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/api/server/httputils"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/filters"
-	"github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/pkg/ioutils"
-	"github.com/docker/docker/pkg/streamformatter"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/server/httputils"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/filters"
+	"github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/pkg/ioutils"
+	"github.com/rumpl/bof/pkg/streamformatter"
 )
 
 func parseHeaders(headers http.Header) (map[string][]string, *registry.AuthConfig) {

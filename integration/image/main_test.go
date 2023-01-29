@@ -1,11 +1,11 @@
-package image // import "github.com/docker/docker/integration/image"
+package image // import "github.com/rumpl/bof/integration/image"
 
 import (
 	"fmt"
 	"os"
 	"testing"
 
-	"github.com/docker/docker/testutil/environment"
+	"github.com/rumpl/bof/testutil/environment"
 )
 
 var testEnv *environment.Execution

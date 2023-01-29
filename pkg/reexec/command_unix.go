@@ -1,7 +1,7 @@
 //go:build freebsd || darwin
 // +build freebsd darwin
 
-package reexec // import "github.com/docker/docker/pkg/reexec"
+package reexec // import "github.com/rumpl/bof/pkg/reexec"
 
 import (
 	"os/exec"

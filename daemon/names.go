@@ -1,15 +1,15 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"fmt"
 	"strings"
 
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/daemon/names"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/pkg/namesgenerator"
-	"github.com/docker/docker/pkg/stringid"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/daemon/names"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/pkg/namesgenerator"
+	"github.com/rumpl/bof/pkg/stringid"
 	"github.com/sirupsen/logrus"
 )
 

@@ -4,9 +4,9 @@ import (
 	"context"
 	"errors"
 
-	"github.com/docker/docker/api/types/backend"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/image"
+	"github.com/rumpl/bof/api/types/backend"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/image"
 )
 
 // CommitImage creates a new image from a commit config.

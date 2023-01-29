@@ -1,4 +1,4 @@
-package xfer // import "github.com/docker/docker/distribution/xfer"
+package xfer // import "github.com/rumpl/bof/distribution/xfer"
 
 import (
 	"context"
@@ -8,11 +8,11 @@ import (
 	"time"
 
 	"github.com/docker/distribution"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
-	"github.com/docker/docker/pkg/archive"
-	"github.com/docker/docker/pkg/ioutils"
-	"github.com/docker/docker/pkg/progress"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
+	"github.com/rumpl/bof/pkg/archive"
+	"github.com/rumpl/bof/pkg/ioutils"
+	"github.com/rumpl/bof/pkg/progress"
 	"github.com/sirupsen/logrus"
 )
 

@@ -1,4 +1,4 @@
-package client // import "github.com/docker/docker/client"
+package client // import "github.com/rumpl/bof/client"
 
 import (
 	"bytes"
@@ -12,10 +12,10 @@ import (
 	"os"
 	"strings"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/versions"
-	"github.com/docker/docker/errdefs"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/versions"
+	"github.com/rumpl/bof/errdefs"
 )
 
 // serverResponse is a wrapper for http API responses.

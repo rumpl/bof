@@ -3,7 +3,7 @@ package libnetwork
 import (
 	"testing"
 
-	"github.com/docker/docker/libnetwork/types"
+	"github.com/rumpl/bof/libnetwork/types"
 )
 
 func TestErrorInterfaces(t *testing.T) {

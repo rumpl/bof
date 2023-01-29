@@ -16,20 +16,20 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/mount"
-	"github.com/docker/docker/api/types/network"
-	"github.com/docker/docker/api/types/versions"
-	"github.com/docker/docker/client"
-	dconfig "github.com/docker/docker/daemon/config"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/integration-cli/cli"
-	"github.com/docker/docker/integration-cli/cli/build"
-	"github.com/docker/docker/pkg/stringid"
-	"github.com/docker/docker/testutil/request"
-	"github.com/docker/docker/volume"
 	"github.com/docker/go-connections/nat"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/api/types/mount"
+	"github.com/rumpl/bof/api/types/network"
+	"github.com/rumpl/bof/api/types/versions"
+	"github.com/rumpl/bof/client"
+	dconfig "github.com/rumpl/bof/daemon/config"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/integration-cli/cli"
+	"github.com/rumpl/bof/integration-cli/cli/build"
+	"github.com/rumpl/bof/pkg/stringid"
+	"github.com/rumpl/bof/testutil/request"
+	"github.com/rumpl/bof/volume"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 	"gotest.tools/v3/poll"
@@ -1224,7 +1224,7 @@ func (s *DockerAPISuite) TestContainerAPIDeleteRemoveVolume(c *testing.T) {
 	assert.Assert(c, os.IsNotExist(err), "expected to get ErrNotExist error, got %v", err)
 }
 
-// Regression test for https://github.com/docker/docker/issues/6231
+// Regression test for https://github.com/rumpl/bof/issues/6231
 func (s *DockerAPISuite) TestContainerAPIChunkedEncoding(c *testing.T) {
 	config := map[string]interface{}{
 		"Image":     "busybox",

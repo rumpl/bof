@@ -1,4 +1,4 @@
-package client // import "github.com/docker/docker/client"
+package client // import "github.com/rumpl/bof/client"
 
 import (
 	"bytes"
@@ -10,11 +10,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/errdefs"
 	units "github.com/docker/go-units"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/errdefs"
 )
 
 func TestImageBuildError(t *testing.T) {

@@ -1,14 +1,14 @@
-package distribution // import "github.com/docker/docker/distribution"
+package distribution // import "github.com/rumpl/bof/distribution"
 
 import (
 	"context"
 	"fmt"
 
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/api"
-	refstore "github.com/docker/docker/reference"
 	"github.com/opencontainers/go-digest"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api"
+	refstore "github.com/rumpl/bof/reference"
 	"github.com/sirupsen/logrus"
 )
 

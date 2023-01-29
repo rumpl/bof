@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package kernel // import "github.com/docker/docker/pkg/parsers/kernel"
+package kernel // import "github.com/rumpl/bof/pkg/parsers/kernel"
 
 import (
 	"fmt"

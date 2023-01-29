@@ -13,8 +13,8 @@ import (
 	"github.com/docker/distribution/manifest"
 	"github.com/docker/distribution/manifest/manifestlist"
 	"github.com/docker/distribution/manifest/schema2"
-	"github.com/docker/docker/integration-cli/cli/build"
 	"github.com/opencontainers/go-digest"
+	"github.com/rumpl/bof/integration-cli/cli/build"
 	"gotest.tools/v3/assert"
 	"gotest.tools/v3/icmd"
 )
@@ -22,7 +22,7 @@ import (
 // testPullImageWithAliases pulls a specific image tag and verifies that any aliases (i.e., other
 // tags for the same image) are not also pulled down.
 //
-// Ref: docker/docker#8141
+// Ref: rumpl/bof#8141
 func testPullImageWithAliases(c *testing.T) {
 	repoName := fmt.Sprintf("%v/dockercli/busybox", privateRegistryURL)
 

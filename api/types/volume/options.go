@@ -1,6 +1,6 @@
-package volume // import "github.com/docker/docker/api/types/volume"
+package volume // import "github.com/rumpl/bof/api/types/volume"
 
-import "github.com/docker/docker/api/types/filters"
+import "github.com/rumpl/bof/api/types/filters"
 
 // ListOptions holds parameters to list volumes.
 type ListOptions struct {

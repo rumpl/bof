@@ -1,11 +1,11 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"runtime"
 	"time"
 
-	"github.com/docker/docker/daemon/stats"
-	"github.com/docker/docker/pkg/sysinfo"
+	"github.com/rumpl/bof/daemon/stats"
+	"github.com/rumpl/bof/pkg/sysinfo"
 )
 
 // newStatsCollector returns a new statsCollector that collections

@@ -1,16 +1,16 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"context"
 	"strconv"
 	"time"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/errdefs"
-	libcontainerdtypes "github.com/docker/docker/libcontainerd/types"
-	"github.com/docker/docker/restartmanager"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/errdefs"
+	libcontainerdtypes "github.com/rumpl/bof/libcontainerd/types"
+	"github.com/rumpl/bof/restartmanager"
 	"github.com/sirupsen/logrus"
 )
 

@@ -1,14 +1,14 @@
 //go:build linux || freebsd
 // +build linux freebsd
 
-package initlayer // import "github.com/docker/docker/daemon/initlayer"
+package initlayer // import "github.com/rumpl/bof/daemon/initlayer"
 
 import (
 	"os"
 	"path/filepath"
 	"strings"
 
-	"github.com/docker/docker/pkg/idtools"
+	"github.com/rumpl/bof/pkg/idtools"
 	"golang.org/x/sys/unix"
 )
 

@@ -1,4 +1,4 @@
-package local // import "github.com/docker/docker/volume/local"
+package local // import "github.com/rumpl/bof/volume/local"
 
 import (
 	"os"
@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/pkg/idtools"
 	"github.com/moby/sys/mountinfo"
+	"github.com/rumpl/bof/pkg/idtools"
 	"gotest.tools/v3/skip"
 )
 

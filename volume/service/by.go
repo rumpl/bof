@@ -1,8 +1,8 @@
-package service // import "github.com/docker/docker/volume/service"
+package service // import "github.com/rumpl/bof/volume/service"
 
 import (
-	"github.com/docker/docker/api/types/filters"
-	"github.com/docker/docker/volume"
+	"github.com/rumpl/bof/api/types/filters"
+	"github.com/rumpl/bof/volume"
 )
 
 // By is an interface which is used to implement filtering on volumes.

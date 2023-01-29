@@ -1,4 +1,4 @@
-package archive // import "github.com/docker/docker/pkg/archive"
+package archive // import "github.com/rumpl/bof/pkg/archive"
 
 import (
 	"archive/tar"
@@ -9,7 +9,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/docker/docker/pkg/idtools"
+	"github.com/rumpl/bof/pkg/idtools"
 )
 
 func TestHardLinkOrder(t *testing.T) {

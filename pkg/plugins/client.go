@@ -1,4 +1,4 @@
-package plugins // import "github.com/docker/docker/pkg/plugins"
+package plugins // import "github.com/rumpl/bof/pkg/plugins"
 
 import (
 	"bytes"
@@ -9,10 +9,10 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/docker/docker/pkg/ioutils"
-	"github.com/docker/docker/pkg/plugins/transport"
 	"github.com/docker/go-connections/sockets"
 	"github.com/docker/go-connections/tlsconfig"
+	"github.com/rumpl/bof/pkg/ioutils"
+	"github.com/rumpl/bof/pkg/plugins/transport"
 	"github.com/sirupsen/logrus"
 )
 

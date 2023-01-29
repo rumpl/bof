@@ -1,4 +1,4 @@
-package images // import "github.com/docker/docker/daemon/images"
+package images // import "github.com/rumpl/bof/daemon/images"
 
 import (
 	"fmt"

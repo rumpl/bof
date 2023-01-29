@@ -1,4 +1,4 @@
-package container // import "github.com/docker/docker/integration/container"
+package container // import "github.com/rumpl/bof/integration/container"
 
 import (
 	"context"
@@ -11,11 +11,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/docker/api/types"
-	containerapi "github.com/docker/docker/api/types/container"
-	realcontainer "github.com/docker/docker/container"
-	"github.com/docker/docker/integration/internal/container"
-	"github.com/docker/docker/testutil/daemon"
+	"github.com/rumpl/bof/api/types"
+	containerapi "github.com/rumpl/bof/api/types/container"
+	realcontainer "github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/integration/internal/container"
+	"github.com/rumpl/bof/testutil/daemon"
 	"golang.org/x/sys/unix"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"

@@ -3,9 +3,9 @@ package cache
 import (
 	"strconv"
 
-	"github.com/docker/docker/daemon/logger"
-	"github.com/docker/docker/daemon/logger/local"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/daemon/logger"
+	"github.com/rumpl/bof/daemon/logger/local"
 )
 
 func init() {

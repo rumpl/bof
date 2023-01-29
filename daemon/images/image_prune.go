@@ -1,4 +1,4 @@
-package images // import "github.com/docker/docker/daemon/images"
+package images // import "github.com/rumpl/bof/daemon/images"
 
 import (
 	"context"
@@ -8,15 +8,15 @@ import (
 	"time"
 
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/events"
-	"github.com/docker/docker/api/types/filters"
-	timetypes "github.com/docker/docker/api/types/time"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
 	"github.com/opencontainers/go-digest"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/events"
+	"github.com/rumpl/bof/api/types/filters"
+	timetypes "github.com/rumpl/bof/api/types/time"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
 	"github.com/sirupsen/logrus"
 )
 

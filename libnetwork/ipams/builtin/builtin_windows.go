@@ -6,8 +6,8 @@ package builtin
 import (
 	"errors"
 
-	"github.com/docker/docker/libnetwork/ipamapi"
-	"github.com/docker/docker/libnetwork/ipams/windowsipam"
+	"github.com/rumpl/bof/libnetwork/ipamapi"
+	"github.com/rumpl/bof/libnetwork/ipams/windowsipam"
 )
 
 // Init registers the built-in ipam services with libnetwork.

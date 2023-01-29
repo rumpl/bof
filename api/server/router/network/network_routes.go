@@ -1,4 +1,4 @@
-package network // import "github.com/docker/docker/api/server/router/network"
+package network // import "github.com/rumpl/bof/api/server/router/network"
 
 import (
 	"context"
@@ -6,15 +6,15 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/docker/docker/api/server/httputils"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/filters"
-	"github.com/docker/docker/api/types/network"
-	"github.com/docker/docker/api/types/versions"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/libnetwork"
-	netconst "github.com/docker/docker/libnetwork/datastore"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/server/httputils"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/filters"
+	"github.com/rumpl/bof/api/types/network"
+	"github.com/rumpl/bof/api/types/versions"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/libnetwork"
+	netconst "github.com/rumpl/bof/libnetwork/datastore"
 )
 
 func (n *networkRouter) getNetworksList(ctx context.Context, w http.ResponseWriter, r *http.Request, vars map[string]string) error {

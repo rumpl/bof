@@ -6,17 +6,17 @@ import (
 
 	"github.com/docker/distribution"
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/backend"
-	"github.com/docker/docker/api/types/filters"
-	imagetype "github.com/docker/docker/api/types/image"
-	"github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/builder"
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/daemon/images"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
 	v1 "github.com/opencontainers/image-spec/specs-go/v1"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/backend"
+	"github.com/rumpl/bof/api/types/filters"
+	imagetype "github.com/rumpl/bof/api/types/image"
+	"github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/builder"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/daemon/images"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
 )
 
 // ImageService is a temporary interface to assist in the migration to the

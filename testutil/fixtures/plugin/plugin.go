@@ -1,4 +1,4 @@
-package plugin // import "github.com/docker/docker/testutil/fixtures/plugin"
+package plugin // import "github.com/rumpl/bof/testutil/fixtures/plugin"
 
 import (
 	"context"
@@ -9,12 +9,12 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/pkg/archive"
-	"github.com/docker/docker/plugin"
-	registrypkg "github.com/docker/docker/registry"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/pkg/archive"
+	"github.com/rumpl/bof/plugin"
+	registrypkg "github.com/rumpl/bof/registry"
 )
 
 // CreateOpt is passed used to change the default plugin config before

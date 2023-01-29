@@ -1,4 +1,4 @@
-package drivers // import "github.com/docker/docker/volume/drivers"
+package drivers // import "github.com/rumpl/bof/volume/drivers"
 
 import (
 	"fmt"
@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/pkg/plugins"
 	"github.com/docker/go-connections/tlsconfig"
+	"github.com/rumpl/bof/pkg/plugins"
 )
 
 func TestVolumeRequestError(t *testing.T) {

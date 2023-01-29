@@ -1,4 +1,4 @@
-package httputils // import "github.com/docker/docker/api/server/httputils"
+package httputils // import "github.com/rumpl/bof/api/server/httputils"
 
 import (
 	"context"
@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/docker/docker/errdefs"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/errdefs"
 )
 
 // APIVersionKey is the client's requested API version.

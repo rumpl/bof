@@ -1,4 +1,4 @@
-package client // import "github.com/docker/docker/client"
+package client // import "github.com/rumpl/bof/client"
 
 import (
 	"context"
@@ -6,10 +6,10 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/filters"
-	"github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/errdefs"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/filters"
+	"github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/errdefs"
 )
 
 // ImageSearch makes the docker host search by a term in a remote registry.

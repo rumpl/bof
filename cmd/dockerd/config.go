@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/docker/docker/daemon/config"
-	"github.com/docker/docker/opts"
-	"github.com/docker/docker/registry"
+	"github.com/rumpl/bof/daemon/config"
+	"github.com/rumpl/bof/opts"
+	"github.com/rumpl/bof/registry"
 	"github.com/spf13/pflag"
 )
 

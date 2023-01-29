@@ -1,10 +1,10 @@
-package dockerfile // import "github.com/docker/docker/builder/dockerfile"
+package dockerfile // import "github.com/rumpl/bof/builder/dockerfile"
 
 import (
 	"context"
 
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/builder"
+	"github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/builder"
 	"github.com/sirupsen/logrus"
 )
 

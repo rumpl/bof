@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/integration-cli/daemon"
-	testdaemon "github.com/docker/docker/testutil/daemon"
+	"github.com/rumpl/bof/integration-cli/daemon"
+	testdaemon "github.com/rumpl/bof/testutil/daemon"
 	"gotest.tools/v3/assert"
 )
 

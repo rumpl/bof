@@ -1,4 +1,4 @@
-package kernel // import "github.com/docker/docker/pkg/parsers/kernel"
+package kernel // import "github.com/rumpl/bof/pkg/parsers/kernel"
 
 import "golang.org/x/sys/unix"
 

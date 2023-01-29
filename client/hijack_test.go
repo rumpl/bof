@@ -10,9 +10,9 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/docker/docker/api/server/httputils"
-	"github.com/docker/docker/api/types"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/server/httputils"
+	"github.com/rumpl/bof/api/types"
 	"gotest.tools/v3/assert"
 )
 

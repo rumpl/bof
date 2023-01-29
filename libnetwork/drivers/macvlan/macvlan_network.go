@@ -6,12 +6,12 @@ package macvlan
 import (
 	"fmt"
 
-	"github.com/docker/docker/libnetwork/driverapi"
-	"github.com/docker/docker/libnetwork/netlabel"
-	"github.com/docker/docker/libnetwork/ns"
-	"github.com/docker/docker/libnetwork/options"
-	"github.com/docker/docker/libnetwork/types"
-	"github.com/docker/docker/pkg/stringid"
+	"github.com/rumpl/bof/libnetwork/driverapi"
+	"github.com/rumpl/bof/libnetwork/netlabel"
+	"github.com/rumpl/bof/libnetwork/ns"
+	"github.com/rumpl/bof/libnetwork/options"
+	"github.com/rumpl/bof/libnetwork/types"
+	"github.com/rumpl/bof/pkg/stringid"
 	"github.com/sirupsen/logrus"
 )
 

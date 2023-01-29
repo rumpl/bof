@@ -1,11 +1,11 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"time"
 
-	"github.com/docker/docker/api/types/container"
-	libcontainerdtypes "github.com/docker/docker/libcontainerd/types"
 	specs "github.com/opencontainers/runtime-spec/specs-go"
+	"github.com/rumpl/bof/api/types/container"
+	libcontainerdtypes "github.com/rumpl/bof/libcontainerd/types"
 )
 
 func toContainerdResources(resources container.Resources) *libcontainerdtypes.Resources {

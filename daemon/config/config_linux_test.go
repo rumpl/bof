@@ -1,12 +1,12 @@
-package config // import "github.com/docker/docker/daemon/config"
+package config // import "github.com/rumpl/bof/daemon/config"
 
 import (
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/opts"
 	units "github.com/docker/go-units"
 	"github.com/imdario/mergo"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/opts"
 	"github.com/spf13/pflag"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"

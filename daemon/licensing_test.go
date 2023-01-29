@@ -1,10 +1,10 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/dockerversion"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/dockerversion"
 	"gotest.tools/v3/assert"
 )
 

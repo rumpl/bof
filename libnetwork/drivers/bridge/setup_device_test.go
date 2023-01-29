@@ -8,8 +8,8 @@ import (
 	"net"
 	"testing"
 
-	"github.com/docker/docker/libnetwork/netutils"
-	"github.com/docker/docker/libnetwork/testutils"
+	"github.com/rumpl/bof/libnetwork/netutils"
+	"github.com/rumpl/bof/libnetwork/testutils"
 	"github.com/vishvananda/netlink"
 )
 

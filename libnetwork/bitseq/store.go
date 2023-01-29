@@ -3,9 +3,9 @@ package bitseq
 import (
 	"encoding/json"
 
-	"github.com/docker/docker/libnetwork/bitmap"
-	"github.com/docker/docker/libnetwork/datastore"
-	"github.com/docker/docker/libnetwork/types"
+	"github.com/rumpl/bof/libnetwork/bitmap"
+	"github.com/rumpl/bof/libnetwork/datastore"
+	"github.com/rumpl/bof/libnetwork/types"
 )
 
 // Key provides the Key to be used in KV Store

@@ -1,11 +1,11 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"os"
 
-	"github.com/docker/docker/pkg/ioutils"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/pkg/ioutils"
 )
 
 // loadOrCreateID loads the engine's ID from idPath, or generates a new ID

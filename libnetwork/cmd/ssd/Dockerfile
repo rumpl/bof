@@ -30,5 +30,5 @@ RUN echo \
     && echo
 
 ADD ssd.py /
-RUN pip install git+git://github.com/docker/docker-py.git
+RUN pip install git+git://github.com/rumpl/bof-py.git
 ENTRYPOINT [ "python", "/ssd.py"]

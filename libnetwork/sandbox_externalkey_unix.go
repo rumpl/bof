@@ -12,9 +12,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/docker/docker/libnetwork/types"
-	"github.com/docker/docker/pkg/stringid"
 	"github.com/opencontainers/runtime-spec/specs-go"
+	"github.com/rumpl/bof/libnetwork/types"
+	"github.com/rumpl/bof/pkg/stringid"
 	"github.com/sirupsen/logrus"
 )
 

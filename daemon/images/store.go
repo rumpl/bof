@@ -9,11 +9,11 @@ import (
 	"github.com/containerd/containerd/leases"
 	"github.com/containerd/containerd/log"
 	"github.com/containerd/containerd/namespaces"
-	"github.com/docker/docker/distribution"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
 	"github.com/opencontainers/go-digest"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/distribution"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
 	"github.com/sirupsen/logrus"
 )
 

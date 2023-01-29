@@ -1,4 +1,4 @@
-package container // import "github.com/docker/docker/container"
+package container // import "github.com/rumpl/bof/container"
 
 import (
 	"math/rand"
@@ -6,10 +6,10 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	containertypes "github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/pkg/stringid"
 	"github.com/google/uuid"
+	"github.com/rumpl/bof/api/types"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/pkg/stringid"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 )

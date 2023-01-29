@@ -1,4 +1,4 @@
-package image // import "github.com/docker/docker/image"
+package image // import "github.com/rumpl/bof/image"
 
 import (
 	"encoding/json"
@@ -10,10 +10,10 @@ import (
 	"time"
 
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/dockerversion"
-	"github.com/docker/docker/layer"
 	"github.com/opencontainers/go-digest"
+	"github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/dockerversion"
+	"github.com/rumpl/bof/layer"
 )
 
 // ID is the content-addressable ID of an image.

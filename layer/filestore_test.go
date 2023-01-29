@@ -1,4 +1,4 @@
-package layer // import "github.com/docker/docker/layer"
+package layer // import "github.com/rumpl/bof/layer"
 
 import (
 	"fmt"
@@ -9,8 +9,8 @@ import (
 	"syscall"
 	"testing"
 
-	"github.com/docker/docker/pkg/stringid"
 	"github.com/opencontainers/go-digest"
+	"github.com/rumpl/bof/pkg/stringid"
 )
 
 func randomLayerID(seed int64) ChainID {

@@ -8,7 +8,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/docker/docker/profiles/seccomp"
+	"github.com/rumpl/bof/profiles/seccomp"
 )
 
 func TestSeccompLoadProfile(t *testing.T) {

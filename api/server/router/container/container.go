@@ -1,8 +1,8 @@
-package container // import "github.com/docker/docker/api/server/router/container"
+package container // import "github.com/rumpl/bof/api/server/router/container"
 
 import (
-	"github.com/docker/docker/api/server/httputils"
-	"github.com/docker/docker/api/server/router"
+	"github.com/rumpl/bof/api/server/httputils"
+	"github.com/rumpl/bof/api/server/router"
 )
 
 // containerRouter is a router to talk with the container controller

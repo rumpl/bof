@@ -1,13 +1,12 @@
-package network // import "github.com/docker/docker/daemon/network"
+package network // import "github.com/rumpl/bof/daemon/network"
 
 import (
 	"net"
 	"sync"
 
-	networktypes "github.com/docker/docker/api/types/network"
-	clustertypes "github.com/docker/docker/daemon/cluster/provider"
 	"github.com/docker/go-connections/nat"
 	"github.com/pkg/errors"
+	networktypes "github.com/rumpl/bof/api/types/network"
 )
 
 // Settings stores configuration details about the daemon network config
@@ -19,7 +18,6 @@ type Settings struct {
 	LinkLocalIPv6Address   string
 	LinkLocalIPv6PrefixLen int
 	Networks               map[string]*EndpointSettings
-	Service                *clustertypes.ServiceConfig
 	Ports                  nat.PortMap
 	SandboxKey             string
 	SecondaryIPAddresses   []networktypes.Address

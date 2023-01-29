@@ -1,9 +1,9 @@
-package chrootarchive // import "github.com/docker/docker/pkg/chrootarchive"
+package chrootarchive // import "github.com/rumpl/bof/pkg/chrootarchive"
 
 import (
-	"github.com/docker/docker/internal/mounttree"
-	"github.com/docker/docker/internal/unshare"
 	"github.com/moby/sys/mount"
+	"github.com/rumpl/bof/internal/mounttree"
+	"github.com/rumpl/bof/internal/unshare"
 	"golang.org/x/sys/unix"
 )
 

@@ -1,7 +1,7 @@
-package swarm // import "github.com/docker/docker/api/types/swarm"
+package swarm // import "github.com/rumpl/bof/api/types/swarm"
 
 import (
-	"github.com/docker/docker/api/types/network"
+	"github.com/rumpl/bof/api/types/network"
 )
 
 // Endpoint represents an endpoint.

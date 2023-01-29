@@ -1,9 +1,9 @@
-package types // import "github.com/docker/docker/api/types"
+package types // import "github.com/rumpl/bof/api/types"
 
 import (
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/network"
 	specs "github.com/opencontainers/image-spec/specs-go/v1"
+	"github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/api/types/network"
 )
 
 // configs holds structs used for internal communication between the

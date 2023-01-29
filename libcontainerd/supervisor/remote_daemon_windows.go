@@ -1,9 +1,9 @@
-package supervisor // import "github.com/docker/docker/libcontainerd/supervisor"
+package supervisor // import "github.com/rumpl/bof/libcontainerd/supervisor"
 
 import (
 	"os"
 
-	"github.com/docker/docker/pkg/process"
+	"github.com/rumpl/bof/pkg/process"
 )
 
 const (

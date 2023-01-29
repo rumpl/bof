@@ -1,4 +1,4 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"bytes"
@@ -9,10 +9,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/docker/docker/api/types"
-	containertypes "github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/strslice"
-	"github.com/docker/docker/container"
+	"github.com/rumpl/bof/api/types"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/api/types/strslice"
+	"github.com/rumpl/bof/container"
 	"github.com/sirupsen/logrus"
 )
 

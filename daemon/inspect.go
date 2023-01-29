@@ -1,19 +1,19 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"errors"
 	"fmt"
 	"time"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/backend"
-	networktypes "github.com/docker/docker/api/types/network"
-	"github.com/docker/docker/api/types/versions"
-	"github.com/docker/docker/api/types/versions/v1p20"
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/daemon/network"
-	"github.com/docker/docker/errdefs"
 	"github.com/docker/go-connections/nat"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/backend"
+	networktypes "github.com/rumpl/bof/api/types/network"
+	"github.com/rumpl/bof/api/types/versions"
+	"github.com/rumpl/bof/api/types/versions/v1p20"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/daemon/network"
+	"github.com/rumpl/bof/errdefs"
 )
 
 // ContainerInspect returns low-level information about a

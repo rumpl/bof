@@ -1,12 +1,12 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"context"
 	"fmt"
 
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/errdefs"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/errdefs"
 )
 
 // ContainerUpdate updates configuration of the container

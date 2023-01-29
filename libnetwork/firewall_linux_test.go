@@ -5,10 +5,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/libnetwork/iptables"
-	"github.com/docker/docker/libnetwork/netlabel"
-	"github.com/docker/docker/libnetwork/options"
-	"github.com/docker/docker/libnetwork/testutils"
+	"github.com/rumpl/bof/libnetwork/iptables"
+	"github.com/rumpl/bof/libnetwork/netlabel"
+	"github.com/rumpl/bof/libnetwork/options"
+	"github.com/rumpl/bof/libnetwork/testutils"
 	"gotest.tools/v3/assert"
 )
 

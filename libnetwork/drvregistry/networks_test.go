@@ -3,7 +3,7 @@ package drvregistry
 import (
 	"testing"
 
-	"github.com/docker/docker/libnetwork/driverapi"
+	"github.com/rumpl/bof/libnetwork/driverapi"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 )

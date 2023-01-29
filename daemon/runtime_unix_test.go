@@ -12,9 +12,9 @@ import (
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/daemon/config"
-	"github.com/docker/docker/errdefs"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/daemon/config"
+	"github.com/rumpl/bof/errdefs"
 )
 
 func TestGetRuntime(t *testing.T) {

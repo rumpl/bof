@@ -3,10 +3,10 @@ package imagerefchecker
 import (
 	"sync"
 
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
 	"github.com/moby/buildkit/cache"
 	"github.com/opencontainers/go-digest"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
 )
 
 // LayerGetter abstracts away the snapshotter

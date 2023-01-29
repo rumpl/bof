@@ -1,14 +1,14 @@
-package images // import "github.com/docker/docker/daemon/images"
+package images // import "github.com/rumpl/bof/daemon/images"
 
 import (
 	"context"
 	"errors"
 	"testing"
 
-	"github.com/docker/docker/api/types/filters"
-	"github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/errdefs"
-	registrypkg "github.com/docker/docker/registry"
+	"github.com/rumpl/bof/api/types/filters"
+	"github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/errdefs"
+	registrypkg "github.com/rumpl/bof/registry"
 	"gotest.tools/v3/assert"
 )
 

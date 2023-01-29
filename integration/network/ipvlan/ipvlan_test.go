@@ -1,7 +1,7 @@
 //go:build !windows
 // +build !windows
 
-package ipvlan // import "github.com/docker/docker/integration/network/ipvlan"
+package ipvlan // import "github.com/rumpl/bof/integration/network/ipvlan"
 
 import (
 	"context"
@@ -11,11 +11,11 @@ import (
 	"sync"
 	"testing"
 
-	dclient "github.com/docker/docker/client"
-	"github.com/docker/docker/integration/internal/container"
-	net "github.com/docker/docker/integration/internal/network"
-	n "github.com/docker/docker/integration/network"
-	"github.com/docker/docker/testutil/daemon"
+	dclient "github.com/rumpl/bof/client"
+	"github.com/rumpl/bof/integration/internal/container"
+	net "github.com/rumpl/bof/integration/internal/network"
+	n "github.com/rumpl/bof/integration/network"
+	"github.com/rumpl/bof/testutil/daemon"
 	"gotest.tools/v3/assert"
 	"gotest.tools/v3/skip"
 )

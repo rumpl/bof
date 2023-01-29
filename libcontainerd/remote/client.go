@@ -1,4 +1,4 @@
-package remote // import "github.com/docker/docker/libcontainerd/remote"
+package remote // import "github.com/rumpl/bof/libcontainerd/remote"
 
 import (
 	"context"
@@ -24,13 +24,13 @@ import (
 	"github.com/containerd/containerd/images"
 	v2runcoptions "github.com/containerd/containerd/runtime/v2/runc/options"
 	"github.com/containerd/typeurl"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/libcontainerd/queue"
-	libcontainerdtypes "github.com/docker/docker/libcontainerd/types"
-	"github.com/docker/docker/pkg/ioutils"
 	v1 "github.com/opencontainers/image-spec/specs-go/v1"
 	specs "github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/libcontainerd/queue"
+	libcontainerdtypes "github.com/rumpl/bof/libcontainerd/types"
+	"github.com/rumpl/bof/pkg/ioutils"
 	"github.com/sirupsen/logrus"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

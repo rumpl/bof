@@ -6,9 +6,9 @@ package bridge
 import (
 	"testing"
 
-	"github.com/docker/docker/libnetwork/driverapi"
-	"github.com/docker/docker/libnetwork/netlabel"
-	"github.com/docker/docker/libnetwork/testutils"
+	"github.com/rumpl/bof/libnetwork/driverapi"
+	"github.com/rumpl/bof/libnetwork/netlabel"
+	"github.com/rumpl/bof/libnetwork/testutils"
 	"github.com/vishvananda/netlink"
 )
 

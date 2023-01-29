@@ -1,10 +1,10 @@
-package build // import "github.com/docker/docker/api/server/router/build"
+package build // import "github.com/rumpl/bof/api/server/router/build"
 
 import (
 	"context"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/backend"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/backend"
 )
 
 // Backend abstracts an image builder whose only purpose is to build an image referenced by an imageID.

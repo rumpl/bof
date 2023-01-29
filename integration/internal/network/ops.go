@@ -1,8 +1,8 @@
 package network
 
 import (
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/network"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/network"
 )
 
 // WithDriver sets the driver of the network

@@ -6,7 +6,7 @@ Note: details of the release process for the Engine are documented in the
 
 # Branches
 
-The docker/docker repository should normally have only three living branches at all time, including
+The rumpl/bof repository should normally have only three living branches at all time, including
 the regular `master` branch:
 
 ## `docs` branch

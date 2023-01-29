@@ -1,12 +1,12 @@
-package images // import "github.com/docker/docker/daemon/images"
+package images // import "github.com/rumpl/bof/daemon/images"
 
 import (
 	"context"
 	"strconv"
 
-	"github.com/docker/docker/api/types/filters"
-	"github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/dockerversion"
+	"github.com/rumpl/bof/api/types/filters"
+	"github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/dockerversion"
 )
 
 var acceptedSearchFilterTags = map[string]bool{

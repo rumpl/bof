@@ -1,11 +1,11 @@
-package registry // import "github.com/docker/docker/registry"
+package registry // import "github.com/rumpl/bof/registry"
 
 import (
 	"net/url"
 
 	"github.com/docker/distribution/registry/api/errcode"
-	"github.com/docker/docker/errdefs"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/errdefs"
 )
 
 func translateV2AuthError(err error) error {

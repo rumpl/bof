@@ -5,8 +5,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/docker/docker/daemon/logger"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/daemon/logger"
 	"gotest.tools/v3/assert"
 )
 

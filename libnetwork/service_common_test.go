@@ -5,8 +5,8 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/docker/docker/libnetwork/resolvconf"
-	"github.com/docker/docker/libnetwork/testutils"
+	"github.com/rumpl/bof/libnetwork/resolvconf"
+	"github.com/rumpl/bof/libnetwork/testutils"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 	"gotest.tools/v3/skip"

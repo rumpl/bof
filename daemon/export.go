@@ -1,14 +1,14 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"fmt"
 	"io"
 
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/pkg/archive"
-	"github.com/docker/docker/pkg/chrootarchive"
-	"github.com/docker/docker/pkg/ioutils"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/pkg/archive"
+	"github.com/rumpl/bof/pkg/chrootarchive"
+	"github.com/rumpl/bof/pkg/ioutils"
 )
 
 // ContainerExport writes the contents of the container to the given

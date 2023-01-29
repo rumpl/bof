@@ -1,4 +1,4 @@
-package mounts // import "github.com/docker/docker/volume/mounts"
+package mounts // import "github.com/rumpl/bof/volume/mounts"
 
 import (
 	"errors"
@@ -8,8 +8,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/docker/docker/api/types/mount"
-	"github.com/docker/docker/pkg/stringid"
+	"github.com/rumpl/bof/api/types/mount"
+	"github.com/rumpl/bof/pkg/stringid"
 )
 
 // NewWindowsParser creates a parser with Windows semantics.

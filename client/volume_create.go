@@ -1,10 +1,10 @@
-package client // import "github.com/docker/docker/client"
+package client // import "github.com/rumpl/bof/client"
 
 import (
 	"context"
 	"encoding/json"
 
-	"github.com/docker/docker/api/types/volume"
+	"github.com/rumpl/bof/api/types/volume"
 )
 
 // VolumeCreate creates a volume in the docker host.

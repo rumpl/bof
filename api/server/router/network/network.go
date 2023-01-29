@@ -1,7 +1,7 @@
-package network // import "github.com/docker/docker/api/server/router/network"
+package network // import "github.com/rumpl/bof/api/server/router/network"
 
 import (
-	"github.com/docker/docker/api/server/router"
+	"github.com/rumpl/bof/api/server/router"
 )
 
 // networkRouter is a router to talk with the network controller
@@ -12,10 +12,9 @@ type networkRouter struct {
 }
 
 // NewRouter initializes a new network router
-func NewRouter(b Backend, c ClusterBackend) router.Router {
+func NewRouter(b Backend) router.Router {
 	r := &networkRouter{
 		backend: b,
-		cluster: c,
 	}
 	r.initRoutes()
 	return r

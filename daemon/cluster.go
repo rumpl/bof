@@ -1,12 +1,12 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
-	apitypes "github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/filters"
-	lncluster "github.com/docker/docker/libnetwork/cluster"
+	apitypes "github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/filters"
+	lncluster "github.com/rumpl/bof/libnetwork/cluster"
 )
 
-// Cluster is the interface for github.com/docker/docker/daemon/cluster.(*Cluster).
+// Cluster is the interface for github.com/rumpl/bof/daemon/cluster.(*Cluster).
 type Cluster interface {
 	ClusterStatus
 	NetworkManager

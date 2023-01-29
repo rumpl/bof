@@ -1,6 +1,6 @@
 package system
 
-import "github.com/docker/docker/pkg/sysinfo"
+import "github.com/rumpl/bof/pkg/sysinfo"
 
 // MemInfo contains memory statistics of the host system.
 //

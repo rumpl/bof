@@ -1,4 +1,4 @@
-package seccomp // import "github.com/docker/docker/profiles/seccomp"
+package seccomp // import "github.com/rumpl/bof/profiles/seccomp"
 
 import (
 	"encoding/json"

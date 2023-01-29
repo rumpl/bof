@@ -3,7 +3,7 @@ package overlay
 import (
 	"strconv"
 
-	"github.com/docker/docker/libnetwork/osl/kernel"
+	"github.com/rumpl/bof/libnetwork/osl/kernel"
 )
 
 var ovConfig = map[string]*kernel.OSValue{

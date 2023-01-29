@@ -1,10 +1,10 @@
-package authorization // import "github.com/docker/docker/pkg/authorization"
+package authorization // import "github.com/rumpl/bof/pkg/authorization"
 
 import (
 	"sync"
 
-	"github.com/docker/docker/pkg/plugingetter"
-	"github.com/docker/docker/pkg/plugins"
+	"github.com/rumpl/bof/pkg/plugingetter"
+	"github.com/rumpl/bof/pkg/plugins"
 )
 
 // Plugin allows third party plugins to authorize requests and responses

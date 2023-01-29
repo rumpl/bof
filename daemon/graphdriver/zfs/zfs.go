@@ -1,7 +1,7 @@
 //go:build linux || freebsd
 // +build linux freebsd
 
-package zfs // import "github.com/docker/docker/daemon/graphdriver/zfs"
+package zfs // import "github.com/rumpl/bof/daemon/graphdriver/zfs"
 
 import (
 	"fmt"
@@ -13,15 +13,15 @@ import (
 	"sync"
 	"time"
 
-	"github.com/docker/docker/daemon/graphdriver"
-	"github.com/docker/docker/pkg/idtools"
-	"github.com/docker/docker/pkg/parsers"
 	zfs "github.com/mistifyio/go-zfs"
 	"github.com/moby/locker"
 	"github.com/moby/sys/mount"
 	"github.com/moby/sys/mountinfo"
 	"github.com/opencontainers/selinux/go-selinux/label"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/daemon/graphdriver"
+	"github.com/rumpl/bof/pkg/idtools"
+	"github.com/rumpl/bof/pkg/parsers"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sys/unix"
 )

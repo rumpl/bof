@@ -1,4 +1,4 @@
-package listeners // import "github.com/docker/docker/daemon/listeners"
+package listeners // import "github.com/rumpl/bof/daemon/listeners"
 
 import (
 	"crypto/tls"

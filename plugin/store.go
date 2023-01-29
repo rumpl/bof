@@ -1,16 +1,16 @@
-package plugin // import "github.com/docker/docker/plugin"
+package plugin // import "github.com/rumpl/bof/plugin"
 
 import (
 	"fmt"
 	"strings"
 
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/pkg/plugingetter"
-	"github.com/docker/docker/pkg/plugins"
-	v2 "github.com/docker/docker/plugin/v2"
 	specs "github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/pkg/plugingetter"
+	"github.com/rumpl/bof/pkg/plugins"
+	v2 "github.com/rumpl/bof/plugin/v2"
 	"github.com/sirupsen/logrus"
 )
 

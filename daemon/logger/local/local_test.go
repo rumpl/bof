@@ -10,11 +10,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/docker/api/types/backend"
-	"github.com/docker/docker/api/types/plugins/logdriver"
-	"github.com/docker/docker/daemon/logger"
-	"github.com/docker/docker/daemon/logger/loggertest"
 	protoio "github.com/gogo/protobuf/io"
+	"github.com/rumpl/bof/api/types/backend"
+	"github.com/rumpl/bof/api/types/plugins/logdriver"
+	"github.com/rumpl/bof/daemon/logger"
+	"github.com/rumpl/bof/daemon/logger/loggertest"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 )

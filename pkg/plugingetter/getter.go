@@ -1,10 +1,10 @@
-package plugingetter // import "github.com/docker/docker/pkg/plugingetter"
+package plugingetter // import "github.com/rumpl/bof/pkg/plugingetter"
 
 import (
 	"net"
 	"time"
 
-	"github.com/docker/docker/pkg/plugins"
+	"github.com/rumpl/bof/pkg/plugins"
 )
 
 const (

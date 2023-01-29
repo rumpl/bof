@@ -8,11 +8,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/integration-cli/cli"
-	"github.com/docker/docker/integration-cli/cli/build"
-	"github.com/docker/docker/pkg/stringid"
-	"github.com/docker/docker/testutil/fakecontext"
 	"github.com/docker/go-connections/nat"
+	"github.com/rumpl/bof/integration-cli/cli"
+	"github.com/rumpl/bof/integration-cli/cli/build"
+	"github.com/rumpl/bof/pkg/stringid"
+	"github.com/rumpl/bof/testutil/fakecontext"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 )

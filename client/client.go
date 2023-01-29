@@ -18,8 +18,8 @@ For example, to list running containers (the equivalent of "docker ps"):
 		"context"
 		"fmt"
 
-		"github.com/docker/docker/api/types"
-		"github.com/docker/docker/client"
+		"github.com/rumpl/bof/api/types"
+		"github.com/rumpl/bof/client"
 	)
 
 	func main() {
@@ -38,7 +38,7 @@ For example, to list running containers (the equivalent of "docker ps"):
 		}
 	}
 */
-package client // import "github.com/docker/docker/client"
+package client // import "github.com/rumpl/bof/client"
 
 import (
 	"context"
@@ -48,11 +48,11 @@ import (
 	"path"
 	"strings"
 
-	"github.com/docker/docker/api"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/versions"
 	"github.com/docker/go-connections/sockets"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/versions"
 )
 
 // ErrRedirect is the error returned by checkRedirect when the request is non-GET.

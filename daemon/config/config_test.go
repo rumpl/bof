@@ -1,4 +1,4 @@
-package config // import "github.com/docker/docker/daemon/config"
+package config // import "github.com/rumpl/bof/daemon/config"
 
 import (
 	"os"
@@ -7,11 +7,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/libnetwork/ipamutils"
-	"github.com/docker/docker/opts"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 	"github.com/imdario/mergo"
+	"github.com/rumpl/bof/libnetwork/ipamutils"
+	"github.com/rumpl/bof/opts"
 	"github.com/spf13/pflag"
 	"golang.org/x/text/encoding"
 	"golang.org/x/text/encoding/unicode"

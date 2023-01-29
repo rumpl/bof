@@ -1,4 +1,4 @@
-package request // import "github.com/docker/docker/testutil/request"
+package request // import "github.com/rumpl/bof/testutil/request"
 
 import (
 	"context"
@@ -13,12 +13,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/docker/client"
-	"github.com/docker/docker/pkg/ioutils"
-	"github.com/docker/docker/testutil/environment"
 	"github.com/docker/go-connections/sockets"
 	"github.com/docker/go-connections/tlsconfig"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/client"
+	"github.com/rumpl/bof/pkg/ioutils"
+	"github.com/rumpl/bof/testutil/environment"
 	"gotest.tools/v3/assert"
 )
 

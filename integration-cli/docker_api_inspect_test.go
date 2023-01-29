@@ -6,9 +6,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/versions/v1p20"
-	"github.com/docker/docker/client"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/versions/v1p20"
+	"github.com/rumpl/bof/client"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 )

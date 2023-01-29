@@ -248,7 +248,7 @@ func (s *DockerHubPullSuite) TestPullAllTagsFromCentralRegistry(c *testing.T) {
 // TestPullClientDisconnect kills the client during a pull operation and verifies that the operation
 // gets cancelled.
 //
-// Ref: docker/docker#15589
+// Ref: rumpl/bof#15589
 func (s *DockerHubPullSuite) TestPullClientDisconnect(c *testing.T) {
 	testRequires(c, DaemonIsLinux)
 	repoName := "hello-world:latest"
@@ -273,14 +273,14 @@ func (s *DockerHubPullSuite) TestPullClientDisconnect(c *testing.T) {
 	assert.ErrorContains(c, err, "", "image was pulled after client disconnected")
 }
 
-// Regression test for https://github.com/docker/docker/issues/26429
+// Regression test for https://github.com/rumpl/bof/issues/26429
 func (s *DockerCLIPullSuite) TestPullLinuxImageFailsOnWindows(c *testing.T) {
 	testRequires(c, DaemonIsWindows, Network)
 	_, _, err := dockerCmdWithError("pull", "ubuntu")
 	assert.ErrorContains(c, err, "no matching manifest for windows")
 }
 
-// Regression test for https://github.com/docker/docker/issues/28892
+// Regression test for https://github.com/rumpl/bof/issues/28892
 func (s *DockerCLIPullSuite) TestPullWindowsImageFailsOnLinux(c *testing.T) {
 	testRequires(c, DaemonIsLinux, Network)
 	_, _, err := dockerCmdWithError("pull", "mcr.microsoft.com/windows/servercore:ltsc2022")

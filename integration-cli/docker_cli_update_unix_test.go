@@ -13,9 +13,9 @@ import (
 	"time"
 
 	"github.com/creack/pty"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/client"
-	"github.com/docker/docker/testutil/request"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/client"
+	"github.com/rumpl/bof/testutil/request"
 	"gotest.tools/v3/assert"
 )
 

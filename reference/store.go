@@ -1,4 +1,4 @@
-package reference // import "github.com/docker/docker/reference"
+package reference // import "github.com/rumpl/bof/reference"
 
 import (
 	"encoding/json"
@@ -9,9 +9,9 @@ import (
 	"sync"
 
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/pkg/ioutils"
 	"github.com/opencontainers/go-digest"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/pkg/ioutils"
 )
 
 var (

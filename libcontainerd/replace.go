@@ -1,4 +1,4 @@
-package libcontainerd // import "github.com/docker/docker/libcontainerd"
+package libcontainerd // import "github.com/rumpl/bof/libcontainerd"
 
 import (
 	"context"
@@ -8,8 +8,8 @@ import (
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/libcontainerd/types"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/libcontainerd/types"
 )
 
 // ReplaceContainer creates a new container, replacing any existing container

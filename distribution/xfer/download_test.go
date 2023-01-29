@@ -1,4 +1,4 @@
-package xfer // import "github.com/docker/docker/distribution/xfer"
+package xfer // import "github.com/rumpl/bof/distribution/xfer"
 
 import (
 	"bytes"
@@ -12,10 +12,10 @@ import (
 	"time"
 
 	"github.com/docker/distribution"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
-	"github.com/docker/docker/pkg/progress"
 	"github.com/opencontainers/go-digest"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
+	"github.com/rumpl/bof/pkg/progress"
 	"gotest.tools/v3/assert"
 )
 

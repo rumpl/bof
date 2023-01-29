@@ -1,14 +1,14 @@
-package v1 // import "github.com/docker/docker/image/v1"
+package v1 // import "github.com/rumpl/bof/image/v1"
 
 import (
 	"encoding/json"
 	"strings"
 
-	"github.com/docker/docker/api/types/versions"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
-	"github.com/docker/docker/pkg/stringid"
 	"github.com/opencontainers/go-digest"
+	"github.com/rumpl/bof/api/types/versions"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
+	"github.com/rumpl/bof/pkg/stringid"
 	"github.com/sirupsen/logrus"
 )
 

@@ -1,4 +1,4 @@
-package cache // import "github.com/docker/docker/image/cache"
+package cache // import "github.com/rumpl/bof/image/cache"
 
 import (
 	"encoding/json"
@@ -6,11 +6,11 @@ import (
 	"reflect"
 	"strings"
 
-	containertypes "github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/dockerversion"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
 	"github.com/pkg/errors"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/dockerversion"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
 )
 
 // NewLocal returns a local image cache, based on parent chain

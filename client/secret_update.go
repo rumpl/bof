@@ -1,10 +1,10 @@
-package client // import "github.com/docker/docker/client"
+package client // import "github.com/rumpl/bof/client"
 
 import (
 	"context"
 	"net/url"
 
-	"github.com/docker/docker/api/types/swarm"
+	"github.com/rumpl/bof/api/types/swarm"
 )
 
 // SecretUpdate attempts to update a secret.

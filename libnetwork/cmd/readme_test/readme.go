@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/docker/docker/libnetwork"
-	"github.com/docker/docker/libnetwork/config"
-	"github.com/docker/docker/libnetwork/netlabel"
-	"github.com/docker/docker/libnetwork/options"
-	"github.com/docker/docker/pkg/reexec"
+	"github.com/rumpl/bof/libnetwork"
+	"github.com/rumpl/bof/libnetwork/config"
+	"github.com/rumpl/bof/libnetwork/netlabel"
+	"github.com/rumpl/bof/libnetwork/options"
+	"github.com/rumpl/bof/pkg/reexec"
 )
 
 func main() {

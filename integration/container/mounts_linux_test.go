@@ -1,4 +1,4 @@
-package container // import "github.com/docker/docker/integration/container"
+package container // import "github.com/rumpl/bof/integration/container"
 
 import (
 	"context"
@@ -9,15 +9,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/docker/api/types"
-	containertypes "github.com/docker/docker/api/types/container"
-	mounttypes "github.com/docker/docker/api/types/mount"
-	"github.com/docker/docker/api/types/network"
-	"github.com/docker/docker/api/types/versions"
-	"github.com/docker/docker/client"
-	"github.com/docker/docker/integration/internal/container"
 	"github.com/moby/sys/mount"
 	"github.com/moby/sys/mountinfo"
+	"github.com/rumpl/bof/api/types"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	mounttypes "github.com/rumpl/bof/api/types/mount"
+	"github.com/rumpl/bof/api/types/network"
+	"github.com/rumpl/bof/api/types/versions"
+	"github.com/rumpl/bof/client"
+	"github.com/rumpl/bof/integration/internal/container"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 	"gotest.tools/v3/fs"

@@ -4,8 +4,8 @@ import (
 	"context"
 	"strings"
 
-	"github.com/docker/docker/client"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/client"
 	"gotest.tools/v3/poll"
 )
 

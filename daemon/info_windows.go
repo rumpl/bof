@@ -1,8 +1,8 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/pkg/sysinfo"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/pkg/sysinfo"
 )
 
 // fillPlatformInfo fills the platform related info.

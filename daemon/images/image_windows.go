@@ -1,10 +1,10 @@
 package images
 
 import (
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
-	"github.com/docker/docker/pkg/system"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
+	"github.com/rumpl/bof/pkg/system"
 )
 
 // GetContainerLayerSize returns real size & virtual size

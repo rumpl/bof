@@ -8,10 +8,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/testutil/fixtures/plugin"
 	"github.com/moby/locker"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/testutil/fixtures/plugin"
 )
 
 var pluginBuildLock = locker.New()

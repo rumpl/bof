@@ -1,10 +1,10 @@
-package chrootarchive // import "github.com/docker/docker/pkg/chrootarchive"
+package chrootarchive // import "github.com/rumpl/bof/pkg/chrootarchive"
 
 import (
 	"io"
 
-	"github.com/docker/docker/pkg/archive"
-	"github.com/docker/docker/pkg/longpath"
+	"github.com/rumpl/bof/pkg/archive"
+	"github.com/rumpl/bof/pkg/longpath"
 )
 
 func invokeUnpack(decompressedArchive io.ReadCloser,

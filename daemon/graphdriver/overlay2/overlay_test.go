@@ -1,16 +1,16 @@
 //go:build linux
 // +build linux
 
-package overlay2 // import "github.com/docker/docker/daemon/graphdriver/overlay2"
+package overlay2 // import "github.com/rumpl/bof/daemon/graphdriver/overlay2"
 
 import (
 	"os"
 	"testing"
 
-	"github.com/docker/docker/daemon/graphdriver"
-	"github.com/docker/docker/daemon/graphdriver/graphtest"
-	"github.com/docker/docker/pkg/archive"
-	"github.com/docker/docker/pkg/reexec"
+	"github.com/rumpl/bof/daemon/graphdriver"
+	"github.com/rumpl/bof/daemon/graphdriver/graphtest"
+	"github.com/rumpl/bof/pkg/archive"
+	"github.com/rumpl/bof/pkg/reexec"
 )
 
 func init() {

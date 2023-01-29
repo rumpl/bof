@@ -28,7 +28,7 @@ export VALIDATE_ORIGIN_BRANCH
 # option of "go build". For example, a built-in graphdriver priority list
 # can be changed during build time like this:
 #
-# make DOCKER_LDFLAGS="-X github.com/docker/docker/daemon/graphdriver.priority=overlay2,devicemapper" dynbinary
+# make DOCKER_LDFLAGS="-X github.com/rumpl/bof/daemon/graphdriver.priority=overlay2,devicemapper" dynbinary
 #
 DOCKER_ENVS := \
 	-e BUILD_APT_MIRROR \
@@ -85,13 +85,13 @@ BIND_DIR := $(if $(BINDDIR),$(BINDDIR),$(if $(DOCKER_HOST),,bundles))
 
 # DOCKER_MOUNT can be overriden, but use at your own risk!
 ifndef DOCKER_MOUNT
-DOCKER_MOUNT := $(if $(BIND_DIR),-v "$(CURDIR)/$(BIND_DIR):/go/src/github.com/docker/docker/$(BIND_DIR)")
+DOCKER_MOUNT := $(if $(BIND_DIR),-v "$(CURDIR)/$(BIND_DIR):/go/src/github.com/rumpl/bof/$(BIND_DIR)")
 DOCKER_MOUNT := $(if $(DOCKER_BINDDIR_MOUNT_OPTS),$(DOCKER_MOUNT):$(DOCKER_BINDDIR_MOUNT_OPTS),$(DOCKER_MOUNT))
 
 # This allows the test suite to be able to run without worrying about the underlying fs used by the container running the daemon (e.g. aufs-on-aufs), so long as the host running the container is running a supported fs.
 # The volume will be cleaned up when the container is removed due to `--rm`.
 # Note that `BIND_DIR` will already be set to `bundles` if `DOCKER_HOST` is not set (see above BIND_DIR line), in such case this will do nothing since `DOCKER_MOUNT` will already be set.
-DOCKER_MOUNT := $(if $(DOCKER_MOUNT),$(DOCKER_MOUNT),-v /go/src/github.com/docker/docker/bundles) -v "$(CURDIR)/.git:/go/src/github.com/docker/docker/.git"
+DOCKER_MOUNT := $(if $(DOCKER_MOUNT),$(DOCKER_MOUNT),-v /go/src/github.com/rumpl/bof/bundles) -v "$(CURDIR)/.git:/go/src/github.com/rumpl/bof/.git"
 
 DOCKER_MOUNT_CACHE := -v docker-dev-cache:/root/.cache -v docker-mod-cache:/go/pkg/mod/
 DOCKER_MOUNT_CLI := $(if $(DOCKER_CLI_PATH),-v $(shell dirname $(DOCKER_CLI_PATH)):/usr/local/cli,)
@@ -222,8 +222,8 @@ win: bundles ## cross build the binary for windows
 
 .PHONY: swagger-gen
 swagger-gen:
-	docker run --rm -v $(PWD):/go/src/github.com/docker/docker \
-		-w /go/src/github.com/docker/docker \
+	docker run --rm -v $(PWD):/go/src/github.com/rumpl/bof \
+		-w /go/src/github.com/rumpl/bof \
 		--entrypoint hack/generate-swagger-api.sh \
 		-e GOPATH=/go \
 		quay.io/goswagger/swagger:0.7.4

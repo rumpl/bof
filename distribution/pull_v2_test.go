@@ -1,4 +1,4 @@
-package distribution // import "github.com/docker/docker/distribution"
+package distribution // import "github.com/rumpl/bof/distribution"
 
 import (
 	"context"
@@ -16,11 +16,11 @@ import (
 
 	"github.com/docker/distribution/manifest/schema1"
 	"github.com/docker/distribution/reference"
-	registrytypes "github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/registry"
 	"github.com/opencontainers/go-digest"
 	specs "github.com/opencontainers/image-spec/specs-go/v1"
+	registrytypes "github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/registry"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 )

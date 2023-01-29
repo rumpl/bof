@@ -1,4 +1,4 @@
-package chrootarchive // import "github.com/docker/docker/pkg/chrootarchive"
+package chrootarchive // import "github.com/rumpl/bof/pkg/chrootarchive"
 
 import (
 	"bytes"
@@ -12,9 +12,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/docker/pkg/archive"
-	"github.com/docker/docker/pkg/idtools"
-	"github.com/docker/docker/pkg/reexec"
+	"github.com/rumpl/bof/pkg/archive"
+	"github.com/rumpl/bof/pkg/idtools"
+	"github.com/rumpl/bof/pkg/reexec"
 	"gotest.tools/v3/skip"
 )
 

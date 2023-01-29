@@ -1,4 +1,4 @@
-package fakestorage // import "github.com/docker/docker/testutil/fakestorage"
+package fakestorage // import "github.com/rumpl/bof/testutil/fakestorage"
 
 import (
 	"context"
@@ -11,14 +11,14 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	containertypes "github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/client"
-	"github.com/docker/docker/testutil"
-	"github.com/docker/docker/testutil/environment"
-	"github.com/docker/docker/testutil/fakecontext"
-	"github.com/docker/docker/testutil/request"
 	"github.com/docker/go-connections/nat"
+	"github.com/rumpl/bof/api/types"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/client"
+	"github.com/rumpl/bof/testutil"
+	"github.com/rumpl/bof/testutil/environment"
+	"github.com/rumpl/bof/testutil/fakecontext"
+	"github.com/rumpl/bof/testutil/request"
 	"gotest.tools/v3/assert"
 )
 

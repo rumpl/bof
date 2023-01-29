@@ -1,18 +1,18 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"context"
 	"fmt"
 	"io"
 
-	"github.com/docker/docker/api/types/backend"
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/container/stream"
-	"github.com/docker/docker/daemon/logger"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/pkg/stdcopy"
 	"github.com/moby/term"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types/backend"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/container/stream"
+	"github.com/rumpl/bof/daemon/logger"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/pkg/stdcopy"
 	"github.com/sirupsen/logrus"
 )
 

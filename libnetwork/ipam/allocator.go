@@ -6,9 +6,9 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/docker/docker/libnetwork/bitseq"
-	"github.com/docker/docker/libnetwork/ipamapi"
-	"github.com/docker/docker/libnetwork/types"
+	"github.com/rumpl/bof/libnetwork/bitseq"
+	"github.com/rumpl/bof/libnetwork/ipamapi"
+	"github.com/rumpl/bof/libnetwork/types"
 	"github.com/sirupsen/logrus"
 )
 

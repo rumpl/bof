@@ -1,4 +1,4 @@
-package loggerutils // import "github.com/docker/docker/daemon/logger/loggerutils"
+package loggerutils // import "github.com/rumpl/bof/daemon/logger/loggerutils"
 
 import (
 	"compress/gzip"
@@ -13,9 +13,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/docker/docker/daemon/logger"
-	"github.com/docker/docker/pkg/pools"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/daemon/logger"
+	"github.com/rumpl/bof/pkg/pools"
 	"github.com/sirupsen/logrus"
 )
 

@@ -13,48 +13,45 @@ import (
 	"time"
 
 	containerddefaults "github.com/containerd/containerd/defaults"
-	"github.com/docker/docker/api"
-	apiserver "github.com/docker/docker/api/server"
-	buildbackend "github.com/docker/docker/api/server/backend/build"
-	"github.com/docker/docker/api/server/middleware"
-	"github.com/docker/docker/api/server/router"
-	"github.com/docker/docker/api/server/router/build"
-	checkpointrouter "github.com/docker/docker/api/server/router/checkpoint"
-	"github.com/docker/docker/api/server/router/container"
-	distributionrouter "github.com/docker/docker/api/server/router/distribution"
-	grpcrouter "github.com/docker/docker/api/server/router/grpc"
-	"github.com/docker/docker/api/server/router/image"
-	"github.com/docker/docker/api/server/router/network"
-	pluginrouter "github.com/docker/docker/api/server/router/plugin"
-	sessionrouter "github.com/docker/docker/api/server/router/session"
-	swarmrouter "github.com/docker/docker/api/server/router/swarm"
-	systemrouter "github.com/docker/docker/api/server/router/system"
-	"github.com/docker/docker/api/server/router/volume"
-	buildkit "github.com/docker/docker/builder/builder-next"
-	"github.com/docker/docker/builder/dockerfile"
-	"github.com/docker/docker/cli/debug"
-	"github.com/docker/docker/cmd/dockerd/trap"
-	"github.com/docker/docker/daemon"
-	"github.com/docker/docker/daemon/cluster"
-	"github.com/docker/docker/daemon/config"
-	"github.com/docker/docker/daemon/listeners"
-	"github.com/docker/docker/dockerversion"
-	"github.com/docker/docker/libcontainerd/supervisor"
-	dopts "github.com/docker/docker/opts"
-	"github.com/docker/docker/pkg/authorization"
-	"github.com/docker/docker/pkg/homedir"
-	"github.com/docker/docker/pkg/jsonmessage"
-	"github.com/docker/docker/pkg/pidfile"
-	"github.com/docker/docker/pkg/plugingetter"
-	"github.com/docker/docker/pkg/rootless"
-	"github.com/docker/docker/pkg/sysinfo"
-	"github.com/docker/docker/pkg/system"
-	"github.com/docker/docker/plugin"
-	"github.com/docker/docker/runconfig"
 	"github.com/docker/go-connections/tlsconfig"
 	"github.com/moby/buildkit/session"
-	swarmapi "github.com/moby/swarmkit/v2/api"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api"
+	apiserver "github.com/rumpl/bof/api/server"
+	buildbackend "github.com/rumpl/bof/api/server/backend/build"
+	"github.com/rumpl/bof/api/server/middleware"
+	"github.com/rumpl/bof/api/server/router"
+	"github.com/rumpl/bof/api/server/router/build"
+	checkpointrouter "github.com/rumpl/bof/api/server/router/checkpoint"
+	"github.com/rumpl/bof/api/server/router/container"
+	distributionrouter "github.com/rumpl/bof/api/server/router/distribution"
+	grpcrouter "github.com/rumpl/bof/api/server/router/grpc"
+	"github.com/rumpl/bof/api/server/router/image"
+	"github.com/rumpl/bof/api/server/router/network"
+	pluginrouter "github.com/rumpl/bof/api/server/router/plugin"
+	sessionrouter "github.com/rumpl/bof/api/server/router/session"
+	systemrouter "github.com/rumpl/bof/api/server/router/system"
+	"github.com/rumpl/bof/api/server/router/volume"
+	buildkit "github.com/rumpl/bof/builder/builder-next"
+	"github.com/rumpl/bof/builder/dockerfile"
+	"github.com/rumpl/bof/cli/debug"
+	"github.com/rumpl/bof/cmd/dockerd/trap"
+	"github.com/rumpl/bof/daemon"
+	"github.com/rumpl/bof/daemon/config"
+	"github.com/rumpl/bof/daemon/listeners"
+	"github.com/rumpl/bof/dockerversion"
+	"github.com/rumpl/bof/libcontainerd/supervisor"
+	dopts "github.com/rumpl/bof/opts"
+	"github.com/rumpl/bof/pkg/authorization"
+	"github.com/rumpl/bof/pkg/homedir"
+	"github.com/rumpl/bof/pkg/jsonmessage"
+	"github.com/rumpl/bof/pkg/pidfile"
+	"github.com/rumpl/bof/pkg/plugingetter"
+	"github.com/rumpl/bof/pkg/rootless"
+	"github.com/rumpl/bof/pkg/sysinfo"
+	"github.com/rumpl/bof/pkg/system"
+	"github.com/rumpl/bof/plugin"
+	"github.com/rumpl/bof/runconfig"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/pflag"
 )
@@ -214,16 +211,6 @@ func (cli *DaemonCli) start(opts *daemonOptions) (err error) {
 		return errors.Wrap(err, "failed to start metrics server")
 	}
 
-	c, err := createAndStartCluster(cli, d)
-	if err != nil {
-		logrus.Fatalf("Error starting cluster component: %v", err)
-	}
-
-	// Restart all autostart containers which has a swarm endpoint
-	// and is not yet running now that we have successfully
-	// initialized the cluster.
-	d.RestartSwarmContainers()
-
 	logrus.Info("Daemon has completed initialization")
 
 	routerOptions, err := newRouterOptions(cli.Config, d)
@@ -231,11 +218,8 @@ func (cli *DaemonCli) start(opts *daemonOptions) (err error) {
 		return err
 	}
 	routerOptions.api = cli.api
-	routerOptions.cluster = c
 
 	initRouter(routerOptions)
-
-	go d.ProcessClusterNotifications(ctx, c.GetWatchStream())
 
 	cli.setupConfigReloadTrap()
 
@@ -251,7 +235,6 @@ func (cli *DaemonCli) start(opts *daemonOptions) (err error) {
 	// Daemon is fully initialized and handling API traffic
 	// Wait for serve API to complete
 	errAPI := <-serveAPIWait
-	c.Cleanup()
 
 	// notify systemd that we're shutting down
 	notifyStopping()
@@ -275,7 +258,6 @@ type routerOptions struct {
 	buildkit       *buildkit.Builder
 	daemon         *daemon.Daemon
 	api            *apiserver.Server
-	cluster        *cluster.Cluster
 }
 
 func newRouterOptions(config *config.Config, d *daemon.Daemon) (routerOptions, error) {
@@ -515,11 +497,10 @@ func initRouter(opts routerOptions) {
 			opts.daemon.ImageService().DistributionServices().ImageStore,
 			opts.daemon.ImageService().DistributionServices().LayerStore,
 		),
-		systemrouter.NewRouter(opts.daemon, opts.cluster, opts.buildkit, opts.features),
-		volume.NewRouter(opts.daemon.VolumesService(), opts.cluster),
+		systemrouter.NewRouter(opts.daemon, opts.buildkit, opts.features),
+		volume.NewRouter(opts.daemon.VolumesService()),
 		build.NewRouter(opts.buildBackend, opts.daemon, opts.features),
 		sessionrouter.NewRouter(opts.sessionManager),
-		swarmrouter.NewRouter(opts.cluster),
 		pluginrouter.NewRouter(opts.daemon.PluginManager()),
 		distributionrouter.NewRouter(opts.daemon.ImageService()),
 	}
@@ -529,7 +510,7 @@ func initRouter(opts routerOptions) {
 	}
 
 	if opts.daemon.NetworkControllerEnabled() {
-		routers = append(routers, network.NewRouter(opts.daemon, opts.cluster))
+		routers = append(routers, network.NewRouter(opts.daemon))
 	}
 
 	if opts.daemon.HasExperimental() {
@@ -722,36 +703,6 @@ func loadListeners(cli *DaemonCli, serverConfig *apiserver.Config) ([]string, er
 	}
 
 	return hosts, nil
-}
-
-func createAndStartCluster(cli *DaemonCli, d *daemon.Daemon) (*cluster.Cluster, error) {
-	name, _ := os.Hostname()
-
-	// Use a buffered channel to pass changes from store watch API to daemon
-	// A buffer allows store watch API and daemon processing to not wait for each other
-	watchStream := make(chan *swarmapi.WatchMessage, 32)
-
-	c, err := cluster.New(cluster.Config{
-		Root:                   cli.Config.Root,
-		Name:                   name,
-		Backend:                d,
-		VolumeBackend:          d.VolumesService(),
-		ImageBackend:           d.ImageService(),
-		PluginBackend:          d.PluginManager(),
-		NetworkSubnetsProvider: d,
-		DefaultAdvertiseAddr:   cli.Config.SwarmDefaultAdvertiseAddr,
-		RaftHeartbeatTick:      cli.Config.SwarmRaftHeartbeatTick,
-		RaftElectionTick:       cli.Config.SwarmRaftElectionTick,
-		RuntimeRoot:            cli.getSwarmRunRoot(),
-		WatchStream:            watchStream,
-	})
-	if err != nil {
-		return nil, err
-	}
-	d.SetCluster(c)
-	err = c.Start()
-
-	return c, err
 }
 
 // validates that the plugins requested with the --authorization-plugin flag are valid AuthzDriver

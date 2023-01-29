@@ -1,4 +1,4 @@
-package remotecontext // import "github.com/docker/docker/builder/remotecontext"
+package remotecontext // import "github.com/rumpl/bof/builder/remotecontext"
 
 import (
 	"bytes"
@@ -9,9 +9,9 @@ import (
 	"net/url"
 	"regexp"
 
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/pkg/ioutils"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/pkg/ioutils"
 )
 
 // When downloading remote contexts, limit the amount (in bytes)

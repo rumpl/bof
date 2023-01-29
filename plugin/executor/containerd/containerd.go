@@ -1,4 +1,4 @@
-package containerd // import "github.com/docker/docker/plugin/executor/containerd"
+package containerd // import "github.com/rumpl/bof/plugin/executor/containerd"
 
 import (
 	"context"
@@ -9,12 +9,12 @@ import (
 
 	"github.com/containerd/containerd"
 	"github.com/containerd/containerd/cio"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/libcontainerd"
-	libcontainerdtypes "github.com/docker/docker/libcontainerd/types"
 	specs "github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/libcontainerd"
+	libcontainerdtypes "github.com/rumpl/bof/libcontainerd/types"
 	"github.com/sirupsen/logrus"
 )
 

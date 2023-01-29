@@ -7,8 +7,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/testutil/daemon"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/testutil/daemon"
 	"gotest.tools/v3/assert"
 	"gotest.tools/v3/skip"
 )

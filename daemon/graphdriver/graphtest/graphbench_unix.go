@@ -1,7 +1,7 @@
 //go:build linux || freebsd
 // +build linux freebsd
 
-package graphtest // import "github.com/docker/docker/daemon/graphdriver/graphtest"
+package graphtest // import "github.com/rumpl/bof/daemon/graphdriver/graphtest"
 
 import (
 	"io"
@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/docker/docker/pkg/stringid"
+	"github.com/rumpl/bof/pkg/stringid"
 	"gotest.tools/v3/assert"
 )
 

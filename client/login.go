@@ -1,11 +1,11 @@
-package client // import "github.com/docker/docker/client"
+package client // import "github.com/rumpl/bof/client"
 
 import (
 	"context"
 	"encoding/json"
 	"net/url"
 
-	"github.com/docker/docker/api/types/registry"
+	"github.com/rumpl/bof/api/types/registry"
 )
 
 // RegistryLogin authenticates the docker server with a given docker registry.

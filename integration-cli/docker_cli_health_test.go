@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/integration-cli/cli/build"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/integration-cli/cli/build"
 	"gotest.tools/v3/assert"
 )
 

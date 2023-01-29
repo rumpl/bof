@@ -1,10 +1,10 @@
-package runconfig // import "github.com/docker/docker/runconfig"
+package runconfig // import "github.com/rumpl/bof/runconfig"
 
 import (
 	"fmt"
 
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/pkg/sysinfo"
+	"github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/pkg/sysinfo"
 )
 
 // DefaultDaemonNetworkMode returns the default network stack the daemon should

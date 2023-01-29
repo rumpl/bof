@@ -1,10 +1,10 @@
-package client // import "github.com/docker/docker/client"
+package client // import "github.com/rumpl/bof/client"
 
 import (
 	"context"
 	"io"
 
-	"github.com/docker/docker/api/types/registry"
+	"github.com/rumpl/bof/api/types/registry"
 )
 
 // PluginPush pushes a plugin to a registry

@@ -1,4 +1,4 @@
-package daemon // import "github.com/docker/docker/integration-cli/daemon"
+package daemon // import "github.com/rumpl/bof/integration-cli/daemon"
 
 import (
 	"fmt"
@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/docker/testutil/daemon"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/testutil/daemon"
 	"gotest.tools/v3/assert"
 	"gotest.tools/v3/icmd"
 )

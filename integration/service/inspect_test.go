@@ -1,15 +1,15 @@
-package service // import "github.com/docker/docker/integration/service"
+package service // import "github.com/rumpl/bof/integration/service"
 
 import (
 	"context"
 	"testing"
 	"time"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/container"
-	swarmtypes "github.com/docker/docker/api/types/swarm"
-	"github.com/docker/docker/integration/internal/swarm"
 	"github.com/google/go-cmp/cmp"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/container"
+	swarmtypes "github.com/rumpl/bof/api/types/swarm"
+	"github.com/rumpl/bof/integration/internal/swarm"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 	"gotest.tools/v3/poll"

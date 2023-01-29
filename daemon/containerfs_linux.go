@@ -1,4 +1,4 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"context"
@@ -12,11 +12,11 @@ import (
 	"github.com/moby/sys/symlink"
 	"golang.org/x/sys/unix"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/internal/mounttree"
-	"github.com/docker/docker/internal/unshare"
-	"github.com/docker/docker/pkg/fileutils"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/internal/mounttree"
+	"github.com/rumpl/bof/internal/unshare"
+	"github.com/rumpl/bof/pkg/fileutils"
 )
 
 type future struct {

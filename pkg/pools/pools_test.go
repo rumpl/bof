@@ -1,4 +1,4 @@
-package pools // import "github.com/docker/docker/pkg/pools"
+package pools // import "github.com/rumpl/bof/pkg/pools"
 
 import (
 	"bufio"

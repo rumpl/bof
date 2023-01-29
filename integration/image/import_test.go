@@ -1,4 +1,4 @@
-package image // import "github.com/docker/docker/integration/image"
+package image // import "github.com/rumpl/bof/integration/image"
 
 import (
 	"archive/tar"
@@ -10,10 +10,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/testutil"
-	"github.com/docker/docker/testutil/daemon"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/testutil"
+	"github.com/rumpl/bof/testutil/daemon"
 	"gotest.tools/v3/assert"
 	"gotest.tools/v3/skip"
 )

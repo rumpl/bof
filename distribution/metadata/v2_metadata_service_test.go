@@ -1,4 +1,4 @@
-package metadata // import "github.com/docker/docker/distribution/metadata"
+package metadata // import "github.com/rumpl/bof/distribution/metadata"
 
 import (
 	"encoding/hex"
@@ -7,8 +7,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/docker/docker/layer"
 	"github.com/opencontainers/go-digest"
+	"github.com/rumpl/bof/layer"
 )
 
 func TestV2MetadataService(t *testing.T) {

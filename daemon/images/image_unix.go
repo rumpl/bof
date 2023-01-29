@@ -1,11 +1,11 @@
 //go:build linux || freebsd
 // +build linux freebsd
 
-package images // import "github.com/docker/docker/daemon/images"
+package images // import "github.com/rumpl/bof/daemon/images"
 
 import (
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
 	"github.com/sirupsen/logrus"
 )
 

@@ -1,4 +1,4 @@
-package images // import "github.com/docker/docker/daemon/images"
+package images // import "github.com/rumpl/bof/daemon/images"
 
 import (
 	"context"
@@ -7,20 +7,20 @@ import (
 
 	"github.com/containerd/containerd/platforms"
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/api/types/backend"
-	imagetypes "github.com/docker/docker/api/types/image"
-	"github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/builder"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
-	"github.com/docker/docker/pkg/progress"
-	"github.com/docker/docker/pkg/streamformatter"
-	"github.com/docker/docker/pkg/stringid"
-	"github.com/docker/docker/pkg/system"
-	registrypkg "github.com/docker/docker/registry"
 	specs "github.com/opencontainers/image-spec/specs-go/v1"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types/backend"
+	imagetypes "github.com/rumpl/bof/api/types/image"
+	"github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/builder"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
+	"github.com/rumpl/bof/pkg/progress"
+	"github.com/rumpl/bof/pkg/streamformatter"
+	"github.com/rumpl/bof/pkg/stringid"
+	"github.com/rumpl/bof/pkg/system"
+	registrypkg "github.com/rumpl/bof/registry"
 	"github.com/sirupsen/logrus"
 )
 

@@ -8,11 +8,11 @@ integrated development environment's (IDE) features like syntax highlighting and
 The repository has to be placed under `src` directory in GOPATH.
 The default location for Linux and macOS users is `~/go`, while for Windows it is `%USERPROFILE%\go`.
 
-Move the previously cloned repository or clone it again to the `<GOPATH>/src/github.com/docker/docker` directory.
+Move the previously cloned repository or clone it again to the `<GOPATH>/src/github.com/rumpl/bof` directory.
 
 ## 2. Configure IDE
 
-Open the `<GOPATH>/src/github.com/docker/docker` directory in GoLand.
+Open the `<GOPATH>/src/github.com/rumpl/bof` directory in GoLand.
 Then open the settings (Ctrl+Alt+S) and change two settings:
 
 1. Disable Go modules integration

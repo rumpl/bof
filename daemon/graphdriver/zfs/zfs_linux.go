@@ -1,7 +1,7 @@
-package zfs // import "github.com/docker/docker/daemon/graphdriver/zfs"
+package zfs // import "github.com/rumpl/bof/daemon/graphdriver/zfs"
 
 import (
-	"github.com/docker/docker/daemon/graphdriver"
+	"github.com/rumpl/bof/daemon/graphdriver"
 	"github.com/sirupsen/logrus"
 )
 

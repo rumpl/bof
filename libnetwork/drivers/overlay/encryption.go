@@ -14,10 +14,10 @@ import (
 	"sync"
 	"syscall"
 
-	"github.com/docker/docker/libnetwork/drivers/overlay/overlayutils"
-	"github.com/docker/docker/libnetwork/iptables"
-	"github.com/docker/docker/libnetwork/ns"
-	"github.com/docker/docker/libnetwork/types"
+	"github.com/rumpl/bof/libnetwork/drivers/overlay/overlayutils"
+	"github.com/rumpl/bof/libnetwork/iptables"
+	"github.com/rumpl/bof/libnetwork/ns"
+	"github.com/rumpl/bof/libnetwork/types"
 	"github.com/sirupsen/logrus"
 	"github.com/vishvananda/netlink"
 )

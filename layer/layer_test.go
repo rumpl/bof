@@ -1,4 +1,4 @@
-package layer // import "github.com/docker/docker/layer"
+package layer // import "github.com/rumpl/bof/layer"
 
 import (
 	"bytes"
@@ -11,12 +11,12 @@ import (
 	"testing"
 
 	"github.com/containerd/continuity/driver"
-	"github.com/docker/docker/daemon/graphdriver"
-	"github.com/docker/docker/daemon/graphdriver/vfs"
-	"github.com/docker/docker/pkg/archive"
-	"github.com/docker/docker/pkg/idtools"
-	"github.com/docker/docker/pkg/stringid"
 	"github.com/opencontainers/go-digest"
+	"github.com/rumpl/bof/daemon/graphdriver"
+	"github.com/rumpl/bof/daemon/graphdriver/vfs"
+	"github.com/rumpl/bof/pkg/archive"
+	"github.com/rumpl/bof/pkg/idtools"
+	"github.com/rumpl/bof/pkg/stringid"
 )
 
 func init() {

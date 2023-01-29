@@ -1,12 +1,12 @@
-package client // import "github.com/docker/docker/client"
+package client // import "github.com/rumpl/bof/client"
 
 import (
 	"context"
 	"net/url"
 	"strconv"
 
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/versions"
+	"github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/api/types/versions"
 )
 
 // ContainerStop stops a container. In case the container fails to stop

@@ -1,4 +1,4 @@
-package logger // import "github.com/docker/docker/daemon/logger"
+package logger // import "github.com/rumpl/bof/daemon/logger"
 
 import (
 	"io"
@@ -7,9 +7,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/docker/docker/api/types/plugins/logdriver"
-	"github.com/docker/docker/pkg/plugingetter"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types/plugins/logdriver"
+	"github.com/rumpl/bof/pkg/plugingetter"
 	"github.com/sirupsen/logrus"
 )
 

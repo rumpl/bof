@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/testutil"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/testutil"
 	"gotest.tools/v3/icmd"
 )
 

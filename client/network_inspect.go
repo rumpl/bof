@@ -1,4 +1,4 @@
-package client // import "github.com/docker/docker/client"
+package client // import "github.com/rumpl/bof/client"
 
 import (
 	"bytes"
@@ -7,7 +7,7 @@ import (
 	"io"
 	"net/url"
 
-	"github.com/docker/docker/api/types"
+	"github.com/rumpl/bof/api/types"
 )
 
 // NetworkInspect returns the information for a specific network configured in the docker host.

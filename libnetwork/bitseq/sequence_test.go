@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/docker/libnetwork/datastore"
 	"github.com/docker/libkv/store"
 	"github.com/docker/libkv/store/boltdb"
+	"github.com/rumpl/bof/libnetwork/datastore"
 )
 
 var (

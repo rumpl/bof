@@ -1,11 +1,11 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"fmt"
 	"os"
 	"unsafe"
 
-	"github.com/docker/docker/pkg/stack"
+	"github.com/rumpl/bof/pkg/stack"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sys/windows"
 )

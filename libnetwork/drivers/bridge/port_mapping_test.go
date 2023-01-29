@@ -7,11 +7,11 @@ import (
 	"os"
 	"testing"
 
-	"github.com/docker/docker/libnetwork/netlabel"
-	"github.com/docker/docker/libnetwork/ns"
-	"github.com/docker/docker/libnetwork/testutils"
-	"github.com/docker/docker/libnetwork/types"
-	"github.com/docker/docker/pkg/reexec"
+	"github.com/rumpl/bof/libnetwork/netlabel"
+	"github.com/rumpl/bof/libnetwork/ns"
+	"github.com/rumpl/bof/libnetwork/testutils"
+	"github.com/rumpl/bof/libnetwork/types"
+	"github.com/rumpl/bof/pkg/reexec"
 )
 
 func TestMain(m *testing.M) {

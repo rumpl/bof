@@ -1,4 +1,4 @@
-package dockerfile // import "github.com/docker/docker/builder/dockerfile"
+package dockerfile // import "github.com/rumpl/bof/builder/dockerfile"
 
 import (
 	"context"
@@ -6,10 +6,10 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/docker/docker/builder/remotecontext"
-	"github.com/docker/docker/pkg/archive"
-	"github.com/docker/docker/pkg/reexec"
 	"github.com/moby/buildkit/frontend/dockerfile/instructions"
+	"github.com/rumpl/bof/builder/remotecontext"
+	"github.com/rumpl/bof/pkg/archive"
+	"github.com/rumpl/bof/pkg/reexec"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 	"gotest.tools/v3/skip"

@@ -1,8 +1,8 @@
-package grpc // import "github.com/docker/docker/api/server/router/grpc"
+package grpc // import "github.com/rumpl/bof/api/server/router/grpc"
 
 import (
-	"github.com/docker/docker/api/server/router"
 	"github.com/moby/buildkit/util/grpcerrors"
+	"github.com/rumpl/bof/api/server/router"
 	"golang.org/x/net/http2"
 	"google.golang.org/grpc"
 )

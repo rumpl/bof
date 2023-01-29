@@ -1,4 +1,4 @@
-package requirement // import "github.com/docker/docker/integration/internal/requirement"
+package requirement // import "github.com/rumpl/bof/integration/internal/requirement"
 
 import (
 	"net/http"

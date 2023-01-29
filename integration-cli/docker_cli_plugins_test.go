@@ -12,10 +12,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/integration-cli/cli"
-	"github.com/docker/docker/integration-cli/daemon"
-	"github.com/docker/docker/testutil/fixtures/plugin"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/integration-cli/cli"
+	"github.com/rumpl/bof/integration-cli/daemon"
+	"github.com/rumpl/bof/testutil/fixtures/plugin"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 	"gotest.tools/v3/skip"
@@ -330,7 +330,7 @@ func (ps *DockerPluginSuite) TestPluginInspect(c *testing.T) {
 	assert.ErrorContains(c, err, "")
 }
 
-// Test case for https://github.com/docker/docker/pull/29186#discussion_r91277345
+// Test case for https://github.com/rumpl/bof/pull/29186#discussion_r91277345
 func (s *DockerCLIPluginsSuite) TestPluginInspectOnWindows(c *testing.T) {
 	// This test should work on Windows only
 	testRequires(c, DaemonIsWindows)

@@ -1,4 +1,4 @@
-package server // import "github.com/docker/docker/api/server"
+package server // import "github.com/rumpl/bof/api/server"
 
 import (
 	"context"
@@ -8,13 +8,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/docker/docker/api/server/httpstatus"
-	"github.com/docker/docker/api/server/httputils"
-	"github.com/docker/docker/api/server/middleware"
-	"github.com/docker/docker/api/server/router"
-	"github.com/docker/docker/api/server/router/debug"
-	"github.com/docker/docker/dockerversion"
 	"github.com/gorilla/mux"
+	"github.com/rumpl/bof/api/server/httpstatus"
+	"github.com/rumpl/bof/api/server/httputils"
+	"github.com/rumpl/bof/api/server/middleware"
+	"github.com/rumpl/bof/api/server/router"
+	"github.com/rumpl/bof/api/server/router/debug"
+	"github.com/rumpl/bof/dockerversion"
 	"github.com/sirupsen/logrus"
 )
 

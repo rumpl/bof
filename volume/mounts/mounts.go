@@ -1,4 +1,4 @@
-package mounts // import "github.com/docker/docker/volume/mounts"
+package mounts // import "github.com/rumpl/bof/volume/mounts"
 
 import (
 	"fmt"
@@ -6,12 +6,12 @@ import (
 	"path/filepath"
 	"syscall"
 
-	mounttypes "github.com/docker/docker/api/types/mount"
-	"github.com/docker/docker/pkg/idtools"
-	"github.com/docker/docker/pkg/stringid"
-	"github.com/docker/docker/volume"
 	"github.com/opencontainers/selinux/go-selinux/label"
 	"github.com/pkg/errors"
+	mounttypes "github.com/rumpl/bof/api/types/mount"
+	"github.com/rumpl/bof/pkg/idtools"
+	"github.com/rumpl/bof/pkg/stringid"
+	"github.com/rumpl/bof/volume"
 )
 
 // MountPoint is the intersection point between a volume and a container. It
@@ -34,7 +34,7 @@ type MountPoint struct {
 	Name string
 	// Driver is the volume driver used to create the volume (if it is a volume)
 	Driver string
-	// Type of mount to use, see `Type<foo>` definitions in github.com/docker/docker/api/types/mount
+	// Type of mount to use, see `Type<foo>` definitions in github.com/rumpl/bof/api/types/mount
 	Type mounttypes.Type `json:",omitempty"`
 	// Volume is the volume providing data to this mountpoint.
 	// This is nil unless `Type` is set to `TypeVolume`

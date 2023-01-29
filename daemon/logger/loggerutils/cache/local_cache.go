@@ -1,13 +1,13 @@
-package cache // import "github.com/docker/docker/daemon/logger/loggerutils/cache"
+package cache // import "github.com/rumpl/bof/daemon/logger/loggerutils/cache"
 
 import (
 	"strconv"
 
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/daemon/logger"
-	"github.com/docker/docker/daemon/logger/local"
 	units "github.com/docker/go-units"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/daemon/logger"
+	"github.com/rumpl/bof/daemon/logger/local"
 	"github.com/sirupsen/logrus"
 )
 

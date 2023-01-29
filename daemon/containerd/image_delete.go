@@ -5,7 +5,7 @@ import (
 
 	"github.com/containerd/containerd/images"
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/api/types"
+	"github.com/rumpl/bof/api/types"
 )
 
 // ImageDelete deletes the image referenced by the given imageRef from this

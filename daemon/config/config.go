@@ -1,4 +1,4 @@
-package config // import "github.com/docker/docker/daemon/config"
+package config // import "github.com/rumpl/bof/daemon/config"
 
 import (
 	"bytes"
@@ -16,11 +16,11 @@ import (
 	"golang.org/x/text/transform"
 
 	"github.com/containerd/containerd/runtime/v2/shim"
-	"github.com/docker/docker/opts"
-	"github.com/docker/docker/pkg/authorization"
-	"github.com/docker/docker/registry"
 	"github.com/imdario/mergo"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/opts"
+	"github.com/rumpl/bof/pkg/authorization"
+	"github.com/rumpl/bof/registry"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/pflag"
 )
@@ -465,7 +465,7 @@ func getConflictFreeConfiguration(configFile string, flags *pflag.FlagSet) (*Con
 
 		// Override flag values to make sure the values set in the config file with nullable values, like `false`,
 		// are not overridden by default truthy values from the flags that were not explicitly set.
-		// See https://github.com/docker/docker/issues/20289 for an example.
+		// See https://github.com/rumpl/bof/issues/20289 for an example.
 		//
 		// TODO: Rewrite configuration logic to avoid same issue with other nullable values, like numbers.
 		namedOptions := make(map[string]interface{})
@@ -637,10 +637,6 @@ func Validate(config *Config) error {
 		if _, ok := runtimes[StockRuntimeName]; ok {
 			return errors.Errorf("runtime name '%s' is reserved", StockRuntimeName)
 		}
-	}
-
-	if _, err := ParseGenericResources(config.NodeGenericResources); err != nil {
-		return err
 	}
 
 	if defaultRuntime := config.GetDefaultRuntimeName(); defaultRuntime != "" {

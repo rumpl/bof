@@ -1,12 +1,12 @@
-package container // import "github.com/docker/docker/integration/container"
+package container // import "github.com/rumpl/bof/integration/container"
 
 import (
 	"context"
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/network"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/api/types/network"
 	"gotest.tools/v3/assert"
 )
 

@@ -1,12 +1,12 @@
-package images // import "github.com/docker/docker/daemon/images"
+package images // import "github.com/rumpl/bof/daemon/images"
 
 import (
 	"context"
 
-	imagetypes "github.com/docker/docker/api/types/image"
-	"github.com/docker/docker/builder"
-	"github.com/docker/docker/image/cache"
 	"github.com/pkg/errors"
+	imagetypes "github.com/rumpl/bof/api/types/image"
+	"github.com/rumpl/bof/builder"
+	"github.com/rumpl/bof/image/cache"
 	"github.com/sirupsen/logrus"
 )
 

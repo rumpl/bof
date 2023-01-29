@@ -8,7 +8,7 @@ ssd checks for the consistency between docker network control-plane (from the do
 In a three node swarm cluster ssd status for a overlay network `ov2` which has three services running, each replicated to 3 instances.
 
 ````bash
-vagrant@net-1:~/code/go/src/github.com/docker/docker-e2e/tests$ docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/run/docker/netns:/var/run/docker/netns --privileged --net=host sanimej/ssd ov2
+vagrant@net-1:~/code/go/src/github.com/rumpl/bof-e2e/tests$ docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/run/docker/netns:/var/run/docker/netns --privileged --net=host sanimej/ssd ov2
 Verifying LB programming for containers on network ov2
 Verifying container /s2.3.ltrdwef0iqf90rqauw3ehcs56...
 service s2... OK
@@ -36,7 +36,7 @@ Docker networking uses a gossip protocol to synchronize networking state across 
 ````bash
 In a three node cluster with services running on an overlay network ov2 ssd consistency-checker shows 
 
-vagrant@net-1:~/code/go/src/github.com/docker/docker-e2e/tests$ docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/run/docker/netns:/var/run/docker/netns --privileged sanimej/ssd ov2 gossip-consistency
+vagrant@net-1:~/code/go/src/github.com/rumpl/bof-e2e/tests$ docker run -v /var/run/docker.sock:/var/run/docker.sock -v /var/run/docker/netns:/var/run/docker/netns --privileged sanimej/ssd ov2 gossip-consistency
 Node id: sjfp0ca8f43rvnab6v7f21gq0 gossip hash c57d89094dbb574a37930393278dc282
 
 Node id: bg228r3q9095grj4wxkqs80oe gossip hash c57d89094dbb574a37930393278dc282

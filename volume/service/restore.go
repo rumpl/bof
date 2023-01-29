@@ -1,10 +1,10 @@
-package service // import "github.com/docker/docker/volume/service"
+package service // import "github.com/rumpl/bof/volume/service"
 
 import (
 	"context"
 	"sync"
 
-	"github.com/docker/docker/volume"
+	"github.com/rumpl/bof/volume"
 	"github.com/sirupsen/logrus"
 	bolt "go.etcd.io/bbolt"
 )

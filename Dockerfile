@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1
+# syntax=rumpl/boffile:1
 
 ARG GO_VERSION=1.19.5
 ARG BASE_DEBIAN_DISTRO="bullseye"
@@ -265,8 +265,8 @@ RUN --mount=from=dockercli-src,src=/usr/src/dockercli,rw \
   DOWNLOAD_URL="https://download.docker.com/linux/static/${DOCKERCLI_CHANNEL}/$(xx-info march)/docker-${DOCKERCLI_VERSION#v}.tgz"
   if curl --head --silent --fail "${DOWNLOAD_URL}" 1>/dev/null 2>&1; then
     mkdir /build
-    curl -Ls "${DOWNLOAD_URL}" | tar -xz docker/docker
-    mv docker/docker /build/docker
+    curl -Ls "${DOWNLOAD_URL}" | tar -xz rumpl/bof
+    mv rumpl/bof /build/docker
   else
     CGO_ENABLED=0 xx-go build -o /build/docker ./cmd/docker
   fi
@@ -460,7 +460,7 @@ COPY --from=containerutil /build/ /usr/local/bin/
 COPY --from=crun          /build/ /usr/local/bin/
 COPY hack/dockerfile/etc/docker/  /etc/docker/
 ENV PATH=/usr/local/cli:$PATH
-WORKDIR /go/src/github.com/docker/docker
+WORKDIR /go/src/github.com/rumpl/bof
 VOLUME /var/lib/docker
 VOLUME /home/unprivilegeduser/.local/share/docker
 # Wrap all commands in the "docker-in-docker" script to allow nested containers
@@ -483,7 +483,7 @@ RUN useradd --create-home --gid docker unprivilegeduser \
  && mkdir -p /home/unprivilegeduser/.local/share/docker \
  && chown -R unprivilegeduser /home/unprivilegeduser
 # Let us use a .bashrc file
-RUN ln -sfv /go/src/github.com/docker/docker/.bashrc ~/.bashrc
+RUN ln -sfv /go/src/github.com/rumpl/bof/.bashrc ~/.bashrc
 # Activate bash completion and include Docker's completion if mounted with DOCKER_BASH_COMPLETION_PATH
 RUN echo "source /usr/share/bash-completion/bash_completion" >> /etc/bash.bashrc
 RUN ln -s /usr/local/completion/bash/docker /etc/bash_completion.d/docker
@@ -543,7 +543,7 @@ RUN --mount=type=cache,sharing=locked,id=moby-dev-aptlib,target=/var/lib/apt \
 
 FROM base AS build
 COPY --from=gowinres /build/ /usr/local/bin/
-WORKDIR /go/src/github.com/docker/docker
+WORKDIR /go/src/github.com/rumpl/bof
 ENV GO111MODULE=off
 ENV CGO_ENABLED=1
 ARG DEBIAN_FRONTEND

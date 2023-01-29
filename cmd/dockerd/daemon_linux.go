@@ -3,9 +3,9 @@ package main
 import (
 	cdcgroups "github.com/containerd/cgroups"
 	systemdDaemon "github.com/coreos/go-systemd/v22/daemon"
-	"github.com/docker/docker/daemon/config"
-	"github.com/docker/docker/pkg/sysinfo"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/daemon/config"
+	"github.com/rumpl/bof/pkg/sysinfo"
 )
 
 // preNotifyReady sends a message to the host when the API is active, but before the daemon is

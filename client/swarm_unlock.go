@@ -1,9 +1,9 @@
-package client // import "github.com/docker/docker/client"
+package client // import "github.com/rumpl/bof/client"
 
 import (
 	"context"
 
-	"github.com/docker/docker/api/types/swarm"
+	"github.com/rumpl/bof/api/types/swarm"
 )
 
 // SwarmUnlock unlocks locked swarm.

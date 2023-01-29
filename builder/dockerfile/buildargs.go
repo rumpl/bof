@@ -1,10 +1,10 @@
-package dockerfile // import "github.com/docker/docker/builder/dockerfile"
+package dockerfile // import "github.com/rumpl/bof/builder/dockerfile"
 
 import (
 	"fmt"
 	"io"
 
-	"github.com/docker/docker/runconfig/opts"
+	"github.com/rumpl/bof/runconfig/opts"
 )
 
 // builtinAllowedBuildArgs is list of built-in allowed build args

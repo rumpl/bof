@@ -1,4 +1,4 @@
-package build // import "github.com/docker/docker/api/server/router/build"
+package build // import "github.com/rumpl/bof/api/server/router/build"
 
 import (
 	"bufio"
@@ -14,18 +14,18 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/docker/docker/api/server/httputils"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/backend"
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/filters"
-	"github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/api/types/versions"
-	"github.com/docker/docker/pkg/ioutils"
-	"github.com/docker/docker/pkg/progress"
-	"github.com/docker/docker/pkg/streamformatter"
 	units "github.com/docker/go-units"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/server/httputils"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/backend"
+	"github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/api/types/filters"
+	"github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/api/types/versions"
+	"github.com/rumpl/bof/pkg/ioutils"
+	"github.com/rumpl/bof/pkg/progress"
+	"github.com/rumpl/bof/pkg/streamformatter"
 	"github.com/sirupsen/logrus"
 )
 

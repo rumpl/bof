@@ -1,4 +1,4 @@
-package dockerfile // import "github.com/docker/docker/builder/dockerfile"
+package dockerfile // import "github.com/rumpl/bof/builder/dockerfile"
 
 import (
 	"context"
@@ -7,9 +7,9 @@ import (
 	"testing"
 
 	"github.com/containerd/containerd/platforms"
-	"github.com/docker/docker/builder"
-	"github.com/docker/docker/image"
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
+	"github.com/rumpl/bof/builder"
+	"github.com/rumpl/bof/image"
 	"gotest.tools/v3/assert"
 )
 

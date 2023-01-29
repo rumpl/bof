@@ -1,16 +1,16 @@
-package image // import "github.com/docker/docker/api/server/router/image"
+package image // import "github.com/rumpl/bof/api/server/router/image"
 
 import (
 	"context"
 	"io"
 
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/filters"
-	"github.com/docker/docker/api/types/image"
-	"github.com/docker/docker/api/types/registry"
-	dockerimage "github.com/docker/docker/image"
 	specs "github.com/opencontainers/image-spec/specs-go/v1"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/filters"
+	"github.com/rumpl/bof/api/types/image"
+	"github.com/rumpl/bof/api/types/registry"
+	dockerimage "github.com/rumpl/bof/image"
 )
 
 // Backend is all the methods that need to be implemented

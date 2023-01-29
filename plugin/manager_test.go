@@ -1,9 +1,9 @@
-package plugin // import "github.com/docker/docker/plugin"
+package plugin // import "github.com/rumpl/bof/plugin"
 
 import (
 	"testing"
 
-	"github.com/docker/docker/api/types"
+	"github.com/rumpl/bof/api/types"
 )
 
 func TestValidatePrivileges(t *testing.T) {

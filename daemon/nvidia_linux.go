@@ -7,9 +7,9 @@ import (
 	"strings"
 
 	"github.com/containerd/containerd/contrib/nvidia"
-	"github.com/docker/docker/pkg/capabilities"
 	specs "github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/pkg/capabilities"
 )
 
 // TODO: nvidia should not be hard-coded, and should be a device plugin instead on the daemon object.

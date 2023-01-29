@@ -1,7 +1,7 @@
 //go:build linux
 // +build linux
 
-package devmapper // import "github.com/docker/docker/daemon/graphdriver/devmapper"
+package devmapper // import "github.com/rumpl/bof/daemon/graphdriver/devmapper"
 
 import (
 	"fmt"
@@ -9,12 +9,12 @@ import (
 	"path"
 	"strconv"
 
-	"github.com/docker/docker/daemon/graphdriver"
-	"github.com/docker/docker/pkg/devicemapper"
-	"github.com/docker/docker/pkg/idtools"
 	units "github.com/docker/go-units"
 	"github.com/moby/locker"
 	"github.com/moby/sys/mount"
+	"github.com/rumpl/bof/daemon/graphdriver"
+	"github.com/rumpl/bof/pkg/devicemapper"
+	"github.com/rumpl/bof/pkg/idtools"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sys/unix"
 )

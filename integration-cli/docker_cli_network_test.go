@@ -4,7 +4,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/docker/docker/integration-cli/daemon"
+	"github.com/rumpl/bof/integration-cli/daemon"
 )
 
 type DockerCLINetworkSuite struct {

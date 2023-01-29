@@ -1,4 +1,4 @@
-package common // import "github.com/docker/docker/integration/plugin/common"
+package common // import "github.com/rumpl/bof/integration/plugin/common"
 
 import (
 	"context"
@@ -16,14 +16,14 @@ import (
 
 	"github.com/containerd/containerd/images"
 	"github.com/containerd/containerd/remotes/docker"
-	"github.com/docker/docker/api/types"
-	registrytypes "github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/pkg/jsonmessage"
-	"github.com/docker/docker/testutil/daemon"
-	"github.com/docker/docker/testutil/fixtures/plugin"
-	"github.com/docker/docker/testutil/registry"
-	"github.com/docker/docker/testutil/request"
 	v1 "github.com/opencontainers/image-spec/specs-go/v1"
+	"github.com/rumpl/bof/api/types"
+	registrytypes "github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/pkg/jsonmessage"
+	"github.com/rumpl/bof/testutil/daemon"
+	"github.com/rumpl/bof/testutil/fixtures/plugin"
+	"github.com/rumpl/bof/testutil/registry"
+	"github.com/rumpl/bof/testutil/request"
 	"gotest.tools/v3/assert"
 	"gotest.tools/v3/assert/cmp"
 	is "gotest.tools/v3/assert/cmp"

@@ -1,12 +1,12 @@
-package network // import "github.com/docker/docker/api/server/router/network"
+package network // import "github.com/rumpl/bof/api/server/router/network"
 
 import (
 	"context"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/filters"
-	"github.com/docker/docker/api/types/network"
-	"github.com/docker/docker/libnetwork"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/filters"
+	"github.com/rumpl/bof/api/types/network"
+	"github.com/rumpl/bof/libnetwork"
 )
 
 // Backend is all the methods that need to be implemented

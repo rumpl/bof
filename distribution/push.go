@@ -1,4 +1,4 @@
-package distribution // import "github.com/docker/docker/distribution"
+package distribution // import "github.com/rumpl/bof/distribution"
 
 import (
 	"bufio"
@@ -8,7 +8,7 @@ import (
 	"io"
 
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/pkg/progress"
+	"github.com/rumpl/bof/pkg/progress"
 	"github.com/sirupsen/logrus"
 )
 

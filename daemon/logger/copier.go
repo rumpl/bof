@@ -1,4 +1,4 @@
-package logger // import "github.com/docker/docker/daemon/logger"
+package logger // import "github.com/rumpl/bof/daemon/logger"
 
 import (
 	"bytes"
@@ -6,8 +6,8 @@ import (
 	"sync"
 	"time"
 
-	types "github.com/docker/docker/api/types/backend"
-	"github.com/docker/docker/pkg/stringid"
+	types "github.com/rumpl/bof/api/types/backend"
+	"github.com/rumpl/bof/pkg/stringid"
 	"github.com/sirupsen/logrus"
 )
 

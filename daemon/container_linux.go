@@ -1,11 +1,11 @@
 //go:build !windows
 // +build !windows
 
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/errdefs"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/errdefs"
 )
 
 func (daemon *Daemon) saveAppArmorConfig(container *container.Container) error {

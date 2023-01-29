@@ -1,9 +1,9 @@
-package container // import "github.com/docker/docker/container"
+package container // import "github.com/rumpl/bof/container"
 
 import (
 	"sync"
 
-	"github.com/docker/docker/api/types"
+	"github.com/rumpl/bof/api/types"
 	"github.com/sirupsen/logrus"
 )
 

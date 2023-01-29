@@ -1,4 +1,4 @@
-package registry // import "github.com/docker/docker/testutil/registry"
+package registry // import "github.com/rumpl/bof/testutil/registry"
 
 import (
 	"net/http"

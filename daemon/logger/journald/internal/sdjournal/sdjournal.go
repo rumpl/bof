@@ -1,7 +1,7 @@
 //go:build linux && cgo && !static_build && journald
 // +build linux,cgo,!static_build,journald
 
-package sdjournal // import "github.com/docker/docker/daemon/logger/journald/internal/sdjournal"
+package sdjournal // import "github.com/rumpl/bof/daemon/logger/journald/internal/sdjournal"
 
 // #cgo pkg-config: libsystemd
 // #include <stdlib.h>

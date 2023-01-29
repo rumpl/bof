@@ -1,4 +1,4 @@
-package images // import "github.com/docker/docker/daemon/images"
+package images // import "github.com/rumpl/bof/daemon/images"
 
 import (
 	"context"
@@ -6,16 +6,16 @@ import (
 
 	"github.com/containerd/containerd/content"
 	"github.com/containerd/containerd/leases"
-	"github.com/docker/docker/container"
-	daemonevents "github.com/docker/docker/daemon/events"
-	"github.com/docker/docker/distribution/metadata"
-	"github.com/docker/docker/distribution/xfer"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
-	dockerreference "github.com/docker/docker/reference"
-	"github.com/docker/docker/registry"
 	"github.com/opencontainers/go-digest"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/container"
+	daemonevents "github.com/rumpl/bof/daemon/events"
+	"github.com/rumpl/bof/distribution/metadata"
+	"github.com/rumpl/bof/distribution/xfer"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
+	dockerreference "github.com/rumpl/bof/reference"
+	"github.com/rumpl/bof/registry"
 )
 
 type containerStore interface {

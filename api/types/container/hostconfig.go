@@ -1,13 +1,13 @@
-package container // import "github.com/docker/docker/api/types/container"
+package container // import "github.com/rumpl/bof/api/types/container"
 
 import (
 	"strings"
 
-	"github.com/docker/docker/api/types/blkiodev"
-	"github.com/docker/docker/api/types/mount"
-	"github.com/docker/docker/api/types/strslice"
 	"github.com/docker/go-connections/nat"
 	units "github.com/docker/go-units"
+	"github.com/rumpl/bof/api/types/blkiodev"
+	"github.com/rumpl/bof/api/types/mount"
+	"github.com/rumpl/bof/api/types/strslice"
 )
 
 // CgroupnsMode represents the cgroup namespace mode of the container

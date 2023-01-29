@@ -1,8 +1,8 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/container"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/container"
 )
 
 // Windows network stats are obtained directly through HCS, hence this is a no-op.

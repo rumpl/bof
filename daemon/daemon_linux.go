@@ -1,4 +1,4 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"bufio"
@@ -9,12 +9,12 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/docker/docker/daemon/config"
-	"github.com/docker/docker/libnetwork/ns"
-	"github.com/docker/docker/libnetwork/resolvconf"
 	"github.com/moby/sys/mount"
 	"github.com/moby/sys/mountinfo"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/daemon/config"
+	"github.com/rumpl/bof/libnetwork/ns"
+	"github.com/rumpl/bof/libnetwork/resolvconf"
 	"github.com/sirupsen/logrus"
 	"github.com/vishvananda/netlink"
 )

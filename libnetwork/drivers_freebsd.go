@@ -1,7 +1,7 @@
 package libnetwork
 
 import (
-	"github.com/docker/docker/libnetwork/drivers/null"
+	"github.com/rumpl/bof/libnetwork/drivers/null"
 )
 
 func getInitializers() []initializer {

@@ -3,11 +3,11 @@ package server
 import (
 	"net/http"
 
-	"github.com/docker/docker/api/server/httpstatus"
-	"github.com/docker/docker/api/server/httputils"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/versions"
 	"github.com/gorilla/mux"
+	"github.com/rumpl/bof/api/server/httpstatus"
+	"github.com/rumpl/bof/api/server/httputils"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/versions"
 	"google.golang.org/grpc/status"
 )
 

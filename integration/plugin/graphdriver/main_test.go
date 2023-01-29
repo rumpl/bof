@@ -1,12 +1,12 @@
-package graphdriver // import "github.com/docker/docker/integration/plugin/graphdriver"
+package graphdriver // import "github.com/rumpl/bof/integration/plugin/graphdriver"
 
 import (
 	"fmt"
 	"os"
 	"testing"
 
-	"github.com/docker/docker/pkg/reexec"
-	"github.com/docker/docker/testutil/environment"
+	"github.com/rumpl/bof/pkg/reexec"
+	"github.com/rumpl/bof/testutil/environment"
 )
 
 var (

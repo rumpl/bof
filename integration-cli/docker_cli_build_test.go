@@ -16,15 +16,15 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/docker/docker/integration-cli/cli"
-	"github.com/docker/docker/integration-cli/cli/build"
-	"github.com/docker/docker/pkg/archive"
-	"github.com/docker/docker/testutil"
-	"github.com/docker/docker/testutil/fakecontext"
-	"github.com/docker/docker/testutil/fakegit"
-	"github.com/docker/docker/testutil/fakestorage"
 	"github.com/moby/buildkit/frontend/dockerfile/command"
 	"github.com/opencontainers/go-digest"
+	"github.com/rumpl/bof/integration-cli/cli"
+	"github.com/rumpl/bof/integration-cli/cli/build"
+	"github.com/rumpl/bof/pkg/archive"
+	"github.com/rumpl/bof/testutil"
+	"github.com/rumpl/bof/testutil/fakecontext"
+	"github.com/rumpl/bof/testutil/fakegit"
+	"github.com/rumpl/bof/testutil/fakestorage"
 	"gotest.tools/v3/assert"
 	"gotest.tools/v3/assert/cmp"
 	"gotest.tools/v3/icmd"
@@ -441,7 +441,7 @@ ADD %s/file /`
 	}
 }
 
-// Regression for https://github.com/docker/docker/pull/27805
+// Regression for https://github.com/rumpl/bof/pull/27805
 // Makes sure that we don't use the cache if the contents of
 // a file in a subfolder of the context is modified and we re-build.
 func (s *DockerCLIBuildSuite) TestBuildModifyFileInFolder(c *testing.T) {
@@ -3054,7 +3054,7 @@ func (s *DockerCLIBuildSuite) TestBuildFromGit(c *testing.T) {
 func (s *DockerCLIBuildSuite) TestBuildFromGitWithContext(c *testing.T) {
 	name := "testbuildfromgit"
 	git := fakegit.New(c, "repo", map[string]string{
-		"docker/Dockerfile": `FROM busybox
+		"rumpl/boffile": `FROM busybox
 					ADD first /first
 					RUN [ -f /first ]
 					MAINTAINER docker`,
@@ -5942,7 +5942,7 @@ func (s *DockerCLIBuildSuite) TestBuildIntermediateTarget(c *testing.T) {
 
 // TestBuildOpaqueDirectory tests that a build succeeds which
 // creates opaque directories.
-// See https://github.com/docker/docker/issues/25244
+// See https://github.com/rumpl/bof/issues/25244
 func (s *DockerCLIBuildSuite) TestBuildOpaqueDirectory(c *testing.T) {
 	testRequires(c, DaemonIsLinux)
 	dockerFile := `

@@ -1,9 +1,9 @@
 package libnetwork
 
 import (
-	"github.com/docker/docker/libnetwork/drivers/null"
-	"github.com/docker/docker/libnetwork/drivers/windows"
-	"github.com/docker/docker/libnetwork/drivers/windows/overlay"
+	"github.com/rumpl/bof/libnetwork/drivers/null"
+	"github.com/rumpl/bof/libnetwork/drivers/windows"
+	"github.com/rumpl/bof/libnetwork/drivers/windows/overlay"
 )
 
 func getInitializers() []initializer {

@@ -1,8 +1,8 @@
 package daemon
 
 import (
-	"github.com/docker/docker/api/types"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types"
 )
 
 func (daemon *Daemon) getRuntime(name string) (*types.Runtime, error) {

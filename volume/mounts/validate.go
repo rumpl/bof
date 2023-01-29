@@ -1,10 +1,10 @@
-package mounts // import "github.com/docker/docker/volume/mounts"
+package mounts // import "github.com/rumpl/bof/volume/mounts"
 
 import (
 	"fmt"
 
-	"github.com/docker/docker/api/types/mount"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types/mount"
 )
 
 type errMountConfig struct {

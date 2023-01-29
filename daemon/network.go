@@ -1,7 +1,6 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
-	"context"
 	"fmt"
 	"net"
 	"sort"
@@ -9,27 +8,25 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/docker/docker/api/types"
-	containertypes "github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/filters"
-	"github.com/docker/docker/api/types/network"
-	"github.com/docker/docker/container"
-	clustertypes "github.com/docker/docker/daemon/cluster/provider"
-	internalnetwork "github.com/docker/docker/daemon/network"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/libnetwork"
-	lncluster "github.com/docker/docker/libnetwork/cluster"
-	"github.com/docker/docker/libnetwork/driverapi"
-	"github.com/docker/docker/libnetwork/ipamapi"
-	"github.com/docker/docker/libnetwork/netlabel"
-	"github.com/docker/docker/libnetwork/networkdb"
-	"github.com/docker/docker/libnetwork/options"
-	networktypes "github.com/docker/docker/libnetwork/types"
-	"github.com/docker/docker/opts"
-	"github.com/docker/docker/pkg/plugingetter"
-	"github.com/docker/docker/runconfig"
 	"github.com/docker/go-connections/nat"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/api/types/filters"
+	"github.com/rumpl/bof/api/types/network"
+	"github.com/rumpl/bof/container"
+	internalnetwork "github.com/rumpl/bof/daemon/network"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/libnetwork"
+	"github.com/rumpl/bof/libnetwork/driverapi"
+	"github.com/rumpl/bof/libnetwork/ipamapi"
+	"github.com/rumpl/bof/libnetwork/netlabel"
+	"github.com/rumpl/bof/libnetwork/networkdb"
+	"github.com/rumpl/bof/libnetwork/options"
+	networktypes "github.com/rumpl/bof/libnetwork/types"
+	"github.com/rumpl/bof/opts"
+	"github.com/rumpl/bof/pkg/plugingetter"
+	"github.com/rumpl/bof/runconfig"
 	"github.com/sirupsen/logrus"
 )
 
@@ -141,7 +138,6 @@ func (daemon *Daemon) getAllNetworks() []libnetwork.Network {
 }
 
 type ingressJob struct {
-	create  *clustertypes.NetworkCreateRequest
 	ip      net.IP
 	jobDone chan struct{}
 }
@@ -151,135 +147,6 @@ var (
 	ingressJobsChannel chan *ingressJob
 	ingressID          string
 )
-
-func (daemon *Daemon) startIngressWorker() {
-	ingressJobsChannel = make(chan *ingressJob, 100)
-	go func() {
-		//nolint: gosimple
-		for {
-			select {
-			case r := <-ingressJobsChannel:
-				if r.create != nil {
-					daemon.setupIngress(r.create, r.ip, ingressID)
-					ingressID = r.create.ID
-				} else {
-					daemon.releaseIngress(ingressID)
-					ingressID = ""
-				}
-				close(r.jobDone)
-			}
-		}
-	}()
-}
-
-// enqueueIngressJob adds a ingress add/rm request to the worker queue.
-// It guarantees the worker is started.
-func (daemon *Daemon) enqueueIngressJob(job *ingressJob) {
-	ingressWorkerOnce.Do(daemon.startIngressWorker)
-	ingressJobsChannel <- job
-}
-
-// SetupIngress setups ingress networking.
-// The function returns a channel which will signal the caller when the programming is completed.
-func (daemon *Daemon) SetupIngress(create clustertypes.NetworkCreateRequest, nodeIP string) (<-chan struct{}, error) {
-	ip, _, err := net.ParseCIDR(nodeIP)
-	if err != nil {
-		return nil, err
-	}
-	done := make(chan struct{})
-	daemon.enqueueIngressJob(&ingressJob{&create, ip, done})
-	return done, nil
-}
-
-// ReleaseIngress releases the ingress networking.
-// The function returns a channel which will signal the caller when the programming is completed.
-func (daemon *Daemon) ReleaseIngress() (<-chan struct{}, error) {
-	done := make(chan struct{})
-	daemon.enqueueIngressJob(&ingressJob{nil, nil, done})
-	return done, nil
-}
-
-func (daemon *Daemon) setupIngress(create *clustertypes.NetworkCreateRequest, ip net.IP, staleID string) {
-	controller := daemon.netController
-	controller.AgentInitWait()
-
-	if staleID != "" && staleID != create.ID {
-		daemon.releaseIngress(staleID)
-	}
-
-	if _, err := daemon.createNetwork(create.NetworkCreateRequest, create.ID, true); err != nil {
-		// If it is any other error other than already
-		// exists error log error and return.
-		if _, ok := err.(libnetwork.NetworkNameError); !ok {
-			logrus.Errorf("Failed creating ingress network: %v", err)
-			return
-		}
-		// Otherwise continue down the call to create or recreate sandbox.
-	}
-
-	_, err := daemon.GetNetworkByID(create.ID)
-	if err != nil {
-		logrus.Errorf("Failed getting ingress network by id after creating: %v", err)
-	}
-}
-
-func (daemon *Daemon) releaseIngress(id string) {
-	controller := daemon.netController
-
-	if id == "" {
-		return
-	}
-
-	n, err := controller.NetworkByID(id)
-	if err != nil {
-		logrus.Errorf("failed to retrieve ingress network %s: %v", id, err)
-		return
-	}
-
-	if err := n.Delete(libnetwork.NetworkDeleteOptionRemoveLB); err != nil {
-		logrus.Errorf("Failed to delete ingress network %s: %v", n.ID(), err)
-		return
-	}
-}
-
-// SetNetworkBootstrapKeys sets the bootstrap keys.
-func (daemon *Daemon) SetNetworkBootstrapKeys(keys []*networktypes.EncryptionKey) error {
-	err := daemon.netController.SetKeys(keys)
-	if err == nil {
-		// Upon successful key setting dispatch the keys available event
-		daemon.cluster.SendClusterEvent(lncluster.EventNetworkKeysAvailable)
-	}
-	return err
-}
-
-// UpdateAttachment notifies the attacher about the attachment config.
-func (daemon *Daemon) UpdateAttachment(networkName, networkID, containerID string, config *network.NetworkingConfig) error {
-	if daemon.clusterProvider == nil {
-		return fmt.Errorf("cluster provider is not initialized")
-	}
-
-	if err := daemon.clusterProvider.UpdateAttachment(networkName, containerID, config); err != nil {
-		return daemon.clusterProvider.UpdateAttachment(networkID, containerID, config)
-	}
-
-	return nil
-}
-
-// WaitForDetachment makes the cluster manager wait for detachment of
-// the container from the network.
-func (daemon *Daemon) WaitForDetachment(ctx context.Context, networkName, networkID, taskID, containerID string) error {
-	if daemon.clusterProvider == nil {
-		return fmt.Errorf("cluster provider is not initialized")
-	}
-
-	return daemon.clusterProvider.WaitForDetachment(ctx, networkName, networkID, taskID, containerID)
-}
-
-// CreateManagedNetwork creates an agent network.
-func (daemon *Daemon) CreateManagedNetwork(create clustertypes.NetworkCreateRequest) error {
-	_, err := daemon.createNetwork(create.NetworkCreateRequest, create.ID, true)
-	return err
-}
 
 // CreateNetwork creates a network with the given name, driver and other optional parameters
 func (daemon *Daemon) CreateNetwork(create types.NetworkCreateRequest) (*types.NetworkCreateResponse, error) {
@@ -422,17 +289,6 @@ func getIpamConfig(data []network.IPAMConfig) ([]*libnetwork.IpamConf, []*libnet
 		}
 	}
 	return ipamV4Cfg, ipamV6Cfg, nil
-}
-
-// UpdateContainerServiceConfig updates a service configuration.
-func (daemon *Daemon) UpdateContainerServiceConfig(containerName string, serviceConfig *clustertypes.ServiceConfig) error {
-	ctr, err := daemon.GetContainer(containerName)
-	if err != nil {
-		return err
-	}
-
-	ctr.NetworkSettings.Service = serviceConfig
-	return nil
 }
 
 // ConnectContainerToNetwork connects the given container to the given
@@ -831,27 +687,6 @@ func buildCreateEndpointOptions(c *container.Container, n libnetwork.Network, ep
 		for k, v := range epConfig.DriverOpts {
 			createOptions = append(createOptions, libnetwork.EndpointOptionGeneric(options.Generic{k: v}))
 		}
-	}
-
-	if c.NetworkSettings.Service != nil {
-		svcCfg := c.NetworkSettings.Service
-
-		var vip string
-		if svcCfg.VirtualAddresses[n.ID()] != nil {
-			vip = svcCfg.VirtualAddresses[n.ID()].IPv4
-		}
-
-		var portConfigs []*libnetwork.PortConfig
-		for _, portConfig := range svcCfg.ExposedPorts {
-			portConfigs = append(portConfigs, &libnetwork.PortConfig{
-				Name:          portConfig.Name,
-				Protocol:      libnetwork.PortConfig_Protocol(portConfig.Protocol),
-				TargetPort:    portConfig.TargetPort,
-				PublishedPort: portConfig.PublishedPort,
-			})
-		}
-
-		createOptions = append(createOptions, libnetwork.CreateOptionService(svcCfg.Name, svcCfg.ID, net.ParseIP(vip), portConfigs, svcCfg.Aliases[n.ID()]))
 	}
 
 	if !containertypes.NetworkMode(n.Name()).IsUserDefined() {

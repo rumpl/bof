@@ -1,14 +1,14 @@
-package logger // import "github.com/docker/docker/daemon/logger"
+package logger // import "github.com/rumpl/bof/daemon/logger"
 
 import (
 	"fmt"
 	"sort"
 	"sync"
 
-	containertypes "github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/pkg/plugingetter"
 	units "github.com/docker/go-units"
 	"github.com/pkg/errors"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/pkg/plugingetter"
 )
 
 // Creator builds a logging driver instance with given context.

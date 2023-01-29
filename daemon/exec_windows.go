@@ -1,10 +1,10 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"context"
 
-	"github.com/docker/docker/container"
 	specs "github.com/opencontainers/runtime-spec/specs-go"
+	"github.com/rumpl/bof/container"
 )
 
 func (daemon *Daemon) execSetPlatformOpt(ctx context.Context, ec *container.ExecConfig, p *specs.Process) error {

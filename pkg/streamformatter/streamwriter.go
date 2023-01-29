@@ -1,10 +1,10 @@
-package streamformatter // import "github.com/docker/docker/pkg/streamformatter"
+package streamformatter // import "github.com/rumpl/bof/pkg/streamformatter"
 
 import (
 	"encoding/json"
 	"io"
 
-	"github.com/docker/docker/pkg/jsonmessage"
+	"github.com/rumpl/bof/pkg/jsonmessage"
 )
 
 type streamWriter struct {

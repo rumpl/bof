@@ -4,10 +4,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/docker/docker/daemon/config"
-	"github.com/docker/docker/opts"
-	"github.com/docker/docker/pkg/homedir"
 	"github.com/docker/go-connections/tlsconfig"
+	"github.com/rumpl/bof/daemon/config"
+	"github.com/rumpl/bof/opts"
+	"github.com/rumpl/bof/pkg/homedir"
 	"github.com/spf13/pflag"
 )
 

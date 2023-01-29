@@ -1,4 +1,4 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"fmt"
@@ -7,21 +7,21 @@ import (
 	"runtime"
 	"time"
 
-	containertypes "github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/strslice"
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/daemon/network"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/oci/caps"
-	"github.com/docker/docker/opts"
-	"github.com/docker/docker/pkg/system"
-	"github.com/docker/docker/runconfig"
-	volumemounts "github.com/docker/docker/volume/mounts"
 	"github.com/docker/go-connections/nat"
 	"github.com/moby/sys/signal"
 	"github.com/opencontainers/selinux/go-selinux"
 	"github.com/pkg/errors"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/api/types/strslice"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/daemon/network"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/oci/caps"
+	"github.com/rumpl/bof/opts"
+	"github.com/rumpl/bof/pkg/system"
+	"github.com/rumpl/bof/runconfig"
+	volumemounts "github.com/rumpl/bof/volume/mounts"
 	"github.com/sirupsen/logrus"
 )
 

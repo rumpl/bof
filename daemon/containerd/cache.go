@@ -3,7 +3,7 @@ package containerd
 import (
 	"context"
 
-	"github.com/docker/docker/builder"
+	"github.com/rumpl/bof/builder"
 )
 
 // MakeImageCache creates a stateful image cache.

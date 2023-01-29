@@ -1,4 +1,4 @@
-package image // import "github.com/docker/docker/image"
+package image // import "github.com/rumpl/bof/image"
 
 import (
 	"crypto/rand"

@@ -1,4 +1,4 @@
-package layer // import "github.com/docker/docker/layer"
+package layer // import "github.com/rumpl/bof/layer"
 
 import (
 	"errors"
@@ -9,12 +9,12 @@ import (
 	"sync"
 
 	"github.com/docker/distribution"
-	"github.com/docker/docker/daemon/graphdriver"
-	"github.com/docker/docker/pkg/idtools"
-	"github.com/docker/docker/pkg/plugingetter"
-	"github.com/docker/docker/pkg/stringid"
 	"github.com/moby/locker"
 	"github.com/opencontainers/go-digest"
+	"github.com/rumpl/bof/daemon/graphdriver"
+	"github.com/rumpl/bof/pkg/idtools"
+	"github.com/rumpl/bof/pkg/plugingetter"
+	"github.com/rumpl/bof/pkg/stringid"
 	"github.com/sirupsen/logrus"
 	"github.com/vbatts/tar-split/tar/asm"
 	"github.com/vbatts/tar-split/tar/storage"

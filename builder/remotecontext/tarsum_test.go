@@ -1,14 +1,14 @@
-package remotecontext // import "github.com/docker/docker/builder/remotecontext"
+package remotecontext // import "github.com/rumpl/bof/builder/remotecontext"
 
 import (
 	"os"
 	"path/filepath"
 	"testing"
 
-	"github.com/docker/docker/builder"
-	"github.com/docker/docker/pkg/archive"
-	"github.com/docker/docker/pkg/reexec"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/builder"
+	"github.com/rumpl/bof/pkg/archive"
+	"github.com/rumpl/bof/pkg/reexec"
 	"gotest.tools/v3/skip"
 )
 

@@ -1,4 +1,4 @@
-package container // import "github.com/docker/docker/api/server/router/container"
+package container // import "github.com/rumpl/bof/api/server/router/container"
 
 import (
 	"compress/flate"
@@ -9,10 +9,10 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/docker/docker/api/server/httputils"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/versions"
 	gddohttputil "github.com/golang/gddo/httputil"
+	"github.com/rumpl/bof/api/server/httputils"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/versions"
 )
 
 type pathError struct{}

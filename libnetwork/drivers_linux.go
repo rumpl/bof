@@ -1,12 +1,12 @@
 package libnetwork
 
 import (
-	"github.com/docker/docker/libnetwork/drivers/bridge"
-	"github.com/docker/docker/libnetwork/drivers/host"
-	"github.com/docker/docker/libnetwork/drivers/ipvlan"
-	"github.com/docker/docker/libnetwork/drivers/macvlan"
-	"github.com/docker/docker/libnetwork/drivers/null"
-	"github.com/docker/docker/libnetwork/drivers/overlay"
+	"github.com/rumpl/bof/libnetwork/drivers/bridge"
+	"github.com/rumpl/bof/libnetwork/drivers/host"
+	"github.com/rumpl/bof/libnetwork/drivers/ipvlan"
+	"github.com/rumpl/bof/libnetwork/drivers/macvlan"
+	"github.com/rumpl/bof/libnetwork/drivers/null"
+	"github.com/rumpl/bof/libnetwork/drivers/overlay"
 )
 
 func getInitializers() []initializer {

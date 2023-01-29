@@ -6,7 +6,7 @@ package libnetwork
 import (
 	"net"
 
-	"github.com/docker/docker/libnetwork/iptables"
+	"github.com/rumpl/bof/libnetwork/iptables"
 	"github.com/sirupsen/logrus"
 )
 

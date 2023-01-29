@@ -1,4 +1,4 @@
-package archive // import "github.com/docker/docker/pkg/archive"
+package archive // import "github.com/rumpl/bof/pkg/archive"
 
 import (
 	"path/filepath"

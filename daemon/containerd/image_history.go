@@ -8,11 +8,11 @@ import (
 	containerdimages "github.com/containerd/containerd/images"
 	cplatforms "github.com/containerd/containerd/platforms"
 	"github.com/docker/distribution/reference"
-	imagetype "github.com/docker/docker/api/types/image"
-	"github.com/docker/docker/pkg/platforms"
 	"github.com/opencontainers/image-spec/identity"
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
 	"github.com/pkg/errors"
+	imagetype "github.com/rumpl/bof/api/types/image"
+	"github.com/rumpl/bof/pkg/platforms"
 )
 
 // ImageHistory returns a slice of HistoryResponseItem structures for the

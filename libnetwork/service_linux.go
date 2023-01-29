@@ -11,10 +11,10 @@ import (
 	"sync"
 	"syscall"
 
-	"github.com/docker/docker/libnetwork/iptables"
-	"github.com/docker/docker/libnetwork/ns"
 	"github.com/ishidawataru/sctp"
 	"github.com/moby/ipvs"
+	"github.com/rumpl/bof/libnetwork/iptables"
+	"github.com/rumpl/bof/libnetwork/ns"
 	"github.com/sirupsen/logrus"
 	"github.com/vishvananda/netlink/nl"
 )

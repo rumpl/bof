@@ -1,8 +1,8 @@
-package registry // import "github.com/docker/docker/registry"
+package registry // import "github.com/rumpl/bof/registry"
 
 import (
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/api/types/registry"
+	"github.com/rumpl/bof/api/types/registry"
 )
 
 // APIVersion is an integral representation of an API version (presently

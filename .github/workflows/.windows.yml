@@ -35,13 +35,13 @@ jobs:
       BIN_OUT: ${{ github.workspace }}\out
     defaults:
       run:
-        working-directory: ${{ env.GOPATH }}/src/github.com/docker/docker
+        working-directory: ${{ env.GOPATH }}/src/github.com/rumpl/bof
     steps:
       -
         name: Checkout
         uses: actions/checkout@v3
         with:
-          path: ${{ env.GOPATH }}/src/github.com/docker/docker
+          path: ${{ env.GOPATH }}/src/github.com/rumpl/bof
       -
         name: Env
         run: |
@@ -111,13 +111,13 @@ jobs:
       GOBIN: ${{ github.workspace }}\go\bin
     defaults:
       run:
-        working-directory: ${{ env.GOPATH }}/src/github.com/docker/docker
+        working-directory: ${{ env.GOPATH }}/src/github.com/rumpl/bof
     steps:
       -
         name: Checkout
         uses: actions/checkout@v3
         with:
-          path: ${{ env.GOPATH }}/src/github.com/docker/docker
+          path: ${{ env.GOPATH }}/src/github.com/rumpl/bof
       -
         name: Env
         run: |
@@ -257,13 +257,13 @@ jobs:
       BIN_OUT: ${{ github.workspace }}\out
     defaults:
       run:
-        working-directory: ${{ env.GOPATH }}/src/github.com/docker/docker
+        working-directory: ${{ env.GOPATH }}/src/github.com/rumpl/bof
     steps:
       -
         name: Checkout
         uses: actions/checkout@v3
         with:
-          path: ${{ env.GOPATH }}/src/github.com/docker/docker
+          path: ${{ env.GOPATH }}/src/github.com/rumpl/bof
       -
         name: Env
         run: |

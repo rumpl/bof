@@ -1,4 +1,4 @@
-package build // import "github.com/docker/docker/integration/build"
+package build // import "github.com/rumpl/bof/integration/build"
 
 import (
 	"context"
@@ -7,11 +7,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/integration/internal/requirement"
-	"github.com/docker/docker/pkg/jsonmessage"
-	"github.com/docker/docker/testutil/daemon"
-	"github.com/docker/docker/testutil/fakecontext"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/integration/internal/requirement"
+	"github.com/rumpl/bof/pkg/jsonmessage"
+	"github.com/rumpl/bof/testutil/daemon"
+	"github.com/rumpl/bof/testutil/fakecontext"
 	"gotest.tools/v3/assert"
 	"gotest.tools/v3/skip"
 )

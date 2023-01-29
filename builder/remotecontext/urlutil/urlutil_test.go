@@ -1,22 +1,22 @@
-package urlutil // import "github.com/docker/docker/builder/remotecontext/urlutil"
+package urlutil // import "github.com/rumpl/bof/builder/remotecontext/urlutil"
 
 import "testing"
 
 var (
 	gitUrls = []string{
-		"git://github.com/docker/docker",
-		"git@github.com:docker/docker.git",
+		"git://github.com/rumpl/bof",
+		"git@github.com:rumpl/bof.git",
 		"git@bitbucket.org:atlassianlabs/atlassian-docker.git",
-		"https://github.com/docker/docker.git",
-		"http://github.com/docker/docker.git",
-		"http://github.com/docker/docker.git#branch",
-		"http://github.com/docker/docker.git#:dir",
+		"https://github.com/rumpl/bof.git",
+		"http://github.com/rumpl/bof.git",
+		"http://github.com/rumpl/bof.git#branch",
+		"http://github.com/rumpl/bof.git#:dir",
 	}
 	incompleteGitUrls = []string{
-		"github.com/docker/docker",
+		"github.com/rumpl/bof",
 	}
 	invalidGitUrls = []string{
-		"http://github.com/docker/docker.git:#branch",
+		"http://github.com/rumpl/bof.git:#branch",
 	}
 )
 

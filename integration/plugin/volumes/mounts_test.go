@@ -5,9 +5,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/testutil/daemon"
-	"github.com/docker/docker/testutil/fixtures/plugin"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/testutil/daemon"
+	"github.com/rumpl/bof/testutil/fixtures/plugin"
 	"gotest.tools/v3/assert"
 	"gotest.tools/v3/skip"
 )

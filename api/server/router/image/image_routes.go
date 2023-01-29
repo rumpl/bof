@@ -1,4 +1,4 @@
-package image // import "github.com/docker/docker/api/server/router/image"
+package image // import "github.com/rumpl/bof/api/server/router/image"
 
 import (
 	"context"
@@ -11,20 +11,20 @@ import (
 
 	"github.com/containerd/containerd/platforms"
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/api/server/httputils"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/filters"
-	opts "github.com/docker/docker/api/types/image"
-	"github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/api/types/versions"
-	"github.com/docker/docker/builder/remotecontext"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/pkg/ioutils"
-	"github.com/docker/docker/pkg/progress"
-	"github.com/docker/docker/pkg/streamformatter"
 	specs "github.com/opencontainers/image-spec/specs-go/v1"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/server/httputils"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/filters"
+	opts "github.com/rumpl/bof/api/types/image"
+	"github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/api/types/versions"
+	"github.com/rumpl/bof/builder/remotecontext"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/pkg/ioutils"
+	"github.com/rumpl/bof/pkg/progress"
+	"github.com/rumpl/bof/pkg/streamformatter"
 )
 
 // Creates an image from Pull or from Import

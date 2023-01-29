@@ -1,4 +1,4 @@
-package dockerfile // import "github.com/docker/docker/builder/dockerfile"
+package dockerfile // import "github.com/rumpl/bof/builder/dockerfile"
 
 import (
 	"fmt"
@@ -13,19 +13,19 @@ import (
 	"strings"
 	"time"
 
-	"github.com/docker/docker/builder"
-	"github.com/docker/docker/builder/remotecontext"
-	"github.com/docker/docker/builder/remotecontext/urlutil"
-	"github.com/docker/docker/pkg/archive"
-	"github.com/docker/docker/pkg/containerfs"
-	"github.com/docker/docker/pkg/idtools"
-	"github.com/docker/docker/pkg/longpath"
-	"github.com/docker/docker/pkg/progress"
-	"github.com/docker/docker/pkg/streamformatter"
-	"github.com/docker/docker/pkg/system"
 	"github.com/moby/buildkit/frontend/dockerfile/instructions"
 	specs "github.com/opencontainers/image-spec/specs-go/v1"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/builder"
+	"github.com/rumpl/bof/builder/remotecontext"
+	"github.com/rumpl/bof/builder/remotecontext/urlutil"
+	"github.com/rumpl/bof/pkg/archive"
+	"github.com/rumpl/bof/pkg/containerfs"
+	"github.com/rumpl/bof/pkg/idtools"
+	"github.com/rumpl/bof/pkg/longpath"
+	"github.com/rumpl/bof/pkg/progress"
+	"github.com/rumpl/bof/pkg/streamformatter"
+	"github.com/rumpl/bof/pkg/system"
 )
 
 const unnamedFilename = "__unnamed__"

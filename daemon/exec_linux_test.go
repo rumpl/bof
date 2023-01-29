@@ -8,10 +8,10 @@ import (
 	"testing"
 
 	"github.com/containerd/containerd/pkg/apparmor"
-	containertypes "github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/daemon/config"
 	specs "github.com/opencontainers/runtime-spec/specs-go"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/daemon/config"
 	"gotest.tools/v3/assert"
 )
 

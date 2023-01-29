@@ -69,8 +69,8 @@ New features for the builder and Dockerfile should be implemented first in the
 BuildKit backend using an external Dockerfile implementation from the container
 images. This allows everyone to test and evaluate the feature without upgrading
 their daemon. New features should go to the experimental channel first, and can be
-part of the `docker/dockerfile:experimental` image. From there they graduate to
-`docker/dockerfile:latest` and binary releases. The Dockerfile frontend source
+part of the `rumpl/boffile:experimental` image. From there they graduate to
+`rumpl/boffile:latest` and binary releases. The Dockerfile frontend source
 code is temporarily located at
 [https://github.com/moby/buildkit/tree/master/frontend/dockerfile](https://github.com/moby/buildkit/tree/master/frontend/dockerfile)
 with separate new features defined with go build tags.
@@ -113,5 +113,5 @@ We see gRPC as the natural communication layer between decoupled components.
 
 In addition to pushing out large components into other projects, much of the
 internal code structure, and in particular the
-["Daemon"](https://godoc.org/github.com/docker/docker/daemon#Daemon) object,
+["Daemon"](https://godoc.org/github.com/rumpl/bof/daemon#Daemon) object,
 should be split into smaller, more manageable, and more testable components.

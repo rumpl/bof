@@ -11,8 +11,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/client"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/client"
 )
 
 func main() {
@@ -32,4 +32,4 @@ func main() {
 }
 ```
 
-[Full documentation is available on GoDoc.](https://godoc.org/github.com/docker/docker/client)
+[Full documentation is available on GoDoc.](https://godoc.org/github.com/rumpl/bof/client)

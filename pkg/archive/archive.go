@@ -1,5 +1,5 @@
 // Package archive provides helper functions for dealing with archive files.
-package archive // import "github.com/docker/docker/pkg/archive"
+package archive // import "github.com/rumpl/bof/pkg/archive"
 
 import (
 	"archive/tar"
@@ -21,14 +21,14 @@ import (
 	"time"
 
 	"github.com/containerd/containerd/pkg/userns"
-	"github.com/docker/docker/pkg/idtools"
-	"github.com/docker/docker/pkg/ioutils"
-	"github.com/docker/docker/pkg/pools"
-	"github.com/docker/docker/pkg/system"
 	"github.com/klauspost/compress/zstd"
 	"github.com/moby/patternmatcher"
 	"github.com/moby/sys/sequential"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/pkg/idtools"
+	"github.com/rumpl/bof/pkg/ioutils"
+	"github.com/rumpl/bof/pkg/pools"
+	"github.com/rumpl/bof/pkg/system"
 	"github.com/sirupsen/logrus"
 )
 

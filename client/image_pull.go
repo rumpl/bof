@@ -1,4 +1,4 @@
-package client // import "github.com/docker/docker/client"
+package client // import "github.com/rumpl/bof/client"
 
 import (
 	"context"
@@ -7,8 +7,8 @@ import (
 	"strings"
 
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/errdefs"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/errdefs"
 )
 
 // ImagePull requests the docker host to pull an image from a remote registry.
@@ -16,7 +16,7 @@ import (
 // and it tries one more time.
 // It's up to the caller to handle the io.ReadCloser and close it properly.
 //
-// FIXME(vdemeester): there is currently used in a few way in docker/docker
+// FIXME(vdemeester): there is currently used in a few way in rumpl/bof
 // - if not in trusted content, ref is used to pass the whole reference, and tag is empty
 // - if in trusted content, ref is used to pass the reference name, and tag for the digest
 func (cli *Client) ImagePull(ctx context.Context, refStr string, options types.ImagePullOptions) (io.ReadCloser, error) {

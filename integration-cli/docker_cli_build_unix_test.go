@@ -16,10 +16,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/docker/integration-cli/cli"
-	"github.com/docker/docker/integration-cli/cli/build"
-	"github.com/docker/docker/testutil/fakecontext"
 	units "github.com/docker/go-units"
+	"github.com/rumpl/bof/integration-cli/cli"
+	"github.com/rumpl/bof/integration-cli/cli/build"
+	"github.com/rumpl/bof/testutil/fakecontext"
 	"gotest.tools/v3/assert"
 	"gotest.tools/v3/icmd"
 )

@@ -1,11 +1,11 @@
-package session // import "github.com/docker/docker/integration/session"
+package session // import "github.com/rumpl/bof/integration/session"
 
 import (
 	"net/http"
 	"testing"
 
-	"github.com/docker/docker/api/types/versions"
-	req "github.com/docker/docker/testutil/request"
+	"github.com/rumpl/bof/api/types/versions"
+	req "github.com/rumpl/bof/testutil/request"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 	"gotest.tools/v3/skip"

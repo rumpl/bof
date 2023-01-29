@@ -6,7 +6,7 @@ import (
 
 	"encoding/json"
 
-	"github.com/docker/docker/libnetwork/types"
+	"github.com/rumpl/bof/libnetwork/types"
 	"github.com/sirupsen/logrus"
 
 	"github.com/Microsoft/hcsshim"

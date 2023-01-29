@@ -6,7 +6,7 @@ package builtin
 import (
 	"errors"
 
-	"github.com/docker/docker/libnetwork/ipamapi"
+	"github.com/rumpl/bof/libnetwork/ipamapi"
 )
 
 // Init registers the built-in ipam service with libnetwork

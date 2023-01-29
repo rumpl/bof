@@ -1,4 +1,4 @@
-package tarexport // import "github.com/docker/docker/image/tarexport"
+package tarexport // import "github.com/rumpl/bof/image/tarexport"
 
 import (
 	"encoding/json"
@@ -11,14 +11,14 @@ import (
 
 	"github.com/docker/distribution"
 	"github.com/docker/distribution/reference"
-	"github.com/docker/docker/image"
-	v1 "github.com/docker/docker/image/v1"
-	"github.com/docker/docker/layer"
-	"github.com/docker/docker/pkg/archive"
-	"github.com/docker/docker/pkg/system"
 	"github.com/moby/sys/sequential"
 	"github.com/opencontainers/go-digest"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/image"
+	v1 "github.com/rumpl/bof/image/v1"
+	"github.com/rumpl/bof/layer"
+	"github.com/rumpl/bof/pkg/archive"
+	"github.com/rumpl/bof/pkg/system"
 )
 
 type imageDescriptor struct {

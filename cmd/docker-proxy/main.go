@@ -9,8 +9,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/docker/docker/dockerversion"
 	"github.com/ishidawataru/sctp"
+	"github.com/rumpl/bof/dockerversion"
 )
 
 func main() {

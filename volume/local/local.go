@@ -1,7 +1,7 @@
 // Package local provides the default implementation for volumes. It
 // is used to mount data volume containers and directories local to
 // the host server.
-package local // import "github.com/docker/docker/volume/local"
+package local // import "github.com/rumpl/bof/volume/local"
 
 import (
 	"encoding/json"
@@ -11,12 +11,12 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/docker/docker/daemon/names"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/pkg/idtools"
-	"github.com/docker/docker/quota"
-	"github.com/docker/docker/volume"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/daemon/names"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/pkg/idtools"
+	"github.com/rumpl/bof/quota"
+	"github.com/rumpl/bof/volume"
 	"github.com/sirupsen/logrus"
 )
 

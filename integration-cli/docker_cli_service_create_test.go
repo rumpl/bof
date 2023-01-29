@@ -10,10 +10,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/mount"
-	"github.com/docker/docker/api/types/swarm"
-	"github.com/docker/docker/integration-cli/checker"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/mount"
+	"github.com/rumpl/bof/api/types/swarm"
+	"github.com/rumpl/bof/integration-cli/checker"
 	"gotest.tools/v3/assert"
 	"gotest.tools/v3/poll"
 )

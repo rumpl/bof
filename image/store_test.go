@@ -1,11 +1,11 @@
-package image // import "github.com/docker/docker/image"
+package image // import "github.com/rumpl/bof/image"
 
 import (
 	"fmt"
 	"testing"
 
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/layer"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/layer"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 )

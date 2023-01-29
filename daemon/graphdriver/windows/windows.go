@@ -1,7 +1,7 @@
 //go:build windows
 // +build windows
 
-package windows // import "github.com/docker/docker/daemon/graphdriver/windows"
+package windows // import "github.com/rumpl/bof/daemon/graphdriver/windows"
 
 import (
 	"archive/tar"
@@ -24,14 +24,14 @@ import (
 	"github.com/Microsoft/go-winio/vhd"
 	"github.com/Microsoft/hcsshim"
 	"github.com/Microsoft/hcsshim/osversion"
-	"github.com/docker/docker/daemon/graphdriver"
-	"github.com/docker/docker/pkg/archive"
-	"github.com/docker/docker/pkg/idtools"
-	"github.com/docker/docker/pkg/ioutils"
-	"github.com/docker/docker/pkg/longpath"
-	"github.com/docker/docker/pkg/reexec"
 	units "github.com/docker/go-units"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/daemon/graphdriver"
+	"github.com/rumpl/bof/pkg/archive"
+	"github.com/rumpl/bof/pkg/idtools"
+	"github.com/rumpl/bof/pkg/ioutils"
+	"github.com/rumpl/bof/pkg/longpath"
+	"github.com/rumpl/bof/pkg/reexec"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sys/windows"
 )
@@ -808,7 +808,7 @@ func writeLayer(layerData io.Reader, home string, id string, parentLayerPaths ..
 		defer func() {
 			if err := winio.DisableProcessPrivileges([]string{winio.SeSecurityPrivilege, winio.SeBackupPrivilege, winio.SeRestorePrivilege}); err != nil {
 				// This should never happen, but just in case when in debugging mode.
-				// See https://github.com/docker/docker/pull/28002#discussion_r86259241 for rationale.
+				// See https://github.com/rumpl/bof/pull/28002#discussion_r86259241 for rationale.
 				panic("Failed to disabled process privileges while in non re-exec mode")
 			}
 		}()

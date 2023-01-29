@@ -1,7 +1,7 @@
 //go:build linux
 // +build linux
 
-package devmapper // import "github.com/docker/docker/daemon/graphdriver/devmapper"
+package devmapper // import "github.com/rumpl/bof/daemon/graphdriver/devmapper"
 
 import (
 	"bufio"
@@ -18,17 +18,17 @@ import (
 	"sync"
 	"time"
 
-	"github.com/docker/docker/daemon/graphdriver"
-	"github.com/docker/docker/pkg/devicemapper"
-	"github.com/docker/docker/pkg/dmesg"
-	"github.com/docker/docker/pkg/idtools"
-	"github.com/docker/docker/pkg/loopback"
-	"github.com/docker/docker/pkg/parsers"
-	"github.com/docker/docker/pkg/parsers/kernel"
 	units "github.com/docker/go-units"
 	"github.com/moby/sys/mount"
 	"github.com/opencontainers/selinux/go-selinux/label"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/daemon/graphdriver"
+	"github.com/rumpl/bof/pkg/devicemapper"
+	"github.com/rumpl/bof/pkg/dmesg"
+	"github.com/rumpl/bof/pkg/idtools"
+	"github.com/rumpl/bof/pkg/loopback"
+	"github.com/rumpl/bof/pkg/parsers"
+	"github.com/rumpl/bof/pkg/parsers/kernel"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sys/unix"
 )
@@ -1669,7 +1669,7 @@ func (devices *DeviceSet) initDevmapper(doInit bool) (retErr error) {
 
 	logger := logrus.WithField("storage-driver", "devicemapper")
 
-	// https://github.com/docker/docker/issues/4036
+	// https://github.com/rumpl/bof/issues/4036
 	if supported := devicemapper.UdevSetSyncSupport(true); !supported {
 		logger.Error("Udev sync is not supported, which will lead to data loss and unexpected behavior. Make sure you have a recent version of libdevmapper installed and are running a dynamic binary, or select a different storage driver. For more information, see https://docs.docker.com/go/storage-driver/")
 		if !devices.overrideUdevSyncCheck {

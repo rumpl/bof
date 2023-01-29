@@ -1,4 +1,4 @@
-package remotecontext // import "github.com/docker/docker/builder/remotecontext"
+package remotecontext // import "github.com/rumpl/bof/builder/remotecontext"
 
 import (
 	"encoding/hex"
@@ -7,9 +7,9 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/docker/docker/builder"
-	"github.com/docker/docker/pkg/pools"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/builder"
+	"github.com/rumpl/bof/pkg/pools"
 )
 
 // NewLazySource creates a new LazyContext. LazyContext defines a hashed build

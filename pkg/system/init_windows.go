@@ -1,4 +1,4 @@
-package system // import "github.com/docker/docker/pkg/system"
+package system // import "github.com/rumpl/bof/pkg/system"
 
 var (
 	// containerdRuntimeSupported determines if containerd should be the runtime.

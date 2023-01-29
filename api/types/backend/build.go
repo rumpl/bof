@@ -1,12 +1,12 @@
-package backend // import "github.com/docker/docker/api/types/backend"
+package backend // import "github.com/rumpl/bof/api/types/backend"
 
 import (
 	"io"
 
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/pkg/streamformatter"
 	specs "github.com/opencontainers/image-spec/specs-go/v1"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/pkg/streamformatter"
 )
 
 // PullOption defines different modes for accessing images

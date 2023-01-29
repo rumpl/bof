@@ -5,7 +5,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/docker/docker/libnetwork/driverapi"
+	"github.com/rumpl/bof/libnetwork/driverapi"
 )
 
 // DriverWalkFunc defines the network driver table walker function signature.

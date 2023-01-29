@@ -14,9 +14,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/docker/client"
-	"github.com/docker/docker/integration-cli/cli"
-	"github.com/docker/docker/integration-cli/cli/build"
+	"github.com/rumpl/bof/client"
+	"github.com/rumpl/bof/integration-cli/cli"
+	"github.com/rumpl/bof/integration-cli/cli/build"
 	"gotest.tools/v3/assert"
 	is "gotest.tools/v3/assert/cmp"
 	"gotest.tools/v3/icmd"
@@ -521,7 +521,7 @@ func (s *DockerCLIExecSuite) TestExecStartFails(c *testing.T) {
 	assert.Assert(c, strings.Contains(out, "executable file not found"))
 }
 
-// Fix regression in https://github.com/docker/docker/pull/26461#issuecomment-250287297
+// Fix regression in https://github.com/rumpl/bof/pull/26461#issuecomment-250287297
 func (s *DockerCLIExecSuite) TestExecWindowsPathNotWiped(c *testing.T) {
 	testRequires(c, DaemonIsWindows)
 	out, _ := dockerCmd(c, "run", "-d", "--name", "testing", minimalBaseImage(), "powershell", "start-sleep", "60")

@@ -4,8 +4,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/docker/docker/libnetwork/datastore"
 	"github.com/docker/libkv/store"
+	"github.com/rumpl/bof/libnetwork/datastore"
 )
 
 func TestBoltdbBackend(t *testing.T) {

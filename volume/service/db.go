@@ -1,10 +1,10 @@
-package service // import "github.com/docker/docker/volume/service"
+package service // import "github.com/rumpl/bof/volume/service"
 
 import (
 	"encoding/json"
 
-	"github.com/docker/docker/errdefs"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/errdefs"
 	"github.com/sirupsen/logrus"
 	bolt "go.etcd.io/bbolt"
 )

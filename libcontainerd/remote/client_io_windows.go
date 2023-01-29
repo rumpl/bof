@@ -1,4 +1,4 @@
-package remote // import "github.com/docker/docker/libcontainerd/remote"
+package remote // import "github.com/rumpl/bof/libcontainerd/remote"
 
 import (
 	"io"

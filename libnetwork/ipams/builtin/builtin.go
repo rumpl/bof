@@ -3,9 +3,9 @@ package builtin
 import (
 	"net"
 
-	"github.com/docker/docker/libnetwork/ipam"
-	"github.com/docker/docker/libnetwork/ipamapi"
-	"github.com/docker/docker/libnetwork/ipamutils"
+	"github.com/rumpl/bof/libnetwork/ipam"
+	"github.com/rumpl/bof/libnetwork/ipamapi"
+	"github.com/rumpl/bof/libnetwork/ipamutils"
 )
 
 var (

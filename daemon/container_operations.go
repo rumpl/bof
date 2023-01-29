@@ -1,4 +1,4 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"errors"
@@ -9,20 +9,20 @@ import (
 	"strings"
 	"time"
 
-	containertypes "github.com/docker/docker/api/types/container"
-	networktypes "github.com/docker/docker/api/types/network"
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/daemon/network"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/libnetwork"
-	netconst "github.com/docker/docker/libnetwork/datastore"
-	"github.com/docker/docker/libnetwork/netlabel"
-	"github.com/docker/docker/libnetwork/options"
-	"github.com/docker/docker/libnetwork/types"
-	"github.com/docker/docker/opts"
-	"github.com/docker/docker/pkg/stringid"
-	"github.com/docker/docker/runconfig"
 	"github.com/docker/go-connections/nat"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	networktypes "github.com/rumpl/bof/api/types/network"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/daemon/network"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/libnetwork"
+	netconst "github.com/rumpl/bof/libnetwork/datastore"
+	"github.com/rumpl/bof/libnetwork/netlabel"
+	"github.com/rumpl/bof/libnetwork/options"
+	"github.com/rumpl/bof/libnetwork/types"
+	"github.com/rumpl/bof/opts"
+	"github.com/rumpl/bof/pkg/stringid"
+	"github.com/rumpl/bof/runconfig"
 	"github.com/sirupsen/logrus"
 )
 
@@ -400,24 +400,8 @@ func (daemon *Daemon) findAndAttachNetwork(container *container.Container, idOrN
 	}
 
 	for {
-		// In all other cases, attempt to attach to the network to
-		// trigger attachment in the swarm cluster manager.
-		if daemon.clusterProvider != nil {
-			var err error
-			config, err = daemon.clusterProvider.AttachNetwork(id, container.ID, addresses)
-			if err != nil {
-				return nil, nil, err
-			}
-		}
-
 		n, err = daemon.FindNetwork(id)
 		if err != nil {
-			if daemon.clusterProvider != nil {
-				if err := daemon.clusterProvider.DetachNetwork(id, container.ID); err != nil {
-					logrus.Warnf("Could not rollback attachment for container %s to network %s: %v", container.ID, idOrName, err)
-				}
-			}
-
 			// Retry network attach again if we failed to
 			// find the network after successful
 			// attachment because the only reason that
@@ -932,14 +916,6 @@ func (daemon *Daemon) disconnectFromNetwork(container *container.Container, n li
 }
 
 func (daemon *Daemon) tryDetachContainerFromClusterNetwork(network libnetwork.Network, container *container.Container) {
-	if daemon.clusterProvider != nil && network.Info().Dynamic() && !container.Managed {
-		if err := daemon.clusterProvider.DetachNetwork(network.Name(), container.ID); err != nil {
-			logrus.Warnf("error detaching from network %s: %v", network.Name(), err)
-			if err := daemon.clusterProvider.DetachNetwork(network.ID(), container.ID); err != nil {
-				logrus.Warnf("error detaching from network %s: %v", network.ID(), err)
-			}
-		}
-	}
 	attributes := map[string]string{
 		"container": container.ID,
 	}

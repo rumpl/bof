@@ -13,13 +13,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/docker/libnetwork/datastore"
-	"github.com/docker/docker/libnetwork/discoverapi"
-	"github.com/docker/docker/libnetwork/driverapi"
-	"github.com/docker/docker/libnetwork/netlabel"
-	"github.com/docker/docker/pkg/plugingetter"
 	"github.com/docker/libkv/store"
 	"github.com/docker/libkv/store/boltdb"
+	"github.com/rumpl/bof/libnetwork/datastore"
+	"github.com/rumpl/bof/libnetwork/discoverapi"
+	"github.com/rumpl/bof/libnetwork/driverapi"
+	"github.com/rumpl/bof/libnetwork/netlabel"
+	"github.com/rumpl/bof/pkg/plugingetter"
 	"github.com/vishvananda/netlink/nl"
 	"golang.org/x/sys/unix"
 )

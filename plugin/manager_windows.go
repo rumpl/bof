@@ -1,10 +1,10 @@
-package plugin // import "github.com/docker/docker/plugin"
+package plugin // import "github.com/rumpl/bof/plugin"
 
 import (
 	"fmt"
 
-	v2 "github.com/docker/docker/plugin/v2"
 	specs "github.com/opencontainers/runtime-spec/specs-go"
+	v2 "github.com/rumpl/bof/plugin/v2"
 )
 
 func (pm *Manager) enable(p *v2.Plugin, c *controller, force bool) error {

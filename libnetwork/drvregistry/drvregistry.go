@@ -3,9 +3,9 @@ package drvregistry
 import (
 	"fmt"
 
-	"github.com/docker/docker/libnetwork/driverapi"
-	"github.com/docker/docker/libnetwork/ipamapi"
-	"github.com/docker/docker/pkg/plugingetter"
+	"github.com/rumpl/bof/libnetwork/driverapi"
+	"github.com/rumpl/bof/libnetwork/ipamapi"
+	"github.com/rumpl/bof/pkg/plugingetter"
 )
 
 // DrvRegistry holds the registry of all network drivers and IPAM drivers that it knows about.

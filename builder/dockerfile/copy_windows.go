@@ -1,4 +1,4 @@
-package dockerfile // import "github.com/docker/docker/builder/dockerfile"
+package dockerfile // import "github.com/rumpl/bof/builder/dockerfile"
 
 import (
 	"fmt"
@@ -7,10 +7,10 @@ import (
 	"strings"
 
 	winio "github.com/Microsoft/go-winio"
-	"github.com/docker/docker/pkg/idtools"
-	"github.com/docker/docker/pkg/reexec"
-	"github.com/docker/docker/pkg/system"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/pkg/idtools"
+	"github.com/rumpl/bof/pkg/reexec"
+	"github.com/rumpl/bof/pkg/system"
 	"golang.org/x/sys/windows"
 )
 

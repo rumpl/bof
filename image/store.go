@@ -1,16 +1,16 @@
-package image // import "github.com/docker/docker/image"
+package image // import "github.com/rumpl/bof/image"
 
 import (
 	"fmt"
 	"sync"
 	"time"
 
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/layer"
-	"github.com/docker/docker/pkg/system"
 	"github.com/opencontainers/go-digest"
 	"github.com/opencontainers/go-digest/digestset"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/layer"
+	"github.com/rumpl/bof/pkg/system"
 	"github.com/sirupsen/logrus"
 )
 

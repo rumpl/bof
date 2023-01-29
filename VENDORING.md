@@ -42,5 +42,5 @@ In order to avoid huge vendoring changes, it is recommended to have a regular
 cadence for vendoring updates. e.g. monthly.
 
 ## Pre-merge vendoring tests
-All related repos will be vendored into docker/docker.
-CI on docker/docker should catch any breaking changes involving multiple repos.
+All related repos will be vendored into rumpl/bof.
+CI on rumpl/bof should catch any breaking changes involving multiple repos.

@@ -1,4 +1,4 @@
-package parsers // import "github.com/docker/docker/pkg/parsers"
+package parsers // import "github.com/rumpl/bof/pkg/parsers"
 
 import (
 	"reflect"

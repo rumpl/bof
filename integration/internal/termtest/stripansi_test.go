@@ -1,4 +1,4 @@
-package termtest // import "github.com/docker/docker/integration/internal/termtest"
+package termtest // import "github.com/rumpl/bof/integration/internal/termtest"
 
 import (
 	"testing"

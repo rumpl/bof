@@ -5,9 +5,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/docker/docker/layer"
-	"github.com/docker/docker/pkg/longpath"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/layer"
+	"github.com/rumpl/bof/pkg/longpath"
 	bolt "go.etcd.io/bbolt"
 	"golang.org/x/sync/errgroup"
 )

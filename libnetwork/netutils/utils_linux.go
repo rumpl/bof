@@ -9,10 +9,10 @@ import (
 	"net"
 	"os"
 
-	"github.com/docker/docker/libnetwork/ns"
-	"github.com/docker/docker/libnetwork/resolvconf"
-	"github.com/docker/docker/libnetwork/types"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/libnetwork/ns"
+	"github.com/rumpl/bof/libnetwork/resolvconf"
+	"github.com/rumpl/bof/libnetwork/types"
 	"github.com/vishvananda/netlink"
 )
 

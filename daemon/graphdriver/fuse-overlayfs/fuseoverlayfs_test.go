@@ -1,15 +1,15 @@
 //go:build linux
 // +build linux
 
-package fuseoverlayfs // import "github.com/docker/docker/daemon/graphdriver/fuse-overlayfs"
+package fuseoverlayfs // import "github.com/rumpl/bof/daemon/graphdriver/fuse-overlayfs"
 
 import (
 	"testing"
 
-	"github.com/docker/docker/daemon/graphdriver"
-	"github.com/docker/docker/daemon/graphdriver/graphtest"
-	"github.com/docker/docker/pkg/archive"
-	"github.com/docker/docker/pkg/reexec"
+	"github.com/rumpl/bof/daemon/graphdriver"
+	"github.com/rumpl/bof/daemon/graphdriver/graphtest"
+	"github.com/rumpl/bof/pkg/archive"
+	"github.com/rumpl/bof/pkg/reexec"
 )
 
 func init() {

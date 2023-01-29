@@ -1,4 +1,4 @@
-package mount // import "github.com/docker/docker/api/types/mount"
+package mount // import "github.com/rumpl/bof/api/types/mount"
 
 import (
 	"os"

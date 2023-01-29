@@ -1,4 +1,4 @@
-package types // import "github.com/docker/docker/api/types"
+package types // import "github.com/rumpl/bof/api/types"
 
 import (
 	"errors"
@@ -8,14 +8,14 @@ import (
 	"strings"
 	"time"
 
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/filters"
-	"github.com/docker/docker/api/types/mount"
-	"github.com/docker/docker/api/types/network"
-	"github.com/docker/docker/api/types/registry"
-	"github.com/docker/docker/api/types/swarm"
-	"github.com/docker/docker/api/types/volume"
 	"github.com/docker/go-connections/nat"
+	"github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/api/types/filters"
+	"github.com/rumpl/bof/api/types/mount"
+	"github.com/rumpl/bof/api/types/network"
+	"github.com/rumpl/bof/api/types/registry"
+	"github.com/rumpl/bof/api/types/swarm"
+	"github.com/rumpl/bof/api/types/volume"
 )
 
 const (
@@ -288,7 +288,6 @@ type Info struct {
 	RegistryConfig     *registry.ServiceConfig
 	NCPU               int
 	MemTotal           int64
-	GenericResources   []swarm.GenericResource
 	DockerRootDir      string
 	HTTPProxy          string `json:"HttpProxy"`
 	HTTPSProxy         string `json:"HttpsProxy"`
@@ -523,7 +522,7 @@ type DefaultNetworkSettings struct {
 // This is used for reporting the mountpoints in use by a container.
 type MountPoint struct {
 	// Type is the type of mount, see `Type<foo>` definitions in
-	// github.com/docker/docker/api/types/mount.Type
+	// github.com/rumpl/bof/api/types/mount.Type
 	Type mount.Type `json:",omitempty"`
 
 	// Name is the name reference to the underlying data defined by `Source`

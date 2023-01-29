@@ -12,7 +12,7 @@ import (
 )
 
 // constants for the IP address type
-// Deprecated: use the consts defined in github.com/docker/docker/libnetwork/resolvconf
+// Deprecated: use the consts defined in github.com/rumpl/bof/libnetwork/resolvconf
 const (
 	IP = iota // IPv4 and IPv6
 	IPv4

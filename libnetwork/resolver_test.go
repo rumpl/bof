@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/docker/docker/libnetwork/testutils"
 	"github.com/miekg/dns"
+	"github.com/rumpl/bof/libnetwork/testutils"
 	"github.com/sirupsen/logrus"
 	"gotest.tools/v3/skip"
 )

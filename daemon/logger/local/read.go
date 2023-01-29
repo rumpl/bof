@@ -7,11 +7,11 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/docker/docker/api/types/plugins/logdriver"
-	"github.com/docker/docker/daemon/logger"
-	"github.com/docker/docker/daemon/logger/loggerutils"
-	"github.com/docker/docker/errdefs"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types/plugins/logdriver"
+	"github.com/rumpl/bof/daemon/logger"
+	"github.com/rumpl/bof/daemon/logger/loggerutils"
+	"github.com/rumpl/bof/errdefs"
 )
 
 // maxMsgLen is the maximum size of the logger.Message after serialization.

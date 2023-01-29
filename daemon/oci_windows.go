@@ -1,4 +1,4 @@
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"context"
@@ -8,15 +8,15 @@ import (
 	"path/filepath"
 	"strings"
 
-	containertypes "github.com/docker/docker/api/types/container"
-	imagetypes "github.com/docker/docker/api/types/image"
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/oci"
-	"github.com/docker/docker/pkg/sysinfo"
-	"github.com/docker/docker/pkg/system"
 	specs "github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/pkg/errors"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	imagetypes "github.com/rumpl/bof/api/types/image"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/oci"
+	"github.com/rumpl/bof/pkg/sysinfo"
+	"github.com/rumpl/bof/pkg/system"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sys/windows/registry"
 )

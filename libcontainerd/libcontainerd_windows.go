@@ -1,13 +1,13 @@
-package libcontainerd // import "github.com/docker/docker/libcontainerd"
+package libcontainerd // import "github.com/rumpl/bof/libcontainerd"
 
 import (
 	"context"
 
 	"github.com/containerd/containerd"
-	"github.com/docker/docker/libcontainerd/local"
-	"github.com/docker/docker/libcontainerd/remote"
-	libcontainerdtypes "github.com/docker/docker/libcontainerd/types"
-	"github.com/docker/docker/pkg/system"
+	"github.com/rumpl/bof/libcontainerd/local"
+	"github.com/rumpl/bof/libcontainerd/remote"
+	libcontainerdtypes "github.com/rumpl/bof/libcontainerd/types"
+	"github.com/rumpl/bof/pkg/system"
 )
 
 // NewClient creates a new libcontainerd client from a containerd client

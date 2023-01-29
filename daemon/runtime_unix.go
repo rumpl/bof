@@ -11,10 +11,10 @@ import (
 	"strings"
 
 	v2runcoptions "github.com/containerd/containerd/runtime/v2/runc/options"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/daemon/config"
-	"github.com/docker/docker/errdefs"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/daemon/config"
+	"github.com/rumpl/bof/errdefs"
 	"github.com/sirupsen/logrus"
 )
 

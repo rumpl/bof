@@ -1,4 +1,4 @@
-package plugin // import "github.com/docker/docker/plugin"
+package plugin // import "github.com/rumpl/bof/plugin"
 
 import (
 	"context"
@@ -15,16 +15,16 @@ import (
 
 	"github.com/containerd/containerd/content"
 	"github.com/containerd/containerd/content/local"
-	"github.com/docker/docker/api/types"
-	"github.com/docker/docker/pkg/authorization"
-	"github.com/docker/docker/pkg/containerfs"
-	"github.com/docker/docker/pkg/ioutils"
-	v2 "github.com/docker/docker/plugin/v2"
-	"github.com/docker/docker/registry"
 	"github.com/moby/pubsub"
 	"github.com/opencontainers/go-digest"
 	specs "github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types"
+	"github.com/rumpl/bof/pkg/authorization"
+	"github.com/rumpl/bof/pkg/containerfs"
+	"github.com/rumpl/bof/pkg/ioutils"
+	v2 "github.com/rumpl/bof/plugin/v2"
+	"github.com/rumpl/bof/registry"
 	"github.com/sirupsen/logrus"
 )
 

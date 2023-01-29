@@ -3,7 +3,7 @@
 //
 // In implementing the various functions of the daemon, there is often
 // a method-specific struct for configuring the runtime behavior.
-package daemon // import "github.com/docker/docker/daemon"
+package daemon // import "github.com/rumpl/bof/daemon"
 
 import (
 	"context"
@@ -23,44 +23,42 @@ import (
 	"github.com/containerd/containerd/pkg/dialer"
 	"github.com/containerd/containerd/pkg/userns"
 	"github.com/containerd/containerd/remotes/docker"
-	"github.com/docker/docker/api/types"
-	containertypes "github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/api/types/swarm"
-	"github.com/docker/docker/api/types/volume"
-	"github.com/docker/docker/builder"
-	"github.com/docker/docker/container"
-	"github.com/docker/docker/daemon/config"
-	ctrd "github.com/docker/docker/daemon/containerd"
-	"github.com/docker/docker/daemon/events"
-	_ "github.com/docker/docker/daemon/graphdriver/register" // register graph drivers
-	"github.com/docker/docker/daemon/images"
-	dlogger "github.com/docker/docker/daemon/logger"
-	"github.com/docker/docker/daemon/network"
-	"github.com/docker/docker/daemon/stats"
-	dmetadata "github.com/docker/docker/distribution/metadata"
-	"github.com/docker/docker/dockerversion"
-	"github.com/docker/docker/errdefs"
-	"github.com/docker/docker/image"
-	"github.com/docker/docker/layer"
-	libcontainerdtypes "github.com/docker/docker/libcontainerd/types"
-	"github.com/docker/docker/libnetwork"
-	"github.com/docker/docker/libnetwork/cluster"
-	nwconfig "github.com/docker/docker/libnetwork/config"
-	"github.com/docker/docker/pkg/fileutils"
-	"github.com/docker/docker/pkg/idtools"
-	"github.com/docker/docker/pkg/plugingetter"
-	"github.com/docker/docker/pkg/sysinfo"
-	"github.com/docker/docker/pkg/system"
-	"github.com/docker/docker/plugin"
-	pluginexec "github.com/docker/docker/plugin/executor/containerd"
-	refstore "github.com/docker/docker/reference"
-	"github.com/docker/docker/registry"
-	"github.com/docker/docker/runconfig"
-	volumesservice "github.com/docker/docker/volume/service"
 	"github.com/moby/buildkit/util/resolver"
 	resolverconfig "github.com/moby/buildkit/util/resolver/config"
 	"github.com/moby/locker"
 	"github.com/pkg/errors"
+	"github.com/rumpl/bof/api/types"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/api/types/volume"
+	"github.com/rumpl/bof/builder"
+	"github.com/rumpl/bof/container"
+	"github.com/rumpl/bof/daemon/config"
+	ctrd "github.com/rumpl/bof/daemon/containerd"
+	"github.com/rumpl/bof/daemon/events"
+	_ "github.com/rumpl/bof/daemon/graphdriver/register" // register graph drivers
+	"github.com/rumpl/bof/daemon/images"
+	dlogger "github.com/rumpl/bof/daemon/logger"
+	"github.com/rumpl/bof/daemon/network"
+	"github.com/rumpl/bof/daemon/stats"
+	dmetadata "github.com/rumpl/bof/distribution/metadata"
+	"github.com/rumpl/bof/dockerversion"
+	"github.com/rumpl/bof/errdefs"
+	"github.com/rumpl/bof/image"
+	"github.com/rumpl/bof/layer"
+	libcontainerdtypes "github.com/rumpl/bof/libcontainerd/types"
+	"github.com/rumpl/bof/libnetwork"
+	nwconfig "github.com/rumpl/bof/libnetwork/config"
+	"github.com/rumpl/bof/pkg/fileutils"
+	"github.com/rumpl/bof/pkg/idtools"
+	"github.com/rumpl/bof/pkg/plugingetter"
+	"github.com/rumpl/bof/pkg/sysinfo"
+	"github.com/rumpl/bof/pkg/system"
+	"github.com/rumpl/bof/plugin"
+	pluginexec "github.com/rumpl/bof/plugin/executor/containerd"
+	refstore "github.com/rumpl/bof/reference"
+	"github.com/rumpl/bof/registry"
+	"github.com/rumpl/bof/runconfig"
+	volumesservice "github.com/rumpl/bof/volume/service"
 	"github.com/sirupsen/logrus"
 	"go.etcd.io/bbolt"
 	"golang.org/x/sync/semaphore"
@@ -96,9 +94,6 @@ type Daemon struct {
 	containerdCli         *containerd.Client
 	containerd            libcontainerdtypes.Client
 	defaultIsolation      containertypes.Isolation // Default isolation mode on Windows
-	clusterProvider       cluster.Provider
-	cluster               Cluster
-	genericResources      []swarm.GenericResource
 	metricsPluginListener net.Listener
 	ReferenceStore        refstore.Store
 
@@ -600,48 +595,6 @@ func (daemon *Daemon) restore() error {
 	return nil
 }
 
-// RestartSwarmContainers restarts any autostart container which has a
-// swarm endpoint.
-func (daemon *Daemon) RestartSwarmContainers() {
-	ctx := context.Background()
-
-	// parallelLimit is the maximum number of parallel startup jobs that we
-	// allow (this is the limited used for all startup semaphores). The multipler
-	// (128) was chosen after some fairly significant benchmarking -- don't change
-	// it unless you've tested it significantly (this value is adjusted if
-	// RLIMIT_NOFILE is small to avoid EMFILE).
-	parallelLimit := adjustParallelLimit(len(daemon.List()), 128*runtime.NumCPU())
-
-	var group sync.WaitGroup
-	sem := semaphore.NewWeighted(int64(parallelLimit))
-
-	for _, c := range daemon.List() {
-		if !c.IsRunning() && !c.IsPaused() {
-			// Autostart all the containers which has a
-			// swarm endpoint now that the cluster is
-			// initialized.
-			if daemon.configStore.AutoRestart && c.ShouldRestart() && c.NetworkSettings.HasSwarmEndpoint && c.HasBeenStartedBefore {
-				group.Add(1)
-				go func(c *container.Container) {
-					if err := sem.Acquire(ctx, 1); err != nil {
-						// ctx is done.
-						group.Done()
-						return
-					}
-
-					if err := daemon.containerStart(ctx, c, "", "", true); err != nil {
-						logrus.WithField("container", c.ID).WithError(err).Error("failed to start swarm container")
-					}
-
-					sem.Release(1)
-					group.Done()
-				}(c)
-			}
-		}
-	}
-	group.Wait()
-}
-
 func (daemon *Daemon) children(c *container.Container) map[string]*container.Container {
 	return daemon.linkIndex.children(c)
 }
@@ -663,60 +616,6 @@ func (daemon *Daemon) registerLink(parent, child *container.Container, alias str
 	}
 	daemon.linkIndex.link(parent, child, fullName)
 	return nil
-}
-
-// DaemonJoinsCluster informs the daemon has joined the cluster and provides
-// the handler to query the cluster component
-func (daemon *Daemon) DaemonJoinsCluster(clusterProvider cluster.Provider) {
-	daemon.setClusterProvider(clusterProvider)
-}
-
-// DaemonLeavesCluster informs the daemon has left the cluster
-func (daemon *Daemon) DaemonLeavesCluster() {
-	// Daemon is in charge of removing the attachable networks with
-	// connected containers when the node leaves the swarm
-	daemon.clearAttachableNetworks()
-	// We no longer need the cluster provider, stop it now so that
-	// the network agent will stop listening to cluster events.
-	daemon.setClusterProvider(nil)
-	// Wait for the networking cluster agent to stop
-	daemon.netController.AgentStopWait()
-	// Daemon is in charge of removing the ingress network when the
-	// node leaves the swarm. Wait for job to be done or timeout.
-	// This is called also on graceful daemon shutdown. We need to
-	// wait, because the ingress release has to happen before the
-	// network controller is stopped.
-
-	if done, err := daemon.ReleaseIngress(); err == nil {
-		timeout := time.NewTimer(5 * time.Second)
-		defer timeout.Stop()
-
-		select {
-		case <-done:
-		case <-timeout.C:
-			logrus.Warn("timeout while waiting for ingress network removal")
-		}
-	} else {
-		logrus.Warnf("failed to initiate ingress network removal: %v", err)
-	}
-
-	daemon.attachmentStore.ClearAttachments()
-}
-
-// setClusterProvider sets a component for querying the current cluster state.
-func (daemon *Daemon) setClusterProvider(clusterProvider cluster.Provider) {
-	daemon.clusterProvider = clusterProvider
-	daemon.netController.SetClusterProvider(clusterProvider)
-	daemon.attachableNetworkLock = locker.New()
-}
-
-// IsSwarmCompatible verifies if the current daemon
-// configuration is compatible with the swarm mode
-func (daemon *Daemon) IsSwarmCompatible() error {
-	if daemon.configStore == nil {
-		return nil
-	}
-	return daemon.configStore.IsSwarmCompatible()
 }
 
 // NewDaemon sets up everything for the daemon to be able to service
@@ -794,9 +693,6 @@ func NewDaemon(ctx context.Context, config *config.Config, pluginStore *plugin.S
 		}
 	}()
 
-	if err := d.setGenericResources(config); err != nil {
-		return nil, err
-	}
 	// set up SIGUSR1 handler on Unix-like systems, or a Win32 global event
 	// on Windows to dump Go routine stacks
 	stackDumpDir := config.Root
@@ -1231,12 +1127,6 @@ func (daemon *Daemon) Shutdown(ctx context.Context) error {
 		}
 	}
 
-	// If we are part of a cluster, clean up cluster's stuff
-	if daemon.clusterProvider != nil {
-		logrus.Debugf("start clean shutdown of cluster resources...")
-		daemon.DaemonLeavesCluster()
-	}
-
 	daemon.cleanupMetricsPlugins()
 
 	// Shutdown plugins after containers and layerstore. Don't change the order.
@@ -1345,17 +1235,6 @@ func prepareTempDir(rootDir string) (string, error) {
 	return tmpDir, idtools.MkdirAllAndChown(tmpDir, 0o700, idtools.CurrentIdentity())
 }
 
-func (daemon *Daemon) setGenericResources(conf *config.Config) error {
-	genericResources, err := config.ParseGenericResources(conf.NodeGenericResources)
-	if err != nil {
-		return err
-	}
-
-	daemon.genericResources = genericResources
-
-	return nil
-}
-
 // IsShuttingDown tells whether the daemon is shutting down or not
 func (daemon *Daemon) IsShuttingDown() bool {
 	return daemon.shutdown
@@ -1394,16 +1273,6 @@ func (daemon *Daemon) networkOptions(pg plugingetter.PluginGetter, activeSandbox
 	}
 
 	return options, nil
-}
-
-// GetCluster returns the cluster
-func (daemon *Daemon) GetCluster() Cluster {
-	return daemon.cluster
-}
-
-// SetCluster sets the cluster
-func (daemon *Daemon) SetCluster(cluster Cluster) {
-	daemon.cluster = cluster
 }
 
 func (daemon *Daemon) pluginShutdown() {

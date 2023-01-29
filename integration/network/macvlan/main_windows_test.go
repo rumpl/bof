@@ -1,1 +1,1 @@
-package macvlan // import "github.com/docker/docker/integration/network/macvlan"
+package macvlan // import "github.com/rumpl/bof/integration/network/macvlan"

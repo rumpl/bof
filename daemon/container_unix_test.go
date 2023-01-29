@@ -6,10 +6,10 @@ package daemon
 import (
 	"testing"
 
-	"github.com/docker/docker/api/types"
-	containertypes "github.com/docker/docker/api/types/container"
-	"github.com/docker/docker/daemon/config"
 	"github.com/docker/go-connections/nat"
+	"github.com/rumpl/bof/api/types"
+	containertypes "github.com/rumpl/bof/api/types/container"
+	"github.com/rumpl/bof/daemon/config"
 	"gotest.tools/v3/assert"
 )
 
