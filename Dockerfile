@@ -31,7 +31,7 @@ RUN sed -ri "s/(httpredir|deb).debian.org/${APT_MIRROR:-deb.debian.org}/g" /etc/
  && sed -ri "s/(security).debian.org/${APT_MIRROR:-security.debian.org}/g" /etc/apt/sources.list
 ARG DEBIAN_FRONTEND
 RUN apt-get update && apt-get install --no-install-recommends -y file
-ENV GO111MODULE=off
+ENV GO111MODULE=on
 
 FROM base AS criu
 ARG DEBIAN_FRONTEND
@@ -544,7 +544,7 @@ RUN --mount=type=cache,sharing=locked,id=moby-dev-aptlib,target=/var/lib/apt \
 FROM base AS build
 COPY --from=gowinres /build/ /usr/local/bin/
 WORKDIR /go/src/github.com/rumpl/bof
-ENV GO111MODULE=off
+ENV GO111MODULE=on
 ENV CGO_ENABLED=1
 ARG DEBIAN_FRONTEND
 RUN --mount=type=cache,sharing=locked,id=moby-build-aptlib,target=/var/lib/apt \

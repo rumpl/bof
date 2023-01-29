@@ -11,7 +11,7 @@ ARG BASE_DEBIAN_DISTRO="bullseye"
 ARG GOLANG_IMAGE="golang:${GO_VERSION}-${BASE_DEBIAN_DISTRO}"
 
 FROM ${GOLANG_IMAGE}
-ENV GO111MODULE=off
+ENV GO111MODULE=on
 
 # allow replacing httpredir or deb mirror
 ARG APT_MIRROR=deb.debian.org

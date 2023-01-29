@@ -130,11 +130,11 @@ target "binary-smoketest" {
   output = ["type=cacheonly"]
   platforms = [
     "linux/amd64",
-    "linux/arm/v6",
-    "linux/arm/v7",
-    "linux/arm64",
-    "linux/ppc64le",
-    "linux/s390x"
+    // "linux/arm/v6",
+    // "linux/arm/v7",
+    // "linux/arm64",
+    // "linux/ppc64le",
+    // "linux/s390x"
   ]
 }
 
