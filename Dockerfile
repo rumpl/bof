@@ -265,8 +265,8 @@ RUN --mount=from=dockercli-src,src=/usr/src/dockercli,rw \
   DOWNLOAD_URL="https://download.docker.com/linux/static/${DOCKERCLI_CHANNEL}/$(xx-info march)/docker-${DOCKERCLI_VERSION#v}.tgz"
   if curl --head --silent --fail "${DOWNLOAD_URL}" 1>/dev/null 2>&1; then
     mkdir /build
-    curl -Ls "${DOWNLOAD_URL}" | tar -xz rumpl/bof
-    mv rumpl/bof /build/docker
+    curl -Ls "${DOWNLOAD_URL}" | tar -xz docker/docker
+    mv docker/docker /build/docker
   else
     CGO_ENABLED=0 xx-go build -o /build/docker ./cmd/docker
   fi
