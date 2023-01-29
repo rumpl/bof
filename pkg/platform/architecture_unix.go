@@ -1,5 +1,4 @@
 //go:build !windows
-// +build !windows
 
 // Package platform provides helper function to get the runtime architecture
 // for different platforms.

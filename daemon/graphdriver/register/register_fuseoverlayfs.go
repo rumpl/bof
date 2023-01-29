@@ -1,5 +1,4 @@
 //go:build !exclude_graphdriver_fuseoverlayfs && linux
-// +build !exclude_graphdriver_fuseoverlayfs,linux
 
 package register
 

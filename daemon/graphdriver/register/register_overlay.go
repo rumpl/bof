@@ -1,5 +1,4 @@
 //go:build !exclude_graphdriver_overlay && linux
-// +build !exclude_graphdriver_overlay,linux
 
 package register
 
